@@ -3,7 +3,7 @@
    - Font Google: disimpan setelah pertama kali dimuat.
    - API (jadwal shalat, Apps Script): tidak disentuh, aplikasi punya cache sendiri.
    Naikkan VERSI bila mengubah daftar INTI. */
-const VERSI = "v1";
+const VERSI = "v2";
 const NAMA = "al-istiqomah-" + VERSI;
 const INTI = ["./", "manifest.webmanifest", "icon-192.png", "icon-512.png"];
 
