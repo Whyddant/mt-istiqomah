@@ -867,7 +867,7 @@ async function api(aksi,data){
  }catch(e){throw{pesan:"Tidak bisa terhubung ke server. Periksa sinyal lalu coba lagi.",kode:"jaringan"}}
  finally{clearTimeout(to)}
  try{j=JSON.parse(txt)}catch(e){throw{pesan:"Jawaban server tidak dikenal. Pastikan kode.gs terbaru sudah di-deploy sebagai versi baru.",kode:"server"}}
- if(!j||j.ok!==true){if(j&&j.kode==="belum_masuk")admKeluarLokal();throw{pesan:(j&&j.pesan)||"Jawaban server tidak dikenal.",kode:(j&&j.kode)||"server"}}
+ if(!j||j.ok!==true){if(j&&j.kode==="belum_masuk")admKeluarLokal();throw{pesan:((j&&j.pesan)||"Jawaban server tidak dikenal.")+(j&&j.rinci?" ["+j.rinci+"]":""),kode:(j&&j.kode)||"server"}}
  return j}
 async function admJalan(btn,teks,fn){const h=btn.innerHTML;btn.disabled=true;btn.textContent=teks;try{return await fn()}finally{if(btn.isConnected){btn.disabled=false;btn.innerHTML=h}}}
 const tglHari=x=>{try{return new Intl.DateTimeFormat("id-ID",{timeZone:"UTC",weekday:"long",day:"numeric",month:"short",year:"numeric"}).format(D(String(x).slice(0,10)))}catch(e){return String(x)}};
