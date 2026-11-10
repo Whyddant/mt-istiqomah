@@ -12,6 +12,7 @@
 <link rel="apple-touch-icon" href="icon-192.png">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="mobile-web-app-capable" content="yes">
+<script src="config.js"></script>
 <script>try{var f=localStorage.getItem("teks");if(f==="k"||f==="b")document.documentElement.dataset.fs=f}catch(e){}try{var t=localStorage.getItem("tema");if(t==="light"||t==="dark")document.documentElement.dataset.theme=t}catch(e){}addEventListener("error",function(){document.documentElement.classList.remove("sk-on")});setTimeout(function(){document.documentElement.classList.remove("sk-on")},4000)</script>
 <noscript><style>.sk-on [data-sk]>*{visibility:visible}.sk-on [data-sk]{animation:none;background:none;min-height:0}</style></noscript>
 <title>MT. Al-Istiqomah · Beranda</title>
@@ -340,6 +341,27 @@ nav.tabs{position:fixed;bottom:0;left:50%;transform:translateX(-50%);width:min(1
 .toast.show{opacity:1;transform:translate(-50%,0)}
 @media(max-width:340px){.short{gap:8px}.times{gap:3px}.t{font-size:max(.75rem,calc(0.7812rem*var(--fc)))}.dateline{font-size:max(.75rem,calc(0.8125rem*var(--fm)))}}
 @media (prefers-reduced-motion:reduce){*{transition:none!important}}
+
+/* panel pengurus */
+.adm-list{display:grid;gap:10px}
+.adm-it{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.adm-it .at{min-width:0;flex:1;text-align:left}
+.adm-it small{display:block;color:var(--muted);font-size:max(.75rem,calc(.8125rem*var(--fs)));line-height:1.4;overflow-wrap:anywhere}
+.adm-it b{display:block;font-weight:600;font-size:calc(.9375rem*var(--fs));line-height:1.45;margin:2px 0;overflow-wrap:anywhere}
+.adm-it.hid .t{opacity:.62}
+.adm-act{display:flex;gap:6px;flex:none}
+.adm-act button{min-height:44px;min-width:44px;padding:0 12px;border-radius:var(--r1);border:1px solid var(--line);background:var(--chip);color:var(--link);font-weight:700;font-size:calc(.875rem*var(--fs))}
+.adm-act button.dng{color:#B3261E}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .adm-act button.dng{color:#FFB4AB}}
+:root[data-theme="dark"] .adm-act button.dng{color:#FFB4AB}
+.adm-top{display:inline-flex;align-items:center;gap:4px;min-height:44px;margin:-6px 0 6px -6px;padding:0 10px 0 4px;color:var(--link);font-weight:700;font-size:calc(.9375rem*var(--fs))}
+.adm-top svg{width:20px;height:20px}
+.adm-mi{display:flex;align-items:center;gap:12px}
+.adm-sub{margin-top:18px}
+.adm-sub .two{display:grid;grid-template-columns:92px 1fr;gap:10px}
+.adm-sub .two .fld{margin-top:10px}
+.adm-sub>.fld{margin-top:10px}
+button:disabled{opacity:.6}
 </style>
 </head>
 <body>
@@ -391,8 +413,8 @@ nav.tabs{position:fixed;bottom:0;left:50%;transform:translateX(-50%);width:min(1
     </section>
 
     <section aria-label="Informasi">
-      <div class="sh"><h3>Informasi</h3><a href="#" data-go="Informasi">Lihat semua</a></div>
-      <div class="list" data-sk style="--skh:360px">
+      <div class="sh"><h3>Informasi</h3><a href="#" data-page="informasi">Lihat semua</a></div>
+      <div class="list" id="infoList" data-sk style="--skh:360px">
         <a href="#" class="info" data-go="Informasi"><div class="tx"><span class="dt">5 Nov 2026</span><h4>Kajian Fiqih Wanita pindah ke aula lantai 2</h4><p>Mulai pekan ini, kajian Sabtu malam diadakan di aula lantai 2.</p></div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg></a>
         <a href="#" class="info" data-go="Informasi"><div class="tx"><span class="dt">3 Nov 2026</span><h4>Kerja bakti membersihkan masjid</h4><p>Ahad pagi setelah kajian subuh. Mohon membawa alat kebersihan masing-masing.</p></div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg></a>
         <a href="#" class="info" data-go="Informasi"><div class="tx"><span class="dt">1 Nov 2026</span><h4>Pengumpulan infak pembangunan</h4><p>Infak dapat diserahkan kepada pengurus kas setiap selesai kajian.</p></div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg></a>
@@ -400,8 +422,8 @@ nav.tabs{position:fixed;bottom:0;left:50%;transform:translateX(-50%);width:min(1
     </section>
 
     <section aria-label="Artikel">
-      <div class="sh"><h3>Artikel</h3><a href="#" data-go="Artikel">Lihat semua</a></div>
-      <div class="rail" data-sk style="--skh:205px">
+      <div class="sh"><h3>Artikel</h3><a href="#" data-page="artikel">Lihat semua</a></div>
+      <div class="rail" id="artRail" data-sk style="--skh:205px">
         <a href="#" class="card art" data-go="Artikel"><div class="th"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg></div><div class="b"><h4>Tafsir Juz 'Amma: Surat An-Naba</h4><p>Ust. Ahmad Fauzi · 31 Okt 2026</p></div></a>
         <a href="#" class="card art" data-go="Artikel"><div class="th"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg></div><div class="b"><h4>Fiqih Wanita: Adab Bersuci</h4><p>Ustadzah Siti Maryam · 24 Okt 2026</p></div></a>
         <a href="#" class="card art" data-go="Artikel"><div class="th"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg></div><div class="b"><h4>Kajian Subuh: Keutamaan Shalat Berjamaah</h4><p>Ust. Hasan Basri · 18 Okt 2026</p></div></a>
@@ -462,6 +484,8 @@ nav.tabs{position:fixed;bottom:0;left:50%;transform:translateX(-50%);width:min(1
   <section class="page" id="pg-tentang" role="dialog" aria-modal="true" aria-labelledby="pt-tentang" aria-hidden="true"><div class="ph"><button class="iconbtn" data-back aria-label="Kembali"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg></button><b id="pt-tentang">Tentang aplikasi</b><span class="contoh">Contoh isi</span></div><div class="pb" id="pb-tentang"></div></section>
   <section class="page" id="pg-privasi" role="dialog" aria-modal="true" aria-labelledby="pt-privasi" aria-hidden="true"><div class="ph"><button class="iconbtn" data-back aria-label="Kembali"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg></button><b id="pt-privasi">Kebijakan privasi</b><span class="contoh">Contoh isi</span></div><div class="pb" id="pb-privasi"></div></section>
   <section class="page" id="pg-login" role="dialog" aria-modal="true" aria-labelledby="pt-login" aria-hidden="true"><div class="ph"><button class="iconbtn" data-back aria-label="Kembali"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg></button><b id="pt-login">Masuk pengurus</b><span class="contoh">Contoh isi</span></div><div class="pb" id="pb-login"></div></section>
+  <section class="page" id="pg-informasi" role="dialog" aria-modal="true" aria-labelledby="pt-informasi" aria-hidden="true"><div class="ph"><button class="iconbtn" data-back aria-label="Kembali"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg></button><b id="pt-informasi">Informasi</b></div><div class="pb" id="pb-informasi"></div></section>
+  <section class="page" id="pg-artikel" role="dialog" aria-modal="true" aria-labelledby="pt-artikel" aria-hidden="true"><div class="ph"><button class="iconbtn" data-back aria-label="Kembali"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg></button><b id="pt-artikel">Artikel</b></div><div class="pb" id="pb-artikel"></div></section>
   <div class="scrim2" id="scrim2"></div>
   <section class="sheet" id="sheet" role="dialog" aria-modal="true" aria-labelledby="st-lok" aria-hidden="true"></section>
   <div class="toast" id="toast" role="status"></div>
@@ -484,9 +508,9 @@ const CFG={tempat:"Masjid Jami' Al-Ikhlas",
  penutupan:{tipe:"penutupan",tgl:"2026-12-17",nominal:50000,ket:"Minimal per anggota"}};
 const demo=new URLSearchParams(location.search).get("demo");
 /* ===== DATA DARI GOOGLE SHEET (Apps Script) =====
-   Tempel URL Web App (berakhiran /exec) di CFG.api. Bila kosong/gagal dimuat, aplikasi
+   Tempel URL Web App (berakhiran /exec) di config.js. Bila kosong/gagal dimuat, aplikasi
    memakai data tersimpan di perangkat, lalu CFG di atas sebagai cadangan terakhir. */
-CFG.api="";
+CFG.api=(window.APP_CONFIG&&window.APP_CONFIG.api)||"";   /* diisi di config.js, bukan di sini */
 let DATA=null,dataAt=0;
 try{const raw=localStorage.getItem("dataSheet");if(raw)DATA=JSON.parse(raw)}catch(e){}
 function giliranBerikut(){
@@ -501,17 +525,17 @@ function giliranBerikut(){
  }
  return CFG.giliran}
 function tglPekan(){const t=giliranBerikut().tgl;return t&&t>=todayJ()?t:nextKamis()}
-async function muatData(){
+async function muatData(fresh){
  if(!CFG.api)return;
  try{
   const c=new AbortController(),to=setTimeout(()=>c.abort(),8000);
-  const res=await fetch(CFG.api,{signal:c.signal});clearTimeout(to);
+  const res=await fetch(CFG.api+(fresh?(CFG.api.includes("?")?"&":"?")+"_="+Date.now():""),{signal:c.signal});clearTimeout(to);
   if(!res.ok)throw new Error("HTTP "+res.status);
   const j=await res.json();
   if(!j||j.ok===false||!Array.isArray(j.giliran))throw new Error("Respons tidak valid");
-  DATA={giliran:j.giliran,lokasi:Array.isArray(j.lokasi)?j.lokasi:[]};dataAt=Date.now();
+  DATA={giliran:j.giliran,lokasi:Array.isArray(j.lokasi)?j.lokasi:[],informasi:Array.isArray(j.informasi)?j.informasi:undefined,artikel:Array.isArray(j.artikel)?j.artikel:undefined};dataAt=Date.now();
   try{localStorage.setItem("dataSheet",JSON.stringify(DATA))}catch(e){}
-  kartu();
+  kartu();isiBeranda();
  }catch(e){console.warn("Gagal memuat data dari Sheet, memakai data tersimpan/bawaan.",e)}}
 document.addEventListener("visibilitychange",()=>{if(!document.hidden&&Date.now()-dataAt>300000)muatData()});
 const ico=n=>`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${ICO[n]}</svg>`;
@@ -787,6 +811,210 @@ R.login=function(){$("pb-login").innerHTML=`<div class="pc lgn"><span class="loc
  <div class="lgf"><label class="lb" for="lg-u">Nama pengguna</label><input class="fld" id="lg-u" autocomplete="username" autocapitalize="none" placeholder="Nama pengguna"><label class="lb" for="lg-p" style="margin-top:14px">Kata sandi</label><input class="fld" id="lg-p" type="password" autocomplete="current-password" placeholder="Kata sandi"></div>
  <button class="btn2 pri" id="lg-go" style="width:100%;margin-top:18px">Masuk</button></div><p class="note2">Belum memiliki akses? Hubungi Ketua.</p>`;
  $("lg-go").onclick=()=>say("Masuk pengurus belum tersedia di pratinjau ini")};
+
+/* ===== Informasi & Artikel dari Sheet =====
+   Bila Sheet belum mengirim tab informasi/artikel, isi contoh di HTML dibiarkan. */
+const tglPendek=x=>{try{return new Intl.DateTimeFormat("id-ID",{timeZone:"UTC",day:"numeric",month:"short",year:"numeric"}).format(D(String(x).slice(0,10)))}catch(e){return""}};
+const linkAman=u=>{u=String(u||"").trim();return/^https?:\/\//i.test(u)?u:""};
+const ringkas=t=>String(t==null?"":t).replace(/\s+/g," ").trim();
+const teksHtml=t=>esc(String(t==null?"":t)).replace(/\r?\n/g,"<br>");
+const BUKU='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>';
+const KOSONG=t=>`<p class="note2" style="padding:20px 8px">${t}</p>`;
+const infoItem=(x,i)=>`<button type="button" class="info" data-info="${i}"><div class="tx"><span class="dt">${esc(tglPendek(x.tgl))}</span><h4>${esc(x.judul)}</h4><p>${esc(ringkas(x.isi))}</p></div>${I(IC.chev)}</button>`;
+const artKartu=(x,i)=>{const l=linkAman(x.link),b=`<div class="th">${BUKU}</div><div class="b"><h4>${esc(x.judul)}</h4><p>${esc([x.penulis,tglPendek(x.tgl)].filter(Boolean).join(" · "))}</p></div>`;
+ return l?`<a class="card art" href="${esc(l)}" target="_blank" rel="noopener">${b}</a>`:`<button type="button" class="card art" data-art="${i}">${b}</button>`};
+const artBaris=(x,i)=>{const l=linkAman(x.link),b=`<div class="tx"><span class="dt">${esc(tglPendek(x.tgl))}</span><h4>${esc(x.judul)}</h4><p>${esc(ringkas(x.penulis||x.ringkasan))}</p></div>${I(IC.chev)}`;
+ return l?`<a class="info" href="${esc(l)}" target="_blank" rel="noopener">${b}</a>`:`<button type="button" class="info" data-art="${i}">${b}</button>`};
+function bukaDetail(label,html){const sh=$("sheet");
+ sh.innerHTML=`<div class="grab"></div><h3 id="st-lok">${label}<button class="iconbtn" data-close-sheet aria-label="Tutup">${I('<path d="M6 6l12 12M18 6L6 18"/>')}</button></h3>`+html;
+ sh.classList.add("open");sh.setAttribute("aria-hidden","false");$("scrim2").classList.add("on");sh.scrollTop=0;
+ sb=document.activeElement;const c=sh.querySelector("[data-close-sheet]");c.focus({preventScroll:true});c.onclick=closeTop}
+function bukaInfo(i){const x=DATA&&DATA.informasi&&DATA.informasi[i];if(!x)return;
+ bukaDetail("Informasi",`<span class="bdg">${esc(tglPendek(x.tgl))}</span><div class="nm">${esc(x.judul)}</div><div class="al">${teksHtml(x.isi)}</div>`)}
+function bukaArt(i){const x=DATA&&DATA.artikel&&DATA.artikel[i];if(!x)return;
+ bukaDetail("Artikel",`<span class="bdg">${esc([x.penulis,tglPendek(x.tgl)].filter(Boolean).join(" · "))}</span><div class="nm">${esc(x.judul)}</div><div class="al">${x.ringkasan?teksHtml(x.ringkasan):"Belum ada ringkasan untuk artikel ini."}</div>`)}
+function ikatKonten(root){
+ root.querySelectorAll("[data-info]").forEach(b=>b.onclick=()=>bukaInfo(+b.dataset.info));
+ root.querySelectorAll("[data-art]").forEach(b=>b.onclick=()=>bukaArt(+b.dataset.art))}
+function isiBeranda(){
+ if(!DATA)return;
+ if(Array.isArray(DATA.informasi)){const L=$("infoList"),r=DATA.informasi.slice(0,3);L.innerHTML=r.length?r.map(infoItem).join(""):KOSONG("Belum ada informasi.");ikatKonten(L)}
+ if(Array.isArray(DATA.artikel)){const L=$("artRail"),r=DATA.artikel.slice(0,6);L.innerHTML=r.length?r.map(artKartu).join(""):`<div class="card" style="padding:4px 8px">${KOSONG("Belum ada artikel.")}</div>`;ikatKonten(L)}}
+R.informasi=function(){const r=DATA&&DATA.informasi,b=$("pb-informasi");
+ b.innerHTML=Array.isArray(r)?(r.length?`<div class="list">${r.map(infoItem).join("")}</div>`:KOSONG("Belum ada informasi.")):KOSONG("Informasi belum tersambung ke Sheet.");ikatKonten(b)};
+R.artikel=function(){const r=DATA&&DATA.artikel,b=$("pb-artikel");
+ b.innerHTML=Array.isArray(r)?(r.length?`<div class="list">${r.map(artBaris).join("")}</div>`:KOSONG("Belum ada artikel.")):KOSONG("Artikel belum tersambung ke Sheet.");ikatKonten(b)};
+document.querySelectorAll("main a[data-page]").forEach(a=>a.onclick=e=>{e.preventDefault();back=a;openPage(a.dataset.page)});
+isiBeranda();
+
+/* ===== Panel pengurus: login sendiri-sendiri, lalu input data lewat Apps Script ===== */
+Object.assign(IC,{plus:'<path d="M12 5v14M5 12h14"/>',out:'<path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4M16 17l5-5-5-5M21 12H9"/>',key:'<circle cx="8" cy="15" r="4"/><path d="M10.8 12.2L20 3M16 7l3 3"/>',kiri:'<path d="M15 6l-6 6 6 6"/>',info:'<circle cx="12" cy="12" r="9"/><path d="M12 8h.01M11 12h1v5h1"/>',buku:'<path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>',gembok:'<rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/>'});
+const ADM={tok:null,nama:"",t:0,view:"menu",data:null,dt:0,form:null};
+const ADM_MS=21000*1000;
+try{const s=JSON.parse(localStorage.getItem("adm")||"null");if(s&&s.tok&&Date.now()-s.t<ADM_MS)Object.assign(ADM,{tok:s.tok,nama:String(s.nama||""),t:s.t})}catch(e){}
+function admSimpan(){try{if(ADM.tok)localStorage.setItem("adm",JSON.stringify({tok:ADM.tok,nama:ADM.nama,t:ADM.t}));else localStorage.removeItem("adm")}catch(e){}}
+function admLabel(){const sp=document.querySelector('#drawer [data-page="login"] span');if(!sp)return;
+ sp.innerHTML=ADM.tok?'Panel pengurus<small id="adm-sub"></small>':'Masuk sebagai pengurus<small>Khusus pengurus majelis</small>';
+ if(ADM.tok)$("adm-sub").textContent="Masuk sebagai "+ADM.nama}
+function admKeluarLokal(){ADM.tok=null;ADM.nama="";ADM.data=null;ADM.form=null;ADM.view="menu";admSimpan();admLabel()}
+
+async function api(aksi,data){
+ if(!CFG.api)throw{pesan:"Aplikasi belum tersambung ke Sheet (CFG.api masih kosong).",kode:"config"};
+ const c=new AbortController(),to=setTimeout(()=>c.abort(),30000);let txt,j;
+ try{
+  const res=await fetch(CFG.api,{method:"POST",headers:{"Content-Type":"text/plain;charset=utf-8"},body:JSON.stringify(Object.assign({aksi,token:ADM.tok},data||{})),signal:c.signal});
+  txt=await res.text();
+ }catch(e){throw{pesan:"Tidak bisa terhubung ke server. Periksa sinyal lalu coba lagi.",kode:"jaringan"}}
+ finally{clearTimeout(to)}
+ try{j=JSON.parse(txt)}catch(e){throw{pesan:"Jawaban server tidak dikenal. Pastikan kode.gs terbaru sudah di-deploy sebagai versi baru.",kode:"server"}}
+ if(!j||j.ok!==true){if(j&&j.kode==="belum_masuk")admKeluarLokal();throw{pesan:(j&&j.pesan)||"Jawaban server tidak dikenal.",kode:(j&&j.kode)||"server"}}
+ return j}
+async function admJalan(btn,teks,fn){const h=btn.innerHTML;btn.disabled=true;btn.textContent=teks;try{return await fn()}finally{if(btn.isConnected){btn.disabled=false;btn.innerHTML=h}}}
+const tglHari=x=>{try{return new Intl.DateTimeFormat("id-ID",{timeZone:"UTC",weekday:"long",day:"numeric",month:"short",year:"numeric"}).format(D(String(x).slice(0,10)))}catch(e){return String(x)}};
+const rp=n=>"Rp"+(+n||0).toLocaleString("id-ID");
+const admAtas=(v,t)=>`<button type="button" class="adm-top" data-adm="${v}">${I(IC.kiri)}${t}</button>`;
+
+function admRender(){const b=$("pb-login"),t=$("pt-login");
+ if(!ADM.tok){t.textContent="Masuk pengurus";admLogin(b);return}
+ const f=ADM.form;
+ const V={menu:admMenu,giliran:f?admFormGiliran:admListGiliran,lokasi:f?admFormLokasi:admListLokasi,informasi:f?admFormItem:admListItem,artikel:f?admFormItem:admListItem,sandi:admSandi}[ADM.view]||admMenu;
+ V(b,t);admIkat(b)}
+function admIkat(b){b.querySelectorAll("[data-adm]").forEach(x=>x.onclick=()=>admGo(x.dataset.adm))}
+async function admGo(v){ADM.view=v;ADM.form=null;$("pg-login").scrollTop=0;
+ if(["giliran","lokasi","informasi","artikel"].includes(v)&&(!ADM.data||Date.now()-ADM.dt>60000)){$("pb-login").innerHTML=admAtas("menu","Panel pengurus")+KOSONG("Memuat data…");admIkat($("pb-login"));
+  try{await admMuat()}catch(e){admGalat(e,true);return}}
+ admRender()}
+async function admMuat(){const j=await api("daftar");ADM.data=j;ADM.dt=Date.now()}
+async function admSegar(){ADM.data=null;try{await admMuat()}catch(e){}muatData(true)}
+function admGalat(e,tampil){
+ if(e&&e.kode==="belum_masuk"){say("Sesi berakhir. Silakan masuk lagi.");admRender();return}
+ say((e&&e.pesan)||"Terjadi kesalahan");
+ if(tampil){const b=$("pb-login");b.innerHTML=admAtas("menu","Panel pengurus")+KOSONG(esc((e&&e.pesan)||"Gagal memuat data."))+`<button type="button" class="btn2 sec" style="width:100%" data-adm="${ADM.view}">Coba lagi</button>`;admIkat(b)}}
+const admIsi=(id,def)=>{const e=$(id);return e?e.value:(def||"")};
+
+/* ---------- Masuk ---------- */
+function admLogin(b){
+ b.innerHTML=`<div class="pc lgn"><span class="lock">${I(IC.gembok)}</span><h2>Khusus pengurus majelis</h2><p>Masuk untuk mengelola jadwal, pengumuman, dan data majelis.</p>
+ <div class="lgf"><label class="lb" for="lg-u">Nama pengguna</label><input class="fld" id="lg-u" autocomplete="username" autocapitalize="none" autocorrect="off" spellcheck="false" maxlength="40" placeholder="Nama pengguna"><label class="lb" for="lg-p" style="margin-top:14px">Kata sandi</label><input class="fld" id="lg-p" type="password" autocomplete="current-password" maxlength="100" placeholder="Kata sandi"></div>
+ <button type="button" class="btn2 pri" id="lg-go" style="width:100%;margin-top:18px">Masuk</button></div><p class="note2">Belum memiliki akses? Hubungi Ketua.</p>`;
+ const go=()=>{const u=$("lg-u").value.trim(),p=$("lg-p").value;if(!u||!p){say("Isi nama pengguna dan kata sandi");return}
+  admJalan($("lg-go"),"Memeriksa…",async()=>{try{const j=await api("masuk",{u,p});Object.assign(ADM,{tok:j.token,nama:j.nama,t:Date.now(),view:"menu",data:null,form:null});admSimpan();admLabel();say("Selamat datang, "+j.nama);admRender()}
+   catch(e){say(e.pesan||"Gagal masuk");if(e.kode==="salah"||e.kode==="dikunci"){const k=$("lg-p");if(k){k.value="";k.focus()}}}})};
+ $("lg-go").onclick=go;[$("lg-u"),$("lg-p")].forEach(x=>x.onkeydown=e=>{if(e.key==="Enter"){e.preventDefault();go()}})}
+
+/* ---------- Menu ---------- */
+function admMenu(b,t){t.textContent="Panel pengurus";
+ const m=[["giliran","Giliran arisan",IC.cal],["lokasi","Lokasi acara",IC.pin],["informasi","Informasi",IC.info],["artikel","Artikel",IC.buku]];
+ b.innerHTML=`<div class="pc"><div class="vrow"><span>Masuk sebagai</span><b>${esc(ADM.nama)}</b></div></div>
+ <div class="adm-list" style="margin-top:12px">${m.map(x=>`<button type="button" class="lnk" data-adm="${x[0]}"><span class="adm-mi">${I(x[2])}${x[1]}</span>${I(IC.chev)}</button>`).join("")}</div>
+ <p class="note2" style="margin-top:14px">Perubahan langsung tampil di beranda jamaah.</p>
+ <div class="aksi"><button type="button" class="btn2 sec" data-adm="sandi">${I(IC.key)}Ganti kata sandi</button><button type="button" class="btn2 sec" id="adm-out">${I(IC.out)}Keluar</button></div>`;
+ $("adm-out").onclick=async()=>{try{await api("keluar")}catch(e){}admKeluarLokal();say("Anda sudah keluar");admRender()}}
+
+/* ---------- Ganti sandi ---------- */
+function admSandi(b,t){t.textContent="Ganti kata sandi";
+ b.innerHTML=admAtas("menu","Panel pengurus")+`<div class="pc"><label class="lb" for="s-lama">Kata sandi lama</label><input class="fld" id="s-lama" type="password" autocomplete="current-password" maxlength="100">
+ <label class="lb" for="s-baru" style="margin-top:14px">Kata sandi baru (minimal 8 karakter)</label><input class="fld" id="s-baru" type="password" autocomplete="new-password" maxlength="100">
+ <label class="lb" for="s-ulang" style="margin-top:14px">Ulangi kata sandi baru</label><input class="fld" id="s-ulang" type="password" autocomplete="new-password" maxlength="100"></div>
+ <button type="button" class="btn2 pri" id="s-simpan" style="width:100%;margin-top:14px">Simpan kata sandi</button>`;
+ $("s-simpan").onclick=()=>{const lama=$("s-lama").value,baru=$("s-baru").value,u=$("s-ulang").value;
+  if(!lama||!baru){say("Isi semua kolom");return}
+  if(baru.length<8){say("Kata sandi baru minimal 8 karakter");$("s-baru").focus();return}
+  if(baru!==u){say("Pengulangan kata sandi tidak sama");$("s-ulang").focus();return}
+  admJalan($("s-simpan"),"Menyimpan…",async()=>{try{await api("gantiSandi",{lama,baru});say("Kata sandi diganti");admGo("menu")}catch(e){say(e.pesan||"Gagal");if(e.kode==="belum_masuk")admRender()}})}}
+
+/* ---------- Giliran ---------- */
+function admListGiliran(b,t){t.textContent="Giliran arisan";
+ const g={};(ADM.data.giliran||[]).forEach(r=>{(g[r.tgl]=g[r.tgl]||[]).push(r)});
+ const ks=Object.keys(g).sort();
+ b.innerHTML=admAtas("menu","Panel pengurus")+`<button type="button" class="btn2 pri" id="adm-baru">${I(IC.plus)}Tambah pekan</button>
+ <div class="adm-list" style="margin-top:14px">${ks.length?ks.map(k=>{const p=g[k].find(r=>r.tipe==="penutupan");
+  const isi=p?`Penutupan pengajian · ${rp(p.nominal)}`:g[k].filter(r=>r.nama).map(r=>`${esc(r.nama)} (No. ${esc(r.no)})`).join(", ");
+  return `<div class="pc adm-it"><div class="at"><small>${esc(tglHari(k))}</small><b>${p?esc(isi):isi}</b></div><div class="adm-act"><button type="button" data-ed="${esc(k)}">Ubah</button><button type="button" class="dng" data-del="${esc(k)}">Hapus</button></div></div>`}).join(""):KOSONG("Belum ada giliran untuk pekan mendatang.")}</div>`;
+ $("adm-baru").onclick=()=>{ADM.form={baru:true,tgl:nextKamis(),tipe:"giliran",a:[{},{}],nominal:"",ket:""};admRender()};
+ b.querySelectorAll("[data-ed]").forEach(x=>x.onclick=()=>{const rows=g[x.dataset.ed],p=rows.find(r=>r.tipe==="penutupan");
+  ADM.form=p?{tgl:x.dataset.ed,tipe:"penutupan",a:[{},{}],nominal:p.nominal,ket:p.ket||""}:{tgl:x.dataset.ed,tipe:"giliran",a:[0,1].map(i=>rows[i]?{nama:rows[i].nama,no:rows[i].no,ket:rows[i].ket}:{}),nominal:"",ket:""};admRender()});
+ b.querySelectorAll("[data-del]").forEach(x=>x.onclick=()=>admHapus(x,"hapusGiliran",{tgl:x.dataset.del},"Hapus giliran "+tglHari(x.dataset.del)+"?","Giliran dihapus"))}
+async function admHapus(btn,aksi,data,tanya,ok){if(!confirm(tanya))return;
+ await admJalan(btn,"…",async()=>{try{await api(aksi,data);await admSegar();say(ok);admRender()}catch(e){admGalat(e)}})}
+function admBacaGiliran(){const f=ADM.form;f.tgl=admIsi("f-tgl",f.tgl);
+ if(f.tipe==="giliran")f.a=[0,1].map(i=>({nama:admIsi("a"+i+"n"),no:admIsi("a"+i+"no"),ket:admIsi("a"+i+"k")}));
+ else{f.nominal=admIsi("f-nom",f.nominal);f.ket=admIsi("f-ket",f.ket)}return f}
+function admIsiGiliran(){const f=ADM.form,v=x=>esc(x==null?"":x);
+ $("f-isi").innerHTML=f.tipe==="giliran"?[0,1].map(i=>{const a=f.a[i]||{};return `<div class="adm-sub"><span class="lb">Anggota ${i+1}${i?" (kosongkan bila hanya satu)":""}</span>
+  <input class="fld" id="a${i}n" maxlength="60" autocomplete="off" placeholder="Nama" value="${v(a.nama)}" aria-label="Nama anggota ${i+1}">
+  <div class="two"><input class="fld" id="a${i}no" inputmode="numeric" maxlength="3" autocomplete="off" placeholder="No." value="${v(a.no)}" aria-label="Nomor anggota ${i+1}"><input class="fld" id="a${i}k" maxlength="40" autocomplete="off" placeholder="Keterangan" value="${v(a.ket)}" aria-label="Keterangan anggota ${i+1}"></div></div>`}).join("")
+  :`<div class="adm-sub"><label class="lb" for="f-nom">Nominal infak per anggota (Rp)</label><input class="fld" id="f-nom" inputmode="numeric" maxlength="12" autocomplete="off" placeholder="50000" value="${v(f.nominal)}">
+  <label class="lb" for="f-ket" style="margin-top:14px">Keterangan</label><input class="fld" id="f-ket" maxlength="80" autocomplete="off" placeholder="Minimal per anggota" value="${v(f.ket)}"></div>`}
+function admFormGiliran(b,t){const f=ADM.form;t.textContent=f.baru?"Tambah pekan":"Ubah pekan";
+ b.innerHTML=`<button type="button" class="adm-top" id="f-batal">${I(IC.kiri)}Batal</button><div class="pc">
+ <label class="lb" for="f-tgl">Tanggal pengajian (malam Jumat)</label><input class="fld" type="date" id="f-tgl" value="${esc(f.tgl)}" ${f.baru?"":"readonly"}>
+ ${f.baru?'<p class="note2" style="text-align:left;padding:6px 2px 0">Bila tanggal ini sudah terisi, isinya akan diganti.</p>':""}
+ <span class="lb" style="margin-top:16px;display:block">Jenis</span><div class="chips3" style="margin-top:10px">${[["giliran","Giliran arisan"],["penutupan","Penutupan pengajian"]].map(x=>`<button type="button" data-tipe="${x[0]}" aria-pressed="${f.tipe===x[0]}">${x[1]}</button>`).join("")}</div>
+ <div id="f-isi"></div></div><button type="button" class="btn2 pri" id="f-simpan" style="width:100%;margin-top:14px">Simpan</button>`;
+ admIsiGiliran();
+ $("f-batal").onclick=()=>admGo("giliran");
+ b.querySelectorAll("[data-tipe]").forEach(x=>x.onclick=()=>{admBacaGiliran();f.tipe=x.dataset.tipe;b.querySelectorAll("[data-tipe]").forEach(y=>y.setAttribute("aria-pressed",String(y===x)));admIsiGiliran()});
+ $("f-simpan").onclick=()=>{const g=admBacaGiliran();
+  if(!g.tgl){say("Pilih tanggal");return}
+  if(g.tipe==="giliran"&&!(g.a[0].nama||"").trim()){say("Isi nama anggota 1");$("a0n").focus();return}
+  const req=g.tipe==="giliran"?{tgl:g.tgl,tipe:"giliran",anggota:g.a.filter(x=>(x.nama||"").trim())}:{tgl:g.tgl,tipe:"penutupan",nominal:g.nominal,ket:g.ket};
+  admJalan($("f-simpan"),"Menyimpan…",async()=>{try{await api("simpanGiliran",req);await admSegar();say("Giliran disimpan");admGo("giliran")}catch(e){admGalat(e)}})}}
+
+/* ---------- Lokasi ---------- */
+const JLOK=[["masjid","Masjid"],["takziah","Takziah"],["syukuran","Syukuran"],["haul","Haul"],["lainnya","Lainnya"]];
+function admListLokasi(b,t){t.textContent="Lokasi acara";const r=ADM.data.lokasi||[];
+ b.innerHTML=admAtas("menu","Panel pengurus")+`<button type="button" class="btn2 pri" id="adm-baru">${I(IC.plus)}Atur lokasi pekan</button>
+ <p class="note2" style="text-align:left;padding:10px 2px 0">Tanpa pengaturan khusus, lokasi pengajian otomatis di masjid.</p>
+ <div class="adm-list" style="margin-top:10px">${r.length?r.map(x=>`<div class="pc adm-it"><div class="at"><small>${esc(tglHari(x.tgl))} · ${esc(JL[x.jenis]||x.jenis)}</small><b>${esc(x.nama||"")}</b><small>${esc(x.alamat||"")}</small></div><div class="adm-act"><button type="button" data-ed="${esc(x.tgl)}">Ubah</button><button type="button" class="dng" data-del="${esc(x.tgl)}">Hapus</button></div></div>`).join(""):KOSONG("Belum ada lokasi khusus. Semua pekan di masjid.")}</div>`;
+ $("adm-baru").onclick=()=>{ADM.form={baru:true,tgl:tglPekan(),jenis:"takziah",nama:"",alamat:""};admRender()};
+ b.querySelectorAll("[data-ed]").forEach(x=>x.onclick=()=>{const l=r.find(y=>y.tgl===x.dataset.ed);ADM.form={tgl:l.tgl,jenis:l.jenis,nama:l.nama||"",alamat:l.alamat||""};admRender()});
+ b.querySelectorAll("[data-del]").forEach(x=>x.onclick=()=>admHapus(x,"hapusLokasi",{tgl:x.dataset.del},"Kembalikan lokasi "+tglHari(x.dataset.del)+" ke masjid?","Lokasi dikembalikan ke masjid"))}
+function admIsiLokasi(){const f=ADM.form,v=x=>esc(x==null?"":x);
+ $("f-isi").innerHTML=f.jenis==="masjid"?`<p class="note2" style="text-align:left;padding:14px 2px 0">Pengajian pada tanggal ini di masjid (bawaan). Pengaturan khusus tanggal ini akan dihapus.</p>`
+ :`<label class="lb" for="l-nama" style="margin-top:16px">Nama tempat</label><input class="fld" id="l-nama" maxlength="80" autocomplete="off" placeholder="Kediaman Bpk. Fulan" value="${v(f.nama)}">
+ <label class="lb" for="l-alamat" style="margin-top:14px">Alamat lengkap (dipakai untuk Google Maps)</label><textarea class="fld" id="l-alamat" maxlength="200" style="min-height:84px" placeholder="Jl. Contoh No. 5, Serua, Bojongsari, Depok">${v(f.alamat)}</textarea>`}
+function admBacaLokasi(){const f=ADM.form;f.tgl=admIsi("f-tgl",f.tgl);if(f.jenis!=="masjid"){f.nama=admIsi("l-nama",f.nama);f.alamat=admIsi("l-alamat",f.alamat)}return f}
+function admFormLokasi(b,t){const f=ADM.form;t.textContent="Atur lokasi pekan";
+ b.innerHTML=`<button type="button" class="adm-top" id="f-batal">${I(IC.kiri)}Batal</button><div class="pc">
+ <label class="lb" for="f-tgl">Tanggal pengajian</label><input class="fld" type="date" id="f-tgl" value="${esc(f.tgl)}" ${f.baru?"":"readonly"}>
+ <span class="lb" style="margin-top:16px;display:block">Lokasi</span><div class="chips3" style="margin-top:10px">${JLOK.map(x=>`<button type="button" data-jenis="${x[0]}" aria-pressed="${f.jenis===x[0]}">${x[1]}</button>`).join("")}</div>
+ <div id="f-isi"></div></div><button type="button" class="btn2 pri" id="f-simpan" style="width:100%;margin-top:14px">Simpan</button>`;
+ admIsiLokasi();
+ $("f-batal").onclick=()=>admGo("lokasi");
+ b.querySelectorAll("[data-jenis]").forEach(x=>x.onclick=()=>{admBacaLokasi();f.jenis=x.dataset.jenis;b.querySelectorAll("[data-jenis]").forEach(y=>y.setAttribute("aria-pressed",String(y===x)));admIsiLokasi()});
+ $("f-simpan").onclick=()=>{const g=admBacaLokasi();
+  if(!g.tgl){say("Pilih tanggal");return}
+  if(g.jenis!=="masjid"&&!(g.nama||"").trim()){say("Isi nama tempat");$("l-nama").focus();return}
+  if(g.jenis!=="masjid"&&!(g.alamat||"").trim()){say("Isi alamat");$("l-alamat").focus();return}
+  admJalan($("f-simpan"),"Menyimpan…",async()=>{try{await api("simpanLokasi",{tgl:g.tgl,jenis:g.jenis,nama:g.nama,alamat:g.alamat});await admSegar();say("Lokasi disimpan");admGo("lokasi")}catch(e){admGalat(e)}})}}
+
+/* ---------- Informasi & Artikel ---------- */
+const ADM_ITEM={
+ informasi:{judul:"Informasi",tambah:"Tambah informasi",simpan:"simpanInformasi",hapus:"hapusInformasi",f:[["judul","Judul","text",120],["isi","Isi pengumuman","area",2000]]},
+ artikel:{judul:"Artikel",tambah:"Tambah artikel",simpan:"simpanArtikel",hapus:"hapusArtikel",f:[["judul","Judul","text",120],["penulis","Penulis (boleh dikosongkan)","text",80],["ringkasan","Ringkasan (boleh dikosongkan)","area",2000],["link","Tautan artikel (boleh dikosongkan, harus diawali https://)","url",300]]}};
+function admListItem(b,t){const k=ADM.view,C=ADM_ITEM[k],r=ADM.data[k]||[];t.textContent=C.judul;
+ b.innerHTML=admAtas("menu","Panel pengurus")+`<button type="button" class="btn2 pri" id="adm-baru">${I(IC.plus)}${C.tambah}</button>
+ <div class="adm-list" style="margin-top:14px">${r.length?r.map(x=>`<div class="pc adm-it${x.tampil==="tidak"?" hid":""}"><div class="at"><small>${esc(tglPendek(x.tgl))}${x.tampil==="tidak"?" · Disembunyikan":""}</small><b>${esc(x.judul)}</b></div><div class="adm-act"><button type="button" data-ed="${esc(x.id)}">Ubah</button><button type="button" class="dng" data-del="${esc(x.id)}">Hapus</button></div></div>`).join(""):KOSONG("Belum ada data.")}</div>`;
+ $("adm-baru").onclick=()=>{ADM.form={baru:true,tgl:todayJ(),tampil:""};admRender()};
+ b.querySelectorAll("[data-ed]").forEach(x=>x.onclick=()=>{ADM.form=Object.assign({},r.find(y=>y.id===x.dataset.ed));admRender()});
+ b.querySelectorAll("[data-del]").forEach(x=>x.onclick=()=>{const it=r.find(y=>y.id===x.dataset.del);admHapus(x,C.hapus,{id:x.dataset.del},"Hapus \""+(it?it.judul:"")+"\"? Tindakan ini tidak bisa dibatalkan.","Dihapus")})}
+function admFormItem(b,t){const k=ADM.view,C=ADM_ITEM[k],f=ADM.form,v=x=>esc(x==null?"":x);t.textContent=f.id?"Ubah "+C.judul.toLowerCase():C.tambah;
+ b.innerHTML=`<button type="button" class="adm-top" id="f-batal">${I(IC.kiri)}Batal</button><div class="pc">
+ <label class="lb" for="f-tgl">Tanggal</label><input class="fld" type="date" id="f-tgl" value="${v(f.tgl)}">
+ ${C.f.map(x=>`<label class="lb" for="i-${x[0]}" style="margin-top:14px">${x[1]}</label>`+(x[2]==="area"?`<textarea class="fld" id="i-${x[0]}" maxlength="${x[3]}" style="min-height:${x[0]==="isi"?160:110}px">${v(f[x[0]])}</textarea>`:`<input class="fld" id="i-${x[0]}" ${x[2]==="url"?'type="url" inputmode="url" autocapitalize="none" spellcheck="false"':'type="text"'} maxlength="${x[3]}" autocomplete="off" value="${v(f[x[0]])}">`)).join("")}
+ <span class="lb" style="margin-top:16px;display:block">Di beranda</span><div class="chips3" style="margin-top:10px">${[["","Tampilkan"],["tidak","Sembunyikan"]].map(x=>`<button type="button" data-tp="${x[0]}" aria-pressed="${(f.tampil||"")===x[0]}">${x[1]}</button>`).join("")}</div></div>
+ <button type="button" class="btn2 pri" id="f-simpan" style="width:100%;margin-top:14px">Simpan</button>`;
+ $("f-batal").onclick=()=>admGo(k);
+ b.querySelectorAll("[data-tp]").forEach(x=>x.onclick=()=>{f.tampil=x.dataset.tp;b.querySelectorAll("[data-tp]").forEach(y=>y.setAttribute("aria-pressed",String(y===x)))});
+ $("f-simpan").onclick=()=>{const req={id:f.id,tgl:$("f-tgl").value,tampil:f.tampil||""};C.f.forEach(x=>req[x[0]]=$("i-"+x[0]).value);
+  if(!req.tgl){say("Pilih tanggal");return}
+  if(!req.judul.trim()){say("Isi judul");$("i-judul").focus();return}
+  if(k==="informasi"&&!req.isi.trim()){say("Isi pengumuman wajib diisi");$("i-isi").focus();return}
+  admJalan($("f-simpan"),"Menyimpan…",async()=>{try{await api(C.simpan,req);await admSegar();say("Tersimpan");admGo(k)}catch(e){admGalat(e)}})}}
+
+R.login=function(){ADM.view="menu";ADM.form=null;admRender()};
+admLabel();
 </script>
 </body>
 </html>
