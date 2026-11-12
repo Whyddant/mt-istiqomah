@@ -181,9 +181,17 @@ html[data-fs="k"]{--fs:.92}html[data-fs="b"]{--fs:1.2}
 /* halaman majelis & lokasi */
 .page{position:fixed;top:0;bottom:0;right:max(0px,calc((100vw - var(--maxw))/2));width:min(100%,var(--maxw));background:var(--bg);z-index:60;overflow-y:auto;overscroll-behavior:contain;transform:translateX(105%);visibility:hidden;transition:transform var(--d3) var(--ease),visibility var(--d3)}
 .page.open{transform:none;visibility:visible}
-.ph{position:sticky;top:0;z-index:2;display:flex;align-items:center;gap:6px;min-height:56px;padding:env(safe-area-inset-top,0px) 12px 0 6px;background:#0F4D2F;color:#fff;box-shadow:0 2px 10px rgba(8,40,24,.25)}
+.ph{position:sticky;top:0;z-index:2;display:block;padding:env(safe-area-inset-top,0px) 0 0;background:#0F4D2F;color:#fff;box-shadow:0 2px 10px rgba(8,40,24,.25)}
 .ph .iconbtn{color:#fff}
+.ph .iconbtn:hover{background:rgba(255,255,255,.14)}
+.ph :focus-visible{outline-color:#fff}
 .ph b{font-size:calc(1.125rem*var(--fs));font-weight:700;flex:1;letter-spacing:-.01em}
+.pa{display:flex;align-items:center;gap:6px;height:52px;padding:0 6px 0 10px}
+.pa-home{flex:1;min-width:0;display:flex;align-items:center;gap:10px;min-height:48px;padding:0 8px 0 4px;border-radius:12px;text-align:left;color:#fff}
+.pa-home:active{background:rgba(255,255,255,.12)}
+.pa-home .logo{width:42px;height:37px}
+.pa-home .pn{min-width:0;font-size:calc(clamp(16px,4.8vw,19px)*var(--fc));font-weight:700;letter-spacing:-.01em;line-height:1.2;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.phr{display:flex;align-items:center;gap:6px;min-height:46px;padding:0 12px 0 6px;background:#0B3F25;border-top:1px solid rgba(255,255,255,.1)}
 .contoh{display:inline-block;font-size:max(.75rem,calc(0.75rem*var(--fs)));font-weight:700;padding:3px 10px;border-radius:99px;background:rgba(207,187,138,.18);color:#EBDFC0;border:1px solid rgba(207,187,138,.5)}
 .pb{padding:16px 16px calc(28px + env(safe-area-inset-bottom,0px));display:grid;gap:16px}
 .pb h3{font-size:calc(1.0625rem*var(--fs));font-weight:700;letter-spacing:-.01em;margin-bottom:10px}
@@ -326,8 +334,8 @@ nav.tabs{position:fixed;bottom:0;left:50%;transform:translateX(-50%);width:min(1
 .tab:active svg{transform:scale(.88)}
 
 /* menu samping */
-.scrim{position:fixed;inset:0;background:rgba(5,15,9,.5);opacity:0;pointer-events:none;transition:opacity .2s;z-index:40}
-.drawer{position:fixed;top:0;bottom:0;right:max(0px,calc((100vw - var(--maxw))/2));width:min(82%,330px);background:var(--surface);z-index:50;transform:translateX(105%);transition:transform .25s ease;display:flex;flex-direction:column;padding-top:env(safe-area-inset-top,0px);visibility:hidden}
+.scrim{position:fixed;inset:0;background:rgba(5,15,9,.5);opacity:0;pointer-events:none;transition:opacity .2s;z-index:80}
+.drawer{position:fixed;top:0;bottom:0;right:max(0px,calc((100vw - var(--maxw))/2));width:min(82%,330px);background:var(--surface);z-index:85;transform:translateX(105%);transition:transform .25s ease;display:flex;flex-direction:column;padding-top:env(safe-area-inset-top,0px);visibility:hidden}
 .open .scrim{opacity:1;pointer-events:auto}
 .open .drawer{transform:none;visibility:visible}
 .dh{display:flex;align-items:center;justify-content:space-between;height:60px;padding:0 14px 0 20px;border-bottom:1px solid var(--line);font-weight:800;font-size:calc(1.1875rem*var(--fs))}
@@ -362,6 +370,372 @@ nav.tabs{position:fixed;bottom:0;left:50%;transform:translateX(-50%);width:min(1
 .adm-sub .two .fld{margin-top:10px}
 .adm-sub>.fld{margin-top:10px}
 button:disabled{opacity:.6}
+
+/* halaman waktu shalat */
+#pb-sholat>*{min-width:0}
+.loc.pg{margin:0;padding:0;border:0;flex-wrap:wrap;row-gap:6px}
+.loc.pg .lt{white-space:normal;flex:1 1 130px}
+.loc.pg .lb{margin-left:auto}
+.bs-dl{font-size:calc(0.875rem*var(--fs));font-weight:600;color:var(--muted);margin:-4px 0 0}
+.bs-arcw{position:relative;max-width:300px;margin:0 auto}
+.bs-arc{display:block;width:100%;height:auto;overflow:visible}
+.bs-tr{stroke:var(--line);fill:none;stroke-width:10;stroke-linecap:round}
+.bs-pg{stroke:var(--green);fill:none;stroke-width:10;stroke-linecap:round}
+.bs-tk{fill:var(--surface);stroke:var(--muted);stroke-width:2.5}.bs-tk.tp{stroke:var(--green)}
+.bs-now{fill:var(--green);stroke:var(--surface);stroke-width:4}
+.bs-ac{position:absolute;left:14%;right:14%;bottom:2%;text-align:center;display:grid;justify-items:center}
+.bs-ac small{font-size:max(.75rem,calc(0.8125rem*var(--fc)));font-weight:600;color:var(--muted)}
+.bs-cd{font-size:calc(1.3125rem*var(--fc));font-weight:800;letter-spacing:-.01em;color:var(--link);line-height:1.15;margin:1px 0;text-wrap:balance}
+.bs-ends{display:flex;justify-content:space-between;gap:8px;margin-top:6px}
+.bs-ends small{display:block;font-size:max(.75rem,calc(0.8125rem*var(--fc)));color:var(--muted);font-weight:600}
+.bs-ends b{font-size:calc(0.9375rem*var(--fc));font-weight:800;font-variant-numeric:tabular-nums}
+.bs-ends .r{text-align:right}
+.bs-cap{text-align:center;font-size:max(.75rem,calc(0.8125rem*var(--fc)));color:var(--muted);margin-top:6px}
+.bs-cap .ck.tp{color:var(--green)}
+.bs-nxt{text-align:center;font-size:calc(0.875rem*var(--fs));margin-top:6px;line-height:1.4}
+.bs-h{font-size:calc(0.875rem*var(--fs));font-weight:700;color:var(--muted)}
+.bs-wl{display:flex;justify-content:space-between;align-items:baseline;gap:12px;padding:10px 0;font-size:calc(0.9375rem*var(--fs))}
+.bs-wl+.bs-wl{border-top:1px solid var(--line)}
+.bs-wl b{font-weight:800;font-variant-numeric:tabular-nums}
+
+/* kartu shalat beranda: garis waktu 5 titik */
+#hero .hn{align-items:flex-end}
+.h-aktif{font-size:calc(clamp(1.75rem,8vw,2.125rem)*var(--fs));font-weight:800;letter-spacing:-.02em;color:var(--link);line-height:1.1}
+.h-nx{margin-left:auto;display:flex;flex-direction:column;align-items:flex-end;gap:6px;text-align:right;font-variant-numeric:tabular-nums}
+.h-nx .left{white-space:nowrap}
+.h-nm2{font-size:calc(0.9375rem*var(--fs));font-weight:700;white-space:nowrap}
+.htl{--nf:calc(0.8125rem*min(var(--fs),1.04));--nh:calc(var(--nf)*1.45);position:relative;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));margin-top:16px}
+.htl .tl-rl,.htl .tl-rp{position:absolute;top:calc(var(--nh) + 6px + 8px - 2px);left:10%;height:4px;border-radius:99px}
+.htl .tl-rl{right:10%;background:var(--line)}
+.htl .tl-rp{width:calc(80% * var(--p,0));background:var(--green)}
+.tl-c{display:flex;flex-direction:column;align-items:center;min-width:0;position:relative;z-index:1}
+.tl-n{height:var(--nh);line-height:var(--nh);font-size:var(--nf);font-weight:600;color:var(--muted);white-space:nowrap}
+.tl-d{width:12px;height:12px;margin:6px 0 8px;box-sizing:content-box;border:2px solid var(--line);background:var(--surface);border-radius:50%;transition:background .2s,border-color .2s}
+.tl-i{color:var(--muted);opacity:.75;display:block}
+.tl-i svg{width:20px;height:20px;display:block}
+.tl-t{margin-top:6px;font-size:var(--nf);font-weight:600;color:var(--muted);font-variant-numeric:tabular-nums}
+.tl-c.p .tl-d{background:var(--green);border-color:var(--green)}
+.tl-c.p .tl-n,.tl-c.p .tl-t{color:var(--ink)}
+.tl-c.on .tl-d{width:16px;height:16px;margin:4px 0 6px;background:var(--green);border-color:var(--surface);box-shadow:0 0 0 2px var(--green),0 0 0 6px rgba(32,128,71,.22)}
+.tl-c.on .tl-n,.tl-c.on .tl-t{color:var(--link);font-weight:800}
+.tl-c.on .tl-i{color:var(--link);opacity:1}
+#hero .puasa div{padding:9px 10px}#hero .puasa small{white-space:nowrap}
+
+/* kartu waktu shalat: daftar vertikal + lonceng pengingat */
+.sk{padding:6px 16px}
+.sk-r{display:flex;align-items:center;gap:12px;min-height:56px;padding:4px 0}
+.sk-r+.sk-r{border-top:1px solid var(--line)}
+.sk-i{flex:none;width:24px;color:var(--muted);display:grid;place-items:center}
+.sk-i svg{width:22px;height:22px;display:block}
+.sk-n{flex:1;min-width:0;font-size:calc(1rem*var(--fs));font-weight:600;line-height:1.25}
+.sk-n small{display:block;font-size:max(.75rem,calc(.8125rem*var(--fs)));font-weight:600;color:var(--muted)}
+.sk-t{font-size:calc(1.0625rem*var(--fs));font-weight:800;font-variant-numeric:tabular-nums}
+.sk-b{flex:none;width:44px;height:44px;margin-right:-8px;border-radius:50%;display:grid;place-items:center;color:var(--muted);transition:background .15s,color .15s}
+.sk-b svg{width:22px;height:22px;display:block}
+button.sk-b:active{background:var(--chip)}
+.sk-b[aria-pressed="true"]{color:var(--link);background:var(--chip)}
+.sk-b[aria-pressed="true"] svg{fill:currentColor}
+.sk-r.on{background:var(--chip);margin:0 -10px;padding:4px 10px;border-radius:12px;border-top-color:transparent}
+.sk-r.on+.sk-r{border-top-color:transparent}
+.sk-r.on .sk-n,.sk-r.on .sk-t,.sk-r.on .sk-i{color:var(--link)}
+.sk-r.on .sk-b[aria-pressed="true"]{background:var(--surface)}
+.sh-dt{margin:10px 0 6px;padding-bottom:10px;border-bottom:1px solid var(--line)}.sh-dt .im-now{margin-top:6px}
+.sk-note{font-style:italic;font-size:max(.75rem,calc(.8125rem*var(--fs)));color:var(--muted);text-align:center;margin:-6px 8px 0;line-height:1.4}
+/* jadwal imsakiyah satu pekan */
+.im{padding:16px 8px 12px}
+.im-hd{display:flex;align-items:center;justify-content:space-between;gap:8px;margin:0 4px 8px}
+.im-hd h3{margin:0}
+.im-now{min-height:36px;padding:0 13px;border-radius:99px;border:1px solid var(--line);background:var(--chip);color:var(--link);font-size:max(.75rem,calc(.8125rem*var(--fs)));font-weight:700;white-space:nowrap}
+.im-now[hidden]{display:none}
+.im-nav{display:flex;align-items:center;gap:8px;margin-bottom:6px}
+.im-nav button{flex:none;width:44px;height:44px;border-radius:12px;border:1px solid var(--line);background:var(--chip);color:var(--link);display:grid;place-items:center}
+.im-nav button:disabled{opacity:.4}
+.im-nav button svg{width:22px;height:22px;display:block}
+.im-c{flex:1;min-width:0;text-align:center}
+.im-c b{display:block;font-size:calc(.9375rem*var(--fs));font-weight:800}
+.im-c small{display:block;font-size:max(.75rem,calc(.8125rem*var(--fs)));color:var(--muted);font-weight:600}
+.im-sc{overflow-x:auto;-webkit-overflow-scrolling:touch}
+.im-t{width:100%;border-collapse:collapse;font-variant-numeric:tabular-nums;font-size:max(.75rem,calc(.75rem*var(--fc)))}
+.im-t th{font-weight:700;color:var(--muted);text-align:center;padding:8px 1px;border-bottom:1px solid var(--line);white-space:nowrap}
+.im-t td{text-align:center;padding:9px 1px;border-bottom:1px solid var(--line);white-space:nowrap;font-weight:600}
+.im-t tr:last-child td{border-bottom:0}
+.im-t th:first-child,.im-t td:first-child{text-align:left;padding-left:4px;padding-right:4px;position:sticky;left:0;background:var(--surface)}
+.im-t td:first-child b{display:block;font-weight:700}
+.im-t td:first-child small{display:block;color:var(--muted);font-weight:600}
+.im-t .acc{color:var(--link);font-weight:800}
+.im-t th.acc{color:var(--link)}
+.im-t tr.hi td{background:var(--chip)}
+.im-t tr.hi td:first-child{box-shadow:inset 3px 0 0 var(--green)}
+.im-st{text-align:center;font-size:max(.75rem,calc(.8125rem*var(--fs)));color:var(--muted);margin:8px 0 0}
+.im-st button{color:var(--link);font-weight:700;text-decoration:underline;min-height:36px;padding:0 6px}
+.im-st[hidden]{display:none}
+.im .hint{margin:8px 4px 0;text-align:center}
+
+/* kalender hijriyah */
+:root{--merah:#C62828;--oranye:#B45309}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--merah:#FF8A80;--oranye:#FBBF24}}
+:root[data-theme="dark"]{--merah:#FF8A80;--oranye:#FBBF24}
+.pc.kal{padding:14px 10px}
+.kal-g{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:3px}
+.kal-g>span{min-height:1px}
+.kal-h{text-align:center;font-size:max(.75rem,calc(.75rem*var(--fc)));font-weight:700;color:var(--muted);padding:8px 2px 6px;margin:0 -2px 4px;border-bottom:1px solid var(--line)}
+.kal-d{position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1px;aspect-ratio:1/1;min-width:0;padding:2px 0;border-radius:12px;border:1px solid transparent;background:transparent;font-variant-numeric:tabular-nums;color:var(--ink);transition:background .15s,color .15s,border-color .15s}
+.kal-d b{font-size:calc(1.125rem*var(--fc));font-weight:800;line-height:1.1}
+.kal-d small{font-size:max(.75rem,calc(.6875rem*var(--fc)));font-weight:600;color:var(--muted);white-space:nowrap}
+.kal-d.ab{border:1px dashed var(--muted)}
+.kal-d.hb::after{content:"";position:absolute;top:5px;right:6px;width:6px;height:6px;border-radius:50%;background:var(--link)}
+.kal-d.ah b,.kal-d.lb b{color:var(--merah)}
+.kal-d.cb b{color:var(--oranye)}
+.kal-h.ah{color:var(--merah)}
+.kal-d.now{border:2px solid var(--green)}
+.kal-d.sel{background:var(--green);border-color:var(--green);color:#fff}
+.kal-d.sel small{color:rgba(255,255,255,.88)}
+.kal-d.sel b{color:#fff}
+.kal-d.sel.hb::after{background:#fff}
+.kal-d:active{transform:scale(.95)}
+.kal-lg{display:flex;flex-wrap:wrap;gap:6px 14px;margin-top:12px;padding-top:12px;border-top:1px solid var(--line);font-size:max(.75rem,calc(.8125rem*var(--fs)));color:var(--muted);font-weight:600}
+.kal-lg span{display:inline-flex;align-items:center;gap:6px}
+.kal-lg i{display:inline-block;width:14px;height:14px;border-radius:5px;border:1px solid transparent}
+.kal-lg i.k2{border:1px dashed var(--muted)}
+.kal-lg i.k4{background:var(--merah)}
+.kal-lg i.k5{background:var(--oranye)}
+.kal-lg i.k3{border-radius:50%;width:8px;height:8px;background:var(--link)}
+.pill2.lb{color:var(--merah)}.pill2.cb{color:var(--oranye)}
+.tg-l{color:var(--merah);font-weight:700}.tg-c{color:var(--oranye);font-weight:700}
+.kal-det .pill2{margin:0 6px 4px 0}
+.kal-det h3{margin-bottom:2px}
+.pc.kal-det{position:relative;padding:14px 16px;overflow:hidden}
+.kd-row{position:relative;z-index:1;display:flex;align-items:center;gap:14px}
+.kd-tile{flex:none;width:58px;height:58px;border-radius:var(--r1);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:0;background:var(--chip);border:1px solid var(--line);color:var(--ink);font-variant-numeric:tabular-nums}
+.kd-tile b{font-size:calc(1.4375rem*var(--fc));font-weight:800;line-height:1.05;letter-spacing:-.02em}
+.kd-tile span{font-size:max(.75rem,calc(.75rem*var(--fc)));font-weight:600;color:var(--muted);line-height:1.2}
+.kd-tile.on{border:2px solid var(--green)}
+.kd-tile.on b{color:var(--link)}
+.kd-tx{flex:1;min-width:0;display:grid;gap:1px}
+.kd-w{font-size:max(.75rem,calc(.8125rem*var(--fs)));font-weight:600;color:var(--muted);line-height:1.3}
+.kd-h{font-size:calc(1.125rem*var(--fs));font-weight:700;letter-spacing:-.01em;line-height:1.3}
+.kd-e{font-size:max(.75rem,calc(.8125rem*var(--fs)));line-height:1.35;color:var(--muted);font-weight:500;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.kal-det.ini{background:radial-gradient(120% 90% at 85% -10%,rgba(255,255,255,.1),transparent 60%),linear-gradient(160deg,#165C38 0%,#0F4D2F 55%,#0A3A22 100%);border-color:transparent;color:#fff;box-shadow:var(--shadow-2)}
+.kal-det.ini .kd-tile,.kal-det.ini .kd-tile.on{background:rgba(255,255,255,.12);border:1px solid rgba(207,187,138,.55);color:#fff}
+.kal-det.ini .kd-tile b,.kal-det.ini .kd-tile.on b{color:#fff}
+.kal-det.ini .kd-tile span{color:#EBDFC0}
+.kal-det.ini .kd-w{color:#EBDFC0}
+.kal-det.ini .kd-h{color:#fff}
+.kal-det.ini .kd-e{color:rgba(255,255,255,.86)}
+.kal-det.ini .kd-e .lb{color:#FFB4AB}.kal-det.ini .kd-e .cb{color:#FBBF24}.kal-det.ini .kd-e .hb{color:#EBDFC0}
+.kd-orn{position:absolute;right:10px;bottom:6px;width:56px;height:56px;color:#CFBB8A;opacity:.3;pointer-events:none}
+.kd-e .lb{color:var(--merah);font-weight:700}.kd-e .cb{color:var(--oranye);font-weight:700}.kd-e .hb{color:var(--link);font-weight:700}
+.kal-det .hj{font-size:calc(.9375rem*var(--fs));color:var(--muted);font-weight:600;margin-bottom:8px}
+.kal-det p{font-size:calc(.9375rem*var(--fs));line-height:1.55;margin-top:8px}
+.kal-ev{display:grid;gap:0}
+.kal-ev .row2{align-items:flex-start}
+.kal-ev .row2 b{text-align:left;flex:1}
+.kal-ev .row2 small{flex:none;min-width:84px}
+@media(prefers-reduced-motion:reduce){.kal-d:active{transform:none}}
+
+/* halaman kiblat */
+.kb-hero{padding:16px 14px 14px;transition:border-color .25s,box-shadow .25s}
+.kb-hero.ok{border-color:var(--green);box-shadow:0 0 0 3px rgba(32,128,71,.22),var(--shadow-2)}
+.kb-wrap{position:relative;max-width:300px;margin:6px auto 0;aspect-ratio:1}
+.kb-svg{display:block;width:100%;height:100%;overflow:visible}
+.kb-dial{transform-origin:150px 150px;transition:transform .14s linear}
+.kb-ring{fill:var(--surface);stroke:var(--line);stroke-width:2}
+.kb-tk{stroke:var(--muted);stroke-width:1.5;opacity:.5}.kb-tk.m{stroke-width:2.5;opacity:.9}
+.kb-ct{fill:var(--muted);font:700 15px var(--font);text-anchor:middle;dominant-baseline:central}
+.kb-ct.n{fill:var(--ink);font-weight:800}
+.kb-pt{fill:var(--green)}
+.kb-ln{stroke:var(--green);stroke-width:3;stroke-dasharray:2 7;stroke-linecap:round}
+.kb-mk{fill:var(--green);stroke:var(--surface);stroke-width:3}
+.kb-mid{position:absolute;inset:0;display:grid;place-content:center;justify-items:center;pointer-events:none}
+.kb-mid b{font-size:calc(1.5rem*var(--fc));font-weight:800;letter-spacing:-.02em;line-height:1.1;font-variant-numeric:tabular-nums}
+.kb-mid small{font-size:max(.75rem,calc(.8125rem*var(--fc)));font-weight:600;color:var(--muted)}
+.kb-st{display:flex;align-items:center;justify-content:center;text-align:center;min-height:44px;margin-top:12px;padding:8px 14px;border-radius:14px;background:var(--chip);font-size:calc(.9375rem*var(--fc));font-weight:700;line-height:1.35;transition:background .2s,color .2s}
+.kb-st.ok{background:var(--green);color:#fff}
+.kb-hero .btn{margin-top:10px}
+.kb-tips{padding-left:20px;display:grid;gap:8px;font-size:calc(.9375rem*var(--fs));line-height:1.5}
+.kb-tips li::marker{color:var(--link)}
+@media(prefers-reduced-motion:reduce){.kb-dial,.kb-hero,.kb-st{transition:none}}
+
+/* halaman tasbih */
+.tsb-pad{position:relative;display:grid;justify-items:center;align-content:center;gap:4px;width:100%;min-height:400px;padding:22px 16px 16px;border:1px solid var(--line);border-radius:20px;background:linear-gradient(180deg,var(--chip),var(--surface));box-shadow:var(--shadow-2);text-align:center;touch-action:manipulation;-webkit-user-select:none;user-select:none;transition:transform .1s var(--ease),border-color .25s,box-shadow .25s}
+.tsb-pad:active{transform:scale(.985)}
+.tsb-pad.ok{border-color:var(--green);box-shadow:0 0 0 3px rgba(32,128,71,.22),var(--shadow-2)}
+.tsb-ar{font-family:"Amiri","Noto Naskh Arabic","Scheherazade New","Traditional Arabic",serif;font-size:calc(2.25rem*var(--fc));line-height:1.6;color:var(--ink)}
+.tsb-lat{font-size:calc(.9375rem*var(--fs));font-weight:700;color:var(--link)}
+.tsb-arti{font-size:calc(.875rem*var(--fs));color:var(--muted)}
+.tsb-ring{position:relative;width:min(210px,60vw);aspect-ratio:1;margin:10px 0 6px}
+.tsb-ring svg{display:block;width:100%;height:100%;transform:rotate(-90deg)}
+.tsb-tr{fill:none;stroke:var(--line);stroke-width:10}
+.tsb-pg{fill:none;stroke:var(--green);stroke-width:10;stroke-linecap:round;stroke-dasharray:553;stroke-dashoffset:553;transition:stroke-dashoffset .18s var(--ease)}
+.tsb-num{position:absolute;inset:0;display:grid;place-content:center;justify-items:center}
+.tsb-num b{font-size:calc(3.5rem*var(--fc));font-weight:800;letter-spacing:-.03em;line-height:1;font-variant-numeric:tabular-nums}
+.tsb-num small{font-size:max(.75rem,calc(.8125rem*var(--fc)));font-weight:600;color:var(--muted);margin-top:4px}
+.tsb-hint{font-size:max(.75rem,calc(.8125rem*var(--fs)));color:var(--muted);font-weight:600}
+.tsb-seg button{padding:0 3px;line-height:1.2;overflow-wrap:anywhere}
+.tsb-rs{display:block;width:100%;min-height:48px;border-radius:12px;border:1px solid var(--line);background:var(--surface);color:var(--link);font-weight:700;font-size:calc(.9375rem*var(--fs))}
+.tsb-rs:active{background:var(--chip)}
+@media(prefers-reduced-motion:reduce){.tsb-pad,.tsb-pg{transition:none}.tsb-pad:active{transform:none}}
+
+/* halaman infaq */
+.iq-bank{display:grid;justify-items:start;gap:3px;padding:14px 0}.iq-bank:first-of-type{padding-top:2px}.iq-bank:last-child{padding-bottom:2px}.iq-bank+.iq-bank{border-top:1px solid var(--line)}
+.iq-bn{font-size:calc(.875rem*var(--fs));font-weight:700;color:var(--muted)}
+.iq-no{font-size:calc(1.375rem*var(--fc));font-weight:800;letter-spacing:.02em;font-variant-numeric:tabular-nums;overflow-wrap:anywhere}
+.iq-an{font-size:calc(.9375rem*var(--fs));line-height:1.4}
+.iq-cp{display:inline-flex;align-items:center;gap:8px;min-height:44px;margin-top:6px;padding:0 16px;border-radius:99px;border:1px solid var(--line);background:var(--chip);color:var(--link);font-weight:700;font-size:calc(.875rem*var(--fc))}
+.iq-cp svg{width:18px;height:18px}.iq-cp:active{background:var(--green);color:#fff;border-color:var(--green)}
+.iq-qr{display:block;width:min(230px,100%);margin:4px auto 0;padding:10px;background:#fff;border:1px solid var(--line);border-radius:16px;box-shadow:var(--shadow)}
+.iq-qr svg{display:block;width:100%;height:auto}
+.iq-cap{text-align:center;margin-top:12px}
+.iq-warn{display:flex;gap:12px;align-items:flex-start;background:var(--chip)}.iq-warn svg{flex:none;width:24px;height:24px;color:var(--link);margin-top:1px}
+.iq-qr img{display:block;width:100%;height:auto}.iq-sv{margin-top:12px;display:flex;align-items:center;justify-content:center;gap:8px}.iq-sv svg{width:20px;height:20px}.pc .btn svg{width:20px;height:20px;vertical-align:-4px;margin-right:8px}
+#iqDlg .iq-qr{margin:14px auto 0;width:100%}
+
+/* halaman tahlil dan yasin */
+#pg-tahlil{--ar:1.875rem}
+.tl-seg{grid-template-columns:repeat(2,1fr)}.tl-seg4{grid-template-columns:repeat(4,1fr)}.tl-seg4 button{min-height:52px;font-weight:800}
+.tl-aa{font-size:calc(1.125rem*var(--fc));font-weight:800;letter-spacing:-.02em}
+.tl-hd{display:flex;align-items:center;justify-content:space-between;gap:8px 10px;flex-wrap:wrap;margin-bottom:4px}.tl-hd h3{margin:0}
+.tl-chip{font-size:calc(.875rem*var(--fs));font-weight:600;padding:2px 10px;border-radius:99px;border:1px solid var(--line);background:var(--chip);color:var(--muted)}
+.tl-it{padding:14px 0}.tl-it+.tl-it{border-top:1px solid var(--line)}.tl-it:last-child{padding-bottom:2px}
+.tl-no{display:inline-block;font-size:calc(.875rem*var(--fs));font-weight:700;color:var(--link);margin-bottom:2px}
+.pc .tl-ar,dialog .tl-ar{font-family:Amiri,"Noto Naskh Arabic","Scheherazade New","Traditional Arabic",serif;font-size:calc(var(--ar)*var(--fc));line-height:1.9;text-align:right;direction:rtl;color:var(--ink)}
+.pc .tl-lt{font-size:calc(.9375rem*var(--fs));font-style:italic;color:var(--link);line-height:1.55;margin-top:6px}
+.pc .tl-id{font-size:calc(.9375rem*var(--fs));line-height:1.55;margin-top:6px;color:var(--muted)}
+.no-lt .tl-lt,.no-tr .tl-id{display:none}
+.tl-jeda{position:fixed;bottom:calc(20px + env(safe-area-inset-bottom,0px));right:max(16px,calc((100vw - var(--maxw))/2 + 16px));z-index:70;display:none;align-items:center;gap:8px;min-height:52px;padding:0 20px;border-radius:99px;background:var(--green);color:#fff;font-weight:700;border:1px solid rgba(207,187,138,.55);box-shadow:var(--shadow-2)}
+.tl-jeda.on{display:inline-flex}.tl-jeda svg{width:22px;height:22px}
+#tlDlg{position:fixed;inset:auto 0 0 0;margin:0 auto;width:min(100%,var(--maxw));max-width:none;max-height:88dvh;overflow:auto;border-radius:20px 20px 0 0;padding:18px 16px calc(16px + env(safe-area-inset-bottom,0px))}
+.tl-g{margin-top:16px}.tl-lb{display:block;font-size:calc(.875rem*var(--fs));font-weight:700;color:var(--muted);margin-bottom:8px}
+.tl-row{display:flex;align-items:center;justify-content:space-between;gap:12px;width:100%;min-height:52px;text-align:left;font-weight:600;font-size:calc(.9375rem*var(--fs))}.tl-row+.tl-row{border-top:1px solid var(--line)}
+.tl-sw{flex:none;position:relative;width:52px;height:32px;border-radius:99px;background:var(--line);transition:background .2s}
+.tl-sw::after{content:"";position:absolute;top:4px;left:4px;width:24px;height:24px;border-radius:50%;background:#fff;box-shadow:0 1px 3px rgba(0,0,0,.3);transition:transform .2s}
+.tl-row[aria-checked="true"] .tl-sw{background:var(--green)}.tl-row[aria-checked="true"] .tl-sw::after{transform:translateX(20px)}
+@media(prefers-reduced-motion:reduce){.tl-sw,.tl-sw::after{transition:none}}
+
+/* halaman kas dan qurban */
+.kas-hero{border-radius:var(--r3);padding:18px 16px 8px;color:#fff;background:radial-gradient(120% 90% at 85% -10%,rgba(255,255,255,.1),transparent 60%),linear-gradient(160deg,#165C38 0%,#0F4D2F 55%,#0A3A22 100%);box-shadow:var(--shadow-2)}
+.kas-hero small{display:block;font-size:calc(.875rem*var(--fs));color:#EBDFC0;font-weight:600}
+.kas-big{font-size:calc(2rem*var(--fc));font-weight:800;letter-spacing:-.02em;line-height:1.15;margin:2px 0 4px;overflow-wrap:anywhere}
+.kas-hero .kas-per{font-size:max(.75rem,calc(.8125rem*var(--fs)));color:rgba(255,255,255,.8);font-weight:500}
+.kas-hero .bs-wl{color:#fff}.kas-hero .bs-wl+.bs-wl{border-top-color:rgba(255,255,255,.14)}
+.kas-hero .kas-rows{margin-top:12px;border-top:1px solid rgba(255,255,255,.14)}
+.kas-hd{display:flex;justify-content:space-between;align-items:flex-start;gap:10px}
+.kas-hd b{font-size:calc(1.0625rem*var(--fs));font-weight:700;line-height:1.35}
+.kas-c>p{font-size:calc(.9375rem*var(--fs));line-height:1.55;color:var(--muted);margin-top:6px}
+.kas-rows{margin-top:10px}
+.kas-rows .bs-wl:last-child b{font-size:calc(1.125rem*var(--fc));color:var(--link)}
+.kas-hero .kas-rows .bs-wl:last-child b{color:#fff;font-size:inherit}
+.kas-c .ar-ke{margin-top:12px}
+.kas-c .kb-tips{margin-top:8px;font-size:calc(.9375rem*var(--fs))}
+.kas-c .btn2{width:100%;margin-top:12px}
+.pb .kas-sec{margin:4px 2px -6px;font-size:calc(1.1875rem*var(--fs));font-weight:700;letter-spacing:-.015em}
+.kas-intro{font-size:calc(.9375rem*var(--fs));line-height:1.55;color:var(--muted);margin:-6px 2px 0}
+.qb-r{display:flex;align-items:center;gap:12px;padding:10px 0;border-top:1px solid var(--line);font-size:calc(.9375rem*var(--fs))}
+.qb-r:first-of-type{border-top:0}
+.qb-n{flex:none;width:28px;height:28px;border-radius:50%;display:grid;place-items:center;background:var(--chip);color:var(--link);font-size:calc(.8125rem*var(--fs));font-weight:800;font-variant-numeric:tabular-nums}
+.qb-r.kosong{color:var(--muted)}.qb-r.kosong .qb-n{background:none;border:1px dashed var(--muted);color:var(--muted)}
+.qb-r span:last-child{flex:1;min-width:0;font-weight:600;overflow-wrap:anywhere}.qb-r.kosong span:last-child{font-weight:500}
+/* alat pengembang (hanya tampil bila mode pengembang aktif) */
+.dev-fab{position:fixed;left:max(12px,calc((100vw - var(--maxw))/2 + 12px));bottom:calc(96px + env(safe-area-inset-bottom,0px));z-index:95;min-height:36px;padding:0 14px;border-radius:99px;background:#B45309;color:#fff;font-weight:800;font-size:.75rem;letter-spacing:.06em;border:1px solid rgba(255,255,255,.5);box-shadow:var(--shadow-2)}
+.dev-fab[hidden]{display:none}
+#devDlg{position:fixed;inset:auto 0 0 0;margin:0 auto;width:min(100%,var(--maxw));max-width:none;max-height:88dvh;overflow:auto;border-radius:20px 20px 0 0;padding:18px 16px calc(16px + env(safe-area-inset-bottom,0px))}
+#devDlg .dev-note{font-size:max(.75rem,calc(.8125rem*var(--fs)));color:var(--muted);line-height:1.45;margin-top:6px}
+#devDlg .tsb-rs{margin-top:8px}
+/* halaman arisan */
+.ar-hero{position:relative;border-radius:var(--r3);padding:16px 16px 6px;color:#fff;background:radial-gradient(120% 90% at 85% -10%,rgba(255,255,255,.1),transparent 60%),linear-gradient(160deg,#165C38 0%,#0F4D2F 55%,#0A3A22 100%);box-shadow:var(--shadow-2)}
+.ar-hd{display:flex;justify-content:space-between;flex-wrap:wrap;align-items:baseline;gap:2px 8px;font-size:calc(.875rem*var(--fs));color:rgba(255,255,255,.82)}
+.ar-hd strong{color:#fff;font-weight:700}
+.ar-w{display:grid;grid-template-columns:1fr auto;align-items:center;gap:4px 10px;padding:12px 0;margin-top:10px;border-top:1px solid rgba(255,255,255,.14)}
+.ar-w h2{font-size:calc(clamp(20px,6vw,23px)*var(--fs));font-weight:700;letter-spacing:-.01em;line-height:1.25;overflow-wrap:anywhere}
+.ar-w .ket{grid-column:1/-1;justify-self:start}
+.ar-aj{font-size:calc(.9375rem*var(--fs));font-weight:600}
+.ar-nom{font-size:calc(2.125rem*var(--fs));font-weight:800;letter-spacing:-.02em;line-height:1.1}
+.ar-nk{font-size:calc(.875rem*var(--fs));color:#EBDFC0;margin-top:2px;font-weight:600}
+.ar-tp{display:flex;align-items:center;gap:8px;width:100%;min-height:48px;margin-top:2px;padding:6px 0;border-top:1px solid rgba(255,255,255,.14);text-align:left;color:rgba(255,255,255,.92);font-weight:600;font-size:calc(.875rem*var(--fs))}
+.ar-tp>svg{width:18px;height:18px;flex:none;color:#EBDFC0}
+.ar-tp .pt{flex:1;min-width:0}
+.ar-tp .pm{flex:none;display:flex;align-items:center;gap:2px;color:#EBDFC0;font-weight:700}
+.ar-tp .pm svg{width:16px;height:16px}
+.ar-tp:active .pt{text-decoration:underline}
+.ar-st{display:inline-flex;align-items:center;padding:3px 12px;border-radius:99px;border:1px solid var(--line);background:var(--chip);color:var(--muted);font-size:max(.75rem,calc(.8125rem*var(--fs)));font-weight:700;white-space:nowrap}
+.ar-st.ok{background:var(--green);border-color:var(--green);color:#fff}
+.ar-th{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin-top:14px}
+.ar-t{position:relative;aspect-ratio:3/4;display:grid;place-items:center;overflow:hidden;border-radius:var(--r1);border:1px solid var(--line);background:var(--chip);color:var(--link)}
+.ar-t img{display:block;width:100%;height:100%;object-fit:cover}
+.ar-t>svg{width:34px;height:34px}
+.ar-t span{position:absolute;left:6px;bottom:6px;padding:2px 9px;border-radius:99px;background:rgba(0,0,0,.65);color:#fff;font-size:max(.75rem,calc(.8125rem*var(--fs)));font-weight:700}
+.ar-t:active{transform:scale(.97)}
+.ar-gap{margin-top:14px}
+.ar-priv{display:flex;align-items:flex-start;gap:8px;margin-top:6px;font-size:calc(.875rem*var(--fs));line-height:1.45;color:var(--muted)}
+.ar-priv>svg{flex:none;width:18px;height:18px;margin-top:1px}
+.ar-open{width:100%;margin-top:14px}
+.ar-none{margin-top:14px;font-size:calc(.9375rem*var(--fs));font-weight:600}
+.ar-gt{margin-top:14px;font-size:calc(.9375rem*var(--fs));font-weight:700;color:var(--muted)}
+.ar-gt+.ar-tips{margin-top:6px}
+dialog .tutup.bahaya{background:var(--merah)}
+#arDlgBtl[hidden]{display:none}
+.ar-th.satu{grid-template-columns:1fr}
+.ar-th.satu .ar-t{aspect-ratio:16/10}
+.ar-th.satu .ar-t img{object-position:top}
+.ar-th.dua{grid-template-columns:repeat(2,minmax(0,1fr))}
+.ar-add{width:100%;margin-top:10px}
+.ar-tips{margin:14px 0 0;padding-left:1.3em;font-size:calc(.875rem*var(--fs));line-height:1.55;color:var(--muted)}
+.ar-tips li+li{margin-top:4px}
+.ar-link{display:block;margin:6px auto 0;min-height:48px;padding:0 14px;color:var(--muted);font-size:calc(.875rem*var(--fs));font-weight:600;text-decoration:underline;text-underline-offset:3px}
+details.ar-fold .row2:first-of-type{border-top:1px solid var(--line);padding-top:11px}
+details.ar-fold p.hint{font-size:max(.75rem,calc(.8125rem*var(--fs)));color:var(--muted);padding:0 0 14px;margin-top:8px}
+details.ar-fold p.ar-gap{margin-top:0;padding:0 0 14px}
+details.ar-fold .ar-how{margin:2px 0 0}
+.ar-more>summary{list-style:none;cursor:pointer;display:flex;align-items:center;min-height:48px;color:var(--link);font-size:calc(.9375rem*var(--fs));font-weight:700}
+.ar-more>summary::-webkit-details-marker{display:none}
+.ar-more .row2:first-of-type{border-top:1px solid var(--line);padding-top:11px}
+@media(prefers-reduced-motion:reduce){.ar-t:active{transform:none}}
+.ar-empty{display:grid;place-items:center;gap:8px;margin-top:14px;padding:22px 16px;border:1.5px dashed var(--line);border-radius:var(--r1);background:var(--chip);color:var(--muted);text-align:center;font-size:calc(.9375rem*var(--fs));line-height:1.5}
+.ar-empty svg{width:32px;height:32px;color:var(--link)}
+.ar-acts{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:14px}
+.ar-acts .btn2{margin:0;padding:0 8px}
+.ar-acts .btn2:disabled{opacity:.5}
+.ar-how{margin:10px 0 0;padding-left:1.4em;font-size:calc(.9375rem*var(--fs));line-height:1.6}
+.ar-how li+li{margin-top:8px}
+.ar-how b{font-weight:700}
+#arVw{width:100vw;max-width:100vw;height:100dvh;max-height:100dvh;margin:0;padding:0;border-radius:0;background:#0B0F0D;color:#fff;box-shadow:none;overflow:hidden}
+#arVw[open]{display:flex;flex-direction:column}
+#arVw::backdrop{background:#000}
+.vw-top{display:flex;align-items:center;gap:10px;padding:calc(10px + env(safe-area-inset-top)) 14px 6px}
+.vw-top b{flex:1;min-width:0;font-size:calc(1rem*var(--fs));font-weight:700}
+.vw-x{min-height:44px;padding:0 18px;border-radius:12px;background:rgba(255,255,255,.16);color:#fff;font-weight:700;font-size:calc(.9375rem*var(--fs))}
+#arVw .vw-cari{margin:0 14px 8px;padding:10px 14px;border-radius:12px;background:#EBDFC0;color:#0A3A22;display:grid;gap:4px}
+#arVw .vw-cari small{font-size:max(.75rem,calc(.8125rem*var(--fs)));font-weight:700}
+#arVw .vw-cari div{display:flex;justify-content:space-between;align-items:baseline;gap:10px}
+#arVw .vw-cari b{font-size:calc(1.125rem*var(--fs));font-weight:800;line-height:1.25;overflow-wrap:anywhere}
+#arVw .vw-cari span{flex:none;font-size:calc(1.125rem*var(--fs));font-weight:800;font-variant-numeric:tabular-nums}
+#arVw .vw-cari[hidden]{display:none}
+.ar-ct{display:flex;align-items:center;gap:12px;padding-bottom:12px;margin-bottom:12px;border-bottom:1px solid var(--line)}
+.ar-ct .ic2{flex:none;width:44px;height:44px;border-radius:var(--r2);background:var(--green);color:#fff;display:grid;place-items:center}
+.ar-ct .ic2 svg{width:24px;height:24px}
+.pb .ar-ct h3{margin:0;font-size:calc(1.25rem*var(--fs));letter-spacing:-.015em}
+.ar-ke{display:flex;gap:12px;align-items:flex-start;padding:12px 14px;border-radius:var(--r1);background:var(--chip)}
+.ar-ke>svg{flex:none;width:24px;height:24px;color:var(--link);margin-top:1px}
+.ar-ke b{display:block;font-size:calc(1rem*var(--fs));font-weight:700;line-height:1.35}
+.ar-ke p{margin:2px 0 0;font-size:calc(.9375rem*var(--fs));line-height:1.5;color:var(--muted)}
+.ar-ba{display:grid;gap:10px;margin-top:16px}
+.ar-ba .btn2:disabled{opacity:.5}
+.ar-ba+.ar-priv{margin-top:14px;padding:12px 14px;border-radius:var(--r1);background:var(--chip);border:1px solid var(--line);align-items:flex-start;gap:10px;line-height:1.5;color:var(--ink)}
+.ar-ba+.ar-priv>svg{width:20px;height:20px;margin-top:1px;color:var(--link)}
+.ar-priv b{color:var(--ink);font-weight:700}
+.ar-cr{margin:0 0 10px;font-size:calc(.9375rem*var(--fs));color:var(--ink);font-weight:600;line-height:1.45}
+#arVw .vw-hint{margin:0;padding:0 14px 8px;font-size:max(.75rem,calc(.8125rem*var(--fs)));line-height:1.4;color:rgba(255,255,255,.78)}
+.vw-st{position:relative;flex:1;min-height:0;overflow:hidden;touch-action:none;background:#1A201D;cursor:grab;outline-offset:-3px}
+.vw-st:active{cursor:grabbing}
+.vw-st img{position:absolute;left:0;top:0;width:100%;height:auto;max-width:none;transform-origin:0 0;user-select:none;-webkit-user-select:none;-webkit-user-drag:none;pointer-events:none}
+.vw-pdf{position:absolute;inset:0;display:grid;place-content:center;gap:14px;padding:20px;text-align:center}
+.vw-pdf p{margin:0}
+.vw-bar{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;align-items:center;padding:10px 12px 4px}
+.vw-bar button{min-width:48px;min-height:48px;padding:0 14px;border-radius:12px;background:rgba(255,255,255,.16);color:#fff;font-weight:700;font-size:calc(.9375rem*var(--fs))}
+.vw-bar button:disabled{opacity:.35}
+.vw-bar .del{color:#FFB4A8}
+.vw-pct{min-width:54px;text-align:center;font-weight:700;font-variant-numeric:tabular-nums}
+#arVw .vw-meta{margin:0;padding:2px 14px calc(10px + env(safe-area-inset-bottom));text-align:center;font-size:max(.75rem,calc(.8125rem*var(--fs)));color:rgba(255,255,255,.7)}
 </style>
 </head>
 <body>
@@ -387,18 +761,17 @@ button:disabled{opacity:.6}
 
   <main>
     <section aria-label="Jadwal shalat">
-      <div class="sh"><h3>Jadwal shalat</h3><a href="#" data-go="Jadwal shalat">Lihat semua</a></div>
-      <div class="hero" id="hero" data-sk style="--skh:180px">
+      <div class="sh"><h3>Jadwal shalat</h3><a href="#" id="lihatSholat" data-page="sholat">Lihat semua</a></div>
+      <div class="hero" id="hero" data-sk style="--skh:150px">
         <div class="hn">
-          <div><div class="next" id="nextName">Menuju Maghrib</div><div class="big" id="nextTime">17:54</div></div>
-          <div class="left" id="leftTxt">2 jam 31 menit lagi</div>
+          <div><div class="next">Sekarang</div><div class="h-aktif" id="aktif">Ashar</div></div>
+          <div class="h-nx"><span class="left" id="leftTxt">2 jam 31 menit lagi</span><span class="h-nm2" id="nextName">menuju Maghrib 17:54</span></div>
         </div>
-        <div class="times" id="times"></div>
+        <div class="htl" id="stp" role="img"></div>
         <div class="puasa" id="puasa"></div>
         <div class="loc" id="locRow">
           <span class="li" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></svg></span>
           <span class="lt" id="locText">Masjid Jami' Al-Ikhlas</span>
-          <button class="lb" id="locBtn" type="button">Gunakan lokasi saya</button>
         </div>
       </div>
     </section>
@@ -406,9 +779,9 @@ button:disabled{opacity:.6}
     <section class="short" aria-label="Pintasan">
       <button class="s" data-go="Kiblat"><span class="tile"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M16.2 7.8l-2.1 6.3-6.3 2.1 2.1-6.3z"/></svg></span>Kiblat</button>
       <button class="s" data-go="Tasbih"><span class="tile"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="3.8" r="1.3"/><circle cx="16.6" cy="5.7" r="1.3"/><circle cx="18.4" cy="10.2" r="1.3"/><circle cx="16.6" cy="14.7" r="1.3"/><circle cx="12" cy="16.5" r="1.3"/><circle cx="7.4" cy="14.7" r="1.3"/><circle cx="5.6" cy="10.2" r="1.3"/><circle cx="7.4" cy="5.7" r="1.3"/><path d="M12 17.8V21M10.5 21h3"/></svg></span>Tasbih</button>
-      <button class="s" data-go="Al-Qur'an"><span class="tile"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg></span>Qur'an</button>
-      <button class="s" data-go="Kalender"><span class="tile"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg></span>Kalender</button>
-      <button class="s" data-go="Infak"><span class="tile"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 14c1.5-1.5 3-3.2 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.8 0-3 .5-4.5 2-1.5-1.5-2.7-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4 3 5.5l7 7z"/></svg></span>Infak</button>
+      <button class="s" data-go="Tahlil"><span class="tile"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg></span>Tahlil</button>
+      <button class="s" data-page="kalender"><span class="tile"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg></span>Kalender</button>
+      <button class="s" data-go="Infaq"><span class="tile"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 14c1.5-1.5 3-3.2 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.8 0-3 .5-4.5 2-1.5-1.5-2.7-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4 3 5.5l7 7z"/></svg></span>Infaq</button>
       <button class="s" data-go="Penanda"><span class="tile"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m19 21-7-4-7 4V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg></span>Penanda</button>
     </section>
 
@@ -417,7 +790,7 @@ button:disabled{opacity:.6}
       <div class="list" id="infoList" data-sk style="--skh:360px">
         <a href="#" class="info" data-go="Informasi"><div class="tx"><span class="dt">5 Nov 2026</span><h4>Kajian Fiqih Wanita pindah ke aula lantai 2</h4><p>Mulai pekan ini, kajian Sabtu malam diadakan di aula lantai 2.</p></div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg></a>
         <a href="#" class="info" data-go="Informasi"><div class="tx"><span class="dt">3 Nov 2026</span><h4>Kerja bakti membersihkan masjid</h4><p>Ahad pagi setelah kajian subuh. Mohon membawa alat kebersihan masing-masing.</p></div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg></a>
-        <a href="#" class="info" data-go="Informasi"><div class="tx"><span class="dt">1 Nov 2026</span><h4>Pengumpulan infak pembangunan</h4><p>Infak dapat diserahkan kepada pengurus kas setiap selesai kajian.</p></div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg></a>
+        <a href="#" class="info" data-go="Informasi"><div class="tx"><span class="dt">1 Nov 2026</span><h4>Pengumpulan infaq pembangunan</h4><p>Infaq dapat diserahkan kepada pengurus kas setiap selesai kajian.</p></div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg></a>
       </div>
     </section>
 
@@ -449,6 +822,7 @@ button:disabled{opacity:.6}
     <div class="dg" role="group" aria-labelledby="dg-maj"><span class="dt" id="dg-maj">Majelis</span>
       <button class="mi" data-page="profil"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 22h18M6 18v-7M10 18v-7M14 18v-7M18 18v-7M12 2 3 7h18z"/></svg>Profil majelis</button>
       <button class="mi" data-page="acara"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>Acara malam Jumat</button>
+      <button class="mi" data-page="aturan"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5M9 13h6M9 17h6"/></svg>Aturan main arisan</button>
       <button class="mi" data-page="lokasi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></svg>Lokasi</button>
     </div>
     <div class="dg" role="group" aria-labelledby="dg-ban"><span class="dt" id="dg-ban">Bantuan</span>
@@ -477,6 +851,7 @@ button:disabled{opacity:.6}
     <button class="tutup" id="htClose">Mengerti</button></dialog>
   <section class="page" id="pg-profil" role="dialog" aria-modal="true" aria-labelledby="pt-profil" aria-hidden="true"><div class="ph"><button class="iconbtn" data-back aria-label="Kembali"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg></button><b id="pt-profil">Profil majelis</b><span class="contoh">Contoh isi</span></div><div class="pb" id="pb-profil"></div></section>
   <section class="page" id="pg-acara" role="dialog" aria-modal="true" aria-labelledby="pt-acara" aria-hidden="true"><div class="ph"><button class="iconbtn" data-back aria-label="Kembali"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg></button><b id="pt-acara">Acara malam Jumat</b><span class="contoh">Contoh isi</span></div><div class="pb" id="pb-acara"></div></section>
+  <section class="page" id="pg-aturan" role="dialog" aria-modal="true" aria-labelledby="pt-aturan" aria-hidden="true"><div class="ph"><button class="iconbtn" data-back aria-label="Kembali"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg></button><b id="pt-aturan">Aturan main arisan</b></div><div class="pb" id="pb-aturan"></div></section>
   <section class="page" id="pg-hubungi" role="dialog" aria-modal="true" aria-labelledby="pt-hubungi" aria-hidden="true"><div class="ph"><button class="iconbtn" data-back aria-label="Kembali"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg></button><b id="pt-hubungi">Hubungi pengurus</b><span class="contoh">Contoh isi</span></div><div class="pb" id="pb-hubungi"></div></section>
   <section class="page" id="pg-bantuan" role="dialog" aria-modal="true" aria-labelledby="pt-bantuan" aria-hidden="true"><div class="ph"><button class="iconbtn" data-back aria-label="Kembali"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg></button><b id="pt-bantuan">Bantuan</b><span class="contoh">Contoh isi</span></div><div class="pb" id="pb-bantuan"></div></section>
   <section class="page" id="pg-masukan" role="dialog" aria-modal="true" aria-labelledby="pt-masukan" aria-hidden="true"><div class="ph"><button class="iconbtn" data-back aria-label="Kembali"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg></button><b id="pt-masukan">Kirim masukan</b><span class="contoh">Contoh isi</span></div><div class="pb" id="pb-masukan"></div></section>
@@ -486,19 +861,143 @@ button:disabled{opacity:.6}
   <section class="page" id="pg-login" role="dialog" aria-modal="true" aria-labelledby="pt-login" aria-hidden="true"><div class="ph"><button class="iconbtn" data-back aria-label="Kembali"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg></button><b id="pt-login">Masuk pengurus</b><span class="contoh">Contoh isi</span></div><div class="pb" id="pb-login"></div></section>
   <section class="page" id="pg-informasi" role="dialog" aria-modal="true" aria-labelledby="pt-informasi" aria-hidden="true"><div class="ph"><button class="iconbtn" data-back aria-label="Kembali"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg></button><b id="pt-informasi">Informasi</b></div><div class="pb" id="pb-informasi"></div></section>
   <section class="page" id="pg-artikel" role="dialog" aria-modal="true" aria-labelledby="pt-artikel" aria-hidden="true"><div class="ph"><button class="iconbtn" data-back aria-label="Kembali"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg></button><b id="pt-artikel">Artikel</b></div><div class="pb" id="pb-artikel"></div></section>
+  <section class="page" id="pg-kalender" role="dialog" aria-modal="true" aria-labelledby="pt-kalender" aria-hidden="true"><div class="ph"><button class="iconbtn" data-back aria-label="Kembali"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg></button><b id="pt-kalender">Kalender Hijriyah</b></div><div class="pb" id="pb-kalender"></div></section>
   <div class="scrim2" id="scrim2"></div>
+  <section class="page" id="pg-sholat" role="dialog" aria-modal="true" aria-labelledby="pt-sholat" aria-hidden="true"><div class="ph"><button class="iconbtn" data-back aria-label="Kembali"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg></button><b id="pt-sholat">Jadwal shalat</b></div>
+  <div class="pb" id="pb-sholat">
+    <div class="loc pg"><span class="li" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></svg></span><span class="lt" id="sLocText"></span><button class="lb" id="sLocBtn" type="button">Gunakan lokasi saya</button></div>
+    <div class="hero" id="sHero">
+      <div class="bs-arcw" id="sArcW" role="img">
+        <svg class="bs-arc" viewBox="0 0 300 160" aria-hidden="true"><path class="bs-tr" d="M20 150A130 130 0 0 1 280 150"/><path class="bs-pg" id="sPg" d="M20 150A130 130 0 0 1 280 150" stroke-dasharray="408.41" stroke-dashoffset="408.41"/><g id="sTk"></g><circle class="bs-now" id="sNow" r="9" cx="20" cy="150"/></svg>
+        <div class="bs-ac" aria-hidden="true"><small id="sTo"></small><div class="bs-cd" id="sCd"></div><small>lagi</small></div>
+      </div>
+      <div class="bs-ends"><div><small id="sA1"></small><b id="sA2"></b></div><div class="r"><small id="sB1"></small><b id="sB2"></b></div></div>
+      <p class="bs-cap" id="sCap" hidden></p>
+      <p class="bs-nxt" id="sNxt" hidden></p>
+    </div>
+    <div class="pc sk" id="sKartu" role="group" aria-label="Waktu shalat">
+      <div class="im-nav sh-dt" id="shDt">
+      <button type="button" id="shPrev" aria-label="Tanggal sebelumnya"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg></button>
+      <div class="im-c" aria-live="polite"><b id="shMasehi"></b><small id="shHijri"></small><button type="button" class="im-now" id="shNow" hidden>Hari ini</button></div>
+      <button type="button" id="shNext" aria-label="Besok"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></button>
+    </div>
+      <div id="skList"></div>
+      <p class="im-st" id="skSt" hidden></p>
+    </div>
+    <p class="sk-note">Ketuk lonceng untuk pengingat. Aktif selama aplikasi terbuka.</p>
+    <div class="pc im" id="sImsak" role="group" aria-label="Jadwal imsakiyah" hidden>
+      <div class="im-hd"><h3>Jadwal imsakiyah</h3><button type="button" class="im-now" id="imNow" hidden>Pekan ini</button></div>
+      <div class="im-nav">
+        <button type="button" id="imPrev" aria-label="Pekan sebelumnya"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg></button>
+        <div class="im-c" aria-live="polite"><b id="imTitle"></b><small id="imSub"></small></div>
+        <button type="button" id="imNext" aria-label="Pekan berikutnya"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></button>
+      </div>
+      <div class="im-sc" role="region" aria-label="Tabel jadwal imsakiyah satu pekan" tabindex="0">
+        <table class="im-t"><thead><tr><th scope="col">Tanggal</th><th scope="col" class="acc">Imsak</th><th scope="col">Subuh</th><th scope="col">Dzuhur</th><th scope="col">Ashar</th><th scope="col" class="acc">Maghrib</th><th scope="col">Isya</th></tr></thead><tbody id="imBody"></tbody></table>
+      </div>
+      <p class="im-st" id="imSt" hidden></p>
+      <p class="hint">Imsak adalah batas akhir sahur. Maghrib adalah waktu berbuka puasa.</p>
+    </div>
+    <p class="note2">Waktu dihitung oleh layanan AlAdhan dengan metode Kementerian Agama RI dan mazhab Syafi'i (Ashar). Hasilnya perkiraan dan bisa berbeda beberapa menit dari adzan setempat. Bila Anda memakai lokasi perangkat, koordinat dikirim ke AlAdhan untuk menghitung jadwal dan ke OpenStreetMap untuk menampilkan nama wilayah.</p>
+  </div></section>
+
+  <section class="page" id="pg-kiblat" role="dialog" aria-modal="true" aria-labelledby="pt-kiblat" aria-hidden="true"><div class="ph"><button class="iconbtn" data-back aria-label="Kembali"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg></button><b id="pt-kiblat">Arah kiblat</b></div>
+  <div class="pb" id="pb-kiblat">
+    <div class="loc pg"><span class="li" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></svg></span><span class="lt" id="kLocText"></span><button class="lb" id="kLocBtn" type="button">Gunakan lokasi saya</button></div>
+    <div class="hero kb-hero" id="kHero">
+      <div class="kb-wrap" id="kWrap" role="img" aria-label="Kompas arah kiblat">
+        <svg class="kb-svg" viewBox="0 0 300 300" aria-hidden="true">
+          <path class="kb-pt" d="M150 17l-10-17h20z"/>
+          <g class="kb-dial" id="kDial">
+            <circle class="kb-ring" cx="150" cy="150" r="132"/>
+            <g id="kTk"></g>
+            <text class="kb-ct n" x="150" y="48">U</text><text class="kb-ct" x="252" y="150">T</text><text class="kb-ct" x="150" y="252">S</text><text class="kb-ct" x="48" y="150">B</text>
+            <g id="kQ"><line class="kb-ln" x1="150" y1="98" x2="150" y2="72"/><circle class="kb-mk" cx="150" cy="48" r="20"/><rect x="141" y="39" width="18" height="18" rx="2.5" fill="#111"/><rect x="141" y="44" width="18" height="3.5" fill="#CFBB8A"/></g>
+          </g>
+        </svg>
+        <div class="kb-mid" aria-hidden="true"><b id="kDeg"></b><small id="kCard"></small></div>
+      </div>
+      <p class="kb-st" id="kSt" role="status" aria-live="polite"></p>
+      <button class="btn" id="kAktif" type="button" hidden>Aktifkan kompas</button>
+    </div>
+    <div class="pc" role="group" aria-label="Rincian arah kiblat">
+      <div class="bs-wl"><span>Arah kiblat</span><b id="kBrg"></b></div>
+      <div class="bs-wl"><span>Jarak ke Ka'bah</span><b id="kJrk"></b></div>
+      <div class="bs-wl"><span>Titik asal</span><b id="kKrd"></b></div>
+    </div>
+    <div class="pc"><h3>Agar lebih akurat</h3><ul class="kb-tips"><li>Pegang ponsel mendatar dengan layar menghadap ke atas.</li><li>Gerakkan ponsel membentuk angka 8 untuk mengkalibrasi kompas.</li><li>Jauhkan dari logam, magnet, dan casing berpelindung magnet.</li><li>Bila ragu, cocokkan dengan arah shaf di masjid.</li></ul></div>
+    <p class="note2">Arah dihitung di perangkat Anda dari koordinat lokasi ke Ka'bah (21,4225° LU, 39,8262° BT), tanpa mengirim data ke mana pun. Sensor kompas ponsel bisa meleset beberapa derajat.</p>
+  </div></section>
+
+  <section class="page" id="pg-tasbih" role="dialog" aria-modal="true" aria-labelledby="pt-tasbih" aria-hidden="true"><div class="ph"><button class="iconbtn" data-back aria-label="Kembali"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg></button><b id="pt-tasbih">Tasbih digital</b></div>
+  <div class="pb" id="pb-tasbih">
+    <div class="pc">
+      <div class="tema" role="group" aria-label="Pilihan zikir"><span class="tl">Zikir</span><div class="seg tsb-seg" id="tsbZ"><button type="button" aria-pressed="true">Subhanallah</button><button type="button" aria-pressed="false">Alhamdulillah</button><button type="button" aria-pressed="false">Allahu Akbar</button></div></div>
+      <div class="tema" role="group" aria-label="Target hitungan"><span class="tl">Target</span><div class="seg tsb-seg" id="tsbT"><button type="button" aria-pressed="true">33</button><button type="button" aria-pressed="false">99</button><button type="button" aria-pressed="false">100</button></div></div>
+    </div>
+    <button type="button" class="tsb-pad" id="tsbPad">
+      <span class="tsb-ar" id="tsbAr" lang="ar" dir="rtl"></span>
+      <span class="tsb-lat" id="tsbLat"></span><span class="tsb-arti" id="tsbArti"></span>
+      <span class="tsb-ring" aria-hidden="true"><svg viewBox="0 0 200 200"><circle class="tsb-tr" cx="100" cy="100" r="88"/><circle class="tsb-pg" id="tsbPg" cx="100" cy="100" r="88"/></svg><span class="tsb-num"><b id="tsbNum">0</b><small id="tsbDari"></small></span></span>
+      <span class="tsb-hint">Ketuk di mana saja pada kotak ini</span>
+    </button>
+    <p class="kb-st" id="tsbSt" role="status" aria-live="polite"></p>
+    <button type="button" class="tsb-rs" id="tsbRs">Atur ulang hitungan</button>
+    <p class="note2">Hitungan tersimpan di perangkat ini dan tidak dikirim ke mana pun. Perangkat bergetar sebentar tiap ketukan dan lebih panjang saat target tercapai.</p>
+  </div>
+  <dialog id="tsbDlg" aria-labelledby="tsbJd"><h3 id="tsbJd">Atur ulang hitungan?</h3><p>Hitungan dan jumlah putaran akan kembali ke 0.</p><button type="button" class="tutup" id="tsbYa">Atur ulang</button><button type="button" class="tsb-rs" id="tsbBtl" style="margin-top:10px">Batal</button></dialog>
+  </section>
+
+  <section class="page" id="pg-infaq" role="dialog" aria-modal="true" aria-labelledby="pt-infaq" aria-hidden="true"><div class="ph"><button class="iconbtn" data-back aria-label="Kembali"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg></button><b id="pt-infaq">Infaq dan qurban</b><span class="contoh">Contoh isi</span></div>
+  <div class="pb" id="pb-infaq"></div>
+  <dialog id="iqDlg" aria-labelledby="iqJd"><h3 id="iqJd">QRIS Masjid</h3><div class="iq-qr" id="iqQr2"></div><button type="button" class="tutup" id="iqTutup">Tutup</button></dialog>
+  </section>
+  <section class="page" id="pg-kas" role="dialog" aria-modal="true" aria-labelledby="pt-kas" aria-hidden="true"><div class="ph"><button class="iconbtn" data-back aria-label="Kembali"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg></button><b id="pt-kas">Laporan kas</b><span class="contoh">Contoh isi</span></div><div class="pb" id="pb-kas"></div></section>
+
+  <section class="page" id="pg-tahlil" role="dialog" aria-modal="true" aria-labelledby="pt-tahlil" aria-hidden="true"><div class="ph"><button class="iconbtn" data-back aria-label="Kembali"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg></button><b id="pt-tahlil">Tahlil dan Yasin</b><button type="button" class="iconbtn" id="tlAuto" aria-label="Gulir otomatis" aria-pressed="false"></button><button type="button" class="iconbtn" id="tlAa" aria-label="Pengaturan baca" aria-haspopup="dialog"><span class="tl-aa" aria-hidden="true">Aa</span></button></div>
+  <div class="pb" id="pb-tahlil"></div>
+  <button type="button" class="tl-jeda" id="tlJeda"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" aria-hidden="true"><path d="M9 5v14M15 5v14"/></svg>Jeda</button>
+  <dialog id="tlDlg" aria-labelledby="tlJd"><h3 id="tlJd">Pengaturan baca</h3>
+   <div class="tl-g" role="group" aria-label="Ukuran huruf Arab"><span class="tl-lb">Ukuran huruf Arab</span><div class="seg tl-seg4" id="tlUk"><button type="button" aria-label="Kecil" style="font-size:.9375rem">A</button><button type="button" aria-label="Normal" style="font-size:1.25rem">A</button><button type="button" aria-label="Besar" style="font-size:1.625rem">A</button><button type="button" aria-label="Sangat besar" style="font-size:2rem">A</button></div><p class="hint" id="tlUkN"></p><p class="tl-ar" lang="ar" dir="rtl">بِسْمِ ٱللَّهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ</p></div>
+   <div class="tl-g"><button type="button" class="tl-row" role="switch" id="tlTr"><span>Terjemah</span><i class="tl-sw"></i></button><button type="button" class="tl-row" role="switch" id="tlLt"><span>Tulisan Latin</span><i class="tl-sw"></i></button><button type="button" class="tl-row" role="switch" id="tlWk"><span>Layar tetap menyala</span><i class="tl-sw"></i></button></div>
+   <div class="tl-g" role="group" aria-label="Kecepatan gulir"><span class="tl-lb">Kecepatan gulir otomatis</span><div class="seg" id="tlKc"><button type="button">Pelan</button><button type="button">Sedang</button><button type="button">Cepat</button></div></div>
+   <button type="button" class="tutup" id="tlTutup">Selesai</button></dialog>
+  </section>
+
+  <section class="page" id="pg-arisan" role="dialog" aria-modal="true" aria-labelledby="pt-arisan" aria-hidden="true"><div class="ph"><button class="iconbtn" data-back aria-label="Kembali"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg></button><b id="pt-arisan">Arisan</b></div>
+  <div class="pb" id="pb-arisan"></div>
+  <dialog id="arDlg" aria-labelledby="arDlgJ"><h3 id="arDlgJ"></h3><p id="arDlgI"></p><button type="button" class="tutup" id="arDlgYa"></button><button type="button" class="tsb-rs" id="arDlgBtl" style="margin-top:10px" autofocus>Batal</button></dialog>
+  <dialog id="arVw" aria-label="Lembar omzet">
+    <div class="vw-top"><b id="vwJd">Lembar omzet</b><button type="button" class="vw-x" id="vwX">Tutup</button></div>
+    <div class="vw-cari" id="vwCari" hidden></div>
+    <p class="vw-hint" id="vwHint">Gunakan dua jari atau ketuk dua kali untuk memperbesar, seret untuk menggeser.</p>
+    <div class="vw-st" id="vwSt" tabindex="0" role="img" aria-label="Gambar lembar omzet. Gunakan dua jari untuk memperbesar, seret untuk menggeser."><img id="vwImg" alt="" draggable="false"></div>
+    <div class="vw-bar">
+      <button type="button" id="vwMin" aria-label="Perkecil">−</button><span class="vw-pct" id="vwPct" aria-live="polite">100%</span><button type="button" id="vwPlus" aria-label="Perbesar">+</button><button type="button" id="vwAwal" aria-label="Kembalikan ke ukuran awal">Reset</button>
+      <button type="button" id="vwPrev" aria-label="Halaman sebelumnya">‹ Sebelumnya</button><button type="button" id="vwNext" aria-label="Halaman berikutnya">Berikutnya ›</button><button type="button" class="del" id="vwDel" hidden>Hapus</button>
+    </div>
+    <p class="vw-meta" id="vwMeta"></p>
+  </dialog>
+  </section>
+
   <section class="sheet" id="sheet" role="dialog" aria-modal="true" aria-labelledby="st-lok" aria-hidden="true"></section>
+  <button type="button" class="dev-fab" id="devFab" hidden aria-label="Buka alat pengembang">DEV</button>
+  <dialog id="devDlg" aria-labelledby="devJd"><h3 id="devJd">Alat pengembang</h3><p class="dev-note">Hanya untuk pengujian tampilan. Tidak mengubah data di Sheet dan tidak tampil bagi jamaah.</p><div id="devBody"></div><button type="button" class="tutup" id="devTutup">Selesai</button></dialog>
   <div class="toast" id="toast" role="status"></div>
   <div class="net" id="net" role="status">Anda sedang offline · menampilkan data terakhir</div>
 </div>
 
 <script>
 let P=[["Subuh","04:02","sunrise"],["Dzuhur","11:46","sun"],["Ashar","15:08","sunmid"],["Maghrib","17:54","sunset"],["Isya","19:04","moon"]];
+let X={}; /* waktu tambahan dari API: terbit, tengah malam, sepertiga malam terakhir */
 let IMSAK=null; /* diisi dari API; jadi cadangan jika API gagal dimuat */
+let KOORD=null; /* koordinat pengguna bila memakai "Gunakan lokasi saya"; null = lokasi masjid */
+let BEL={};try{BEL=JSON.parse(localStorage.getItem("pengingatShalat")||"{}")||{}}catch(e){} /* lonceng pengingat per shalat; default nonaktif */
+let KAL={},KAL_BUSY={},KAL_ERR={},IM_P=null; /* cache kalender imsakiyah, status muat, nomor pekan yang tampil */
 let HIJRI=null; /* teks tanggal Hijriyah dari API, memakai penamaan bulan Indonesia */
 const BULAN_HIJRI={1:"Muharram",2:"Safar",3:"Rabiul Awal",4:"Rabiul Akhir",5:"Jumadil Awal",6:"Jumadil Akhir",7:"Rajab",8:"Syaban",9:"Ramadhan",10:"Syawal",11:"Dzulkaidah",12:"Dzulhijjah"};
 function teksHijri(hj){if(!hj||!hj.day||!hj.month)return"";const bln=BULAN_HIJRI[+hj.month.number]||hj.month.en;return`${hj.day} ${bln} ${hj.year} H`}
-const ICO={sunrise:'<path d="M12 2v8M4.93 10.93l1.41 1.41M2 18h2M20 18h2M19.07 10.93l-1.41 1.41M22 22H2M8 6l4-4 4 4M16 18a4 4 0 0 0-8 0"/>',sun:'<circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/>',sunmid:'<circle cx="12" cy="12" r="4"/><path d="M12 3v1M12 20v1M3 12h1M20 12h1M18.36 5.64l-.7.7M6.34 17.66l-.7.7M5.64 5.64l.7.7M17.66 17.66l.7.7"/>',sunset:'<path d="M12 10V2M4.93 10.93l1.41 1.41M2 18h2M20 18h2M19.07 10.93l-1.41 1.41M22 22H2M16 6l-4 4-4-4M16 18a4 4 0 0 0-8 0"/>',moon:'<path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/>'};
+const ICO={sunrise:'<path d="M12 2v8M4.93 10.93l1.41 1.41M2 18h2M20 18h2M19.07 10.93l-1.41 1.41M22 22H2M8 6l4-4 4 4M16 18a4 4 0 0 0-8 0"/>',sun:'<circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/>',sunmid:'<circle cx="12" cy="12" r="4"/><path d="M12 3v1M12 20v1M3 12h1M20 12h1M18.36 5.64l-.7.7M6.34 17.66l-.7.7M5.64 5.64l.7.7M17.66 17.66l.7.7"/>',sunset:'<path d="M12 10V2M4.93 10.93l1.41 1.41M2 18h2M20 18h2M19.07 10.93l-1.41 1.41M22 22H2M16 6l-4 4-4-4M16 18a4 4 0 0 0-8 0"/>',moon:'<path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/>',terbit:'<path d="M17 18a5 5 0 0 0-10 0M12 3v4M4.93 10.93l1.41 1.41M2 18h2M20 18h2M19.07 10.93l-1.41 1.41M22 22H2"/>',imsak:'<path d="M18 5h4M20 3v4"/><path d="M20.985 12.486a9 9 0 1 1-9.473-9.472c.405-.022.617.46.402.803a6 6 0 0 0 8.268 8.268c.344-.215.825-.004.803.401"/>'};
 /* ===== DATA PENGURUS (ubah di sini) =====
    ramadan: tanggal awal & akhir puasa sesuai penetapan (di bawah ini hanya perkiraan).
    giliran: tipe "giliran" (1-2 anggota) atau "penutupan" (tanpa nama, hanya nominal). */
@@ -506,13 +1005,27 @@ const CFG={tempat:"Masjid Jami' Al-Ikhlas",
  ramadan:{mulai:"2027-02-08",akhir:"2027-03-09"},
  giliran:{tipe:"giliran",tgl:"2026-11-12",anggota:[{nama:"H. Mawih",no:3,ket:"Mulang-naro"},{nama:"Syarifuddin",no:25,ket:"Narik pokok"}]},
  penutupan:{tipe:"penutupan",tgl:"2026-12-17",nominal:50000,ket:"Minimal per anggota"}};
-const demo=new URLSearchParams(location.search).get("demo");
+let demo=new URLSearchParams(location.search).get("demo");let DEVISI=false,DEVT=null; /* DEVT: jam simulasi (detik) khusus mode pengembang */
 /* ===== DATA DARI GOOGLE SHEET (Apps Script) =====
    Tempel URL Web App (berakhiran /exec) di config.js. Bila kosong/gagal dimuat, aplikasi
    memakai data tersimpan di perangkat, lalu CFG di atas sebagai cadangan terakhir. */
 CFG.api=(window.APP_CONFIG&&window.APP_CONFIG.api)||"";   /* diisi di config.js, bukan di sini */
 let DATA=null,dataAt=0;
 try{const raw=localStorage.getItem("dataSheet");if(raw)DATA=JSON.parse(raw)}catch(e){}
+/* Pratinjau pengembangan: buka dengan ?demo=isi untuk melihat halaman Arisan dengan data contoh (riwayat, giliran berikutnya, aturan main).
+   Data contoh hanya di memori, tidak disimpan, dan tidak mengubah Sheet. */
+function demoIsi(){
+ const iso=ms=>new Date(ms).toISOString().slice(0,10),n0=new Date(),b=Date.UTC(n0.getFullYear(),n0.getMonth(),n0.getDate()),
+  k=b+((4-new Date(b).getUTCDay()+7)%7)*864e5,W=7*864e5,
+  N=[["Hj. Ratmi",7],["Sri Wahyuni",12],["Siti Aminah",18],["Nurhayati",21],["Rohimah",4],["Ahmad Fauzi",9],["Maryati",15],["Sumiyati",2],["Endang",30],["Supriyati",11],["Kasiah",26]],r=[];
+ for(let i=7;i>=1;i--){const x=N[7-i];r.push({tgl:iso(k-i*W),tipe:"giliran",nama:x[0],no:x[1],ket:""})}
+ r.push({tgl:iso(k),tipe:"giliran",nama:"H. Mawih",no:3,ket:"Mulang-naro"},{tgl:iso(k),tipe:"giliran",nama:"Syarifuddin",no:25,ket:"Narik pokok"});
+ r.push({tgl:iso(k+W),tipe:"giliran",nama:N[8][0],no:N[8][1],ket:""});
+ r.push({tgl:iso(k+2*W),tipe:"giliran",nama:N[9][0],no:N[9][1],ket:""},{tgl:iso(k+2*W),tipe:"giliran",nama:N[10][0],no:N[10][1],ket:""});
+ r.push({tgl:iso(k+3*W),tipe:"penutupan",nominal:50000,ket:"Minimal per anggota"});
+ r.push({tgl:iso(k+4*W),tipe:"giliran",nama:N[0][0],no:N[0][1],ket:""});
+ DATA={giliran:r,lokasi:[],aturan:{tgl:iso(b),butir:["Contoh aturan pertama.","Contoh aturan kedua, agak lebih panjang supaya terlihat bagaimana teks turun ke baris berikutnya.","Contoh aturan ketiga."]}}}
+if(demo==="isi"){demoIsi();DEVISI=true;demo=null}
 function giliranBerikut(){
  if(demo==="penutupan")return CFG.penutupan;
  const rows=DATA&&Array.isArray(DATA.giliran)?DATA.giliran:[],t=todayJ();
@@ -526,22 +1039,22 @@ function giliranBerikut(){
  return CFG.giliran}
 function tglPekan(){const t=giliranBerikut().tgl;return t&&t>=todayJ()?t:nextKamis()}
 async function muatData(fresh){
- if(!CFG.api)return;
+ if(!CFG.api||demo==="isi"||DEVISI)return;
  try{
   const c=new AbortController(),to=setTimeout(()=>c.abort(),8000);
   const res=await fetch(CFG.api+(fresh?(CFG.api.includes("?")?"&":"?")+"_="+Date.now():""),{signal:c.signal});clearTimeout(to);
   if(!res.ok)throw new Error("HTTP "+res.status);
   const j=await res.json();
   if(!j||j.ok===false||!Array.isArray(j.giliran))throw new Error("Respons tidak valid");
-  DATA={giliran:j.giliran,lokasi:Array.isArray(j.lokasi)?j.lokasi:[],informasi:Array.isArray(j.informasi)?j.informasi:undefined,artikel:Array.isArray(j.artikel)?j.artikel:undefined};dataAt=Date.now();
+  DATA={giliran:j.giliran,lokasi:Array.isArray(j.lokasi)?j.lokasi:[],informasi:Array.isArray(j.informasi)?j.informasi:undefined,artikel:Array.isArray(j.artikel)?j.artikel:undefined,libur:Array.isArray(j.libur)?j.libur:undefined,aturan:(j.aturan&&typeof j.aturan==="object")?j.aturan:undefined};dataAt=Date.now();
   try{localStorage.setItem("dataSheet",JSON.stringify(DATA))}catch(e){}
   kartu();isiBeranda();
  }catch(e){console.warn("Gagal memuat data dari Sheet, memakai data tersimpan/bawaan.",e)}}
 document.addEventListener("visibilitychange",()=>{if(!document.hidden&&Date.now()-dataAt>300000)muatData()});
 const ico=n=>`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${ICO[n]}</svg>`;
-const TZ="Asia/Jakarta", $=id=>document.getElementById(id);
+let TZ="Asia/Jakarta";const TZ_MASJID="Asia/Jakarta",$=id=>document.getElementById(id);
 const secs=t=>{const[a,b]=t.split(":").map(Number);return a*3600+b*60};
-function jakarta(){
+function jakarta(){if(DEVT!=null)return DEVT;
   const p=Object.fromEntries(new Intl.DateTimeFormat("en-GB",{timeZone:TZ,hour:"2-digit",minute:"2-digit",second:"2-digit",hour12:false}).formatToParts(new Date()).map(x=>[x.type,x.value]));
   return(+p.hour%24)*3600+ +p.minute*60+ +p.second;
 }
@@ -576,27 +1089,39 @@ function kartuIsi(){const el=$("arisan"),f=fase(todayJ());
  if(f){const T={pra:["Marhaban ya Ramadhan","Semoga kita dipertemukan dengan bulan yang penuh berkah."],puasa:["Selamat menjalankan ibadah puasa","Semoga ibadah kita diterima dan dimudahkan Allah."],pasca:["Minal Aidin wal Faizin","Mohon Maaf Lahir &amp; Batin","Segenap Pengurus Majelis Taklim Al-Istiqomah mengucapkan"]}[f],kb=kembali(),info=f==="pasca"&&(demo==="kembali"||todayJ()>=addD(kb,-7));
   el.className="arisan libur";el.innerHTML=sky()+`<div>${T[2]?`<p class="from">${T[2]}</p>`:""}<h2>${T[0]}</h2><p>${T[1]}</p>${info?`<span class="back">Pengajian kembali ${dm(kb)}</span>`:""}</div><span class="fx">${FX[f]}</span>`;return}
  const g=giliranBerikut();
- if(g.tipe==="penutupan"){el.className="arisan";el.innerHTML=`<div class="row"><strong>Penutupan pengajian</strong><span>${tgl(g.tgl)}</span></div><div class="who"><div><p class="ajak">Infak untuk guru kita</p><div class="nom">Rp${g.nominal.toLocaleString("id-ID")}</div><div class="nomk">${esc(g.ket)}</div></div></div><p class="syukur">Mohon partisipasi dan kesadaran seluruh anggota untuk menunaikan infak. Jazakumullah khairan 🙏</p>${place}`;return}
+ if(g.tipe==="penutupan"){el.className="arisan";el.innerHTML=`<div class="row"><strong>Penutupan pengajian</strong><span>${tgl(g.tgl)}</span></div><div class="who"><div><p class="ajak">Infaq untuk guru kita</p><div class="nom">Rp${g.nominal.toLocaleString("id-ID")}</div><div class="nomk">${esc(g.ket)}</div></div></div><p class="syukur">Mohon partisipasi dan kesadaran seluruh anggota untuk menunaikan infaq. Jazakumullah khairan 🙏</p>${place}`;return}
  const a=demo==="satu"?g.anggota.slice(0,1):g.anggota.slice(0,2);
  el.className="arisan"+(a.length===1?" satu":"");
  el.innerHTML=`<div class="row"><strong>Giliran arisan</strong><span>${tgl(g.tgl)}</span></div>`+a.map(x=>`<div class="who"><h2>${esc(x.nama)}</h2><span class="tag no">No. ${esc(x.no)}</span><span class="tag ket">${esc(x.ket)}</span></div>`).join("")+place+btn}
 function kartu(){kartuIsi();const el=$("arisan");
  el.querySelectorAll("[data-page]").forEach(b=>b.onclick=()=>{back=b;openPage(b.dataset.page)});
- el.querySelectorAll("[data-go]").forEach(b=>b.onclick=e=>{e.preventDefault();say("“"+b.dataset.go+"” belum ada di pratinjau ini")})}
+ el.querySelectorAll("[data-go]").forEach(b=>b.onclick=e=>{e.preventDefault();if(b.dataset.go==="Arisan"){back=b;openPage("arisan");return}say("“"+b.dataset.go+"” belum ada di pratinjau ini")})}
 function events(){const r=fase(todayJ())==="puasa",e=[];if(r)e.push(["Imsak",IMSAK||fmt(secs(P[0][1])-600),0]);P.forEach((x,k)=>e.push([r&&k===3?"Buka puasa":x[0],x[1],k]));return e}
 function render(){
   const E=events(),r=fase(todayJ())==="puasa",now=jakarta();let n=E.findIndex(x=>secs(x[1])>now),diff;
   if(n<0){n=0;diff=secs(E[0][1])+86400-now}else diff=secs(E[n][1])-now;
-  const i=E[n][2];$("hero").classList.toggle("ram",r);
+  $("hero").classList.toggle("ram",r);
   if(r)$("puasa").innerHTML=`<div><small>Imsak</small><b>${E[0][1]}</b></div><div><small>Buka puasa</small><b>${P[3][1]}</b></div>`;
-  $("nextName").textContent="Menuju "+E[n][0];
-  $("nextTime").textContent=E[n][1];
+  const nmN=/^(Imsak|Buka puasa)$/.test(E[n][0])?E[n][0].toLowerCase():E[n][0];
+  $("nextName").textContent="menuju "+nmN+" "+E[n][1];
   const m=Math.ceil(diff/60),jam=Math.floor(m/60),mnt=m%60;
   $("leftTxt").textContent=[jam?jam+" jam":"",mnt||!jam?mnt+" menit":"","lagi"].filter(Boolean).join(" ");
-  document.querySelectorAll(".t").forEach((el,k)=>el.classList.toggle("on",k===i));
+  /* shalat yang sedang berlangsung + garis progres per segmen */
+  const S=P.map(x=>secs(x[1])),im=secs(IMSAK||fmt(S[0]-600)),tb=X.terbit?secs(X.terbit):null;
+  let ai,aktif;
+  if(now>=S[4]){ai=4;aktif="Isya"}else if(now>=S[3]){ai=3;aktif="Maghrib"}else if(now>=S[2]){ai=2;aktif="Ashar"}else if(now>=S[1]){ai=1;aktif="Dzuhur"}
+  else if(now>=S[0]){ai=0;aktif=tb!==null&&now>=tb?"Dhuha":"Subuh"}
+  else{ai=4;aktif=r&&now>=im?"Imsak":"Isya"}
+  const all=ai===4;let h="",sum=0,lab=[];
+  P.forEach((x,k)=>{const reach=all||S[k]<=now;
+    if(k)sum+=all?1:Math.max(0,Math.min(1,(now-S[k-1])/(S[k]-S[k-1])));
+    lab.push(x[0]+" "+x[1]+(k===ai?" (sekarang)":""));
+    h+=`<div class="tl-c${k===ai?" on":reach?" p":""}"><span class="tl-n">${x[0]}</span><i class="tl-d"></i><span class="tl-i">${ico(x[2])}</span><span class="tl-t">${x[1]}</span></div>`});
+  $("aktif").textContent=aktif;
+  const st=$("stp");st.style.setProperty("--p",(sum/4).toFixed(4));st.setAttribute("aria-label","Jadwal hari ini: "+lab.join(", "));
+  st.innerHTML='<i class="tl-rl"></i><i class="tl-rp"></i>'+h;
   $("miniNext").textContent=E[n][0]+" "+E[n][1];const dl=dateLine();if(dl)$("dateTxt").textContent=dl;
 }
-$("times").innerHTML=P.map(x=>`<div class="t">${ico(x[2])}<span>${x[0]}</span><b>${x[1]}</b></div>`).join("");
 /* ===== JADWAL SHALAT — API AlAdhan =====
    lat/lng = lokasi Masjid Jami' Al-Ikhlas (ganti bila lokasi berubah).
    metode 20 = Kementerian Agama RI (Kemenag), mazhab 0 = Syafi'i/standar (Ashar). */
@@ -607,14 +1132,14 @@ function pakaiJadwal(data,simpan,kunci){
  const t=data.timings;
  P=[["Subuh",bersih(t.Fajr),"sunrise"],["Dzuhur",bersih(t.Dhuhr),"sun"],["Ashar",bersih(t.Asr),"sunmid"],["Maghrib",bersih(t.Maghrib),"sunset"],["Isya",bersih(t.Isha),"moon"]];
  IMSAK=bersih(t.Imsak);
+ X={terbit:t.Sunrise?bersih(t.Sunrise):null,tengah:t.Midnight?bersih(t.Midnight):null,sepertiga:t.Lastthird?bersih(t.Lastthird):null};
  if(data.hijri){const teks=teksHijri(data.hijri);if(teks)HIJRI=teks}
- $("times").innerHTML=P.map(x=>`<div class="t">${ico(x[2])}<span>${x[0]}</span><b>${x[1]}</b></div>`).join("");
- fitT();render();
+ fitT();render();renderSholat();
  if(simpan&&kunci)try{localStorage.setItem(kunci,JSON.stringify(data))}catch(e){}
 }
 async function ambilJadwal(lat,lng,tgl){
  const{metode,mazhab}=CFG.sholat;
- const url=`https://api.aladhan.com/v1/timings/${tgl}?latitude=${lat}&longitude=${lng}&method=${metode}&school=${mazhab}&timezonestring=Asia%2FJakarta`;
+ const url=`https://api.aladhan.com/v1/timings/${tgl}?latitude=${lat}&longitude=${lng}&method=${metode}&school=${mazhab}&timezonestring=${encodeURIComponent(TZ)}`;
  const res=await fetch(url);
  if(!res.ok)throw new Error("HTTP "+res.status);
  const j=await res.json();
@@ -631,28 +1156,56 @@ async function muatJadwalSholat(){
 
 /* ===== Lokasi pengguna (opsional) untuk jadwal shalat =====
    Default tetap memakai CFG.sholat (lokasi masjid) di atas. Tombol "Gunakan lokasi saya"
-   meminta izin lokasi HP; bila diizinkan, jadwal dihitung dari koordinat pengguna.
+   meminta izin lokasi perangkat; bila diizinkan, jadwal dihitung dari koordinat pengguna.
    Jika ditolak/gagal/tidak didukung, otomatis kembali ke lokasi masjid.
    Catatan: Geolocation API browser hanya berfungsi di halaman HTTPS (atau localhost),
    tidak akan aktif bila file dibuka langsung lewat file://. */
-let pakaiLokasiSaya=false;
+let pakaiLokasiSaya=false,NAMA_LOK="";
+/* Nama wilayah dari koordinat (OpenStreetMap Nominatim). Hasil disimpan di perangkat per koordinat yang dibulatkan. */
+async function namaWilayah(lat,lng){
+ const key="namaLok_"+bulatKoord(lat)+"_"+bulatKoord(lng);
+ try{const c=localStorage.getItem(key);if(c)return c}catch(e){}
+ const ac=new AbortController(),to=setTimeout(()=>ac.abort(),8000);
+ try{
+  const res=await fetch(`https://nominatim.openstreetmap.org/reverse?format=jsonv2&lat=${lat}&lon=${lng}&zoom=14&addressdetails=1&accept-language=id`,{signal:ac.signal});
+  if(!res.ok)throw new Error("HTTP "+res.status);
+  const a=(await res.json()).address||{};
+  const kec=a.city_district||a.suburb||a.village||a.neighbourhood||a.hamlet||"",
+   kota=a.city||a.town||a.municipality||a.county||a.regency||a.state_district||"";
+  let p=[kec,kota].filter(Boolean);
+  if(p.length<2&&a.state)p.push(a.state);
+  p=p.filter((x,i)=>p.indexOf(x)===i);
+  const t=p.slice(0,2).join(", ");
+  if(t)try{localStorage.setItem(key,t)}catch(e){}
+  return t;
+ }catch(e){console.warn("Gagal mengambil nama wilayah.",e);return""}
+ finally{clearTimeout(to)}
+}
+async function isiNamaLokasi(lat,lng){
+ const t=await namaWilayah(lat,lng);
+ if(t&&pakaiLokasiSaya&&KOORD&&KOORD.lat===lat&&KOORD.lng===lng){NAMA_LOK=t;tandaiLokasiUI()}
+}
 function tandaiLokasiUI(){
- const b=$("locBtn");if(!b)return;
- $("locText").textContent=pakaiLokasiSaya?"Lokasi Anda saat ini":MAJELIS.masjid.nama;
- b.textContent=pakaiLokasiSaya?"Pakai lokasi masjid":"Gunakan lokasi saya";
+ if(!pakaiLokasiSaya)NAMA_LOK="";
+ const nama=pakaiLokasiSaya?(NAMA_LOK?"Lokasi Anda: "+NAMA_LOK:"Lokasi Anda saat ini"):MAJELIS.masjid.nama;
+ $("locText").textContent=nama;
+ const lt=$("sLocText");if(lt)lt.textContent=nama;
+ const b=$("sLocBtn");if(b)b.textContent=pakaiLokasiSaya?"Pakai lokasi masjid":"Gunakan lokasi saya";
+ if(typeof kbPerbarui==="function")kbPerbarui();
 }
 const bulatKoord=n=>Math.round(n*100)/100;
 function pakaiLokasiMasjid(dariTombol){
- pakaiLokasiSaya=false;K("modeLokasiSholat","default");tandaiLokasiUI();
+ TZ=TZ_MASJID;pakaiLokasiSaya=false;KOORD=null;K("modeLokasiSholat","default");tandaiLokasiUI();
  muatJadwalSholat();
  if(dariTombol)say("Kembali memakai jadwal lokasi masjid");
 }
 function mintaLokasiSaya(diam){
  if(!("geolocation"in navigator)){if(!diam)say("Perangkat/peramban ini tidak mendukung layanan lokasi");return}
- const b=$("locBtn");if(b)b.setAttribute("aria-busy","true");
+ const b=$("sLocBtn");if(b)b.setAttribute("aria-busy","true");
  navigator.geolocation.getCurrentPosition(async pos=>{
+   TZ=Intl.DateTimeFormat().resolvedOptions().timeZone||TZ_MASJID;
    const lat=pos.coords.latitude,lng=pos.coords.longitude,tgl=tglAPI(new Date());
-   pakaiLokasiSaya=true;K("modeLokasiSholat","saya");tandaiLokasiUI();
+   pakaiLokasiSaya=true;KOORD={lat,lng};NAMA_LOK="";K("modeLokasiSholat","saya");tandaiLokasiUI();isiNamaLokasi(lat,lng);
    if(b)b.setAttribute("aria-busy","false");
    const kunci=`jadwalSholatSaya_${tgl}_${bulatKoord(lat)}_${bulatKoord(lng)}`;
    let cache=null;try{const raw=localStorage.getItem(kunci);if(raw)cache=JSON.parse(raw)}catch(e){}
@@ -661,14 +1214,14 @@ function mintaLokasiSaya(diam){
    catch(e){console.warn("Gagal memuat jadwal untuk lokasi Anda.",e);if(!cache){pakaiLokasiMasjid(false);if(!diam)say("Gagal memuat jadwal untuk lokasi Anda, memakai lokasi masjid")}}
   },err=>{
    if(b)b.setAttribute("aria-busy","false");
-   pakaiLokasiSaya=false;K("modeLokasiSholat","default");tandaiLokasiUI();
+   TZ=TZ_MASJID;pakaiLokasiSaya=false;KOORD=null;K("modeLokasiSholat","default");tandaiLokasiUI();
    if(!diam){
     const pesan=err.code===1?"Izin lokasi ditolak. Jadwal memakai lokasi masjid.":err.code===2?"Lokasi tidak dapat dideteksi. Jadwal memakai lokasi masjid.":"Permintaan lokasi melebihi batas waktu. Jadwal memakai lokasi masjid.";
     say(pesan);
    }
   },{enableHighAccuracy:false,timeout:10000,maximumAge:600000});
 }
-$("locBtn").onclick=()=>{pakaiLokasiSaya?pakaiLokasiMasjid(true):mintaLokasiSaya(false)};
+$("sLocBtn").onclick=()=>{pakaiLokasiSaya?pakaiLokasiMasjid(true):mintaLokasiSaya(false)};
 
 /* ===== DATA MAJELIS (isi contoh — ganti dengan data pengurus) ===== */
 const MAJELIS={nama:"Majelis Taklim Al-Istiqomah",tagline:"[Motto atau tagline majelis]",berdiri:"[Tahun berdiri]",
@@ -678,6 +1231,7 @@ const MAJELIS={nama:"Majelis Taklim Al-Istiqomah",tagline:"[Motto atau tagline m
  pengurus:[{j:"Ketua",n:"[Nama]"},{j:"Sekretaris",n:"[Nama]"},{j:"Bendahara",n:"[Nama]"},{j:"Sarana dan prasarana",n:"[Nama]"}],
  acara:[{t:"Arisan dan bayar kas",k:"[Keterangan singkat bagian ini]"},{t:"Zikir dan tahlil",k:"[Keterangan singkat bagian ini]"},{t:"Tausiyah",k:"",guru:1},{t:"Pengumuman",k:"[Keterangan singkat bagian ini]"},{t:"Doa",k:"[Keterangan singkat bagian ini]"}],
  masjid:{nama:"Masjid Jami' Al-Ikhlas",alamat:"Jl. Serua Raya No. 101 RT 004/002, Kel. Serua, Kec. Bojongsari, Kota Depok 16517"}};
+MAJELIS.aturan={tgl:"",butir:[]};
 MAJELIS.kontak=[{j:"Ketua",n:"[Nama]",hp:"[Nomor WhatsApp]",u:"[Keperluan umum dan kegiatan majelis]"},{j:"Sekretaris",n:"[Nama]",hp:"[Nomor WhatsApp]",u:"[Informasi dan undangan acara]"},{j:"Bendahara",n:"[Nama]",hp:"[Nomor WhatsApp]",u:"[Keperluan arisan dan kas]"}];
 MAJELIS.faq=[{q:"Bagaimana cara memasang aplikasi di layar utama?",a:"Di Android (Chrome): ketuk ikon titik tiga di pojok kanan atas, pilih “Tambahkan ke layar utama”, lalu ketuk “Pasang”. Di iPhone (Safari): ketuk tombol Bagikan, lalu pilih “Tambah ke Layar Utama”."},
  {q:"Kapan dan di mana pengajian diadakan?",a:"Pengajian diadakan setiap malam Jumat di Masjid Jami' Al-Ikhlas. Pada acara tertentu seperti takziah, syukuran, atau haul, lokasi dapat berpindah ke kediaman anggota. Lokasi pekan ini ada di menu Majelis, bagian Lokasi."},
@@ -696,7 +1250,7 @@ function lokPekan(){const M=MAJELIS.masjid,masjid={jenis:"masjid",label:"Masjid"
  if(!j||j==="masjid"||!JL[j])return masjid;
  return{jenis:j,label:JL[j],nama:r.nama||LDEF[j][0],alamat:r.alamat||LDEF[j][1]}}
 function tempatPekan(){const l=lokPekan();return l.jenis==="masjid"?l.nama:l.nama+" ("+l.label.toLowerCase()+")"}
-kartu();render();setInterval(render,15000);
+kartu();render();setInterval(()=>{render();renderSholat();cekPengingat()},15000);
 tandaiLokasiUI();muatJadwalSholat();muatData();
 setTimeout(()=>document.documentElement.classList.remove("sk-on"),450);
 const top_=document.querySelector(".top"),mini=$("mini");let tick=0;
@@ -706,7 +1260,7 @@ const net=()=>$("net").classList.toggle("show",!navigator.onLine);addEventListen
 if("serviceWorker" in navigator&&/^https?:$/.test(location.protocol))addEventListener("load",()=>navigator.serviceWorker.register("sw.js").catch(()=>{}));
 
 const app=$("app"),mb=$("menuBtn");
-function menu(o){app.classList.toggle("open",o);mb.setAttribute("aria-expanded",o);mb.setAttribute("aria-label",o?"Tutup menu opsi":"Buka menu opsi");$("drawer").setAttribute("aria-hidden",!o);(o?$("closeBtn"):($("mini").classList.contains("show")?$("menuBtn2"):mb)).focus({preventScroll:true})}
+function menu(o){app.classList.toggle("open",o);mb.setAttribute("aria-expanded",o);mb.setAttribute("aria-label",o?"Tutup menu opsi":"Buka menu opsi");$("drawer").setAttribute("aria-hidden",!o);const pg=document.querySelector(".page.open"),pk=pg&&pg.querySelector("[data-menu]");(o?$("closeBtn"):(pk||($("mini").classList.contains("show")?$("menuBtn2"):mb))).focus({preventScroll:true})}
 mb.onclick=$("menuBtn2").onclick=()=>menu(true);$("closeBtn").onclick=$("scrim").onclick=()=>menu(false);
 document.addEventListener("keydown",e=>{if(e.key==="Escape"&&app.classList.contains("open"))menu(false)});
 let tt;document.querySelectorAll("[data-go]").forEach(b=>b.onclick=e=>{
@@ -737,7 +1291,7 @@ document.querySelectorAll("[data-tema]").forEach(b=>b.onclick=()=>tema(b.dataset
 const ar=$("arisan");if("IntersectionObserver" in window)new IntersectionObserver(e=>ar.classList.toggle("paused",!e[0].isIntersecting)).observe(ar);
 function teks(n){if(n==="k"||n==="b")document.documentElement.dataset.fs=n;else{delete document.documentElement.dataset.fs;n="n"}K("teks",n);document.querySelectorAll("[data-teks]").forEach(b=>b.setAttribute("aria-pressed",String(b.dataset.teks===n)))}
 document.querySelectorAll("[data-teks]").forEach(b=>b.onclick=()=>teks(b.dataset.teks));teks(K("teks")||"n");
-const fitT=()=>{const t=$("times"),sh=document.querySelector(".short");t.classList.remove("wrap3");sh.classList.remove("wrap2");if([...t.children].some(c=>c.scrollWidth>c.clientWidth+1))t.classList.add("wrap3");if([...sh.children].some(c=>c.scrollWidth>c.clientWidth+1))sh.classList.add("wrap2")};
+function fitT(){const sh=document.querySelector(".short");sh.classList.remove("wrap2");if([...sh.children].some(c=>c.scrollWidth>c.clientWidth+1))sh.classList.add("wrap2")}
 fitT();addEventListener("resize",fitT);if(document.fonts&&document.fonts.ready)document.fonts.ready.then(fitT);
 document.querySelectorAll("[data-teks]").forEach(b=>b.addEventListener("click",()=>setTimeout(fitT,50)));
 const syncPasang=()=>{$("pasangItem").hidden=standalone()||K("pasangOK")==="1"};
@@ -761,21 +1315,21 @@ function renderAcara(){const M=MAJELIS,l=lokPekan(),f=fase(todayJ()),mlm=x=>dm(x
  `<div class="pc"><h3>Susunan acara</h3><ol class="urut">${M.acara.map((a,i)=>`<li><span class="no2">${i+1}</span><div><b>${esc(a.t)}</b>${a.guru?`<span class="pill2">${I(IC.user).replace("<svg",'<svg width="16" height="16"')}${esc(M.guru.nama)}</span>`:`<span>${esc(a.k)}</span>`}</div></li>`).join("")}</ol></div>`+
  guruCard()+`<p class="note2">Urutan acara tetap. Waktu tiap bagian menyesuaikan kondisi.${f?" Susunan ini berlaku saat pengajian berlangsung.":""}</p>`}
 function renderLokasi(){const l=lokPekan(),M=MAJELIS.masjid,q=encodeURIComponent(l.alamat);$("sheet").innerHTML=
- `<div class="grab"></div><h3 id="st-lok">${fase(todayJ())?"Lokasi pengajian":"Lokasi pekan ini"}<button class="iconbtn" data-close-sheet aria-label="Tutup">${I('<path d="M6 6l12 12M18 6L6 18"/>')}</button></h3><span class="bdg">${esc(l.label)}</span><span class="contoh" style="margin-left:6px;color:var(--muted);border-color:var(--line);background:none">Contoh isi</span>`+
+ `<div class="grab"></div><h3 id="st-lok">${fase(todayJ())?"Lokasi pengajian":"Lokasi pekan ini"}<button class="iconbtn" data-close-sheet aria-label="Tutup">${I('<path d="M6 6l12 12M18 6L6 18"/>')}</button></h3><span class="bdg">${esc(l.label)}</span>`+
  `<div class="nm">${esc(l.nama)}</div><div class="al">${esc(l.alamat)}</div>`+
  `<div class="aksi"><a class="btn2 pri" href="https://www.google.com/maps/search/?api=1&query=${q}" target="_blank" rel="noopener">${I(IC.map)}Buka di Google Maps</a><a class="btn2 sec" href="https://www.google.com/maps/dir/?api=1&destination=${q}" target="_blank" rel="noopener">${I(IC.nav)}Petunjuk arah</a><button class="btn2 sec" id="salin">${I(IC.copy)}Salin alamat</button></div>`+
  `<div class="biasa">${l.jenis!=="masjid"?`<small>Lokasi biasa</small><div class="nm" style="margin-top:0">${esc(M.nama)}</div><div class="al">${esc(M.alamat)}</div>`:""}<p class="note2" style="margin-top:14px">Lokasi dapat berpindah ke kediaman anggota pada acara takziah, syukuran, haul, atau permintaan anggota.</p></div>`;
  $("salin").onclick=async()=>{try{await navigator.clipboard.writeText(l.alamat);say("Alamat disalin")}catch(e){say("Tidak bisa menyalin dari perangkat ini")}}}
-let back=null,sb=null;const R={profil:renderProfil,acara:renderAcara};
+let back=null,sb=null;const R={profil:renderProfil,acara:renderAcara},SUBP={};
 function openPage(id){if(id==="lokasi"){renderLokasi();const sh=$("sheet");sh.classList.add("open");sh.setAttribute("aria-hidden","false");$("scrim2").classList.add("on");sb=document.activeElement;sh.querySelector("[data-close-sheet]").focus({preventScroll:true});sh.querySelector("[data-close-sheet]").onclick=closeTop;return}
- R[id]();const p=$("pg-"+id);document.querySelectorAll(".page.open").forEach(x=>{if(x!==p)shut(x)});p.classList.add("open");p.setAttribute("aria-hidden","false");p.scrollTop=0;if(!back)back=document.activeElement;p.querySelector("[data-back]").focus({preventScroll:true});bind(p)}
+ R[id]();const p=$("pg-"+id);document.querySelectorAll(".page.open").forEach(x=>{if(x!==p&&!(SUBP[id]&&x.id==="pg-"+SUBP[id]))shut(x)});p.classList.add("open");p.setAttribute("aria-hidden","false");p.scrollTop=0;if(!back)back=document.activeElement;p.querySelector("[data-back]").focus({preventScroll:true});bind(p)}
 function shut(p){p.classList.remove("open");p.setAttribute("aria-hidden","true")}
 function closeTop(){const sh=$("sheet");if(sh.classList.contains("open")){sh.classList.remove("open");sh.setAttribute("aria-hidden","true");$("scrim2").classList.remove("on");if(sb){sb.focus({preventScroll:true});sb=null}return}
  const o=[...document.querySelectorAll(".page.open")].pop();if(o){shut(o);if(!document.querySelector(".page.open")&&back){back.focus({preventScroll:true});back=null}}}
 function bind(root){root.querySelectorAll("[data-page]").forEach(b=>b.onclick=()=>openPage(b.dataset.page));root.querySelectorAll("[data-back]").forEach(b=>b.onclick=closeTop)}
 document.querySelectorAll("#drawer [data-page]").forEach(b=>b.onclick=()=>{menu(false);setTimeout(()=>{back=mb;openPage(b.dataset.page)},120)});
 $("scrim2").onclick=closeTop;
-document.addEventListener("keydown",e=>{if(e.key==="Escape"&&($("sheet").classList.contains("open")||document.querySelector(".page.open"))){e.stopPropagation();closeTop()}},true);
+document.addEventListener("keydown",e=>{if(e.key==="Escape"&&!document.querySelector("dialog[open]")&&!app.classList.contains("open")&&($("sheet").classList.contains("open")||document.querySelector(".page.open"))){e.stopPropagation();closeTop()}},true);
 document.querySelectorAll(".page [data-back]").forEach(b=>b.onclick=closeTop);
 Object.assign(IC,{hubung:'<path d="M7.9 20A9 9 0 1 0 4 16.1L2 22z"/>',tel:'<path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/>'});
 
@@ -798,13 +1352,278 @@ Object.assign(R,{hubungi:renderHubungi,bantuan:renderBantuan,masukan:renderMasuk
 
 const APP_VER="1.0";
 R.pengaturan=()=>{};
+/* ===== Halaman waktu shalat: busur dari waktu ke waktu berikutnya ===== */
+function renderSholat(force){
+ const pg=$("pg-sholat");if(!force&&!pg.classList.contains("open"))return;
+ const H=86400,r=fase(todayJ())==="puasa",now=jakarta(),S=P.map(x=>secs(x[1])),im=secs(IMSAK||fmt(S[0]-600));
+ let a,b,tk=[];
+ if(r){ /* Ramadhan: siang Imsak -> Buka puasa; malam Maghrib -> Imsak */
+  const mg=S[3];
+  if(now>=im&&now<mg){a=["Imsak",im];b=["Buka puasa",mg];tk=[[P[1][0],S[1]],[P[2][0],S[2]]]}
+  else if(now>=mg){a=["Maghrib",mg];b=["Imsak",im+H];tk=[["Isya",S[4]]]}
+  else{a=["Maghrib",mg-H];b=["Imsak",im];tk=[["Isya",S[4]-H]]}
+ }else{ /* biasa: dari satu shalat ke shalat berikutnya */
+  const k=S.findIndex(x=>x>now);
+  if(k<0){a=["Isya",S[4]];b=["Subuh",S[0]+H]}
+  else if(k===0){a=["Isya",S[4]-H];b=["Subuh",S[0]]}
+  else{a=[P[k-1][0],S[k-1]];b=[P[k][0],S[k]]}
+  if(a[0]==="Subuh"&&X.terbit)tk=[["Terbit",secs(X.terbit)]]
+ }
+ tk=tk.filter(x=>x[1]>a[1]&&x[1]<b[1]);
+ const hm=v=>fmt(((v%H)+H)%H),dur=d=>{const m=Math.ceil(Math.max(0,d)/60),j=Math.floor(m/60),n=m%60;return[j?j+" jam":"",n||!j?n+" menit":""].filter(Boolean).join(" ")};
+ const p=Math.max(0,Math.min(1,(now-a[1])/(b[1]-a[1]))),pt=f=>{const t=Math.PI*f;return[150-130*Math.cos(t),150-130*Math.sin(t)]};
+ const kecil=n=>/^(Imsak|Buka puasa)$/.test(n)?n.toLowerCase():n,cd=dur(b[1]-now);
+ let nk=S.findIndex(x=>x>now),nt;if(nk<0){nk=0;nt=S[0]+H}else nt=S[nk];
+ $("sTo").textContent="Menuju "+kecil(b[0]);$("sCd").textContent=cd;
+ $("sPg").setAttribute("stroke-dashoffset",(408.41*(1-p)).toFixed(1));
+ const q=pt(p);$("sNow").setAttribute("cx",q[0].toFixed(1));$("sNow").setAttribute("cy",q[1].toFixed(1));
+ $("sTk").innerHTML=tk.map(x=>{const c=pt((x[1]-a[1])/(b[1]-a[1]));return`<circle class="bs-tk${x[1]<=now?" tp":""}" cx="${c[0].toFixed(1)}" cy="${c[1].toFixed(1)}" r="5.5"/>`}).join("");
+ $("sA1").textContent=a[0];$("sA2").textContent=hm(a[1]);
+ $("sB1").textContent=b[0];$("sB2").textContent=hm(b[1])+(b[1]>=H?" besok":"");
+ const cap=$("sCap");cap.hidden=!tk.length;cap.innerHTML=tk.map(x=>`<span class="ck${x[1]<=now?" tp":""}" aria-hidden="true">●</span> ${x[0]} ${hm(x[1])}`).join(" &nbsp; ");
+ const nx=$("sNxt");nx.hidden=!r;if(r)nx.innerHTML=`Shalat berikutnya: <b>${P[nk][0]} ${hm(nt)}</b> · ${dur(nt-now)} lagi`;
+ $("sArcW").setAttribute("aria-label",`Menuju ${kecil(b[0])} ${hm(b[1])}, ${cd} lagi. Busur dari ${a[0]} ${hm(a[1])} sampai ${b[0]} ${hm(b[1])}.`);
+ renderKartuShalat(r,nk);renderImsakiyah(r);
+}
+R.sholat=()=>renderSholat(true);
+
+/* ===== Kartu waktu shalat (vertikal) + lonceng pengingat ===== */
+const SVG_A='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">';
+const BEL_ON=SVG_A+'<path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/></svg>';
+const BEL_OFF=SVG_A+'<path d="M8.7 3A6 6 0 0 1 18 8a21.3 21.3 0 0 0 .6 5"/><path d="M17 17H3s3-2 3-9a4.67 4.67 0 0 1 .3-1.7"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/><path d="m2 2 20 20"/></svg>';
+function setH(el,h){ /* tulis ulang hanya bila berubah; fokus tombol dipertahankan */
+ if(el._h===h)return;
+ const f=document.activeElement,fk=f&&el.contains(f)?(f.dataset.bel||""):"";
+ el.innerHTML=h;el._h=h;
+ if(fk){const b=el.querySelector('[data-bel="'+fk+'"]');if(b)b.focus({preventScroll:true})}
+}
+let SH_OFF=0; /* selisih hari dari hari ini untuk kartu waktu shalat */
+function hijriTgl(d){try{return new Intl.DateTimeFormat("id-ID-u-ca-islamic-umalqura",{timeZone:"UTC",day:"numeric",month:"long",year:"numeric"}).format(new Date(d+"T12:00:00Z")).replace(/\s*(AH|H)\.?$/i,"").replace(/(Rabiul|Jumadil)(awal|akhir)/i,(m,a,b)=>a+" "+b[0].toUpperCase()+b.slice(1))+" H"}catch(e){return""}}
+function dataHari(off){
+ const d=addD(todayJ(),off);
+ if(off===0)return{d,e:{im:IMSAK||fmt(secs(P[0][1])-600),sb:P[0][1],tb:X.terbit,dz:P[1][1],as:P[2][1],mg:P[3][1],is:P[4][1]},hj:HIJRI||hijriCadangan()};
+ const key=imTag()+"_"+d.slice(0,7),m=kalDari(key);let e=null,load=false,err=false;
+ if(m)e=m[d]||null;else if(KAL_ERR[key])err=true;else{load=true;if(!KAL_BUSY[key])ambilKal(key,+d.slice(0,4),+d.slice(5,7),koordAktif())}
+ const hj=e&&e.hj?e.hj.d+" "+(BULAN_HIJRI[e.hj.m]||"")+" "+e.hj.y+" H":hijriTgl(d);
+ return{d,e,hj,load,err};
+}
+function renderKartuShalat(r0,nk){
+ const H=dataHari(SH_OFF),e=H.e,hari=SH_OFF===0,r=hari?r0:fase(H.d)==="puasa",v=k=>e&&e[k]?e[k]:"–";
+ let g="";try{g=new Intl.DateTimeFormat("id-ID",{timeZone:"UTC",weekday:"long",day:"numeric",month:"long",year:"numeric"}).format(D(H.d)).replace(/^(\S+?),?\s/,"$1, ")}catch(x){}
+ $("shMasehi").textContent=g;$("shHijri").textContent=H.hj||"";$("shNow").hidden=hari;
+ $("shNext").setAttribute("aria-label",SH_OFF===-1?"Hari ini":SH_OFF===0?"Besok":"Tanggal berikutnya");
+ const rows=[];
+ if(r)rows.push({n:"Imsak",t:v("im"),ic:"imsak",s:"Batas sahur"});
+ rows.push({n:P[0][0],t:v("sb"),ic:P[0][2],bel:1});
+ rows.push({n:"Syuruq",t:v("tb"),ic:"terbit"});
+ [["dz",1],["as",2],["mg",3],["is",4]].forEach(q=>rows.push({n:P[q[1]][0],t:v(q[0]),ic:P[q[1]][2],bel:1,s:r&&q[1]===3?"Berbuka puasa":""}));
+ const nxt=hari?P[nk][0]:"";
+ setH($("skList"),rows.map(x=>{
+  const on=!!BEL[x.n];
+  return `<div class="sk-r${x.n===nxt?" on":""}"><span class="sk-i">${ico(x.ic)}</span><span class="sk-n">${x.n}${x.s?`<small>${x.s}</small>`:""}</span><b class="sk-t">${x.t}</b>`+
+   (x.bel?`<button type="button" class="sk-b" data-bel="${x.n}" aria-pressed="${on}" aria-label="Pengingat ${x.n}">${on?BEL_ON:BEL_OFF}</button>`:'<span class="sk-b" aria-hidden="true"></span>')+`</div>`}).join(""));
+ const st=$("skSt");
+ st.hidden=!(H.load||H.err);
+ setH(st,H.err?'Jadwal tanggal ini belum bisa dimuat. <button type="button" data-ulang>Coba lagi</button>':(H.load?"Memuat jadwal…":""));
+}
+$("shPrev").onclick=()=>{SH_OFF--;renderSholat(true)};
+$("shNext").onclick=()=>{SH_OFF++;renderSholat(true)};
+$("shNow").onclick=()=>{SH_OFF=0;renderSholat(true)};
+$("skSt").addEventListener("click",e=>{if(e.target.closest("[data-ulang]")){KAL_ERR={};renderSholat(true)}});
+function bacaTerkirim(){let s={};try{s=JSON.parse(localStorage.getItem("pengingatTerkirim")||"{}")||{}}catch(e){}const t=todayJ();return s.tgl===t&&Array.isArray(s.k)?s:{tgl:t,k:[]}}
+function simpanTerkirim(s){try{localStorage.setItem("pengingatTerkirim",JSON.stringify(s))}catch(e){}}
+async function ubahBel(n){
+ if(BEL[n]){delete BEL[n]}
+ else{
+  if("Notification" in window&&Notification.permission==="default"){try{await Notification.requestPermission()}catch(e){}}
+  BEL[n]=true;
+  const x=P.find(q=>q[0]===n);
+  if(x&&jakarta()>=secs(x[1])){const t=bacaTerkirim();if(!t.k.includes(n))t.k.push(n);simpanTerkirim(t)} /* waktu hari ini sudah lewat: jangan bunyi seketika */
+ }
+ try{localStorage.setItem("pengingatShalat",JSON.stringify(BEL))}catch(e){}
+ const izin="Notification" in window&&Notification.permission==="granted";
+ say(BEL[n]?(izin?"Pengingat "+n+" aktif":"Pengingat "+n+" aktif, tampil saat aplikasi terbuka. Izinkan notifikasi agar muncul di latar belakang."):"Pengingat "+n+" dimatikan");
+ renderSholat(true);
+}
+async function kirimPengingat(n,w){
+ say("Waktu "+n+" · "+w);
+ try{if(navigator.vibrate)navigator.vibrate([200,100,200])}catch(e){}
+ if(!("Notification" in window)||Notification.permission!=="granted")return;
+ const judul="Waktu "+n,isi="Telah masuk waktu "+n+" ("+w+")"+(pakaiLokasiSaya?" untuk lokasi Anda.":" di "+MAJELIS.masjid.nama+".");
+ try{
+  const reg=("serviceWorker" in navigator)?await navigator.serviceWorker.getRegistration():null;
+  if(reg&&reg.showNotification)await reg.showNotification(judul,{body:isi,tag:"shalat-"+n,renotify:true});
+  else new Notification(judul,{body:isi,tag:"shalat-"+n});
+ }catch(e){}
+}
+function cekPengingat(){
+ if(DEVT!=null)return;
+ if(!Object.keys(BEL).length)return;
+ const now=jakarta(),t=bacaTerkirim();let ubah=false;
+ P.forEach(x=>{const n=x[0];if(!BEL[n])return;const s=secs(x[1]);
+  if(now>=s&&now<s+180&&!t.k.includes(n)){t.k.push(n);ubah=true;kirimPengingat(n,x[1])}});
+ if(ubah)simpanTerkirim(t);
+}
+document.addEventListener("visibilitychange",()=>{if(!document.hidden)cekPengingat()});
+setTimeout(cekPengingat,3000);
+$("skList").addEventListener("click",e=>{const b=e.target.closest("[data-bel]");if(b)ubahBel(b.dataset.bel)});
+
+/* ===== Jadwal imsakiyah satu pekan (hanya saat bulan puasa) ===== */
+const IM_N=7,IM_K=["im","sb","dz","as","mg","is"];
+function koordAktif(){return KOORD||{lat:CFG.sholat.lat,lng:CFG.sholat.lng}}
+function imTag(){const k=koordAktif();return bulatKoord(k.lat)+"_"+bulatKoord(k.lng)}
+function imHari(){const R=CFG.ramadan,a=[];if(!R||!R.mulai||!R.akhir)return a;for(let d=R.mulai;d<=R.akhir&&a.length<40;d=addD(d,1))a.push(d);return a}
+function imHal(hari){const tot=Math.ceil(hari.length/IM_N),t=todayJ(),ti=hari.indexOf(t);return{tot,ti,auto:ti>=0?Math.floor(ti/IM_N):(t>hari[hari.length-1]?tot-1:0)}}
+function kalDari(key){
+ if(KAL[key])return KAL[key];
+ try{const raw=localStorage.getItem("kalImsak2_"+key);if(raw){const m=JSON.parse(raw);if(m&&typeof m==="object"){KAL[key]=m;return m}}}catch(e){}
+ return null;
+}
+async function ambilKal(key,y,m,k){
+ KAL_BUSY[key]=1;delete KAL_ERR[key];
+ try{
+  const{metode,mazhab}=CFG.sholat;
+  const url=`https://api.aladhan.com/v1/calendar/${y}/${m}?latitude=${k.lat}&longitude=${k.lng}&method=${metode}&school=${mazhab}&timezonestring=${encodeURIComponent(TZ)}`;
+  const res=await fetch(url);if(!res.ok)throw new Error("HTTP "+res.status);
+  const j=await res.json();if(j.code!==200||!Array.isArray(j.data))throw new Error("Respons API tidak valid");
+  const mp={};
+  j.data.forEach(e=>{const g=e.date&&e.date.gregorian&&e.date.gregorian.date,t=e.timings;if(!g||!t)return;const[dd,mm,yy]=g.split("-");
+   const h=e.date.hijri;mp[yy+"-"+mm+"-"+dd]={hj:h&&h.month?{d:+h.day,m:+h.month.number,y:h.year}:null,tb:t.Sunrise?bersih(t.Sunrise):null,im:bersih(t.Imsak),sb:bersih(t.Fajr),dz:bersih(t.Dhuhr),as:bersih(t.Asr),mg:bersih(t.Maghrib),is:bersih(t.Isha)}});
+  if(!Object.keys(mp).length)throw new Error("Data kosong");
+  KAL[key]=mp;try{localStorage.setItem("kalImsak2_"+key,JSON.stringify(mp))}catch(e){}
+ }catch(e){KAL_ERR[key]=1;console.warn("Gagal memuat jadwal imsakiyah.",e)}
+ delete KAL_BUSY[key];renderSholat();
+}
+function renderImsakiyah(r){
+ const C=$("sImsak"),hari=imHari();
+ C.hidden=!(r&&hari.length);if(C.hidden)return;
+ const{tot,ti,auto}=imHal(hari),t=todayJ(),p=Math.max(0,Math.min(tot-1,IM_P==null?auto:IM_P));
+ const rng=hari.slice(p*IM_N,p*IM_N+IM_N),tag=imTag();
+ let load=false,err=false;const mp={};
+ rng.forEach(d=>{const key=tag+"_"+d.slice(0,7),m=kalDari(key);
+  if(m){if(m[d])mp[d]=m[d]}
+  else if(KAL_ERR[key])err=true;
+  else{load=true;if(!KAL_BUSY[key])ambilKal(key,+d.slice(0,4),+d.slice(5,7),koordAktif())}});
+ if(!mp[t]&&rng.includes(t)&&P&&IMSAK!==undefined)mp[t]={im:IMSAK||fmt(secs(P[0][1])-600),sb:P[0][1],dz:P[1][1],as:P[2][1],mg:P[3][1],is:P[4][1]}; /* hari ini: pakai jadwal yang sudah dimuat */
+ const fw=new Intl.DateTimeFormat("id-ID",{timeZone:"UTC",weekday:"short"}),fd=new Intl.DateTimeFormat("id-ID",{timeZone:"UTC",day:"numeric",month:"short"});
+ setH($("imBody"),rng.map(d=>{const e=mp[d],n=hari.indexOf(d)+1;
+  return `<tr${d===t?' class="hi" aria-current="date"':""}><td><b>${fw.format(D(d))} ${fd.format(D(d))}</b><small>${n} Ramadhan</small></td>`+
+   IM_K.map(k=>`<td${k==="im"||k==="mg"?' class="acc"':""}>${e?e[k]:"–"}</td>`).join("")+"</tr>"}).join(""));
+ const a=rng[0],b=rng[rng.length-1],n1=hari.indexOf(a)+1,n2=hari.indexOf(b)+1;
+ $("imTitle").textContent=fd.format(D(a))+(a===b?"":" – "+fd.format(D(b)))+" "+b.slice(0,4);
+ $("imSub").textContent="Pekan ke-"+(p+1)+" dari "+tot+" · "+(n1===n2?n1:n1+"–"+n2)+" Ramadhan";
+ $("imPrev").disabled=p<=0;$("imNext").disabled=p>=tot-1;$("imNow").hidden=!(ti>=0&&p!==auto);
+ const st=$("imSt");st.hidden=!(err||load);
+ setH(st,err?'Jadwal pekan ini belum bisa dimuat. <button type="button" data-ulang>Coba lagi</button>':(load?"Memuat jadwal…":""));
+}
+function imGeser(dx){const hari=imHari();if(!hari.length)return;const{tot,auto}=imHal(hari);IM_P=Math.max(0,Math.min(tot-1,(IM_P==null?auto:IM_P)+dx));renderSholat(true)}
+$("imPrev").onclick=()=>imGeser(-1);$("imNext").onclick=()=>imGeser(1);
+$("imNow").onclick=()=>{IM_P=null;renderSholat(true)};
+$("imSt").addEventListener("click",e=>{if(e.target.closest("[data-ulang]")){KAL_ERR={};renderSholat(true)}});
+
+/* ===== Kalender Hijriyah =====
+   Dihitung di perangkat (Intl, kalender Umm al-Qura), jadi bisa dipakai offline.
+   Awal bulan di Indonesia ditetapkan Kemenag (sidang isbat) dan bisa berbeda 1 hari,
+   karena itu tersedia koreksi -1 / 0 / +1 hari yang tersimpan di perangkat. */
+const KH={k:0,first:null,sel:null};
+{const s=parseInt(K("koreksiHijri"),10);if(s>=-1&&s<=1)KH.k=s}
+const KAL_FMT=new Intl.DateTimeFormat("en-u-ca-islamic-umalqura",{timeZone:"UTC",day:"numeric",month:"numeric",year:"numeric"});
+const KAL_HARI=["Ahad","Senin","Selasa","Rabu","Kamis","Jumat","Sabtu"],KAL_SGT=["Ahd","Sen","Sel","Rab","Kam","Jum","Sab"];
+const KAL_HB={"1-1":"Tahun Baru Hijriyah","1-10":"Hari Asyura","3-12":"Maulid Nabi Muhammad SAW","7-27":"Isra Mi'raj","8-15":"Nisfu Syaban","9-1":"Awal Ramadhan","9-17":"Nuzulul Qur'an","10-1":"Idul Fitri","12-9":"Hari Arafah","12-10":"Idul Adha"};
+const KAL_PS={"1-10":"Disunnahkan berpuasa Asyura, dianjurkan bersama tanggal 9 atau 11 Muharram.","12-9":"Disunnahkan berpuasa Arafah bagi yang tidak sedang berhaji."};
+const tglPnjg=g=>new Intl.DateTimeFormat("id-ID",{timeZone:"UTC",day:"numeric",month:"long",year:"numeric"}).format(D(g));
+const tglPdk=g=>new Intl.DateTimeFormat("id-ID",{timeZone:"UTC",day:"numeric",month:"short"}).format(D(g));
+function hjDari(g){ /* g = "YYYY-MM-DD" (tanggal Masehi); hasil {d,m,y} Hijriyah, sudah memakai koreksi */
+ const o={},k={day:"d",month:"m",year:"y"};
+ KAL_FMT.formatToParts(new Date(addD(g,KH.k)+"T12:00:00Z")).forEach(p=>{if(k[p.type])o[k[p.type]]=parseInt(p.value,10)});
+ return o}
+const kalAwal=g=>addD(g,-(hjDari(g).d-1));
+const kalPanjang=f=>hjDari(addD(f,29)).d===1?29:30;
+function kalGeser(f,dx){if(dx>0)return addD(f,kalPanjang(f));return addD(f,-hjDari(addD(f,-1)).d)}
+function kalInfo(g){
+ const h=hjDari(g),w=D(g).getUTCDay(),key=h.m+"-"+h.d;
+ return{h,w,key,hb:KAL_HB[key]||"",
+  ab:h.m!==9&&(h.d===13||h.d===14||h.d===15)&&!(h.m===12&&h.d===13),
+  haram:(h.m===10&&h.d===1)||(h.m===12&&h.d>=10&&h.d<=13)}}
+/* Libur nasional (L) dan cuti bersama (C) menurut SKB 3 Menteri. Isi bawaan ini dipakai bila Sheet belum
+   mengirim tab "libur"; baris di Sheet (tgl, nama, jenis = libur/cuti) menimpa tanggal yang sama. */
+const HOLI=[
+["2026-01-01","Tahun Baru Masehi","L"],["2026-01-16","Isra Mi'raj Nabi Muhammad SAW","L"],["2026-02-16","Cuti bersama Tahun Baru Imlek","C"],["2026-02-17","Tahun Baru Imlek 2577 Kongzili","L"],
+["2026-03-18","Cuti bersama Nyepi","C"],["2026-03-19","Hari Suci Nyepi (Tahun Baru Saka 1948)","L"],["2026-03-20","Cuti bersama Idul Fitri","C"],["2026-03-21","Idul Fitri 1447 H","L"],["2026-03-22","Idul Fitri 1447 H","L"],["2026-03-23","Cuti bersama Idul Fitri","C"],["2026-03-24","Cuti bersama Idul Fitri","C"],
+["2026-04-03","Wafat Yesus Kristus","L"],["2026-04-05","Kebangkitan Yesus Kristus (Paskah)","L"],["2026-05-01","Hari Buruh Internasional","L"],["2026-05-14","Kenaikan Yesus Kristus","L"],["2026-05-15","Cuti bersama Kenaikan Yesus Kristus","C"],
+["2026-05-27","Idul Adha 1447 H","L"],["2026-05-28","Cuti bersama Idul Adha","C"],["2026-05-31","Hari Raya Waisak 2570 BE","L"],["2026-06-01","Hari Lahir Pancasila","L"],["2026-06-16","Tahun Baru Islam 1448 H","L"],
+["2026-08-17","Hari Kemerdekaan RI","L"],["2026-08-25","Maulid Nabi Muhammad SAW","L"],["2026-12-24","Cuti bersama Natal","C"],["2026-12-25","Hari Raya Natal","L"],
+["2027-01-01","Tahun Baru Masehi","L"],["2027-01-05","Isra Mi'raj Nabi Muhammad SAW 1448 H","L"],["2027-02-05","Cuti bersama Tahun Baru Imlek","C"],["2027-02-06","Tahun Baru Imlek 2578 Kongzili","L"],
+["2027-03-08","Hari Suci Nyepi (Tahun Baru Saka 1949)","L"],["2027-03-09","Cuti bersama Idul Fitri","C"],["2027-03-10","Idul Fitri 1448 H","L"],["2027-03-11","Idul Fitri 1448 H","L"],["2027-03-12","Cuti bersama Idul Fitri","C"],["2027-03-15","Cuti bersama Idul Fitri","C"],
+["2027-03-25","Cuti bersama Wafat Yesus Kristus","C"],["2027-03-26","Wafat Yesus Kristus","L"],["2027-03-28","Kebangkitan Yesus Kristus (Paskah)","L"],["2027-05-01","Hari Buruh Internasional","L"],["2027-05-06","Kenaikan Yesus Kristus","L"],
+["2027-05-17","Idul Adha 1448 H","L"],["2027-05-18","Cuti bersama Idul Adha","C"],["2027-05-19","Cuti bersama Waisak","C"],["2027-05-20","Hari Raya Waisak 2571 BE","L"],["2027-06-01","Hari Lahir Pancasila","L"],["2027-06-06","Tahun Baru Islam 1449 H","L"],
+["2027-08-15","Maulid Nabi Muhammad SAW","L"],["2027-08-17","Hari Kemerdekaan RI","L"],["2027-12-24","Cuti bersama Natal","C"],["2027-12-25","Hari Raya Natal","L"],["2027-12-26","Isra Mi'raj Nabi Muhammad SAW 1449 H","L"]];
+function liburPeta(){const m={};
+ HOLI.forEach(x=>{m[x[0]]={n:x[1],j:x[2]}});
+ if(DATA&&Array.isArray(DATA.libur))DATA.libur.forEach(r=>{const t=String(r&&r.tgl||"").slice(0,10),n=String(r&&r.nama||"").trim();
+  if(/^\d{4}-\d{2}-\d{2}$/.test(t)&&n)m[t]={n,j:/cuti/i.test(String(r.jenis||""))?"C":"L"}});
+ return m}
+const KAL_KUNCI={"1-1":/tahun baru (hijri|islam)/i,"3-12":/maulid/i,"7-27":/isra/i,"10-1":/fitri/i,"12-10":/adha/i};
+function kalDup(g,x,P){const re=KAL_KUNCI[x.key];if(!re)return false;
+ for(let d=-2;d<=2;d++){const l=P[addD(g,d)];if(l&&l.j==="L"&&re.test(l.n))return true}return false}
+const KAL_BLN=new Intl.DateTimeFormat("id-ID",{timeZone:"UTC",month:"short"});
+function kalDetail(g){
+ const x=kalInfo(g),h=x.h,E=[],lb=liburPeta()[g],t=todayJ(),ini=g===t,add=(tx,c)=>E.push(`<span${c?` class="${c}"`:""}>${esc(tx)}</span>`);
+ if(lb)add((lb.j==="C"?"Cuti bersama: ":"Libur nasional: ")+lb.n.replace(/^Cuti bersama\s+/i,""),lb.j==="C"?"cb":"lb");
+ if(x.hb)add(x.hb,"hb");
+ if(h.m===9)add("Bulan Ramadhan: puasa wajib");
+ else if(x.haram)add(h.m===10?"Hari raya, tidak boleh berpuasa":"Hari tasyrik, tidak boleh berpuasa");
+ else{
+  if(KAL_PS[x.key])add(KAL_PS[x.key]);
+  if(x.ab)add("Ayyamul Bidh (puasa sunnah)");
+  if(x.w===1||x.w===4)add("Puasa sunnah "+KAL_HARI[x.w])}
+ return `<div class="pc kal-det${ini?" ini":""}">${ini?'<svg class="kd-orn" viewBox="0 0 64 64" aria-hidden="true"><g fill="currentColor"><path d="M40 8a24 24 0 1 0 14 40A20 20 0 0 1 40 8z"/><polygon transform="translate(44 8) scale(.7)" points="12,1.5 14.9,8.6 22.5,9.2 16.7,14.2 18.5,21.6 12,17.6 5.5,21.6 7.3,14.2 1.5,9.2 9.1,8.6"/></g></svg>':""}<div class="kd-row"><div class="kd-tile${ini?" on":""}" aria-hidden="true"><b>${D(g).getUTCDate()}</b><span>${KAL_BLN.format(D(g))}</span></div>`+
+  `<div class="kd-tx"><small class="kd-w">${KAL_HARI[x.w]} · ${ini?"Hari ini":g.slice(0,4)}</small><b class="kd-h">${h.d} ${BULAN_HIJRI[h.m]} ${h.y} H</b>${E.length?`<span class="kd-e">${E.join(" · ")}</span>`:""}</div></div>`+
+  `<span class="sr" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)">${KAL_HARI[x.w]}, ${tglPnjg(g)}</span>`+
+  (ini?"":'<button type="button" class="btn2 sec" id="kal-now" style="width:100%;margin-top:10px;min-height:40px;font-size:calc(.875rem*var(--fs))">Kembali ke hari ini</button>')+`</div>`}
+function renderKalender(){
+ const b=$("pb-kalender"),t=todayJ();
+ if(!(hjDari(t).y>1300)){b.innerHTML=KOSONG("Peramban ini belum mendukung kalender Hijriyah. Silakan perbarui peramban Anda.");return}
+ if(!KH.first)KH.first=kalAwal(t);
+ const first=KH.first,h0=hjDari(first),n=kalPanjang(first),last=addD(first,n-1),inMonth=t>=first&&t<=last;
+ if(!KH.sel||KH.sel<first||KH.sel>last)KH.sel=inMonth?t:first;
+ const thn=last.slice(0,4),rentang=tglPdk(first)+" – "+tglPdk(last)+" "+thn;
+ const heads=KAL_SGT.map((s,i)=>`<span class="kal-h${i===0?" ah":""}">${s}</span>`).join(""),P=liburPeta();
+ let cells="";
+ for(let i=0;i<D(first).getUTCDay();i++)cells+="<span></span>";
+ for(let i=0;i<n;i++){
+  const g=addD(first,i),x=kalInfo(g),gd=D(g).getUTCDate(),c=["kal-d"];
+  const l=P[g];
+  if(x.w===0)c.push("ah");if(l)c.push(l.j==="C"?"cb":"lb");
+  if(x.hb)c.push("hb");if(x.ab)c.push("ab");if(g===t)c.push("now");if(g===KH.sel)c.push("sel");
+  const lbl=`${KAL_HARI[x.w]}, ${i+1} ${BULAN_HIJRI[h0.m]} ${h0.y} H, ${tglPnjg(g)}${l?", "+(l.j==="C"?"cuti bersama":"libur nasional")+" "+l.n.replace(/^Cuti bersama\s+/i,""):""}${x.hb?", "+x.hb:""}`;
+  cells+=`<button type="button" class="${c.join(" ")}" data-g="${g}" aria-label="${esc(lbl)}" aria-pressed="${g===KH.sel}"${g===t?' aria-current="date"':""}><b>${i+1}</b><small>${gd===1||i===0?tglPdk(g):gd}</small></button>`}
+ /* daftar hari penting bulan ini: libur nasional, cuti bersama, hari besar Islam, Ayyamul Bidh */
+ const sub=(g,w,tg)=>`<br><span style="font-weight:500;color:var(--muted)">${KAL_HARI[w]}, ${tglPdk(g)}${tg}</span>`,rows=[];
+ for(let i=0;i<n;i++){const g=addD(first,i),x=kalInfo(g),l=P[g],pre=`<div class="row2"><small>${i+1} ${BULAN_HIJRI[h0.m]}</small><b>`;
+  if(l){const c=l.j==="C";rows.push([i,0,`${pre}${esc(l.n)}${sub(g,x.w,` · <span class="${c?"tg-c":"tg-l"}">${c?"Cuti bersama":"Libur nasional"}</span>`)}</b></div>`])}
+  if(x.hb&&!kalDup(g,x,P))rows.push([i,1,`${pre}${esc(x.hb)}${sub(g,x.w,"")}</b></div>`])}
+ if(h0.m!==9){const a=[];for(let i=0;i<n;i++){const g=addD(first,i);if(kalInfo(g).ab)a.push([i,g])}
+  if(a.length)rows.push([a[0][0],2,`<div class="row2"><small>${a[0][0]+1}–${a[a.length-1][0]+1} ${BULAN_HIJRI[h0.m]}</small><b>Ayyamul Bidh<br><span style="font-weight:500;color:var(--muted)">${tglPdk(a[0][1])} – ${tglPdk(a[a.length-1][1])} · puasa sunnah</span></b></div>`])}
+ rows.sort((p,q)=>p[0]-q[0]||p[1]-q[1]);const ev=rows.map(r=>r[2]).join("");
+ b.innerHTML=kalDetail(KH.sel)+
+  `<div class="pc kal"><div class="im-nav"><button type="button" id="kal-prev" aria-label="Bulan sebelumnya">${I('<path d="M15 18l-6-6 6-6"/>')}</button><div class="im-c" aria-live="polite"><b>${BULAN_HIJRI[h0.m]} ${h0.y} H</b><small>${rentang}</small></div><button type="button" id="kal-next" aria-label="Bulan berikutnya">${I(IC.chev)}</button></div>`+
+  `<div class="kal-g" role="group" aria-label="Tanggal bulan ${BULAN_HIJRI[h0.m]} ${h0.y} H">${heads}${cells}</div>`+
+  `<div class="kal-lg"><span><i class="k4"></i>Ahad dan libur nasional</span><span><i class="k5"></i>Cuti bersama</span><span><i class="k3"></i>Hari besar</span><span><i class="k2"></i>Ayyamul Bidh</span></div></div>`+
+  `<div class="pc"><h3>Hari penting bulan ini</h3>${ev?`<div class="kal-ev">${ev}</div>`:'<p style="color:var(--muted)">Tidak ada hari besar atau libur pada bulan ini.</p>'}</div>`;
+ b.querySelectorAll("[data-g]").forEach(x=>x.onclick=()=>{KH.sel=x.dataset.g;renderKalender()});
+ $("kal-prev").onclick=()=>{KH.first=kalGeser(first,-1);renderKalender();$("kal-prev").focus({preventScroll:true})};
+ $("kal-next").onclick=()=>{KH.first=kalGeser(first,1);renderKalender();$("kal-next").focus({preventScroll:true})};
+ const nw=$("kal-now");if(nw)nw.onclick=()=>{KH.first=kalAwal(t);KH.sel=t;renderKalender()};
+ }
+R.kalender=()=>{KH.first=null;KH.sel=null;renderKalender()};
 R.tentang=function(){$("pb-tentang").innerHTML=`<div class="hero2"><div class="lg" role="img" aria-label="Logo majelis"></div><h2>MT. Al-Istiqomah</h2><p>Versi ${APP_VER}</p></div>
  <div class="pc"><p>Aplikasi ini membantu jamaah melihat jadwal shalat, informasi kegiatan, dan acara malam Jumat ${esc(MAJELIS.nama)}.</p></div>
  <div class="pc"><div class="vrow"><span>Versi</span><b>${APP_VER}</b></div><div class="vrow"><span>Dibuat untuk</span><b>${esc(MAJELIS.nama)}</b></div><div class="vrow"><span>Pengembang</span><b>[Nama pengembang]</b></div></div>
  <button class="lnk" data-page="privasi">Kebijakan privasi${I(IC.chev)}</button><p class="note2">© [Tahun] ${esc(MAJELIS.nama)}</p>`};
 R.privasi=function(){$("pb-privasi").innerHTML=`<div class="pc pol"><h3>Data di perangkat Anda</h3><p>Aplikasi hanya menyimpan pengaturan Anda, yaitu pilihan tampilan, ukuran teks, dan status ajakan memasang, di perangkat Anda sendiri.</p>
  <h3>Data yang dikumpulkan</h3><p>Saat ini aplikasi tidak mengumpulkan atau mengirim data pribadi Anda ke server.</p>
- <h3>Layanan pihak lain</h3><p>Tombol WhatsApp dan Google Maps membuka aplikasi tersebut. Pesan atau lokasi yang Anda kirim diatur oleh kebijakan masing-masing layanan.</p>
+ <h3>Layanan pihak lain</h3><p>Jadwal shalat dihitung oleh AlAdhan. Bila Anda memakai lokasi perangkat, koordinat Anda dikirim ke AlAdhan dan ke OpenStreetMap (untuk nama wilayah). Tombol WhatsApp dan Google Maps membuka aplikasi tersebut. Pesan atau lokasi yang Anda kirim diatur oleh kebijakan masing-masing layanan.</p>
  <h3>Perubahan</h3><p>Kebijakan ini akan diperbarui bila aplikasi nanti menyimpan data jamaah, misalnya nama atau kehadiran.</p></div>
  <button class="lnk" data-page="hubungi">Pertanyaan tentang privasi? Hubungi pengurus${I(IC.chev)}</button>`};
 R.login=function(){$("pb-login").innerHTML=`<div class="pc lgn"><span class="lock">${I('<rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/>')}</span><h2>Khusus pengurus majelis</h2><p>Masuk untuk mengelola jadwal, pengumuman, dan data majelis.</p>
@@ -845,6 +1664,7 @@ R.informasi=function(){const r=DATA&&DATA.informasi,b=$("pb-informasi");
 R.artikel=function(){const r=DATA&&DATA.artikel,b=$("pb-artikel");
  b.innerHTML=Array.isArray(r)?(r.length?`<div class="list">${r.map(artBaris).join("")}</div>`:KOSONG("Belum ada artikel.")):KOSONG("Artikel belum tersambung ke Sheet.");ikatKonten(b)};
 document.querySelectorAll("main a[data-page]").forEach(a=>a.onclick=e=>{e.preventDefault();back=a;openPage(a.dataset.page)});
+document.querySelectorAll(".short [data-page]").forEach(b=>b.onclick=()=>{back=b;openPage(b.dataset.page)});
 isiBeranda();
 
 /* ===== Panel pengurus: login sendiri-sendiri, lalu input data lewat Apps Script ===== */
@@ -944,7 +1764,7 @@ function admIsiGiliran(){const f=ADM.form,v=x=>esc(x==null?"":x);
  $("f-isi").innerHTML=f.tipe==="giliran"?[0,1].map(i=>{const a=f.a[i]||{};return `<div class="adm-sub"><span class="lb">Anggota ${i+1}${i?" (kosongkan bila hanya satu)":""}</span>
   <input class="fld" id="a${i}n" maxlength="60" autocomplete="off" placeholder="Nama" value="${v(a.nama)}" aria-label="Nama anggota ${i+1}">
   <div class="two"><input class="fld" id="a${i}no" inputmode="numeric" maxlength="3" autocomplete="off" placeholder="No." value="${v(a.no)}" aria-label="Nomor anggota ${i+1}"><input class="fld" id="a${i}k" maxlength="40" autocomplete="off" placeholder="Keterangan" value="${v(a.ket)}" aria-label="Keterangan anggota ${i+1}"></div></div>`}).join("")
-  :`<div class="adm-sub"><label class="lb" for="f-nom">Nominal infak per anggota (Rp)</label><input class="fld" id="f-nom" inputmode="numeric" maxlength="12" autocomplete="off" placeholder="50000" value="${v(f.nominal)}">
+  :`<div class="adm-sub"><label class="lb" for="f-nom">Nominal infaq per anggota (Rp)</label><input class="fld" id="f-nom" inputmode="numeric" maxlength="12" autocomplete="off" placeholder="50000" value="${v(f.nominal)}">
   <label class="lb" for="f-ket" style="margin-top:14px">Keterangan</label><input class="fld" id="f-ket" maxlength="80" autocomplete="off" placeholder="Minimal per anggota" value="${v(f.ket)}"></div>`}
 function admFormGiliran(b,t){const f=ADM.form;t.textContent=f.baru?"Tambah pekan":"Ubah pekan";
  b.innerHTML=`<button type="button" class="adm-top" id="f-batal">${I(IC.kiri)}Batal</button><div class="pc">
@@ -1015,6 +1835,647 @@ function admFormItem(b,t){const k=ADM.view,C=ADM_ITEM[k],f=ADM.form,v=x=>esc(x==
 
 R.login=function(){ADM.view="menu";ADM.form=null;admRender()};
 admLabel();
+/* Appbar di setiap halaman: logo + nama aplikasi (ke beranda) dan menu; baris bawah = tombol kembali + judul halaman */
+function keBeranda(){
+ if(app.classList.contains("open"))menu(false);
+ const sh=$("sheet");if(sh.classList.contains("open")){sh.classList.remove("open");sh.setAttribute("aria-hidden","true");$("scrim2").classList.remove("on");sb=null}
+ document.querySelectorAll(".page.open").forEach(shut);back=null;
+ scrollTo(0,0);mb.focus({preventScroll:true})}
+document.querySelectorAll(".page .ph").forEach(h=>{
+ const t=document.createElement("div");t.className="phr";while(h.firstChild)t.appendChild(h.firstChild);
+ const a=document.createElement("div");a.className="pa";
+ a.innerHTML='<button type="button" class="pa-home" data-home aria-label="Ke beranda"><span class="logo" aria-hidden="true"></span><span class="pn">MT. Al-Istiqomah</span></button><button type="button" class="iconbtn" data-menu aria-label="Buka menu opsi" aria-haspopup="dialog" aria-controls="drawer"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><circle cx="12" cy="5" r="2.1"/><circle cx="12" cy="12" r="2.1"/><circle cx="12" cy="19" r="2.1"/></svg></button>';
+ h.append(a,t);
+ a.querySelector("[data-home]").onclick=keBeranda;a.querySelector("[data-menu]").onclick=()=>menu(true)});
+/* ===== Halaman kiblat: arah dihitung di perangkat, kompas dari sensor ponsel ===== */
+var KAABA={lat:21.422487,lng:39.826206},KB_MATA=["Utara","Timur Laut","Timur","Tenggara","Selatan","Barat Daya","Barat","Barat Laut"],
+ kbSiap=false,kbQ=0,kbHead=null,kbRot=0,kbMode="mati",kbDapat=false,kbOk=false,kbT=0,kbRaf=0,kbMentah=null;
+const kbR=d=>d*Math.PI/180,kbD=r=>r*180/Math.PI,kbMata=b=>KB_MATA[Math.round(b/45)%8];
+function kbHitung(la,lo){const p1=kbR(la),p2=kbR(KAABA.lat),dl=kbR(KAABA.lng-lo);
+ const b=(kbD(Math.atan2(Math.sin(dl),Math.cos(p1)*Math.tan(p2)-Math.sin(p1)*Math.cos(dl)))+360)%360;
+ const a=Math.sin((p2-p1)/2)**2+Math.cos(p1)*Math.cos(p2)*Math.sin(dl/2)**2;
+ return{b,km:12742*Math.asin(Math.sqrt(a))}}
+function kbPerbarui(){
+ if(!kbSiap)return;
+ const o=pakaiLokasiSaya&&KOORD?KOORD:{lat:CFG.sholat.lat,lng:CFG.sholat.lng},h=kbHitung(o.lat,o.lng);kbQ=h.b;
+ $("kLocText").textContent=pakaiLokasiSaya?(NAMA_LOK?"Lokasi Anda: "+NAMA_LOK:"Lokasi Anda saat ini"):MAJELIS.masjid.nama;
+ $("kLocBtn").textContent=pakaiLokasiSaya?"Pakai lokasi masjid":"Gunakan lokasi saya";
+ $("kQ").setAttribute("transform","rotate("+kbQ.toFixed(2)+" 150 150)");
+ $("kDeg").textContent=Math.round(kbQ)+"°";$("kCard").textContent=kbMata(kbQ);
+ $("kBrg").textContent=kbQ.toFixed(1).replace(".",",")+"° "+kbMata(kbQ);
+ $("kJrk").textContent=Math.round(h.km).toLocaleString("id-ID")+" km";
+ $("kKrd").textContent=Math.abs(o.lat).toFixed(3).replace(".",",")+"° "+(o.lat<0?"LS":"LU")+", "+Math.abs(o.lng).toFixed(3).replace(".",",")+"° "+(o.lng<0?"BB":"BT");
+ kbGambar()}
+function kbGambar(){
+ const st=$("kSt"),hero=$("kHero"),btn=$("kAktif"),dari=Math.round(kbQ)+"° ("+kbMata(kbQ)+")";
+ let ok=false,t;
+ if(kbHead!=null){
+  const tgt=-kbHead,c=((kbRot%360)+360)%360;let d=((tgt-c)%360+540)%360-180;kbRot+=d;
+  $("kDial").style.transform="rotate("+kbRot+"deg)";
+  const sel=((kbQ-kbHead+540)%360)-180;ok=Math.abs(sel)<=3;
+  t=ok?"Searah kiblat":"Putar ke "+(sel>0?"kanan ":"kiri ")+Math.round(Math.abs(sel))+"°"}
+ else{
+  $("kDial").style.transform="rotate("+kbRot+"deg)";
+  t=kbMode==="cari"?"Menyalakan kompas…":kbMode==="aman"?"Kompas butuh alamat https. Buka aplikasi lewat alamat web https, bukan dari file di perangkat. Kiblat "+dari+" dari utara.":kbMode==="tak"?"Sensor kompas tidak terbaca. Pakai Chrome dan pastikan izin Sensor gerak untuk situs ini aktif. Kiblat "+dari+" dari utara.":kbMode==="tolak"?"Izin sensor ditolak. Kiblat "+dari+" dari utara.":"Ketuk tombol di bawah untuk menyalakan kompas."}
+ st.textContent=t;st.classList.toggle("ok",ok);hero.classList.toggle("ok",ok);
+ btn.hidden=!(kbMode==="mati"||kbMode==="tolak"||kbMode==="tak"||kbMode==="aman");
+ if(ok&&!kbOk&&navigator.vibrate)try{navigator.vibrate(30)}catch(e){}
+ kbOk=ok;
+ $("kWrap").setAttribute("aria-label",kbHead!=null?"Kompas kiblat. "+t:"Arah kiblat "+dari+" dari utara")}
+var kbRel=false,kbGen=null,kbT2=0;
+function kbArah(e){
+ if(typeof e.webkitCompassHeading==="number")return e.webkitCompassHeading;
+ const a=e.alpha,be=e.beta,g=e.gamma;if(a==null)return null;
+ if(be==null||g==null||Math.abs(be)<50)return 360-a;
+ const x=kbR(be),y=kbR(g),z=kbR(a),cY=Math.cos(y),cZ=Math.cos(z),sX=Math.sin(x),sY=Math.sin(y),sZ=Math.sin(z);
+ return(kbD(Math.atan2(-cZ*sY-sZ*sX*cY,-sZ*sY+cZ*sX*cY))+360)%360}
+function kbTerima(h){
+ if(h==null||isNaN(h))return;
+ kbDapat=true;kbMode="aktif";kbMentah=(h+360)%360;
+ if(!kbRaf)kbRaf=requestAnimationFrame(()=>{kbRaf=0;
+  kbHead=kbHead==null?kbMentah:(kbHead+(((kbMentah-kbHead)+540)%360-180)*.3+360)%360;kbGambar()})}
+function kbOri(e){
+ const abs=typeof e.webkitCompassHeading==="number"||e.absolute||e.type==="deviceorientationabsolute";
+ if(abs)kbRel=false;else if(!kbRel)return;
+ kbTerima(kbArah(e))}
+function kbGenerik(){
+ if(!("AbsoluteOrientationSensor"in window))return;
+ try{const s=new AbsoluteOrientationSensor({frequency:30,referenceFrame:"screen"});
+  s.addEventListener("reading",()=>{const q=s.quaternion;if(!q)return;const x=q[0],y=q[1],z=q[2],w=q[3],up=1-2*(x*x+y*y);
+   const e=Math.abs(up)<.7?-2*(x*z+w*y):2*(x*y-w*z),n=Math.abs(up)<.7?-2*(y*z-w*x):1-2*(x*x+z*z);
+   kbTerima((kbD(Math.atan2(e,n))+360)%360)});
+  s.addEventListener("error",()=>{});s.start();kbGen=s}catch(err){}}
+function kbHenti(){
+ removeEventListener("deviceorientationabsolute",kbOri,true);removeEventListener("deviceorientation",kbOri,true);
+ if(kbGen){try{kbGen.stop()}catch(e){}kbGen=null}
+ clearTimeout(kbT);clearTimeout(kbT2);cancelAnimationFrame(kbRaf);kbRaf=0;kbDapat=false;kbRel=false;kbHead=null;kbOk=false;kbMode="mati"}
+function kbMulai(){
+ if(!window.isSecureContext){kbMode="aman";kbGambar();return}
+ const pasang=()=>{kbHenti();kbMode="cari";kbGambar();
+  addEventListener("deviceorientationabsolute",kbOri,true);addEventListener("deviceorientation",kbOri,true);
+  kbT=setTimeout(()=>{if(!kbDapat){kbRel=true;kbGenerik()}},1200);
+  kbT2=setTimeout(()=>{if(!kbDapat){kbHenti();kbMode="tak";kbGambar()}},4000)};
+ if(!("DeviceOrientationEvent"in window)&&!("AbsoluteOrientationSensor"in window)){kbMode="tak";kbGambar();return}
+ const g=()=>{kbMode="tolak";kbGambar()};
+ if(typeof DeviceOrientationEvent.requestPermission==="function")DeviceOrientationEvent.requestPermission().then(r=>r==="granted"?pasang():g()).catch(g);
+ else pasang()}
+(function(){
+ let tk="";for(let i=0;i<72;i++){const m=i%6===0;tk+='<line class="kb-tk'+(m?" m":"")+'" x1="150" y1="20" x2="150" y2="'+(m?34:28)+'" transform="rotate('+i*5+' 150 150)"/>'}
+ $("kTk").innerHTML=tk;kbSiap=true;
+ $("kLocBtn").onclick=()=>{pakaiLokasiSaya?pakaiLokasiMasjid(true):mintaLokasiSaya(false)};
+ $("kAktif").onclick=kbMulai;
+ new MutationObserver(()=>{if(!$("pg-kiblat").classList.contains("open"))kbHenti()}).observe($("pg-kiblat"),{attributes:true,attributeFilter:["class"]});
+ kbPerbarui()})();
+R.kiblat=function(){kbPerbarui();if(kbMode!=="mati")return;
+ if("DeviceOrientationEvent"in window&&typeof DeviceOrientationEvent.requestPermission==="function")kbGambar();else kbMulai()};
+document.querySelectorAll('[data-go="Kiblat"]').forEach(b=>b.onclick=e=>{e.preventDefault();if(app.classList.contains("open"))menu(false);back=b;openPage("kiblat")});
+/* ===== Halaman tasbih: hitungan tersimpan di perangkat ===== */
+var TSB_Z=[{ar:"سُبْحَانَ ٱللَّٰهِ",lat:"Subhanallah",arti:"Maha Suci Allah"},{ar:"ٱلْحَمْدُ لِلَّٰهِ",lat:"Alhamdulillah",arti:"Segala puji bagi Allah"},{ar:"ٱللَّٰهُ أَكْبَرُ",lat:"Allahu Akbar",arti:"Allah Maha Besar"}],TSB_T=[33,99,100],tsb={z:0,t:33,c:0,r:0};
+try{const o=JSON.parse(K("tasbih")||"null");if(o&&TSB_Z[o.z]&&TSB_T.includes(o.t)&&o.c>=0&&o.c<=o.t&&o.r>=0)tsb={z:o.z|0,t:o.t,c:o.c|0,r:o.r|0}}catch(e){}
+function tsbGambar(){
+ const z=TSB_Z[tsb.z],done=tsb.c>=tsb.t;
+ $("tsbAr").textContent=z.ar;$("tsbLat").textContent=z.lat;$("tsbArti").textContent=z.arti;
+ $("tsbNum").textContent=tsb.c;$("tsbDari").textContent="dari "+tsb.t;
+ $("tsbPg").style.strokeDashoffset=553*(1-Math.min(1,tsb.c/tsb.t));
+ $("tsbPad").classList.toggle("ok",done);
+ $("tsbPad").setAttribute("aria-label","Ketuk untuk menghitung "+z.lat+". Sekarang "+tsb.c+" dari "+tsb.t);
+ const st=$("tsbSt");st.classList.toggle("ok",done);
+ st.textContent=done?"Target "+tsb.t+" tercapai. Ketuk lagi untuk putaran baru.":"Putaran selesai: "+tsb.r;
+ document.querySelectorAll("#tsbZ button").forEach((b,i)=>b.setAttribute("aria-pressed",i===tsb.z));
+ document.querySelectorAll("#tsbT button").forEach((b,i)=>b.setAttribute("aria-pressed",TSB_T[i]===tsb.t))}
+function tsbSimpan(){K("tasbih",JSON.stringify(tsb))}
+function tsbTap(){
+ if(tsb.c>=tsb.t)tsb.c=0;
+ tsb.c++;const tuntas=tsb.c>=tsb.t;if(tuntas)tsb.r++;
+ tsbSimpan();tsbGambar();
+ if(navigator.vibrate)try{navigator.vibrate(tuntas?[70,50,70]:12)}catch(e){}}
+$("tsbPad").onclick=tsbTap;
+document.querySelectorAll("#tsbZ button").forEach((b,i)=>b.onclick=()=>{tsb.z=i;if(tsb.c>=tsb.t)tsb.c=0;tsbSimpan();tsbGambar()});
+document.querySelectorAll("#tsbT button").forEach((b,i)=>b.onclick=()=>{tsb.t=TSB_T[i];if(tsb.c>tsb.t)tsb.c=0;tsbSimpan();tsbGambar()});
+$("tsbRs").onclick=()=>{if(!tsb.c&&!tsb.r){say("Hitungan sudah 0");return}$("tsbDlg").showModal()};
+$("tsbBtl").onclick=()=>$("tsbDlg").close();
+$("tsbYa").onclick=()=>{tsb.c=0;tsb.r=0;tsbSimpan();tsbGambar();$("tsbDlg").close();say("Hitungan diatur ulang")};
+R.tasbih=tsbGambar;
+document.querySelectorAll('[data-go="Tasbih"]').forEach(b=>b.onclick=e=>{e.preventDefault();if(app.classList.contains("open"))menu(false);back=b;openPage("tasbih")});
+/* ===== Halaman infaq masjid: rekening dan QRIS (CONTOH, ganti dengan data asli dari pengurus) ===== */
+const INFAQ={nama:"Masjid Jami' Al-Ikhlas",wa:"" /* nomor WhatsApp tujuan konfirmasi; kosong = pakai nomor Bendahara (lalu Ketua) dari MAJELIS.kontak */,qris:"" /* alamat gambar QRIS asli, mis. "qris.png"; kosong = kode contoh */,
+ rekening:[{bank:"Bank Syariah Indonesia (BSI)",no:"1234 5678 90",an:"DKM Masjid Jami' Al-Ikhlas"},{bank:"Bank Muamalat",no:"0987 6543 21",an:"DKM Masjid Jami' Al-Ikhlas"}]};
+function infqSalin(t,pesan){
+ const ok=()=>say(pesan),cad=()=>{const a=document.createElement("textarea");a.value=t;a.setAttribute("readonly","");a.style.cssText="position:fixed;opacity:0";document.body.appendChild(a);a.select();let b=false;try{b=document.execCommand("copy")}catch(e){}a.remove();b?ok():say("Tidak bisa menyalin dari perangkat ini")};
+ try{navigator.clipboard.writeText(t).then(ok,cad)}catch(e){cad()}}
+/* Kode QR contoh: pola acak tetap, BUKAN QR sungguhan dan tidak bisa dipindai. Ganti dengan gambar QRIS asli masjid. */
+function infqSvg(){
+ const n=29,m=Array.from({length:n},()=>Array(n).fill(0));let sd=20261111;
+ for(let y=0;y<n;y++)for(let x=0;x<n;x++){sd=(sd*1664525+1013904223)>>>0;m[y][x]=sd/4294967296<.5?1:0}
+ const fp=(ox,oy)=>{for(let y=-1;y<=7;y++)for(let x=-1;x<=7;x++){const X=ox+x,Y=oy+y;if(X<0||Y<0||X>=n||Y>=n)continue;m[Y][X]=(x<0||y<0||x>6||y>6)?0:(Math.max(Math.abs(x-3),Math.abs(y-3))===2?0:1)}};
+ fp(0,0);fp(n-7,0);fp(0,n-7);
+ let p="";for(let y=0;y<n;y++)for(let x=0;x<n;x++)if(m[y][x])p+="M"+(x+4)+" "+(y+4)+"h1v1h-1z";
+ return'<svg viewBox="0 0 '+(n+8)+' '+(n+8)+'" role="img" aria-label="Contoh kode QRIS, belum dapat dipindai"><rect width="100%" height="100%" fill="#fff"/><path d="'+p+'" fill="#111" shape-rendering="crispEdges"/></svg>'}
+const infqQR=()=>INFAQ.qris?'<img src="'+esc(INFAQ.qris)+'" alt="Kode QRIS '+esc(INFAQ.nama)+'">':infqSvg();
+async function infqSimpan(){
+ try{
+  let blob;
+  if(INFAQ.qris){blob=await(await fetch(INFAQ.qris)).blob()}
+  else{
+   const url="data:image/svg+xml;charset=utf-8,"+encodeURIComponent(infqSvg().replace("<svg ",'<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1024" '));
+   const img=await new Promise((ok,gagal)=>{const i=new Image();i.onload=()=>ok(i);i.onerror=gagal;i.src=url});
+   const c=document.createElement("canvas");c.width=c.height=1024;const x=c.getContext("2d");x.fillStyle="#fff";x.fillRect(0,0,1024,1024);x.drawImage(img,0,0,1024,1024);
+   blob=await new Promise(r=>c.toBlob(r,"image/png"))}
+  const nama="QRIS-"+INFAQ.nama.replace(/[^\w]+/g,"-")+".png",f=new File([blob],nama,{type:blob.type||"image/png"});
+  if(navigator.canShare&&navigator.canShare({files:[f]})){try{await navigator.share({files:[f],title:"QRIS "+INFAQ.nama});return}catch(e){if(e&&e.name==="AbortError")return}}
+  const u=URL.createObjectURL(blob),a=document.createElement("a");a.href=u;a.download=nama;document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(u),4000);say("Gambar QRIS disimpan")
+ }catch(e){say("Tidak bisa menyimpan gambar. Coba tangkapan layar.")}}
+function infqKonfirmasi(){
+ const kt=MAJELIS.kontak||[],tj=kt.find(k=>k.j==="Bendahara")||kt.find(k=>k.j==="Ketua"),n=waNum(INFAQ.wa)||waNum(tj&&tj.hp);
+ if(!n){say("Nomor WhatsApp pengurus belum diisi");return}
+ const tg=new Date().toLocaleDateString("id-ID",{day:"numeric",month:"long",year:"numeric"});
+ const m="Assalamu'alaikum, saya ingin mengonfirmasi infaq untuk "+INFAQ.nama+".\n\nNama: \nNominal: Rp \nMelalui: transfer bank / QRIS (coret yang tidak sesuai)\nTanggal: "+tg+"\n\nBukti transfer saya lampirkan. Jazakumullahu khairan.";
+ window.open("https://wa.me/"+n+"?text="+encodeURIComponent(m),"_blank","noopener")}
+function iqInfaq(){
+ const b=$("iq-isi");
+ b.innerHTML=`<div class="hero2"><div class="lg" role="img" aria-label="Logo majelis"></div><h2>Infaq masjid</h2><p>${esc(INFAQ.nama)}</p></div>
+ <div class="pc"><p>Terima kasih atas kepedulian Anda untuk masjid kita. Infaq ini mendukung kegiatan dan operasional ${esc(INFAQ.nama)}, dan masuk ke rekening masjid, terpisah dari kas majelis.</p></div>
+ <div class="pc"><h3>Transfer bank</h3>${INFAQ.rekening.map((r,i)=>`<div class="iq-bank"><span class="iq-bn">${esc(r.bank)}</span><span class="iq-no">${esc(r.no)}</span><span class="iq-an">a.n. ${esc(r.an)}</span><button type="button" class="iq-cp" data-i="${i}">${I('<rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V6a2 2 0 0 1 2-2h9"/>')}Salin nomor</button></div>`).join("")}</div>
+ <div class="pc"><h3>QRIS</h3><button type="button" class="iq-qr" id="iqQr" aria-label="Perbesar kode QRIS">${infqQR()}</button><p class="note2 iq-cap">Buka aplikasi bank atau dompet digital, pilih Bayar atau Pindai, lalu arahkan ke kode ini. Ketuk kode untuk memperbesar. Kode ini masih contoh.</p><button type="button" class="tsb-rs iq-sv" id="iqSv">${I('<path d="M12 4v11M7 11l5 5 5-5M5 20h14"/>')}Simpan gambar</button></div>
+ <div class="pc"><h3>Sudah berinfaq?</h3><p>Setelah mengirim, Anda bisa memberi kabar kepada pengurus lewat WhatsApp. Lampirkan bukti transfer bila ada.</p><button type="button" class="btn" id="iqWa">${I(IC.hubung)}Konfirmasi infaq lewat WhatsApp</button></div>
+ <div class="pc iq-warn">${I('<circle cx="12" cy="12" r="9"/><path d="M12 8h.01M11 12h1v5h1"/>')}<p>Mohon dicek dulu nama bank dan atas namanya sebelum mengirim. Bila ragu, silakan tanya pengurus.</p></div>
+ <p class="note2">Infaq tidak dicatat di aplikasi ini dan tidak ada nominal yang disimpan. Nomor rekening di halaman ini masih contoh.</p>`;
+ b.querySelectorAll(".iq-cp").forEach(x=>x.onclick=()=>infqSalin(INFAQ.rekening[+x.dataset.i].no.replace(/\s/g,""),"Nomor rekening disalin"));
+ $("iqQr").onclick=()=>{$("iqQr2").innerHTML=infqQR();$("iqJd").textContent="QRIS "+INFAQ.nama;$("iqDlg").showModal()};$("iqSv").onclick=infqSimpan;$("iqWa").onclick=infqKonfirmasi};
+$("iqTutup").onclick=()=>$("iqDlg").close();
+$("iqDlg").addEventListener("click",e=>{if(e.target===e.currentTarget)e.currentTarget.close()});
+document.querySelectorAll('[data-go="Infaq"]').forEach(b=>b.onclick=e=>{e.preventDefault();if(app.classList.contains("open"))menu(false);back=b;openPage("infaq")});
+/* ===== Halaman tahlil dan Yasin: naskah masih DRAF, perlu diperiksa pengurus atau ustadz ===== */
+const tlq=(n,a,l,i)=>[a,l,i,"Ayat "+n];
+const TL_DATA={tahlil:[
+{j:"Pembuka: Surah Al-Fatihah",it:[
+tlq(1,"بِسْمِ اللّٰهِ الرَّحْمٰنِ الرَّحِيْمِ","Bismillāhir-raḥmānir-raḥīm","Dengan nama Allah Yang Maha Pengasih, Maha Penyayang."),
+tlq(2,"اَلْحَمْدُ لِلّٰهِ رَبِّ الْعٰلَمِيْنَۙ","Al-ḥamdu lillāhi rabbil-‘ālamīn","Segala puji bagi Allah, Tuhan semesta alam."),
+tlq(3,"اَلرَّحْمٰنِ الرَّحِيْمِۙ","Ar-raḥmānir-raḥīm","Yang Maha Pengasih, Maha Penyayang."),
+tlq(4,"مٰلِكِ يَوْمِ الدِّيْنِۗ","Māliki yawmid-dīn","Pemilik hari pembalasan."),
+tlq(5,"اِيَّاكَ نَعْبُدُ وَاِيَّاكَ نَسْتَعِيْنُۗ","Iyyāka na‘budu wa iyyāka nasta‘īn","Hanya kepada-Mu kami menyembah dan hanya kepada-Mu kami memohon pertolongan."),
+tlq(6,"اِهْدِنَا الصِّرَاطَ الْمُسْتَقِيْمَۙ","Ihdinaṣ-ṣirāṭal-mustaqīm","Tunjukilah kami jalan yang lurus,"),
+tlq(7,"صِرَاطَ الَّذِيْنَ اَنْعَمْتَ عَلَيْهِمْ ەۙ غَيْرِ الْمَغْضُوْبِ عَلَيْهِمْ وَلَا الضَّاۤلِّيْنَ","Ṣirāṭal-lażīna an‘amta ‘alaihim, gairil-magḍūbi ‘alaihim wa laḍ-ḍāllīn","(yaitu) jalan orang-orang yang telah Engkau beri nikmat, bukan jalan mereka yang dimurkai dan bukan pula jalan mereka yang sesat.")]},
+{j:"Surah Al-Ikhlas",it:[
+tlq(1,"قُلْ هُوَ اللّٰهُ اَحَدٌۚ","Qul huwallāhu aḥad","Katakanlah, “Dialah Allah, Yang Maha Esa."),
+tlq(2,"اَللّٰهُ الصَّمَدُۚ","Allāhuṣ-ṣamad","Allah tempat meminta segala sesuatu."),
+tlq(3,"لَمْ يَلِدْ ەۙ وَلَمْ يُوْلَدْۙ","Lam yalid wa lam yūlad","(Dia) tidak beranak dan tidak pula diperanakkan,"),
+tlq(4,"وَلَمْ يَكُنْ لَّهٗ كُفُوًا اَحَدٌ","Wa lam yakul lahū kufuwan aḥad","dan tidak ada sesuatu yang setara dengan Dia.”")]},
+{j:"Surah Al-Falaq",it:[
+tlq(1,"قُلْ اَعُوْذُ بِرَبِّ الْفَلَقِۙ","Qul a‘ūżu birabbil-falaq","Katakanlah, “Aku berlindung kepada Tuhan yang menguasai subuh (fajar),"),
+tlq(2,"مِنْ شَرِّ مَا خَلَقَۙ","Min syarri mā khalaq","dari kejahatan makhluk yang Dia ciptakan,"),
+tlq(3,"وَمِنْ شَرِّ غَاسِقٍ اِذَا وَقَبَۙ","Wa min syarri gāsiqin iżā waqab","dan dari kejahatan malam apabila telah gelap gulita,"),
+tlq(4,"وَمِنْ شَرِّ النَّفّٰثٰتِ فِى الْعُقَدِۙ","Wa min syarrin-naffāṡāti fil-‘uqad","dan dari kejahatan para penyihir yang meniup pada buhul-buhul (talinya),"),
+tlq(5,"وَمِنْ شَرِّ حَاسِدٍ اِذَا حَسَدَ","Wa min syarri ḥāsidin iżā ḥasad","dan dari kejahatan orang yang dengki apabila dia dengki.”")]},
+{j:"Surah An-Nas",it:[
+tlq(1,"قُلْ اَعُوْذُ بِرَبِّ النَّاسِۙ","Qul a‘ūżu birabbin-nās","Katakanlah, “Aku berlindung kepada Tuhannya manusia,"),
+tlq(2,"مَلِكِ النَّاسِۙ","Malikin-nās","Raja manusia,"),
+tlq(3,"اِلٰهِ النَّاسِۙ","Ilāhin-nās","sembahan manusia,"),
+tlq(4,"مِنْ شَرِّ الْوَسْوَاسِ ەۙ الْخَنَّاسِۖ","Min syarril-waswāsil-khannās","dari kejahatan (bisikan) setan yang bersembunyi,"),
+tlq(5,"الَّذِيْ يُوَسْوِسُ فِيْ صُدُوْرِ النَّاسِۙ","Allażī yuwaswisu fī ṣudūrin-nās","yang membisikkan (kejahatan) ke dalam dada manusia,"),
+tlq(6,"مِنَ الْجِنَّةِ وَالنَّاسِ","Minal-jinnati wan-nās","dari (golongan) jin dan manusia.”")]},
+{j:"Ayat Kursi",it:[["اَللّٰهُ لَآ اِلٰهَ اِلَّا هُوَۚ اَلْحَيُّ الْقَيُّوْمُ ەۚ لَا تَأْخُذُهٗ سِنَةٌ وَّلَا نَوْمٌۗ لَهٗ مَا فِى السَّمٰوٰتِ وَمَا فِى الْاَرْضِۗ مَنْ ذَا الَّذِيْ يَشْفَعُ عِنْدَهٗٓ اِلَّا بِاِذْنِهٖۗ يَعْلَمُ مَا بَيْنَ اَيْدِيْهِمْ وَمَا خَلْفَهُمْۚ وَلَا يُحِيْطُوْنَ بِشَيْءٍ مِّنْ عِلْمِهٖٓ اِلَّا بِمَا شَاۤءَۚ وَسِعَ كُرْسِيُّهُ السَّمٰوٰتِ وَالْاَرْضَۚ وَلَا يَـُٔوْدُهٗ حِفْظُهُمَاۚ وَهُوَ الْعَلِيُّ الْعَظِيْمُ","Allāhu lā ilāha illā huw, al-ḥayyul-qayyūm, lā ta’khużuhū sinatuw wa lā nawm, lahū mā fis-samāwāti wa mā fil-arḍ, man żallażī yasyfa‘u ‘indahū illā bi’iżnih, ya‘lamu mā baina aidīhim wa mā khalfahum, wa lā yuḥīṭūna bisyai’im min ‘ilmihī illā bimā syā’, wasi‘a kursiyyuhus-samāwāti wal-arḍ, wa lā ya’ūduhū ḥifẓuhumā, wa huwal-‘aliyyul-‘aẓīm.","Allah, tidak ada tuhan selain Dia. Yang Maha Hidup, Yang terus-menerus mengurus (makhluk-Nya). Tidak mengantuk dan tidak tidur. Milik-Nya apa yang ada di langit dan di bumi. Tidak ada yang dapat memberi syafaat di sisi-Nya tanpa izin-Nya. Dia mengetahui apa yang di hadapan dan di belakang mereka, dan mereka tidak mengetahui sesuatu apa pun dari ilmu-Nya kecuali apa yang Dia kehendaki. Kursi-Nya meliputi langit dan bumi, dan Dia tidak merasa berat memelihara keduanya. Dia Mahatinggi, Mahabesar.","Al-Baqarah ayat 255"]]},
+{j:"Zikir tahlil",it:[
+["لَا اِلٰهَ اِلَّا اللّٰهُ","Lā ilāha illallāh","Tidak ada tuhan selain Allah. Dibaca berulang.",""],
+["سُبْحَانَ اللّٰهِ وَبِحَمْدِهِ سُبْحَانَ اللّٰهِ الْعَظِيْمِ","Subḥānallāhi wa biḥamdih, subḥānallāhil-‘aẓīm","Maha Suci Allah dan dengan memuji-Nya; Maha Suci Allah Yang Mahaagung.",""],
+["اَسْتَغْفِرُ اللّٰهَ الْعَظِيْمَ","Astagfirullāhal-‘aẓīm","Aku memohon ampun kepada Allah Yang Mahaagung.",""],
+["اَللّٰهُمَّ صَلِّ عَلٰى سَيِّدِنَا مُحَمَّدٍ وَعَلٰى اٰلِ سَيِّدِنَا مُحَمَّدٍ","Allāhumma ṣalli ‘alā sayyidinā Muḥammad wa ‘alā āli sayyidinā Muḥammad","Ya Allah, limpahkanlah shalawat kepada junjungan kami Nabi Muhammad dan keluarganya.",""]]},
+{j:"Doa untuk arwah",it:[["اَللّٰهُمَّ اغْفِرْ لَهُمْ وَارْحَمْهُمْ وَعَافِهِمْ وَاعْفُ عَنْهُمْ","Allāhummagfir lahum warḥamhum wa ‘āfihim wa‘fu ‘anhum","Ya Allah, ampunilah mereka, rahmatilah mereka, selamatkanlah mereka, dan maafkanlah mereka. Doa lengkap menyusul.",""]]}
+],yasin:[{j:"Surah Yasin, ayat 1–12",it:[
+tlq(1,"يٰسۤ","Yā sīn","Yā sīn."),
+tlq(2,"وَالْقُرْاٰنِ الْحَكِيْمِۙ","Wal-qur’ānil-ḥakīm","Demi Al-Qur’an yang penuh hikmah,"),
+tlq(3,"اِنَّكَ لَمِنَ الْمُرْسَلِيْنَۙ","Innaka laminal-mursalīn","sesungguhnya engkau (Muhammad) benar-benar termasuk para rasul,"),
+tlq(4,"عَلٰى صِرَاطٍ مُّسْتَقِيْمٍۗ","‘Alā ṣirāṭim mustaqīm","(yang berada) di atas jalan yang lurus,"),
+tlq(5,"تَنْزِيْلَ الْعَزِيْزِ الرَّحِيْمِۙ","Tanzīlal-‘azīzir-raḥīm","(sebagai wahyu) yang diturunkan oleh Yang Mahaperkasa lagi Maha Penyayang,"),
+tlq(6,"لِتُنْذِرَ قَوْمًا مَّآ اُنْذِرَ اٰبَاۤؤُهُمْ فَهُمْ غٰفِلُوْنَ","Litunżira qawmam mā unżira ābā’uhum fahum gāfilūn","agar engkau memberi peringatan kepada kaum yang nenek moyangnya belum pernah diberi peringatan, karena itu mereka lalai."),
+tlq(7,"لَقَدْ حَقَّ الْقَوْلُ عَلٰٓى اَكْثَرِهِمْ فَهُمْ لَا يُؤْمِنُوْنَ","Laqad ḥaqqal-qawlu ‘alā akṡarihim fahum lā yu’minūn","Sungguh, telah pasti berlaku perkataan (azab) terhadap kebanyakan mereka, karena mereka tidak beriman."),
+tlq(8,"اِنَّا جَعَلْنَا فِيْٓ اَعْنَاقِهِمْ اَغْلٰلًا فَهِيَ اِلَى الْاَذْقَانِ فَهُمْ مُّقْمَحُوْنَ","Innā ja‘alnā fī a‘nāqihim aglālan fahiya ilal-ażqāni fahum muqmaḥūn","Sesungguhnya Kami telah memasang belenggu di leher mereka, lalu belenggu itu sampai ke dagu, maka mereka tertengadah."),
+tlq(9,"وَجَعَلْنَا مِنْۢ بَيْنِ اَيْدِيْهِمْ سَدًّا وَّمِنْ خَلْفِهِمْ سَدًّا فَاَغْشَيْنٰهُمْ فَهُمْ لَا يُبْصِرُوْنَ","Wa ja‘alnā mim baini aidīhim saddaw wa min khalfihim saddan fa’agsyaināhum fahum lā yubṣirūn","Dan Kami adakan di hadapan mereka sekat dan di belakang mereka juga sekat, lalu Kami tutup (mata) mereka sehingga mereka tidak dapat melihat."),
+tlq(10,"وَسَوَاۤءٌ عَلَيْهِمْ ءَاَنْذَرْتَهُمْ اَمْ لَمْ تُنْذِرْهُمْ لَا يُؤْمِنُوْنَ","Wa sawā’un ‘alaihim a’anżartahum am lam tunżirhum lā yu’minūn","Dan sama saja bagi mereka, engkau beri peringatan atau tidak, mereka tidak akan beriman."),
+tlq(11,"اِنَّمَا تُنْذِرُ مَنِ اتَّبَعَ الذِّكْرَ وَخَشِيَ الرَّحْمٰنَ بِالْغَيْبِۚ فَبَشِّرْهُ بِمَغْفِرَةٍ وَّاَجْرٍ كَرِيْمٍ","Innamā tunżiru manittaba‘aż-żikra wa khasyiyar-raḥmāna bil-gaīb, fabasysyirhu bimagfiratiw wa ajrin karīm","Sesungguhnya engkau hanya dapat memberi peringatan kepada orang yang mau mengikuti peringatan dan takut kepada Yang Maha Pengasih sekalipun tidak melihat-Nya. Maka berilah kabar gembira kepadanya dengan ampunan dan pahala yang mulia."),
+tlq(12,"اِنَّا نَحْنُ نُحْيِ الْمَوْتٰى وَنَكْتُبُ مَا قَدَّمُوْا وَاٰثَارَهُمْۗ وَكُلَّ شَيْءٍ اَحْصَيْنٰهُ فِيْٓ اِمَامٍ مُّبِيْنٍ","Innā naḥnu nuḥyil-mawtā wa naktubu mā qaddamū wa āṡārahum, wa kulla syai’in aḥṣaināhu fī imāmim mubīn","Sesungguhnya Kamilah yang menghidupkan orang-orang mati, dan Kami mencatat apa yang telah mereka kerjakan dan bekas-bekas yang mereka tinggalkan. Dan segala sesuatu Kami kumpulkan dalam kitab induk yang nyata (Lauh Mahfuz).")]}]};
+const TL_UK=["1.5rem","1.875rem","2.25rem","2.75rem"],TL_UKN=["Kecil","Normal","Besar","Sangat besar"],TL_KEC=[28,50,85];
+let tlTab="tahlil",tlP={uk:1,tr:1,lt:1,wk:1,kc:1},tlJalan=false,tlRaf=0,tlPos=0,tlLast=0,tlWl=null;
+try{const o=JSON.parse(K("tahlilPref")||"null");if(o)tlP=Object.assign(tlP,{uk:Math.min(3,Math.max(0,o.uk|0)),kc:Math.min(2,Math.max(0,o.kc|0)),tr:o.tr?1:0,lt:o.lt?1:0,wk:o.wk?1:0})}catch(e){}
+const tlIkonAuto='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 5l5 5 5-5M7 12l5 5 5-5"/></svg>',tlIkonJeda='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" aria-hidden="true"><path d="M9 5v14M15 5v14"/></svg>';
+function tlTerap(){
+ $("pg-tahlil").style.setProperty("--ar",TL_UK[tlP.uk]);
+ const b=$("pb-tahlil");b.classList.toggle("no-tr",!tlP.tr);b.classList.toggle("no-lt",!tlP.lt);
+ document.querySelectorAll("#tlUk button").forEach((x,i)=>x.setAttribute("aria-pressed",i===tlP.uk));
+ document.querySelectorAll("#tlKc button").forEach((x,i)=>x.setAttribute("aria-pressed",i===tlP.kc));
+ $("tlUkN").textContent=TL_UKN[tlP.uk];
+ [["tlTr","tr"],["tlLt","lt"],["tlWk","wk"]].forEach(a=>$(a[0]).setAttribute("aria-checked",!!tlP[a[1]]))}
+function tlSimpan(){K("tahlilPref",JSON.stringify(tlP))}
+function tlRender(){
+ const b=$("pb-tahlil");
+ b.innerHTML=`<div class="seg tl-seg" role="group" aria-label="Pilih bacaan">${[["tahlil","Tahlil"],["yasin","Yasin"]].map(x=>`<button type="button" data-t="${x[0]}" aria-pressed="${x[0]===tlTab}">${x[1]}</button>`).join("")}</div>
+ <div class="pc iq-warn">${I('<circle cx="12" cy="12" r="9"/><path d="M12 8h.01M11 12h1v5h1"/>')}<p>Naskah ini masih draf dan belum diperiksa pengurus atau ustadz.${tlTab==="yasin"?" Surah Yasin baru memuat ayat 1–12.":""}</p></div>`
+ +TL_DATA[tlTab].map(s=>`<div class="pc"><div class="tl-hd"><h3>${esc(s.j)}</h3><span class="tl-chip">Menunggu pemeriksaan</span></div>${s.it.map(x=>`<div class="tl-it">${x[3]?`<span class="tl-no">${esc(x[3])}</span>`:""}<p class="tl-ar" lang="ar" dir="rtl">${x[0]}</p><p class="tl-lt">${esc(x[1])}</p><p class="tl-id">${esc(x[2])}</p></div>`).join("")}</div>`).join("")
+ +`<p class="note2">Ukuran huruf, terjemah, tulisan Latin, layar menyala, dan gulir otomatis diatur lewat tombol Aa di atas.</p>`;
+ b.querySelectorAll("[data-t]").forEach(x=>x.onclick=()=>{tlStop();tlTab=x.dataset.t;tlRender();tlTerap();$("pg-tahlil").scrollTop=0})}
+async function tlWake(on){try{if(on&&tlP.wk&&navigator.wakeLock&&!tlWl){tlWl=await navigator.wakeLock.request("screen");tlWl.addEventListener("release",()=>{tlWl=null})}else if(!on&&tlWl){const w=tlWl;tlWl=null;await w.release()}}catch(e){tlWl=null}}
+function tlUI(){const a=$("tlAuto");a.innerHTML=tlJalan?tlIkonJeda:tlIkonAuto;a.setAttribute("aria-pressed",tlJalan);a.setAttribute("aria-label",tlJalan?"Jeda gulir otomatis":"Gulir otomatis");$("tlJeda").classList.toggle("on",tlJalan)}
+function tlLoop(t){
+ if(!tlJalan)return;const p=$("pg-tahlil"),dt=Math.min(.1,(t-tlLast)/1000);tlLast=t;
+ if(Math.abs(p.scrollTop-tlPos)>3)tlPos=p.scrollTop;
+ tlPos+=TL_KEC[tlP.kc]*dt;p.scrollTop=tlPos;
+ if(p.scrollTop+p.clientHeight>=p.scrollHeight-2){tlStop();say("Sudah sampai di akhir bacaan");return}
+ tlRaf=requestAnimationFrame(tlLoop)}
+function tlStop(){tlJalan=false;cancelAnimationFrame(tlRaf);tlUI()}
+function tlMulai(){
+ const p=$("pg-tahlil");if(p.scrollTop+p.clientHeight>=p.scrollHeight-2){say("Sudah di akhir bacaan");return}
+ if($("tlDlg").open)$("tlDlg").close();
+ tlJalan=true;tlPos=p.scrollTop;tlLast=performance.now();tlUI();tlRaf=requestAnimationFrame(tlLoop)}
+$("tlAuto").onclick=()=>tlJalan?tlStop():tlMulai();
+$("tlJeda").onclick=tlStop;
+$("pb-tahlil").addEventListener("pointerdown",()=>{if(tlJalan)tlStop()});
+$("tlAa").onclick=()=>{tlTerap();$("tlDlg").showModal()};
+$("tlTutup").onclick=()=>$("tlDlg").close();
+$("tlDlg").addEventListener("click",e=>{if(e.target===e.currentTarget)e.currentTarget.close()});
+document.querySelectorAll("#tlUk button").forEach((x,i)=>x.onclick=()=>{tlP.uk=i;tlSimpan();tlTerap()});
+document.querySelectorAll("#tlKc button").forEach((x,i)=>x.onclick=()=>{tlP.kc=i;tlSimpan();tlTerap()});
+[["tlTr","tr"],["tlLt","lt"],["tlWk","wk"]].forEach(a=>$(a[0]).onclick=()=>{tlP[a[1]]=tlP[a[1]]?0:1;tlSimpan();tlTerap();if(a[1]==="wk")tlWake(!!tlP.wk)});
+document.addEventListener("visibilitychange",()=>{if(document.visibilityState==="visible"&&$("pg-tahlil").classList.contains("open"))tlWake(true)});
+new MutationObserver(()=>{if(!$("pg-tahlil").classList.contains("open")){tlStop();tlWake(false);if($("tlDlg").open)$("tlDlg").close()}}).observe($("pg-tahlil"),{attributes:true,attributeFilter:["class"]});
+tlUI();
+R.tahlil=function(){tlTerap();tlRender();tlWake(true)};
+document.querySelectorAll('[data-go="Tahlil"]').forEach(b=>b.onclick=e=>{e.preventDefault();if(app.classList.contains("open"))menu(false);back=b;openPage("tahlil")});
+/* ===== Halaman arisan =====
+   Pendekatan: anggota menyimpan foto atau berkas lembar omzetnya sendiri (IndexedDB di perangkat ini, tidak
+   dikirim ke mana pun), lalu mencari nomor, nama, dan nominal secara manual dengan memperbesar dan
+   menggeser gambar. Aplikasi tidak membaca isi gambar dan tidak mencocokkan nama atau nomor.
+   Giliran minggu ini, riwayat, dan jadwal berikutnya diambil dari Sheet (sama dengan kartu di Beranda).
+   Susunan: ringkasan narik, lembar omzet saya, giliran berikutnya, riwayat narik (dilipat), aturan main (dilipat). */
+const AR_MAX=8,AR_PDF_MAX=15e6,AR_RIWAYAT=5,AR_AHEAD=4;
+let AR_DB=null,AR_LIST=null,AR_URL=[],AR_ERR=false,AR_VIEW=-1;
+function arDb(){return new Promise((ok,gagal)=>{
+ if(AR_DB)return ok(AR_DB);
+ if(!window.indexedDB)return gagal(new Error("IndexedDB tidak didukung"));
+ let q;try{q=indexedDB.open("mtAlIstiqomah",1)}catch(e){return gagal(e)}
+ q.onupgradeneeded=()=>{q.result.createObjectStore("lembar",{keyPath:"id"})};
+ q.onsuccess=()=>{AR_DB=q.result;ok(AR_DB)};
+ q.onerror=()=>gagal(q.error);
+ q.onblocked=()=>gagal(new Error("Penyimpanan terblokir"))})}
+function arTx(mode,fn){return arDb().then(db=>new Promise((ok,gagal)=>{
+ const t=db.transaction("lembar",mode),s=t.objectStore("lembar");let r;
+ try{r=fn(s)}catch(e){gagal(e);return}
+ t.oncomplete=()=>ok(r?r.result:undefined);
+ t.onerror=()=>gagal(t.error);t.onabort=()=>gagal(t.error)}))}
+const arMuat=()=>arTx("readonly",s=>s.getAll()).then(a=>(a||[]).sort((x,y)=>x.t-y.t));
+const arSimpan=x=>arTx("readwrite",s=>s.put(x));
+const arHapus=id=>arTx("readwrite",s=>s.delete(id));
+const arUkuran=b=>b>=1048576?(b/1048576).toFixed(1).replace(".",",")+" MB":Math.max(1,Math.round(b/1024))+" KB";
+const arMlm=x=>dm(x).replace(/^(\S+?),?\s/,"$1 malam, ");
+const arIsGambar=x=>/^image\//.test(x.type||"");
+const arHari=x=>KAL_HARI[D(x).getUTCDay()]+", "+tglPdk(x);
+
+/* jadwal giliran dari Sheet sejak hari ini, dikelompokkan per tanggal */
+function arJadwal(){
+ const rows=DATA&&Array.isArray(DATA.giliran)?DATA.giliran:[],t=todayJ(),g={};
+ rows.forEach(r=>{if(r&&r.tgl&&String(r.tgl)>=t)(g[r.tgl]=g[r.tgl]||[]).push(r)});
+ return Object.keys(g).sort().map(d=>{
+  const pn=g[d].find(r=>r.tipe==="penutupan");
+  if(pn)return{tgl:d,tipe:"penutupan",nominal:+pn.nominal||0,ket:pn.ket||""};
+  return{tgl:d,tipe:"giliran",anggota:g[d].filter(r=>r.nama).map(r=>({nama:r.nama,no:r.no,ket:r.ket||""}))}
+ }).filter(x=>x.tipe==="penutupan"||x.anggota.length)}
+/* anggota yang sudah narik, yang terbaru lebih dulu */
+function arRiwayat(){
+ const rows=DATA&&Array.isArray(DATA.giliran)?DATA.giliran:[],t=todayJ();
+ return rows.filter(r=>r&&r.tgl&&String(r.tgl)<t&&r.tipe!=="penutupan"&&r.nama)
+  .map((r,i)=>({tgl:String(r.tgl),nama:r.nama,no:r.no,ket:r.ket||"",i}))
+  .sort((a,b)=>a.tgl<b.tgl?1:a.tgl>b.tgl?-1:a.i-b.i)}
+
+/* ---------- bagian-bagian halaman ---------- */
+function arCariData(){
+ const g=giliranBerikut();
+ return g&&g.tipe==="giliran"&&Array.isArray(g.anggota)?g.anggota.filter(x=>x&&x.nama).slice(0,2):[]}
+function arHeroHtml(g){
+ const tp=tempatPekan(),
+  tempat=`<button type="button" class="ar-tp" data-page="lokasi" aria-label="Lihat lokasi dan buka di peta: ${esc(tp)}">${I(IC.pin)}<span class="pt">${esc(tp)}</span><span class="pm">Peta${I(IC.chev)}</span></button>`;
+ if(g.tipe==="penutupan")
+  return `<div class="ar-hero"><div class="ar-hd"><strong>Penutupan pengajian</strong><span>${arMlm(g.tgl)}</span></div><div class="ar-w"><div><p class="ar-aj">Infaq untuk guru kita</p><div class="ar-nom">${rp(g.nominal)}</div><div class="ar-nk">${esc(g.ket)}</div></div></div>${tempat}</div>`;
+ return `<div class="ar-hero"><div class="ar-hd"><strong>Giliran narik berikutnya</strong><span>${arMlm(g.tgl)}</span></div>`+
+  g.anggota.map(x=>`<div class="ar-w"><h2>${esc(x.nama)}</h2><span class="tag no">No. ${esc(x.no)}</span>${x.ket?`<span class="tag ket">${esc(x.ket)}</span>`:""}</div>`).join("")+
+  tempat+`</div>`}
+function arLiburHtml(f){
+ const kb=kembali(),info=f==="pasca"&&(demo==="kembali"||todayJ()>=addD(kb,-7)),
+  J={pra:"Libur menjelang Ramadhan",puasa:"Libur selama bulan Ramadhan",pasca:"Libur setelah Idul Fitri"}[f];
+ return `<div class="pc"><div class="when"><span class="ic2">${I(IC.moon)}</span><div><small>Arisan malam Jumat</small><b>${J}</b></div></div><p class="libur2">${info?`Pengajian dan arisan kembali ${arMlm(kb)}.`:"Jadwal kembali akan diumumkan pengurus."}</p></div>`}
+let AR_TAB="berikut";
+function arBerikutIsi(up){
+ if(!up.length)return `<p class="hint" style="margin:0">Belum ada jadwal giliran berikutnya.</p>`;
+ return up.map(x=>{
+  const hari=arHari(x.tgl);
+  if(x.tipe==="penutupan")return `<div class="row2"><small>${esc(hari)}</small><b>Penutupan pengajian<br><span style="font-weight:500;color:var(--muted)">Infaq ${rp(x.nominal)}${x.ket?" · "+esc(x.ket):""}</span></b></div>`;
+  return `<div class="row2"><small>${esc(hari)}</small><b>${x.anggota.map(a=>`${esc(a.nama)} (No. ${esc(a.no)})`).join("<br>")}</b></div>`}).join("")}
+function arRiwayatIsi(r){
+ if(!r.length)return `<p class="hint" style="margin:0">Belum ada riwayat giliran.</p>`;
+ const baris=x=>`<div class="row2"><small>${esc(arHari(x.tgl))}</small><b>${esc(x.nama)}${x.no!=null&&x.no!==""?` (No. ${esc(x.no)})`:""}</b></div>`;
+ return r.slice(0,AR_RIWAYAT).map(baris).join("")+(r.length>AR_RIWAYAT?`<details class="ar-more"><summary>Lihat semua</summary>${r.slice(AR_RIWAYAT).map(baris).join("")}</details>`:"")}
+function arJadwalRender(){
+ const c=$("ar-jadwal");if(!c)return;
+ const f=fase(todayJ()),cur=giliranBerikut(),up=arJadwal().filter(x=>f||x.tgl!==cur.tgl).slice(0,AR_AHEAD);
+ c.innerHTML=`<h3>Jadwal giliran</h3><div class="seg tl-seg" role="group" aria-label="Pilih daftar">${[["berikut","Berikutnya"],["riwayat","Riwayat"]].map(x=>`<button type="button" data-tab="${x[0]}" aria-pressed="${AR_TAB===x[0]}">${x[1]}</button>`).join("")}</div><div style="margin-top:12px">${AR_TAB==="berikut"?arBerikutIsi(up):arRiwayatIsi(arRiwayat())}</div>`;
+ c.querySelectorAll("[data-tab]").forEach(t=>t.onclick=()=>{AR_TAB=t.dataset.tab;arJadwalRender();const n=c.querySelector('[data-tab="'+AR_TAB+'"]');if(n)n.focus({preventScroll:true})})}
+/* aturan main: ditulis pengurus; sumber utama DATA.aturan dari Sheet ({tgl, butir:[...]} atau daftar teks), cadangan MAJELIS.aturan. Tidak tampil bila belum diisi. */
+function arAturanHtml(){
+ let a=DATA&&DATA.aturan?DATA.aturan:null;
+ if(Array.isArray(a))a={butir:a};
+ if(!a||typeof a!=="object")a=MAJELIS.aturan||{};
+ const butir=Array.isArray(a.butir)?a.butir.map(x=>String(x==null?"":x).trim()).filter(Boolean):[];
+ if(!butir.length)return `<div class="pc"><p style="color:var(--muted)">Belum ada aturan main yang diisi pengurus.</p></div>`;
+ let tg="";
+ if(a.tgl){const d=new Date(a.tgl);if(!isNaN(d)){const o={day:"numeric",month:"long",year:"numeric"};if(/^\d{4}-\d{2}-\d{2}$/.test(String(a.tgl)))o.timeZone="UTC";tg=new Intl.DateTimeFormat("id-ID",o).format(d)}}
+ return `<div class="pc"><ol class="ar-how" style="margin-top:0">${butir.map(x=>`<li>${esc(x)}</li>`).join("")}</ol>${tg?`<p class="hint">Diperbarui ${tg}</p>`:""}</div>`}
+R.aturan=function(){$("pb-aturan").innerHTML=arAturanHtml()};
+
+/* ---------- lembar omzet saya ---------- */
+const AR_IC_FOTO='<path d="M4 8h3l2-3h6l2 3h3a1 1 0 0 1 1 1v9a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1z"/><circle cx="12" cy="13" r="3.5"/>';
+const AR_IC_KUNCI='<rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/>';
+function arLembarHtml(){
+ const n=AR_LIST?AR_LIST.length:0,off=AR_LIST===null?" disabled":"";
+ const h=`<div class="ar-ct"><span class="ic2">${I('<path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5M9 13h6M9 17h4"/>')}</span><h3>Lembar omzet saya</h3></div>`+(n&&!fase(todayJ())&&arCariData().length?`<p class="ar-cr">Cari nama dan nomor giliran di atas pada lembar omzet Anda.</p>`:"");
+ if(AR_ERR)return h+`<p class="hint">Penyimpanan di perangkat ini sedang tidak tersedia, sehingga lembar omzet belum dapat disimpan. Silakan tutup lalu buka kembali aplikasi. Jika masalah berlanjut, hubungi pengurus.</p>`;
+ const inp=`<input type="file" id="arFile" accept="image/*,application/pdf" multiple hidden>`;
+ if(n){
+  return h+
+   `<div class="ar-th${n===1?" satu":n===2?" dua":""}">`+AR_LIST.map((x,i)=>`<button type="button" class="ar-t" data-v="${i}" aria-label="${n>1?"Buka halaman "+(i+1)+" dan perbesar":"Buka lembar omzet dan perbesar"}">${arIsGambar(x)&&AR_URL[i]?`<img src="${AR_URL[i]}" alt="">`:I('<path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5"/>')}${arIsGambar(x)&&n===1?"":`<span>${arIsGambar(x)?"":"PDF"}${n>1?(arIsGambar(x)?"":" ")+(i+1):""}</span>`}</button>`).join("")+`</div>`+
+   `<button type="button" class="btn2 pri ar-open" id="arOpen">Buka dan cari nama</button>`+
+   `<button type="button" class="ar-link" id="arDel">${n>1?"Hapus semua foto":"Hapus foto"}</button>`}
+ if(AR_LIST===null)return h+`<p class="hint" style="margin:0">Memeriksa penyimpanan…</p>`;
+ return h+
+  `<div class="ar-ke">${I('<circle cx="12" cy="12" r="9"/><path d="M12 8v5M12 16h.01"/>')}<div><b>Lembar omzet belum tersimpan</b><p>Simpan foto lembar omzet Anda di aplikasi ini untuk memudahkan pencarian nama dan melihat nominal.</p></div></div>`+
+  `<div class="ar-gt">Petunjuk menyimpan lembar omzet:</div><ol class="ar-tips"><li>Ketuk tombol <b>Simpan lembar omzet</b>, lalu pilih untuk memfoto langsung atau memakai foto atau berkas PDF yang sudah ada di perangkat.</li><li>Untuk hasil terbaik, letakkan lembar omzet di permukaan rata dengan pencahayaan yang cukup.</li><li>Ambil foto tegak lurus dari atas dan pastikan seluruh tulisan dan angka terlihat jelas.</li></ol>`+
+  inp+`<div class="ar-ba"><button type="button" class="btn2 pri" id="arAdd">${I(AR_IC_FOTO)}Simpan lembar omzet</button></div>`+
+  `<p class="ar-priv">${I(AR_IC_KUNCI)}<span><b>Aman dan pribadi.</b> Lembar omzet hanya tersimpan di perangkat ini. Tidak dikirim ke server dan tidak terlihat anggota lain.</span></p>`}
+/* dialog konfirmasi dan pemberitahuan buatan sendiri; hasilnya true bila tombol utama ditekan */
+function arDialog(o){return new Promise(ok=>{
+ const d=$("arDlg"),ya=$("arDlgYa"),bt=$("arDlgBtl");let r=false;
+ $("arDlgJ").textContent=o.judul;$("arDlgI").textContent=o.isi;
+ ya.textContent=o.ya;ya.classList.toggle("bahaya",!!o.bahaya);bt.hidden=!o.batal;
+ ya.onclick=()=>{r=true;d.close()};bt.onclick=()=>d.close();
+ d.onclose=()=>ok(r);d.showModal()})}
+const arKonfirmHapus=o=>arDialog(Object.assign({judul:"Hapus lembar omzet?",isi:"Foto akan dihapus dari aplikasi di perangkat ini.",ya:"Hapus",batal:true,bahaya:true},o||{}));
+const arGagalHapus=()=>arDialog({judul:"Belum berhasil dihapus",isi:"Tutup aplikasi lalu buka kembali, kemudian coba lagi. Jika tetap gagal, hubungi pengurus.",ya:"Mengerti"});
+async function arHapusSemua(){
+ const n=AR_LIST?AR_LIST.length:0;if(!n)return;
+ if(!await arKonfirmHapus())return;
+ let gagal=false;
+ try{for(const x of AR_LIST)await arHapus(x.id)}catch(e){gagal=true;console.warn(e)}
+ await arMuatLembar();
+ if(gagal)await arGagalHapus();else say("Lembar omzet dihapus")}
+function arLembarRender(){
+ const c=$("ar-lembar");if(!c)return;
+ c.innerHTML=arLembarHtml();
+ c.querySelectorAll("[data-v]").forEach(x=>x.onclick=()=>arBuka(+x.dataset.v));
+ const a=$("arAdd"),f=$("arFile"),o=$("arOpen"),d=$("arDel");
+ const pasang=(inp,btn)=>{if(!inp||!btn)return;btn.onclick=()=>inp.click();inp.onchange=()=>{const fl=[...inp.files];inp.value="";if(fl.length)arTambah(fl)}};
+ pasang(f,a);
+ if(o)o.onclick=()=>arBuka(0);
+ if(d)d.onclick=arHapusSemua}
+async function arMuatLembar(){
+ try{AR_LIST=await arMuat();AR_ERR=false}
+ catch(e){AR_LIST=[];AR_ERR=true;console.warn("Penyimpanan lembar omzet tidak tersedia.",e)}
+ AR_URL.forEach(u=>{try{URL.revokeObjectURL(u)}catch(e){}});
+ AR_URL=AR_LIST.map(x=>{try{return URL.createObjectURL(x.blob)}catch(e){return""}});
+ arLembarRender()}
+/* foto besar dikecilkan (sisi terpanjang 2600 px) agar hemat ruang tapi tulisan tetap terbaca saat diperbesar */
+function arKecil(f){return new Promise(ok=>{
+ if(!/^image\//.test(f.type)){ok(f);return}
+ const u=URL.createObjectURL(f),im=new Image();
+ im.onload=()=>{
+  URL.revokeObjectURL(u);
+  const k=Math.min(1,2600/Math.max(im.naturalWidth,im.naturalHeight));
+  if(k===1&&f.size<2.5e6){ok(f);return}
+  const c=document.createElement("canvas");c.width=Math.round(im.naturalWidth*k);c.height=Math.round(im.naturalHeight*k);
+  const x=c.getContext("2d");x.fillStyle="#fff";x.fillRect(0,0,c.width,c.height);x.drawImage(im,0,0,c.width,c.height);
+  c.toBlob(b=>ok(b||f),"image/jpeg",.9)};
+ im.onerror=()=>{URL.revokeObjectURL(u);ok(f)};
+ im.src=u})}
+async function arTambah(files){
+ const sisa=AR_MAX-(AR_LIST?AR_LIST.length:0);
+ let a=files.filter(f=>/^image\//.test(f.type)||f.type==="application/pdf"||/\.pdf$/i.test(f.name));
+ if(!a.length){say("Format belum didukung. Pilih foto atau berkas PDF.");return}
+ const besar=a.filter(f=>(f.type==="application/pdf"||/\.pdf$/i.test(f.name))&&f.size>AR_PDF_MAX).length;
+ if(besar){a=a.filter(f=>!((f.type==="application/pdf"||/\.pdf$/i.test(f.name))&&f.size>AR_PDF_MAX));say("Ukuran PDF maksimal 15 MB.")}
+ if(!a.length)return;
+ if(a.length>sisa){a=a.slice(0,sisa);say("Maksimal "+AR_MAX+" berkas. Sisanya tidak disimpan.")}
+ ["arAdd"].forEach(i=>{const b=$(i);if(b)b.disabled=true});
+ const bt=$("arAdd");if(bt)bt.textContent="Menyimpan…";
+ let gagal=null;
+ try{
+  for(let i=0;i<a.length;i++){
+   const f=a[i],pdf=f.type==="application/pdf"||/\.pdf$/i.test(f.name);
+   let bl=await arKecil(f);
+   if(pdf&&bl.type!=="application/pdf")bl=new Blob([bl],{type:"application/pdf"});
+   await arSimpan({id:Date.now()+"_"+i+"_"+Math.random().toString(36).slice(2,7),t:Date.now()+i,name:f.name||"lembar",type:pdf?"application/pdf":(bl.type||"image/jpeg"),size:bl.size,blob:bl})}
+ }catch(e){gagal=e||true;console.warn(e)}
+ await arMuatLembar();
+ if(!gagal){say("Lembar omzet tersimpan");return}
+ await arDialog(gagal.name==="QuotaExceededError"
+  ?{judul:"Penyimpanan perangkat penuh",isi:"Kosongkan sebagian ruang penyimpanan, lalu coba lagi.",ya:"Mengerti"}
+  :{judul:"Belum berhasil disimpan",isi:"Coba lagi atau pilih foto lain. Jika tetap gagal, hubungi pengurus.",ya:"Mengerti"})}
+
+/* ---------- penampil layar penuh: cubit untuk memperbesar, seret untuk menggeser ---------- */
+const VW={s:1,x:0,y:0,p:new Map(),d0:0,s0:1,mp:null,tap:null,tapT:0};
+const VW_MAX=6;
+function vwApply(){
+ const st=$("vwSt"),im=$("vwImg");if(!st||!im)return;
+ const W=st.clientWidth,H=st.clientHeight,w=im.offsetWidth*VW.s,h=im.offsetHeight*VW.s;
+ VW.x=w<=W?(W-w)/2:Math.min(0,Math.max(W-w,VW.x));
+ VW.y=h<=H?(H-h)/2:Math.min(0,Math.max(H-h,VW.y));
+ im.style.transform=`translate(${VW.x}px,${VW.y}px) scale(${VW.s})`;
+ $("vwPct").textContent=Math.round(VW.s*100)+"%";
+ $("vwMin").disabled=VW.s<=1.001;$("vwPlus").disabled=VW.s>=VW_MAX-.001}
+function vwZoom(ns,cx,cy){
+ ns=Math.min(VW_MAX,Math.max(1,ns));const k=ns/VW.s;
+ VW.x=cx-(cx-VW.x)*k;VW.y=cy-(cy-VW.y)*k;VW.s=ns;vwApply()}
+function vwPusat(f){const st=$("vwSt");vwZoom(VW.s*f,st.clientWidth/2,st.clientHeight/2)}
+function vwReset(){VW.s=1;VW.x=0;VW.y=0;vwApply()}
+function vwTampil(i){
+ const x=AR_LIST&&AR_LIST[i];if(!x)return;
+ AR_VIEW=i;VW.p.clear();VW.s=1;VW.x=0;VW.y=0;
+ $("vwJd").textContent="Lembar omzet";
+ const gb=arIsGambar(x),st=$("vwSt");
+ st.querySelectorAll(".vw-pdf").forEach(n=>n.remove());
+ const im=$("vwImg");
+ if(gb){im.hidden=false;im.onload=vwApply;im.src=AR_URL[i];if(im.complete)vwApply()}
+ else{im.hidden=true;im.removeAttribute("src");
+  const d=document.createElement("div");d.className="vw-pdf";
+  d.innerHTML=`<p>Berkas PDF: ${esc(x.name)}</p><a class="btn2 pri" href="${AR_URL[i]}" target="_blank" rel="noopener">Buka PDF</a>`;st.appendChild(d)}
+ ["vwMin","vwPlus","vwAwal"].forEach(k=>{$(k).disabled=!gb});
+ $("vwHint").hidden=!gb;
+ {const c=arCariData(),el=$("vwCari");el.hidden=!c.length;el.innerHTML=c.length?"<small>Cari di lembar ini</small>"+c.map(x=>`<div><b>${esc(x.nama)}</b><span>No. ${esc(x.no)}</span></div>`).join(""):""}
+ $("vwPrev").hidden=$("vwNext").hidden=AR_LIST.length<2;
+ $("vwPrev").disabled=i<=0;$("vwNext").disabled=i>=AR_LIST.length-1;
+ $("vwMeta").textContent=arUkuran(x.size)+" · disimpan "+new Intl.DateTimeFormat("id-ID",{day:"numeric",month:"short",year:"numeric"}).format(new Date(x.t));
+ if(gb)vwApply();else $("vwPct").textContent=""}
+function arBuka(i){if(!AR_LIST||!AR_LIST[i])return;vwTampil(i);$("arVw").showModal();$("vwSt").focus({preventScroll:true})}
+(function(){
+ const st=$("vwSt"),rel=e=>{const r=st.getBoundingClientRect();return{x:e.clientX-r.left,y:e.clientY-r.top}};
+ const dua=()=>{const[a,b]=[...VW.p.values()];return{d:Math.hypot(a.x-b.x,a.y-b.y),x:(a.x+b.x)/2,y:(a.y+b.y)/2}};
+ st.addEventListener("pointerdown",e=>{
+  if($("vwImg").hidden)return;
+  try{st.setPointerCapture(e.pointerId)}catch(_){}
+  VW.p.set(e.pointerId,{x:e.clientX,y:e.clientY});
+  if(VW.p.size===1)VW.tap={x:e.clientX,y:e.clientY,t:Date.now(),ok:true};
+  else{VW.tap&&(VW.tap.ok=false);const m=dua(),r=st.getBoundingClientRect();VW.d0=m.d;VW.s0=VW.s;VW.mp={x:m.x-r.left,y:m.y-r.top}}});
+ st.addEventListener("pointermove",e=>{
+  const q=VW.p.get(e.pointerId);if(!q)return;
+  if(VW.p.size===1){
+   VW.x+=e.clientX-q.x;VW.y+=e.clientY-q.y;q.x=e.clientX;q.y=e.clientY;
+   if(VW.tap&&Math.hypot(e.clientX-VW.tap.x,e.clientY-VW.tap.y)>8)VW.tap.ok=false;
+   vwApply()}
+  else if(VW.p.size>=2){
+   q.x=e.clientX;q.y=e.clientY;
+   const m=dua(),r=st.getBoundingClientRect(),cx=m.x-r.left,cy=m.y-r.top;
+   if(VW.mp){VW.x+=cx-VW.mp.x;VW.y+=cy-VW.mp.y}
+   VW.mp={x:cx,y:cy};
+   if(VW.d0>0)vwZoom(VW.s0*m.d/VW.d0,cx,cy);else vwApply()}});
+ const lepas=e=>{
+  if(!VW.p.has(e.pointerId))return;
+  VW.p.delete(e.pointerId);
+  if(VW.p.size<2)VW.mp=null;
+  if(VW.p.size===1&&VW.tap)VW.tap.ok=false;
+  if(e.type==="pointerup"&&VW.p.size===0&&VW.tap&&VW.tap.ok&&Date.now()-VW.tap.t<300){
+   const n=Date.now();
+   if(n-VW.tapT<320){VW.tapT=0;const c=rel(e);vwZoom(VW.s>1.05?1:2.5,c.x,c.y)}else VW.tapT=n}
+  if(VW.p.size===0)VW.tap=null};
+ st.addEventListener("pointerup",lepas);st.addEventListener("pointercancel",lepas);
+ st.addEventListener("wheel",e=>{if($("vwImg").hidden)return;e.preventDefault();const c=rel(e);vwZoom(VW.s*(e.deltaY<0?1.2:1/1.2),c.x,c.y)},{passive:false});
+ st.addEventListener("keydown",e=>{
+  if($("vwImg").hidden)return;
+  const k=e.key,m={ArrowLeft:[60,0],ArrowRight:[-60,0],ArrowUp:[0,60],ArrowDown:[0,-60]}[k];
+  if(m){e.preventDefault();VW.x+=m[0];VW.y+=m[1];vwApply()}
+  else if(k==="+"||k==="="){e.preventDefault();vwPusat(1.4)}
+  else if(k==="-"){e.preventDefault();vwPusat(1/1.4)}
+  else if(k==="0"){e.preventDefault();vwReset()}});
+ $("vwPlus").onclick=()=>vwPusat(1.5);
+ $("vwMin").onclick=()=>vwPusat(1/1.5);
+ $("vwAwal").onclick=vwReset;
+ $("vwPrev").onclick=()=>vwTampil(AR_VIEW-1);
+ $("vwNext").onclick=()=>vwTampil(AR_VIEW+1);
+ $("vwX").onclick=()=>$("arVw").close();
+ $("vwDel").onclick=async()=>{
+  const x=AR_LIST&&AR_LIST[AR_VIEW];if(!x)return;
+  const satu=AR_LIST.length===1;
+  if(!await arKonfirmHapus(satu?null:{judul:"Hapus halaman "+(AR_VIEW+1)+"?",isi:"Halaman ini akan dihapus dari aplikasi di perangkat ini."}))return;
+  try{await arHapus(x.id);$("arVw").close();await arMuatLembar();say(satu?"Lembar omzet dihapus":"Halaman dihapus")}
+  catch(e){console.warn(e);await arGagalHapus()}};
+ window.addEventListener("resize",()=>{if($("arVw").open)vwApply()});
+ new MutationObserver(()=>{if(!$("pg-arisan").classList.contains("open")&&$("arVw").open)$("arVw").close()}).observe($("pg-arisan"),{attributes:true,attributeFilter:["class"]})})();
+
+/* ---------- susun halaman ---------- */
+function arRender(){
+ const b=$("pb-arisan"),f=fase(todayJ()),cur=giliranBerikut();
+ b.innerHTML=(f?arLiburHtml(f):arHeroHtml(cur))+
+  `<div class="pc" id="ar-lembar"></div><div class="pc" id="ar-jadwal"></div>`;
+ arLembarRender();arJadwalRender();bind(b)}
+R.arisan=function(){AR_TAB="berikut";arRender();arMuatLembar()};
+document.querySelectorAll('[data-go="Arisan"]').forEach(b=>b.onclick=e=>{e.preventDefault();if(app.classList.contains("open"))menu(false);back=b;openPage("arisan")});
+$("lihatSholat").onclick=e=>{e.preventDefault();back=e.currentTarget;openPage("sholat")};
+
+
+/* ===== Halaman kas: laporan keuangan global per kelompok (angka dan rekening masih CONTOH).
+   Rincian pemasukan dan pengeluaran tidak ditampilkan di aplikasi; admin menautkan dokumen (isi doc dengan alamat https). ===== */
+const KAS={per:"2026-11-12",bank:"[Nama bank]",bendahara:"[Nama Bendahara]",
+ rutin:{masuk:4250000,keluar:1380000,rek:"0000 0000 01",doc:""},
+ khusus:[
+  {nama:"Pengadaan perlengkapan majelis",ket:"Penggalangan dana untuk pengadaan barang majelis taklim bernilai besar.",status:"Berjalan",masuk:6800000,keluar:0,rek:"0000 0000 02",doc:""},
+  {nama:"Penutupan pengajian",ket:"Infaq untuk guru pada penutupan pengajian.",status:"Selesai",masuk:3250000,keluar:3250000,rek:"0000 0000 03",doc:""},
+  {nama:"Peringatan Maulid Nabi",ket:"Penyelenggaraan peringatan Maulid Nabi Muhammad SAW.",status:"Selesai",masuk:5400000,keluar:5150000,rek:"0000 0000 04",doc:""},
+  {nama:"Peringatan Isra Mi'raj",ket:"Penyelenggaraan peringatan Isra Mi'raj.",status:"Berjalan",masuk:1200000,keluar:0,rek:"0000 0000 05",doc:""}]};
+const kasRows=x=>`<div class="kas-rows"><div class="bs-wl"><span>Pemasukan</span><b>${rp(x.masuk)}</b></div><div class="bs-wl"><span>Pengeluaran</span><b>${rp(x.keluar)}</b></div><div class="bs-wl"><span>Saldo</span><b>${rp(x.masuk-x.keluar)}</b></div></div>`;
+const kasRek=r=>`<div class="bs-h" style="margin-top:14px">Rekening penerimaan</div><div class="iq-bank" style="padding:8px 0 0"><span class="iq-bn">${esc(KAS.bank)}</span><span class="iq-no">${esc(r)}</span><span class="iq-an">a.n. ${esc(KAS.bendahara)} (Bendahara)</span><button type="button" class="iq-cp" data-rek="${esc(r)}">${I('<rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V6a2 2 0 0 1 2-2h9"/>')}Salin nomor</button></div>`;
+const kasDoc=d=>{const l=linkAman(d),ic=I('<path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5M9 13h6M9 17h4"/>');
+ return l?`<a class="btn2 sec" href="${esc(l)}" target="_blank" rel="noopener">${ic}Lihat dan unduh rincian</a>`:`<span class="btn2 sec" role="link" aria-disabled="true">${ic}Rincian belum tersedia</span>`};
+let KAS_TAB="rutin";
+function kasRutinHtml(){
+ return `<div class="pc kas-c"><p style="margin-top:0">Kas untuk kebutuhan majelis dan anggota.</p>`+
+  `<div class="ar-ke">${I('<circle cx="12" cy="12" r="9"/><path d="M12 8h.01M11 12h1v5h1"/>')}<div><b>Iuran sukarela</b><p>Dikumpulkan bendahara setiap malam Jumat. Anggota dianjurkan membayar minimal ${rp(5000)} per anggota.</p></div></div>`+
+  `<div class="bs-h" style="margin-top:14px">Digunakan untuk</div><ul class="kb-tips"><li>Alat tulis kantor (ATK).</li><li>Kebutuhan pendukung kegiatan majelis taklim.</li><li>Bantuan bagi anggota yang sakit atau meninggal dunia.</li></ul>`+
+  kasRows(KAS.rutin)+kasRek(KAS.rutin.rek)+kasDoc(KAS.rutin.doc)+`</div>`}
+function kasGiatHtml(){
+ const urut=KAS.khusus.slice().sort((x,y)=>(x.status==="Berjalan"?0:1)-(y.status==="Berjalan"?0:1));
+ return `<p class="kas-intro" style="margin:0 2px">Dana untuk kegiatan atau keperluan khusus, seperti pengadaan barang bernilai besar, penutupan pengajian, dan peringatan hari besar Islam.</p>`+
+  urut.map(x=>`<div class="pc kas-c"><div class="kas-hd"><b>${esc(x.nama)}</b><span class="ar-st${x.status==="Berjalan"?" ok":""}">${esc(x.status)}</span></div><p>${esc(x.ket)}</p>${kasRows(x)}${kasRek(x.rek)}${kasDoc(x.doc)}</div>`).join("")}
+function kasRender(){
+ const all=[KAS.rutin].concat(KAS.khusus),m=all.reduce((a,x)=>a+x.masuk,0),k=all.reduce((a,x)=>a+x.keluar,0),b=$("pb-kas"),nb=KAS.khusus.filter(x=>x.status==="Berjalan").length;
+ b.innerHTML=
+  `<div class="kas-hero"><small>Saldo seluruh kas</small><div class="kas-big">${rp(m-k)}</div><div class="kas-per">Data per ${tglPnjg(KAS.per)}</div><div class="kas-rows"><div class="bs-wl"><span>Total pemasukan</span><b>${rp(m)}</b></div><div class="bs-wl"><span>Total pengeluaran</span><b>${rp(k)}</b></div></div></div>`+
+  `<div class="seg tl-seg" role="group" aria-label="Pilih kelompok kas">${[["rutin","Kas rutin"],["giat","Kegiatan"+(nb?" ("+nb+")":"")]].map(x=>`<button type="button" data-kt="${x[0]}" aria-pressed="${KAS_TAB===x[0]}">${x[1]}</button>`).join("")}</div>`+
+  `<div id="kas-isi" style="display:grid;gap:16px;min-width:0">${KAS_TAB==="giat"?kasGiatHtml():kasRutinHtml()}</div>`+
+  `<p class="note2">Laporan di halaman ini bersifat global. Rincian pemasukan dan pengeluaran tersedia dalam dokumen pada setiap laporan. Angka dan nomor rekening di halaman ini masih contoh.</p>`;
+ b.querySelectorAll("[data-rek]").forEach(x=>x.onclick=()=>infqSalin(x.dataset.rek.replace(/\s/g,""),"Nomor rekening disalin"));
+ b.querySelectorAll("[data-kt]").forEach(x=>x.onclick=()=>{KAS_TAB=x.dataset.kt;kasRender();const n=b.querySelector('[data-kt="'+KAS_TAB+'"]');if(n)n.focus({preventScroll:true})})}
+R.kas=function(){KAS_TAB="rutin";kasRender()};
+document.querySelectorAll('[data-go="Kas"]').forEach(b=>b.onclick=e=>{e.preventDefault();if(app.classList.contains("open"))menu(false);back=b;openPage("kas")});
+
+/* ===== Sub halaman qurban kolektif (dari halaman Infaq): hanya nama dan kelompok. Isi masih CONTOH. ===== */
+const QURBAN={tahun:"1448 H",tgl:"2027-05-17",hargaSapi:3000000,hargaKambing:2500000,
+ sapi:[{peserta:["Ahmad Fauzi","Siti Aminah","H. Mawih","Hj. Ratmi","Syarifuddin","Nurhayati","Rohimah"]},{peserta:["Sri Wahyuni","Maryati","Endang","Sumiyati","Supriyati"]}],
+ kambing:["Kasiah","Bpk. Jaiming","Ibu Rahmawati"]};
+const QB_ISI=7;
+function iqQurban(){
+ const sp=QURBAN.sapi,kb=QURBAN.kambing,jml=sp.reduce((a,g)=>a+g.peserta.length,0),b=$("iq-isi");
+ const baris=(n,t)=>`<div class="qb-r"><span class="qb-n">${n}</span><span>${esc(t)}</span></div>`;
+ b.innerHTML=
+  `<div class="hero2"><div class="lg" role="img" aria-label="Logo majelis"></div><h2>Qurban kolektif</h2><p>Idul Adha ${esc(QURBAN.tahun)} · ${tglPnjg(QURBAN.tgl)}</p></div>`+
+  `<div class="pc"><p>Setiap Idul Adha, masjid mengadakan qurban kolektif dan jamaah serta anggota majelis taklim dapat ikut serta. Satu ekor sapi untuk satu kelompok berisi ${QB_ISI} orang, sedangkan satu ekor kambing untuk 1 orang.</p></div>`+
+  `<div class="pc"><div class="bs-wl"><span>Sapi</span><b>${sp.length} kelompok · ${jml} peserta</b></div><div class="bs-wl"><span>Biaya sapi</span><b>${rp(QURBAN.hargaSapi)} per orang</b></div><div class="bs-wl"><span>Kambing</span><b>${kb.length} peserta</b></div><div class="bs-wl"><span>Biaya kambing</span><b>${rp(QURBAN.hargaKambing)} per orang</b></div></div>`+
+  `<h3 class="kas-sec">Sapi</h3>`+
+  (sp.length?sp.map((g,i)=>{const n=g.peserta.length,sisa=Math.max(0,QB_ISI-n);
+   return `<div class="pc"><div class="kas-hd"><b>Kelompok sapi ${i+1}</b><span class="ar-st${sisa?"":" ok"}">${sisa?"Sisa "+sisa+" tempat":"Lengkap"}</span></div><p class="hint" style="margin:4px 0 6px">${n} dari ${QB_ISI} peserta</p>`+
+    g.peserta.map((t,j)=>baris(j+1,t)).join("")+Array.from({length:sisa},(_,j)=>`<div class="qb-r kosong"><span class="qb-n">${n+j+1}</span><span>Tempat masih tersedia</span></div>`).join("")+`</div>`}).join(""):`<div class="pc"><p style="color:var(--muted)">Belum ada peserta qurban sapi.</p></div>`)+
+  `<h3 class="kas-sec">Kambing</h3>`+
+  `<div class="pc">${kb.length?kb.map((t,i)=>baris(i+1,t)).join(""):`<p style="color:var(--muted)">Belum ada peserta qurban kambing.</p>`}</div>`+
+  `<button type="button" class="lnk" data-page="hubungi"><span>Ingin ikut? Hubungi pengurus</span>${I(IC.chev)}</button>`+
+  `<p class="note2">Halaman ini hanya menampilkan nama dan kelompok peserta. Nama peserta dan nominal di halaman ini masih contoh.</p>`}
+
+/* halaman Infaq dan qurban: dua tab */
+let IQ_TAB="infaq";
+function iqRender(){
+ const b=$("pb-infaq");
+ b.innerHTML=`<div class="seg tl-seg" role="group" aria-label="Pilih halaman">${[["infaq","Infaq"],["qurban","Qurban kolektif"]].map(x=>`<button type="button" data-iqt="${x[0]}" aria-pressed="${IQ_TAB===x[0]}">${x[1]}</button>`).join("")}</div><div id="iq-isi" style="display:grid;gap:16px;min-width:0"></div>`;
+ (IQ_TAB==="qurban"?iqQurban:iqInfaq)();
+ b.querySelectorAll("[data-iqt]").forEach(x=>x.onclick=()=>{IQ_TAB=x.dataset.iqt;iqRender();const n=b.querySelector('[data-iqt="'+IQ_TAB+'"]');if(n)n.focus({preventScroll:true});$("pg-infaq").scrollTop=0});
+ bind(b)}
+R.infaq=function(){IQ_TAB="infaq";iqRender()};
+
+/* ===== Alat pengembang: memicu tampilan yang tersembunyi (kondisi, lokasi, data contoh, jam) =====
+   Aktifkan dengan membuka alamat aplikasi + ?dev=1 (tersimpan di perangkat). Matikan dengan ?dev=0.
+   Jamaah tidak melihat tombol DEV karena mode ini tidak aktif secara bawaan. */
+(function(){
+ const q=new URLSearchParams(location.search).get("dev");
+ if(q==="1")K("dev","1");else if(q==="0")K("dev","0");
+ const fab=$("devFab");fab.hidden=K("dev")!=="1";if(fab.hidden)return;
+ const KEYS=[["","Biasa (dua anggota narik)"],["satu","Satu anggota narik"],["penutupan","Penutupan pengajian"],["pra","Libur menjelang Ramadhan"],["puasa","Libur selama Ramadhan"],["pasca","Libur setelah Idul Fitri"],["kembali","Setelah Idul Fitri, tanggal kembali tampil"],["takziah","Lokasi: takziah"],["syukuran","Lokasi: syukuran"],["haul","Lokasi: haul"]];
+ const SEG=["arisan","acara","kalender","informasi","artikel","sholat"];
+ function terap(){
+  kartu();isiBeranda();render();renderSholat();
+  const o=[...document.querySelectorAll(".page.open")].pop();
+  if(o){const id=o.id.slice(3);if(SEG.includes(id)&&R[id])R[id]()}}
+ const jamNilai=()=>{const t=DEVT!=null?DEVT:jakarta();return String(Math.floor(t/3600)%24).padStart(2,"0")+":"+String(Math.floor(t%3600/60)).padStart(2,"0")};
+ function isi(){
+  const b=$("devBody"),ai=document.activeElement&&document.activeElement.id;
+  b.innerHTML=`<div class="tl-g"><span class="tl-lb">Kondisi tampilan</span><div class="chips3">${KEYS.map(x=>`<button type="button" data-k="${x[0]}" aria-pressed="${(demo||"")===x[0]}">${x[1]}</button>`).join("")}</div></div>`+
+   `<div class="tl-g"><button type="button" class="tl-row" role="switch" id="devIsi" aria-checked="${DEVISI}"><span>Data contoh arisan (riwayat, jadwal berikutnya, aturan main)</span><i class="tl-sw"></i></button></div>`+
+   `<div class="tl-g"><label class="tl-lb" for="devJam">Jam simulasi (jadwal shalat)</label><input type="time" class="fld" id="devJam" value="${jamNilai()}" style="margin-top:0"><button type="button" class="tsb-rs" id="devJamAsli"${DEVT==null?" disabled":""}>${DEVT==null?"Memakai jam asli":"Kembali ke jam asli"}</button></div>`+
+   `<div class="tl-g"><span class="tl-lb">Pemicu lain</span><button type="button" class="tsb-rs" id="devPasang" style="margin-top:0">Tampilkan ajakan memasang aplikasi</button><button type="button" class="tsb-rs" id="devNet">Tampilkan atau sembunyikan banner offline</button></div>`;
+  b.querySelectorAll("[data-k]").forEach(x=>x.onclick=()=>{demo=x.dataset.k||null;terap();isi()});
+  $("devIsi").onclick=()=>{
+   if(DEVISI){DEVISI=false;try{DATA=JSON.parse(K("dataSheet")||"null")}catch(e){DATA=null}muatData(true)}
+   else{DEVISI=true;demoIsi()}
+   terap();isi()};
+  $("devJam").onchange=e=>{const v=e.target.value;if(!v)return;const p=v.split(":");DEVT=(+p[0])*3600+(+p[1])*60;terap();isi()};
+  $("devJamAsli").onclick=()=>{DEVT=null;terap();isi()};
+  $("devPasang").onclick=()=>{$("devDlg").close();showStrip(true)};
+  $("devNet").onclick=()=>$("net").classList.toggle("show");
+  if(ai){const n=$(ai);if(n&&n.focus)n.focus({preventScroll:true})}}
+ fab.onclick=()=>{isi();$("devDlg").showModal()};
+ $("devTutup").onclick=()=>$("devDlg").close();
+ $("devDlg").addEventListener("click",e=>{if(e.target===e.currentTarget)e.currentTarget.close()});
+})();
 </script>
 </body>
 </html>
