@@ -14,7 +14,19 @@
 <meta name="mobile-web-app-capable" content="yes">
 <script src="config.js"></script>
 <script>try{var f=localStorage.getItem("teks");if(f==="k"||f==="b")document.documentElement.dataset.fs=f}catch(e){}try{var t=localStorage.getItem("tema");if(t==="light"||t==="dark")document.documentElement.dataset.theme=t}catch(e){}addEventListener("error",function(){document.documentElement.classList.remove("sk-on")});setTimeout(function(){document.documentElement.classList.remove("sk-on")},4000)</script>
-<noscript><style>.sk-on [data-sk]>*{visibility:visible}.sk-on [data-sk]{animation:none;background:none;min-height:0}</style></noscript>
+<script>try{if(sessionStorage.getItem("spl"))document.documentElement.classList.add("spl-skip")}catch(e){}</script>
+<noscript><style>#spl{display:none}.sk-on [data-sk]>*{visibility:visible}.sk-on [data-sk]{animation:none;background:none;min-height:0}</style></noscript>
+<style id="spl-css">
+#spl{position:fixed;inset:0;z-index:100;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:18px;padding:24px;background:#F1EDE0;color:#0F4D2F;text-align:center;transition:opacity .4s ease,visibility .4s;font-family:"Plus Jakarta Sans",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+#spl.out{opacity:0;visibility:hidden;pointer-events:none}
+.spl-skip #spl{display:none}
+#spl .sl{width:min(52vw,220px);height:auto}
+#spl .lg-mark{fill:#026835}#spl .lg-stars{fill:#D9B86B}
+#spl h1{font-size:1.25rem;font-weight:800;letter-spacing:.2px;animation:splUp .6s .15s cubic-bezier(.2,.8,.2,1) both}
+#spl p{position:absolute;left:0;right:0;bottom:calc(28px + env(safe-area-inset-bottom,0px));font-size:.8125rem;font-weight:600;letter-spacing:.3px;color:#5E675F;animation:splUp .6s .3s cubic-bezier(.2,.8,.2,1) both}
+@keyframes splUp{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+@media(prefers-reduced-motion:reduce){#spl *{animation:none!important}#spl{transition-duration:.01ms}}
+</style>
 <title>MT. Al-Istiqomah · Beranda</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -756,6 +768,20 @@ details.ar-fold .ar-how{margin:2px 0 0}
 </style>
 </head>
 <body>
+<div id="spl" role="presentation" aria-hidden="true"><svg class="sl" viewBox="0 0 1608 1406" aria-hidden="true" focusable="false">
+<g class="lg-mark" fill-rule="evenodd">
+<path class="lg-outer" d="M1348 987L1346 984L1093 777L951 887L1081 997L803 1209L794 1214L523 994L648 892L651 888L514 779L258 982L795 1405ZM361 974L514 853L562 887L431 991L429 994L795 1283L1179 993L1045 890L1047 887L1092 855L1096 856L1242 979L795 1316L366 980Z"/>
+<path class="lg-inner" d="M566 989L795 1175L1040 985L909 895L904 893L858 925L938 981L944 987L795 1100L653 987L655 984L734 924L695 893Z"/>
+<path class="lg-top" d="M798 268L763 306L763 497L715 534L713 533L713 416L709 416L699 426L687 452L680 462L670 471L649 478L641 483L637 489L637 498L642 504L654 507L658 514L658 575L713 534L714 596L761 560L763 561L763 714L765 714L798 692L835 715L836 559L889 599L889 746L793 812L713 747L713 598L658 640L657 577L585 631L585 798L694 886L699 884L734 855L635 774L635 656L657 640L658 772L743 842L749 848L742 854L792 890L743 927L750 933L684 985L686 988L792 1068L794 1068L907 985L839 935L837 932L844 927L795 890L845 857L847 854L838 848L842 844L949 770L950 644L970 658L970 774L857 855L902 887L1022 798L1022 636L951 582L949 644L889 598L888 536L890 535L949 579L949 513L956 506L967 504L972 500L974 496L974 489L972 485L967 480L959 476L946 473L936 467L921 451L908 429L901 420L893 415L889 415L889 534L888 535L837 498L836 559L835 560L802 534L802 473L804 472L835 496L835 306ZM793 951L841 985L794 1017L788 1014L750 986L753 982ZM795 472L796 535L764 559L763 497Z"/>
+<path class="lg-dia" d="M803 721L777 740L770 747L801 774L804 775L837 746Z"/>
+</g><g class="lg-stars">
+<path class="lg-star" style="--i:0" d="M1187 415L1162 491L1083 491L1147 538L1123 613L1186 567L1191 569L1251 613L1226 538L1291 491L1212 491L1210 489Z"/>
+<path class="lg-star" style="--i:1" d="M1398 928L1462 974L1437 1050L1501 1003L1566 1050L1541 975L1605 928L1527 928L1525 926L1502 853L1497 865L1478 926L1476 928Z"/>
+<path class="lg-star" style="--i:2" d="M105 852L80 928L1 928L65 974L41 1050L105 1003L169 1050L145 974L209 928L130 928Z"/>
+<path class="lg-star" style="--i:3" d="M524 491L445 491L443 489L420 416L395 491L316 491L380 538L356 613L419 567L424 569L484 613L459 538Z"/>
+<path class="lg-star" style="--i:4" d="M803 1L780 75L778 77L699 77L764 124L739 199L803 152L867 199L843 124L907 77L828 77Z"/>
+</g></svg><h1>MT. Al-Istiqomah</h1><p>Masjid Jami' Al-Ikhlas</p></div>
+<script>(function(){var s=document.getElementById("spl"),t0=Date.now(),d=false,rm=matchMedia("(prefers-reduced-motion:reduce)").matches,min=rm?300:1100;function go(){if(d)return;d=true;try{sessionStorage.setItem("spl","1")}catch(e){}s.classList.add("out");setTimeout(function(){s.remove()},600)}function ok(){setTimeout(go,Math.max(0,min-(Date.now()-t0)))}if(document.documentElement.classList.contains("spl-skip")||!navigator.onLine){go()}else{if(document.readyState==="complete")ok();else addEventListener("load",ok);setTimeout(go,2500)}})()</script>
 <div class="app" id="app">
   <header class="top">
     <svg class="orn" viewBox="0 0 260 200" preserveAspectRatio="xMaxYMax meet" aria-hidden="true"><g fill="none" stroke="#CFBB8A"><circle cx="250" cy="190" r="70" stroke-opacity=".55"/><circle cx="250" cy="190" r="105" stroke-opacity=".32"/><circle cx="250" cy="190" r="140" stroke-opacity=".18"/></g><g fill="#CFBB8A"><g transform="translate(150 78) scale(.9)" fill-opacity=".6"><polygon points="12,1.5 14.9,8.6 22.5,9.2 16.7,14.2 18.5,21.6 12,17.6 5.5,21.6 7.3,14.2 1.5,9.2 9.1,8.6"/></g><g transform="translate(212 40) scale(.6)" fill-opacity=".5"><polygon points="12,1.5 14.9,8.6 22.5,9.2 16.7,14.2 18.5,21.6 12,17.6 5.5,21.6 7.3,14.2 1.5,9.2 9.1,8.6"/></g></g></svg>

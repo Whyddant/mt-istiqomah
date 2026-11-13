@@ -49,4 +49,4 @@ Tulis di sini ringkasan setiap pembaruan.
 - v11: penyimpanan permanen untuk lembar omzet, catatan "simpan ulang fotonya", logo pratinjau tautan WhatsApp memakai alamat lengkap.
 - v12: fitur Doa harian (35 doa, bisa dicari) menggantikan pintasan Penanda di Beranda. Ukuran huruf, tulisan Latin, dan terjemah mengikuti pengaturan di halaman Tahlil.
 - v13: Surah Yasin di halaman Tahlil kini lengkap (ayat 1–83). Arab dan terjemahan semua ayat dari data surah Kemenag. Latin ayat 1–12 tetap yang lama; Latin ayat 13–83 dari transliterasi sumber lain (gaya berbeda), perlu diseragamkan dan diperiksa.
-- v14: splash bawaan HP dirapikan. Ikon kini berlatar hijau polos (#0F4D2F) dan `background_color` di manifest disamakan, jadi splash tampil mulus tanpa kotak ikon. Tanpa splash buatan di dalam halaman.
+- v14: splash screen. Ikon memakai logo asli berwarna di atas krem polos (#F1EDE0), sama dengan `background_color` di manifest. Setelah splash bawaan HP, halaman menampilkan logo yang sama dengan nama majelis di bawahnya dan nama masjid di footer, sekali per sesi.
