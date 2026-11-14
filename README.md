@@ -51,3 +51,4 @@ Tulis di sini ringkasan setiap pembaruan.
 - v13: Surah Yasin di halaman Tahlil kini lengkap (ayat 1–83). Arab dan terjemahan semua ayat dari data surah Kemenag. Latin ayat 1–12 tetap yang lama; Latin ayat 13–83 dari transliterasi sumber lain (gaya berbeda), perlu diseragamkan dan diperiksa.
 - v14: splash screen. Ikon memakai logo asli berwarna di atas krem polos (#F1EDE0), sama dengan `background_color` di manifest. Setelah splash bawaan HP, halaman menampilkan logo yang sama dengan nama majelis di bawahnya dan nama masjid di footer, sekali per sesi.
 - v15: alamat manifest dan ikon diberi akhiran `?v=15` agar Android tidak memakai salinan lama. Bila mengganti ikon atau warna manifest lagi, naikkan angka ini (di `index.html` dan `manifest.webmanifest`).
+- v15 (splash): splash di halaman kembali beranimasi (lapisan simbol naik, bintang muncul satu per satu, lalu nama majelis dan nama masjid). Latar tetap krem agar menyatu dengan splash bawaan Android.
