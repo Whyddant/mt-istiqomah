@@ -200,6 +200,9 @@ html[data-fs="k"]{--fs:.92}html[data-fs="b"]{--fs:1.2}
 /* halaman majelis & lokasi */
 .page{position:fixed;top:0;bottom:0;right:max(0px,calc((100vw - var(--maxw))/2));width:min(100%,var(--maxw));background:var(--bg);z-index:60;overflow-y:auto;overscroll-behavior:contain;transform:translateX(105%);visibility:hidden;transition:transform var(--d3) var(--ease),visibility var(--d3)}
 .page.open{transform:none;visibility:visible}
+/* halaman tab: berhenti di atas navbar, pindah tab dengan fade */
+.page.tabpg{bottom:var(--navh,calc(70px + env(safe-area-inset-bottom,0px)));z-index:19;transform:none;opacity:0;transition:opacity .2s var(--ease),visibility .2s}
+.page.tabpg.open{opacity:1}
 .ph{position:sticky;top:0;z-index:2;display:block;padding:env(safe-area-inset-top,0px) 0 0;background:#0F4D2F;color:#fff;box-shadow:0 2px 10px rgba(8,40,24,.25)}
 .ph .iconbtn{color:#fff}
 .ph .iconbtn:hover{background:rgba(255,255,255,.14)}
@@ -909,10 +912,10 @@ details.ar-fold .ar-how{margin:2px 0 0}
   <section class="page" id="pg-privasi" role="dialog" aria-modal="true" aria-labelledby="pt-privasi" aria-hidden="true"><div class="ph"><button class="iconbtn" data-back aria-label="Kembali"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg></button><b id="pt-privasi">Kebijakan privasi</b><span class="contoh">Contoh isi</span></div><div class="pb" id="pb-privasi"></div></section>
   <section class="page" id="pg-login" role="dialog" aria-modal="true" aria-labelledby="pt-login" aria-hidden="true"><div class="ph"><button class="iconbtn" data-back aria-label="Kembali"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg></button><b id="pt-login">Masuk pengurus</b><span class="contoh">Contoh isi</span></div><div class="pb" id="pb-login"></div></section>
   <section class="page" id="pg-informasi" role="dialog" aria-modal="true" aria-labelledby="pt-informasi" aria-hidden="true"><div class="ph"><button class="iconbtn" data-back aria-label="Kembali"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg></button><b id="pt-informasi">Informasi</b></div><div class="pb" id="pb-informasi"></div></section>
-  <section class="page" id="pg-artikel" role="dialog" aria-modal="true" aria-labelledby="pt-artikel" aria-hidden="true"><div class="ph"><button class="iconbtn" data-back aria-label="Kembali"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg></button><b id="pt-artikel">Kajian</b></div><div class="pb" id="pb-artikel"></div></section>
+  <section class="page tabpg" id="pg-artikel" role="dialog" aria-modal="true" aria-labelledby="pt-artikel" aria-hidden="true"><div class="ph"><button class="iconbtn" data-back aria-label="Kembali"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg></button><b id="pt-artikel">Kajian</b></div><div class="pb" id="pb-artikel"></div></section>
   <section class="page" id="pg-kajian" role="dialog" aria-modal="true" aria-labelledby="pt-kajian" aria-hidden="true"><div class="ph"><button class="iconbtn" data-back aria-label="Kembali"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg></button><b id="pt-kajian">Kajian</b></div><div class="pb" id="pb-kajian"></div></section>
   <section class="page" id="pg-infod" role="dialog" aria-modal="true" aria-labelledby="pt-infod" aria-hidden="true"><div class="ph"><button class="iconbtn" data-back aria-label="Kembali"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg></button><b id="pt-infod">Informasi</b></div><div class="pb" id="pb-infod"></div></section>
-  <section class="page" id="pg-jamaah" role="dialog" aria-modal="true" aria-labelledby="pt-jamaah" aria-hidden="true"><div class="ph"><button class="iconbtn" data-back aria-label="Kembali"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg></button><b id="pt-jamaah">Jamaah</b></div><div class="pb" id="pb-jamaah"></div></section>
+  <section class="page tabpg" id="pg-jamaah" role="dialog" aria-modal="true" aria-labelledby="pt-jamaah" aria-hidden="true"><div class="ph"><button class="iconbtn" data-back aria-label="Kembali"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg></button><b id="pt-jamaah">Jamaah</b></div><div class="pb" id="pb-jamaah"></div></section>
   <section class="page" id="pg-usahaf" role="dialog" aria-modal="true" aria-labelledby="pt-usahaf" aria-hidden="true"><div class="ph"><button class="iconbtn" data-back aria-label="Kembali"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg></button><b id="pt-usahaf">Daftarkan usaha</b></div><div class="pb" id="pb-usahaf"></div></section>
   <section class="page" id="pg-kalender" role="dialog" aria-modal="true" aria-labelledby="pt-kalender" aria-hidden="true"><div class="ph"><button class="iconbtn" data-back aria-label="Kembali"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg></button><b id="pt-kalender">Kalender Hijriyah</b></div><div class="pb" id="pb-kalender"></div></section>
   <div class="scrim2" id="scrim2"></div>
@@ -1005,7 +1008,7 @@ details.ar-fold .ar-how{margin:2px 0 0}
   <div class="pb" id="pb-infaq"></div>
   <dialog id="iqDlg" aria-labelledby="iqJd"><h3 id="iqJd">QRIS Masjid</h3><div class="iq-qr" id="iqQr2"></div><button type="button" class="tutup" id="iqTutup">Tutup</button></dialog>
   </section>
-  <section class="page" id="pg-kas" role="dialog" aria-modal="true" aria-labelledby="pt-kas" aria-hidden="true"><div class="ph"><button class="iconbtn" data-back aria-label="Kembali"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg></button><b id="pt-kas">Laporan kas</b><span class="contoh">Contoh isi</span></div><div class="pb" id="pb-kas"></div></section>
+  <section class="page tabpg" id="pg-kas" role="dialog" aria-modal="true" aria-labelledby="pt-kas" aria-hidden="true"><div class="ph"><button class="iconbtn" data-back aria-label="Kembali"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg></button><b id="pt-kas">Laporan kas</b><span class="contoh">Contoh isi</span></div><div class="pb" id="pb-kas"></div></section>
 
   <section class="page" id="pg-tahlil" role="dialog" aria-modal="true" aria-labelledby="pt-tahlil" aria-hidden="true"><div class="ph"><button class="iconbtn" data-back aria-label="Kembali"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg></button><b id="pt-tahlil">Tahlil dan Yasin</b><button type="button" class="iconbtn" id="tlLambat2" aria-label="Perlambat gulir"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 17l-5-5 5-5M18 17l-5-5 5-5"/></svg></button><button type="button" class="iconbtn" id="tlAuto" aria-label="Gulir otomatis" aria-pressed="false"></button><button type="button" class="iconbtn" id="tlCepat2" aria-label="Percepat gulir"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 17l5-5-5-5M6 17l5-5-5-5"/></svg></button><button type="button" class="iconbtn" id="tlAa" aria-label="Pengaturan baca" aria-haspopup="dialog"><span class="tl-aa" aria-hidden="true">Aa</span></button></div>
   <div class="pb" id="pb-tahlil"></div>
@@ -1021,7 +1024,7 @@ details.ar-fold .ar-how{margin:2px 0 0}
   <div class="pb" id="pb-doa"></div>
   </section>
 
-  <section class="page" id="pg-arisan" role="dialog" aria-modal="true" aria-labelledby="pt-arisan" aria-hidden="true"><div class="ph"><button class="iconbtn" data-back aria-label="Kembali"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg></button><b id="pt-arisan">Arisan</b></div>
+  <section class="page tabpg" id="pg-arisan" role="dialog" aria-modal="true" aria-labelledby="pt-arisan" aria-hidden="true"><div class="ph"><button class="iconbtn" data-back aria-label="Kembali"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg></button><b id="pt-arisan">Arisan</b></div>
   <div class="pb" id="pb-arisan"></div>
   <dialog id="arDlg" aria-labelledby="arDlgJ"><h3 id="arDlgJ"></h3><p id="arDlgI"></p><button type="button" class="tutup" id="arDlgYa"></button><button type="button" class="tsb-rs" id="arDlgBtl" style="margin-top:10px" autofocus>Batal</button></dialog>
   <dialog id="arVw" aria-label="Lembar omzet">
@@ -2876,6 +2879,19 @@ R.infaq=function(){IQ_TAB="infaq";iqRender()};
   let g=20;while(lap()>t&&g-->0){const a=lap();tutupSatu();if(lap()>=a)break}
   depth=t;sync()});
  new MutationObserver(sync).observe(document.body,{subtree:true,attributes:true,attributeFilter:["class","open"]});
+})();
+</script>
+<script>
+(function(){
+const nav=document.querySelector("nav.tabs"),tabs=[...nav.querySelectorAll(".tab")],MAP={artikel:"Kajian",jamaah:"Jamaah",arisan:"Arisan",kas:"Kas"};
+function setH(){document.documentElement.style.setProperty("--navh",nav.offsetHeight+"px")}
+setH();addEventListener("resize",setH);addEventListener("orientationchange",setH);
+if(window.ResizeObserver)new ResizeObserver(setH).observe(nav);
+function sync(){const o=[...document.querySelectorAll(".page.open")].pop(),k=o?MAP[o.id.slice(3)]:"Beranda";
+ tabs.forEach(t=>{(k&&(t.dataset.go||"Beranda")===k)?t.setAttribute("aria-current","page"):t.removeAttribute("aria-current")})}
+tabs[0].addEventListener("click",()=>{const o=document.querySelectorAll(".page.open");if(o.length){o.forEach(shut);back=null}else scrollTo({top:0,behavior:"smooth"})});
+const mo=new MutationObserver(sync);document.querySelectorAll(".page").forEach(p=>mo.observe(p,{attributes:true,attributeFilter:["class"]}));
+sync();
 })();
 </script>
 </body>
