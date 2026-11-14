@@ -1,4 +1,5 @@
 {
+  "id": "./",
   "name": "MT. Al-Istiqomah",
   "short_name": "Al-Istiqomah",
   "description": "Jadwal shalat, info kajian, dan arisan Majelis Taklim Al-Istiqomah, Masjid Jami' Al-Ikhlas.",
@@ -10,8 +11,95 @@
   "orientation": "portrait",
   "background_color": "#F1EDE0",
   "theme_color": "#165C38",
+  "categories": [
+    "religion",
+    "lifestyle"
+  ],
   "icons": [
-    { "src": "icon-192.png?v=15", "sizes": "192x192", "type": "image/png", "purpose": "any maskable" },
-    { "src": "icon-512.png?v=15", "sizes": "512x512", "type": "image/png", "purpose": "any maskable" }
+    {
+      "src": "icon-192.png?v=16",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icon-512.png?v=16",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icon-192.png?v=16",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "icon-512.png?v=16",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Arisan",
+      "short_name": "Arisan",
+      "url": "./?buka=arisan",
+      "icons": [
+        {
+          "src": "icon-192.png?v=16",
+          "sizes": "192x192",
+          "type": "image/png"
+        }
+      ]
+    },
+    {
+      "name": "Kas",
+      "short_name": "Kas",
+      "url": "./?buka=kas",
+      "icons": [
+        {
+          "src": "icon-192.png?v=16",
+          "sizes": "192x192",
+          "type": "image/png"
+        }
+      ]
+    },
+    {
+      "name": "Kajian",
+      "short_name": "Kajian",
+      "url": "./?buka=kajian",
+      "icons": [
+        {
+          "src": "icon-192.png?v=16",
+          "sizes": "192x192",
+          "type": "image/png"
+        }
+      ]
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "screenshots/kiblat.png",
+      "sizes": "780x1688",
+      "type": "image/png",
+      "form_factor": "narrow",
+      "label": "Arah kiblat"
+    },
+    {
+      "src": "screenshots/tahlil.png",
+      "sizes": "780x1688",
+      "type": "image/png",
+      "form_factor": "narrow",
+      "label": "Bacaan tahlil dan Yasin"
+    },
+    {
+      "src": "screenshots/doa.png",
+      "sizes": "780x1688",
+      "type": "image/png",
+      "form_factor": "narrow",
+      "label": "Doa harian"
+    }
   ]
 }

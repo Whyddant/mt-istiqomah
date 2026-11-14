@@ -12,6 +12,9 @@ Alamat aplikasi: https://whyddant.github.io/mt-istiqomah/
 | `config.js` | Alamat sambungan ke Google Sheet (Apps Script). Tidak berubah saat aplikasi diperbarui |
 | `manifest.webmanifest` | Data pemasangan aplikasi di layar utama |
 | `sw.js` | Service worker: membuat aplikasi tetap terbuka saat tidak ada sinyal |
+| `fonts/` | Font Plus Jakarta Sans (lisensi OFL) yang disimpan lokal, tanpa Google Fonts |
+| `data/tahlil.js`, `data/doa.js` | Naskah Tahlil/Yasin dan daftar doa. Dimuat saat halamannya dibuka |
+| `screenshots/` | Tangkapan layar untuk dialog pemasangan di Android |
 | `icon-192.png`, `icon-512.png` | Ikon aplikasi dan logo pratinjau tautan WhatsApp |
 
 Semua berkas berada di folder utama. Jangan dipindah ke subfolder, karena pemasangan di layar utama dan service worker bergantung pada letaknya.
@@ -23,7 +26,7 @@ Semua berkas berada di folder utama. Jangan dipindah ke subfolder, karena pemasa
 3. Tunggu sekitar satu menit sampai GitHub Pages selesai memperbarui.
 4. Buka aplikasi di HP dan periksa. Anggota yang terhubung internet otomatis mendapat versi terbaru.
 
-Naikkan `VERSI` di `sw.js` hanya bila daftar berkas `INTI` berubah (misalnya menambah berkas baru yang harus tersedia saat offline).
+Naikkan `VERSI` di `sw.js` bila daftar berkas `INTI` berubah (misalnya menambah berkas baru yang harus tersedia saat offline), atau bila isi `data/tahlil.js` / `data/doa.js` diubah dan ingin langsung terbaca di semua perangkat.
 
 ## Mengganti ikon atau logo
 
@@ -52,3 +55,4 @@ Tulis di sini ringkasan setiap pembaruan.
 - v14: splash screen. Ikon memakai logo asli berwarna di atas krem polos (#F1EDE0), sama dengan `background_color` di manifest. Setelah splash bawaan HP, halaman menampilkan logo yang sama dengan nama majelis di bawahnya dan nama masjid di footer, sekali per sesi.
 - v15: alamat manifest dan ikon diberi akhiran `?v=15` agar Android tidak memakai salinan lama. Bila mengganti ikon atau warna manifest lagi, naikkan angka ini (di `index.html` dan `manifest.webmanifest`).
 - v15 (splash): splash di halaman kembali beranimasi (lapisan simbol naik, bintang muncul satu per satu, lalu nama majelis dan nama masjid). Latar tetap krem agar menyatu dengan splash bawaan Android.
+- v16: navbar bawah kini tetap tampil di tab Kajian, Arisan, Jamaah, dan Kas (halaman tab berhenti di atas navbar, tab aktif ikut berpindah). Pesan pengingat shalat dibuat jujur: berbunyi selama aplikasi terbuka. Ikon manifest dipisah `any` dan `maskable`, ditambah `id`, pintasan (Arisan, Kas, Kajian lewat `?buka=`), dan tangkapan layar. Font dipasang lokal. Naskah Tahlil/Yasin dan Doa dipindah ke `data/` dan dimuat saat dibuka. Cache `sw.js` (v5) tidak lagi menumpuk per parameter query. Naikkan angka `?v=16` di `index.html` dan manifest bila mengganti ikon.
