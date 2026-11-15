@@ -3,10 +3,10 @@
    - Cache disimpan per alamat tanpa parameter (?v=, ?dev=, ?buka=), jadi tidak menumpuk.
    - API (jadwal shalat, Apps Script) dan situs lain: tidak disentuh, aplikasi punya cache sendiri.
    Naikkan VERSI bila mengubah daftar INTI. */
-const VERSI = "v6";
+const VERSI = "v8";
 const NAMA = "al-istiqomah-" + VERSI;
 const INTI = [
-  "./", "manifest.webmanifest", "icon-192.png", "icon-512.png",
+  "./", "manifest.webmanifest", "icon-192.png", "icon-512.png", "icon-maskable-192.png", "icon-maskable-512.png", "apple-touch-icon.png",
   "fonts/plus-jakarta-sans-latin-wght-normal.woff2",
   "fonts/plus-jakarta-sans-latin-ext-wght-normal.woff2",
   "data/tahlil.js", "data/doa.js"
