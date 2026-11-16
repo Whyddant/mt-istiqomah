@@ -216,7 +216,7 @@ html[data-fs="k"]{--fs:.92}html[data-fs="b"]{--fs:1.2}
 .pa-home .logo{width:42px;height:37px}
 .pa-home .pn{min-width:0;font-size:calc(clamp(16px,4.8vw,19px)*var(--fc));font-weight:700;letter-spacing:-.01em;line-height:1.2;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .phr{display:flex;align-items:center;gap:6px;min-height:46px;padding:0 12px 0 6px;background:#0B3F25;border-top:1px solid rgba(255,255,255,.1)}
-.contoh{display:inline-block;font-size:max(.75rem,calc(0.75rem*var(--fs)));font-weight:700;padding:3px 10px;border-radius:99px;background:rgba(207,187,138,.18);color:#EBDFC0;border:1px solid rgba(207,187,138,.5)}
+
 .pb{padding:16px 16px calc(28px + env(safe-area-inset-bottom,0px));display:grid;gap:16px}
 .pb h3{font-size:calc(1.0625rem*var(--fs));font-weight:700;letter-spacing:-.01em;margin-bottom:10px}
 .pc{background:var(--surface);border:1px solid var(--line);border-radius:var(--r3);box-shadow:var(--shadow);padding:16px}
@@ -842,18 +842,14 @@ details.ar-fold .ar-how{margin:2px 0 0}
     <section aria-label="Informasi">
       <div class="sh"><h3>Informasi</h3><a href="#" data-page="informasi">Lihat semua</a></div>
       <div class="list" id="infoList" data-sk style="--skh:360px">
-        <a href="#" class="info" data-go="Informasi"><div class="tx"><span class="dt">5 Nov 2026</span><h4>Kajian Fiqih Wanita pindah ke aula lantai 2</h4><p>Mulai pekan ini, kajian Sabtu malam diadakan di aula lantai 2.</p></div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg></a>
-        <a href="#" class="info" data-go="Informasi"><div class="tx"><span class="dt">3 Nov 2026</span><h4>Kerja bakti membersihkan masjid</h4><p>Ahad pagi setelah kajian subuh. Mohon membawa alat kebersihan masing-masing.</p></div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg></a>
-        <a href="#" class="info" data-go="Informasi"><div class="tx"><span class="dt">1 Nov 2026</span><h4>Pengumpulan infaq pembangunan</h4><p>Infaq dapat diserahkan kepada pengurus kas setiap selesai kajian.</p></div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg></a>
+        <p class="note2" style="padding:20px 8px">Memuat informasi…</p>
       </div>
     </section>
 
     <section aria-label="Kajian">
       <div class="sh"><h3>Kajian</h3><a href="#" data-page="artikel">Lihat semua</a></div>
       <div class="rail" id="artRail" data-sk style="--skh:205px">
-        <a href="#" class="card art" data-go="Kajian"><div class="th"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg></div><div class="b"><h4>Tafsir Juz 'Amma: Surat An-Naba</h4><p>Ust. H. Zainal · 31 Okt 2026</p></div></a>
-        <a href="#" class="card art" data-go="Kajian"><div class="th"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg></div><div class="b"><h4>Fiqih Wanita: Adab Bersuci</h4><p>Ust. H. Zainal · 24 Okt 2026</p></div></a>
-        <a href="#" class="card art" data-go="Kajian"><div class="th"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg></div><div class="b"><h4>Kajian Subuh: Keutamaan Shalat Berjamaah</h4><p>Ust. H. Zainal · 18 Okt 2026</p></div></a>
+        <p class="note2" style="padding:20px 8px">Memuat kajian…</p>
       </div>
     </section>
   </main>
@@ -915,7 +911,7 @@ details.ar-fold .ar-how{margin:2px 0 0}
   <section class="page" id="pg-pengaturan" role="dialog" aria-modal="true" aria-labelledby="pt-pengaturan" aria-hidden="true"><div class="ph"><button class="iconbtn" data-back aria-label="Kembali"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg></button><b id="pt-pengaturan">Pengaturan</b></div><div class="pb" id="pb-pengaturan"><div class="pc"><div class="tema" role="group" aria-label="Tampilan aplikasi"><span class="tl">Tampilan</span><div class="seg"><button data-tema="auto" aria-pressed="true">Otomatis</button><button data-tema="light" aria-pressed="false">Terang</button><button data-tema="dark" aria-pressed="false">Gelap</button></div></div><div class="tema" role="group" aria-label="Ukuran teks"><span class="tl">Ukuran teks</span><div class="seg"><button data-teks="k" aria-pressed="false">Kecil</button><button data-teks="n" aria-pressed="true">Normal</button><button data-teks="b" aria-pressed="false">Besar</button></div><p class="hint">Sudah memperbesar teks di pengaturan ponsel? Pilih Normal atau Kecil.</p></div></div><div class="pc"><span class="lb" style="display:block;margin-bottom:6px;font-weight:600;color:var(--muted)">Pratinjau teks</span><p class="prev">Pengajian diadakan setiap malam Jumat di Masjid Jami' Al-Ikhlas. Ukuran teks dan tampilan yang Anda pilih berlaku di seluruh aplikasi.</p></div><p class="note2">Pengaturan lain akan ditambahkan di sini.</p></div></section>
   <section class="page" id="pg-tentang" role="dialog" aria-modal="true" aria-labelledby="pt-tentang" aria-hidden="true"><div class="ph"><button class="iconbtn" data-back aria-label="Kembali"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg></button><b id="pt-tentang">Tentang aplikasi</b></div><div class="pb" id="pb-tentang"></div></section>
   <section class="page" id="pg-privasi" role="dialog" aria-modal="true" aria-labelledby="pt-privasi" aria-hidden="true"><div class="ph"><button class="iconbtn" data-back aria-label="Kembali"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg></button><b id="pt-privasi">Kebijakan privasi</b></div><div class="pb" id="pb-privasi"></div></section>
-  <section class="page" id="pg-login" role="dialog" aria-modal="true" aria-labelledby="pt-login" aria-hidden="true"><div class="ph"><button class="iconbtn" data-back aria-label="Kembali"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg></button><b id="pt-login">Masuk pengurus</b><span class="contoh">Contoh isi</span></div><div class="pb" id="pb-login"></div></section>
+  <section class="page" id="pg-login" role="dialog" aria-modal="true" aria-labelledby="pt-login" aria-hidden="true"><div class="ph"><button class="iconbtn" data-back aria-label="Kembali"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg></button><b id="pt-login">Masuk pengurus</b></div><div class="pb" id="pb-login"></div></section>
   <section class="page" id="pg-informasi" role="dialog" aria-modal="true" aria-labelledby="pt-informasi" aria-hidden="true"><div class="ph"><button class="iconbtn" data-back aria-label="Kembali"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg></button><b id="pt-informasi">Informasi</b></div><div class="pb" id="pb-informasi"></div></section>
   <section class="page tabpg" id="pg-artikel" role="dialog" aria-modal="true" aria-labelledby="pt-artikel" aria-hidden="true"><div class="ph"><button class="iconbtn" data-back aria-label="Kembali"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg></button><b id="pt-artikel">Kajian</b></div><div class="pb" id="pb-artikel"></div></section>
   <section class="page" id="pg-kajian" role="dialog" aria-modal="true" aria-labelledby="pt-kajian" aria-hidden="true"><div class="ph"><button class="iconbtn" data-back aria-label="Kembali"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg></button><b id="pt-kajian">Kajian</b></div><div class="pb" id="pb-kajian"></div></section>
@@ -1014,7 +1010,7 @@ details.ar-fold .ar-how{margin:2px 0 0}
   <div class="pb" id="pb-infaq"></div>
   <dialog id="iqDlg" aria-labelledby="iqJd"><h3 id="iqJd">QRIS Masjid</h3><div class="iq-qr" id="iqQr2"></div><button type="button" class="tutup" id="iqTutup">Tutup</button></dialog>
   </section>
-  <section class="page tabpg" id="pg-kas" role="dialog" aria-modal="true" aria-labelledby="pt-kas" aria-hidden="true"><div class="ph"><button class="iconbtn" data-back aria-label="Kembali"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg></button><b id="pt-kas">Laporan kas</b><span class="contoh">Contoh isi</span></div><div class="pb" id="pb-kas"></div></section>
+  <section class="page tabpg" id="pg-kas" role="dialog" aria-modal="true" aria-labelledby="pt-kas" aria-hidden="true"><div class="ph"><button class="iconbtn" data-back aria-label="Kembali"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg></button><b id="pt-kas">Laporan kas</b></div><div class="pb" id="pb-kas"></div></section>
 
   <section class="page" id="pg-tahlil" role="dialog" aria-modal="true" aria-labelledby="pt-tahlil" aria-hidden="true"><div class="ph"><button class="iconbtn" data-back aria-label="Kembali"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg></button><b id="pt-tahlil">Tahlil dan Yasin</b><button type="button" class="iconbtn" id="tlAuto" aria-label="Gulir otomatis" aria-pressed="false"></button><button type="button" class="iconbtn" id="tlAa" aria-label="Pengaturan baca" aria-haspopup="dialog"><span class="tl-aa" aria-hidden="true">Aa</span></button></div>
   <div class="pb" id="pb-tahlil"></div>
@@ -1073,7 +1069,7 @@ const ICO={sunrise:'<path d="M12 2v8M4.93 10.93l1.41 1.41M2 18h2M20 18h2M19.07 1
 const CFG={tempat:"Masjid Jami' Al-Ikhlas",
  ramadan:{mulai:"2027-02-08",akhir:"2027-03-09"},
  penutupan:{tipe:"penutupan",tgl:"2026-12-17",nominal:50000,ket:"Minimal per anggota"}};
-let demo=new URLSearchParams(location.search).get("demo");let DEVISI=false,DEVK=false,DEVT=null; /* DEVT: jam simulasi (detik) khusus mode pengembang */
+let demo=new URLSearchParams(location.search).get("demo");let DEVISI=false,DEVT=null; /* DEVT: jam simulasi (detik) khusus mode pengembang */
 /* ===== DATA DARI GOOGLE SHEET (Apps Script) =====
    Tempel URL Web App (berakhiran /exec) di config.js. Bila kosong/gagal dimuat, aplikasi
    memakai data tersimpan di perangkat, lalu CFG di atas sebagai cadangan terakhir. */
@@ -1107,7 +1103,7 @@ function giliranBerikut(){
  return{tipe:"belum"}}
 function tglPekan(){const t=giliranBerikut().tgl;return t&&t>=todayJ()?t:nextKamis()}
 async function muatData(fresh){
- if(!CFG.api||demo==="isi"||DEVISI||DEVK)return;
+ if(!CFG.api||demo==="isi"||DEVISI)return;
  setTimeout(()=>stateBeranda("muat"),0);
  try{
   const c=new AbortController(),to=setTimeout(()=>c.abort(),8000);
@@ -1299,7 +1295,7 @@ function mintaLokasiSaya(diam){
 }
 $("sLocBtn").onclick=()=>{pakaiLokasiSaya?pakaiLokasiMasjid(true):mintaLokasiSaya(false)};
 
-/* ===== DATA MAJELIS (isi contoh — ganti dengan data pengurus) ===== */
+/* ===== DATA MAJELIS: isi bawaan, dipakai untuk bagian yang dikosongkan di Sheet (Panel pengurus > Profil majelis) ===== */
 const MAJELIS={nama:"Majelis Taklim Al-Istiqomah",berdiri:"1988",
  guru:{nama:"KH. Zainal Abidin, S.Ag., M.M."},
  sejarah:["Majelis Taklim Al-Istiqomah berdiri pada tahun 1988 atas inisiatif sejumlah tokoh masyarakat, di antaranya Bapak H. Umar dan Bapak H. Tarmidzi. Pada masa awal, pengajian diadakan bergiliran dari rumah ke rumah anggota, disertai arisan untuk mempererat silaturahmi.","Pembinaan keagamaan diasuh secara turun-temurun oleh KH. Abdul Qodir, KH. Zaini, dan kini KH. Zainal Abidin, S.Ag., M.M., putra KH. Zaini.","Seiring bertambahnya jamaah, kegiatan rutin dipusatkan di Masjid Jami' Al-Ikhlas. Majelis juga menghimpun kas bersama untuk membantu anggota yang sakit atau berduka, serta hadir dalam syukuran, haul, dan takziah di kediaman anggota."],
@@ -1778,7 +1774,7 @@ function ikatKonten(root){
  root.querySelectorAll("[data-art]").forEach(b=>b.onclick=()=>bukaArt(+b.dataset.art));
  root.querySelectorAll("[data-kj]").forEach(b=>b.onclick=()=>{back=back||b;KJ_I=+b.dataset.kj;openPage("kajian")})}
 function stateBeranda(st){
- if(!CFG.api||demo==="isi"||DEVISI||DEVK)return;
+ if(!CFG.api||demo==="isi"||DEVISI)return;
  const ts=(L,t)=>{L.innerHTML=`<div class="card" style="padding:4px 12px">${KOSONG(t)}${st==="gagal"?'<button type="button" class="btn2 sec mt-ulang" data-ulang>Coba lagi</button>':""}</div>`};
  if(!(DATA&&Array.isArray(DATA.informasi)))ts($("infoList"),st==="gagal"?"Informasi belum dapat dimuat. Periksa sambungan internet lalu coba lagi.":"Memuat informasi…");
  if(!(DATA&&Array.isArray(DATA.artikel)))ts($("artRail"),st==="gagal"?"Kajian belum dapat dimuat. Periksa sambungan internet lalu coba lagi.":"Memuat kajian…")}
@@ -1953,18 +1949,10 @@ const USAHA_JENIS=[
  ["ternak","Pertanian dan peternakan",'<path d="M12 21v-8M12 13c0-4-3-6-7-6 0 4 3 6 7 6zM12 15c0-3 2-5 6-5 0 3-2 5-6 5z"/>',"#4d7c0f","#3f6212"],
  ["lain","Lainnya",'<path d="M3 9l2-5h14l2 5M3 9v2a3 3 0 0 0 6 0 3 3 0 0 0 6 0 3 3 0 0 0 6 0V9M5 14v6h14v-6"/>',"#0b5d3b","#084a2f"]];
 Object.assign(IC,{usaha:USAHA_JENIS[12][2]});
-const USAHA_CONTOH=[
- {id:"c1",nama:"Warung Pak Tolib",jenis:"makanan",deskripsi:"Nasi uduk, lontong sayur, dan gorengan. Buka pagi hari, menerima pesanan nasi kotak untuk pengajian.",pemilik:"Tolib",wa:"081234567801",wilayah:"RT 03 / RW 05",jam:"Setiap hari, 05.30 sampai 10.00"},
- {id:"c2",nama:"Kue Basah Bu Jenab",jenis:"kue",deskripsi:"Kue basah dan kue kering untuk acara syukuran, tahlilan, dan hantaran. Pemesanan sehari sebelumnya.",pemilik:"Jenab",wa:"081234567802",wilayah:"RT 01 / RW 02",jam:"Senin sampai Sabtu"},
- {id:"c3",nama:"Sayur Segar Pak Jaiming",jenis:"sayur",deskripsi:"Sayur dan buah segar langsung dari pasar, bisa diantar untuk pesanan dalam jumlah banyak.",pemilik:"Jaiming",wa:"081234567803",wilayah:"RT 04 / RW 05",jam:"Setiap hari, 06.00 sampai 12.00"},
- {id:"c4",nama:"Busana Muslim Bu Niken",jenis:"busana",deskripsi:"Gamis, mukena, dan seragam pengajian. Menerima jahit sesuai ukuran.",pemilik:"Niken",wa:"081234567804",wilayah:"RT 02 / RW 03",jam:"Senin sampai Sabtu, 09.00 sampai 16.00"},
- {id:"c5",nama:"Servis Elektronik Syarifudin T",jenis:"servis",deskripsi:"Servis televisi, kipas angin, pompa air, dan peralatan rumah tangga. Bisa dipanggil ke rumah.",pemilik:"Syarifudin T",wa:"081234567805",wilayah:"Bojongsari dan sekitarnya",jam:"Setiap hari, 08.00 sampai 17.00"},
- {id:"c6",nama:"Tukang Bangunan Pak Sudaryo",jenis:"tukang",deskripsi:"Renovasi rumah, pasang keramik, cat, dan perbaikan atap. Survei dan perkiraan biaya tanpa dipungut.",pemilik:"Sudaryo",wa:"081234567806",wilayah:"Kota Depok",jam:"Senin sampai Sabtu"},
- {id:"c7",nama:"Les Mengaji Ust. H. Zainal",jenis:"pendidikan",deskripsi:"Belajar Iqra dan Al-Qur'an untuk anak-anak, sore hari di rumah.",pemilik:"Ust. H. Zainal",wa:"081234567807",wilayah:"RT 05 / RW 05",jam:"Senin sampai Kamis, 16.00 sampai 17.30"}];
 const usahaWa=n=>{let d=String(n||"").replace(/\D/g,"");if(d.startsWith("0"))d="62"+d.slice(1);else if(d.startsWith("8"))d="62"+d;return /^62\d{8,13}$/.test(d)?d:""};
 const USAHA_J=Object.fromEntries(USAHA_JENIS.map(x=>[x[0],x]));
 const usahaJenis=x=>USAHA_J[x.jenis]||USAHA_J.lain;
-function usahaDaftar(){if(DATA&&Array.isArray(DATA.usaha))return DATA.usaha.filter(x=>!x.status||x.status==="tayang");return CFG.api?null:USAHA_CONTOH}
+function usahaDaftar(){if(DATA&&Array.isArray(DATA.usaha))return DATA.usaha.filter(x=>!x.status||x.status==="tayang");return null}
 const usahaTh=(x,cls)=>{const j=usahaJenis(x),f=(()=>{const u=linkAman(x.foto),d=driveId(u);return d?"https://lh3.googleusercontent.com/d/"+d+"=w1200":u})();
  return `<span class="${cls}" style="--c1:${j[3]};--c2:${j[4]}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${j[2]}</svg>${f?`<img src="${esc(f)}" alt="" loading="lazy" decoding="async" referrerpolicy="no-referrer" onerror="this.remove()">`:""}</span>`};
 const usahaWaLink=x=>"https://wa.me/"+usahaWa(x.wa)+"?text="+encodeURIComponent("Assalamu'alaikum, saya melihat usaha "+x.nama+" di aplikasi MT. Al-Istiqomah. ");
@@ -1988,8 +1976,7 @@ function usahaRender(){const b=$("pb-jamaah"),r=usahaDaftar(),sy=usahaSaya();
   const jn=USAHA_JENIS.filter(j=>r.some(x=>usahaJenis(x)[0]===j[0]));if(UJ_F&&!jn.some(j=>j[0]===UJ_F))UJ_F="";
   const ls=r.filter(x=>!UJ_F||usahaJenis(x)[0]===UJ_F);
   if(jn.length>1)h+=`<div class="us-chips" role="group" aria-label="Pilih jenis usaha">${[["","Semua"]].concat(jn.map(j=>[j[0],j[1]])).map(o=>`<button type="button" data-uj="${o[0]}" aria-pressed="${UJ_F===o[0]}">${esc(o[1])}</button>`).join("")}</div>`;
-  h+=`<div class="list us-l">${ls.map(x=>`<div class="us-r"><button type="button" class="us-bt" data-us="${esc(x.id)}">${usahaTh(x,"us-th")}<span class="tx"><small>${esc(usahaJenis(x)[1])}</small><b>${esc(x.nama)}</b><span class="us-sb">${esc([x.pemilik,x.wilayah].filter(Boolean).join(" · "))}</span></span></button>${usahaWa(x.wa)?`<a class="us-wa" href="${esc(usahaWaLink(x))}" target="_blank" rel="noopener" aria-label="Hubungi ${esc(x.nama)} lewat WhatsApp">${WAI}</a>`:""}</div>`).join("")}</div>`;
-  if(!(DATA&&Array.isArray(DATA.usaha)))h+=`<p class="note2">Data usaha di halaman ini masih contoh.</p>`}
+  h+=`<div class="list us-l">${ls.map(x=>`<div class="us-r"><button type="button" class="us-bt" data-us="${esc(x.id)}">${usahaTh(x,"us-th")}<span class="tx"><small>${esc(usahaJenis(x)[1])}</small><b>${esc(x.nama)}</b><span class="us-sb">${esc([x.pemilik,x.wilayah].filter(Boolean).join(" · "))}</span></span></button>${usahaWa(x.wa)?`<a class="us-wa" href="${esc(usahaWaLink(x))}" target="_blank" rel="noopener" aria-label="Hubungi ${esc(x.nama)} lewat WhatsApp">${WAI}</a>`:""}</div>`).join("")}</div>`;}
  b.innerHTML=h;
  if($("usAdd"))$("usAdd").onclick=()=>{UF_EDIT=null;openPage("usahaf")};
  b.querySelectorAll("[data-uj]").forEach(x=>x.onclick=()=>{UJ_F=x.dataset.uj;usahaRender();const n=b.querySelector('.us-chips [aria-pressed="true"]');if(n)n.focus({preventScroll:true})});
@@ -2070,7 +2057,6 @@ const rp=n=>"Rp"+(+n||0).toLocaleString("id-ID");
 const admAtas=(v,t)=>`<button type="button" class="adm-top" data-adm="${v}">${I(IC.kiri)}${t}</button>`;
 
 function admRender(){const b=$("pb-login"),t=$("pt-login");
- {const lb=document.querySelector("#pg-login .contoh");if(lb)lb.style.display=CFG.api?"none":""}
  if(!ADM.tok){t.textContent="Masuk pengurus";admLogin(b);return}
  const f=ADM.form;
  const V={menu:admMenu,giliran:f?admFormGiliran:admListGiliran,lokasi:f?admFormLokasi:admListLokasi,informasi:f?admFormItem:admListItem,artikel:f?admFormItem:admListItem,usaha:f?admFormItem:admListItem,libur:f?admFormItem:admListItem,aturan:admAturan,kas:f?admFormKas:admListKas,profil:admProfil,infaq:admInfaq,qurban:admQurban,kiriman:admKiriman,sandi:admSandi}[ADM.view]||admMenu;
@@ -2474,30 +2460,17 @@ $("tsbBtl").onclick=()=>$("tsbDlg").close();
 $("tsbYa").onclick=()=>{tsb.c=0;tsb.r=0;tsbSimpan();tsbGambar();$("tsbDlg").close();say("Hitungan diatur ulang")};
 R.tasbih=tsbGambar;
 document.querySelectorAll('[data-go="Tasbih"]').forEach(b=>b.onclick=e=>{e.preventDefault();if(app.classList.contains("open"))menu(false);back=b;openPage("tasbih")});
-/* ===== Halaman infaq masjid: rekening dan QRIS (CONTOH, ganti dengan data asli dari pengurus) ===== */
-const INFAQ={nama:"Masjid Jami' Al-Ikhlas",wa:"" /* nomor WhatsApp tujuan konfirmasi; kosong = pakai nomor Bendahara (lalu Ketua) dari MAJELIS.kontak */,qris:"" /* alamat gambar QRIS asli, mis. "qris.png"; kosong = kode contoh */,
- rekening:[{bank:"Bank Syariah Indonesia (BSI)",no:"1234 5678 90",an:"DKM Masjid Jami' Al-Ikhlas"},{bank:"Bank Muamalat",no:"0987 6543 21",an:"DKM Masjid Jami' Al-Ikhlas"}]};
+/* ===== Halaman infaq masjid: rekening dan QRIS diisi pengurus lewat Sheet (Panel pengurus > Infaq masjid) ===== */
+const INFAQ={nama:"Masjid Jami' Al-Ikhlas",wa:"" /* nomor WhatsApp tujuan konfirmasi; kosong = pakai nomor Bendahara (lalu Ketua) dari MAJELIS.kontak */,qris:"" /* alamat gambar QRIS; kosong = bagian QRIS tidak tampil */,
+ rekening:[]};
 function infqSalin(t,pesan){
  const ok=()=>say(pesan),cad=()=>{const a=document.createElement("textarea");a.value=t;a.setAttribute("readonly","");a.style.cssText="position:fixed;opacity:0";document.body.appendChild(a);a.select();let b=false;try{b=document.execCommand("copy")}catch(e){}a.remove();b?ok():say("Tidak bisa menyalin dari perangkat ini")};
  try{navigator.clipboard.writeText(t).then(ok,cad)}catch(e){cad()}}
-/* Kode QR contoh: pola acak tetap, BUKAN QR sungguhan dan tidak bisa dipindai. Ganti dengan gambar QRIS asli masjid. */
-function infqSvg(){
- const n=29,m=Array.from({length:n},()=>Array(n).fill(0));let sd=20261111;
- for(let y=0;y<n;y++)for(let x=0;x<n;x++){sd=(sd*1664525+1013904223)>>>0;m[y][x]=sd/4294967296<.5?1:0}
- const fp=(ox,oy)=>{for(let y=-1;y<=7;y++)for(let x=-1;x<=7;x++){const X=ox+x,Y=oy+y;if(X<0||Y<0||X>=n||Y>=n)continue;m[Y][X]=(x<0||y<0||x>6||y>6)?0:(Math.max(Math.abs(x-3),Math.abs(y-3))===2?0:1)}};
- fp(0,0);fp(n-7,0);fp(0,n-7);
- let p="";for(let y=0;y<n;y++)for(let x=0;x<n;x++)if(m[y][x])p+="M"+(x+4)+" "+(y+4)+"h1v1h-1z";
- return'<svg viewBox="0 0 '+(n+8)+' '+(n+8)+'" role="img" aria-label="Contoh kode QRIS, belum dapat dipindai"><rect width="100%" height="100%" fill="#fff"/><path d="'+p+'" fill="#111" shape-rendering="crispEdges"/></svg>'}
-const infqQR=()=>INFAQ.qris?'<img src="'+esc(INFAQ.qris)+'" alt="Kode QRIS '+esc(INFAQ.nama)+'">':infqSvg();
+const infqQR=()=>INFAQ.qris?'<img src="'+esc(INFAQ.qris)+'" alt="Kode QRIS '+esc(INFAQ.nama)+'">':"";
 async function infqSimpan(){
  try{
-  let blob;
-  if(INFAQ.qris){blob=await(await fetch(INFAQ.qris)).blob()}
-  else{
-   const url="data:image/svg+xml;charset=utf-8,"+encodeURIComponent(infqSvg().replace("<svg ",'<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1024" '));
-   const img=await new Promise((ok,gagal)=>{const i=new Image();i.onload=()=>ok(i);i.onerror=gagal;i.src=url});
-   const c=document.createElement("canvas");c.width=c.height=1024;const x=c.getContext("2d");x.fillStyle="#fff";x.fillRect(0,0,1024,1024);x.drawImage(img,0,0,1024,1024);
-   blob=await new Promise(r=>c.toBlob(r,"image/png"))}
+  if(!INFAQ.qris)return;
+  const blob=await(await fetch(INFAQ.qris)).blob();
   const nama="QRIS-"+INFAQ.nama.replace(/[^\w]+/g,"-")+".png",f=new File([blob],nama,{type:blob.type||"image/png"});
   if(navigator.canShare&&navigator.canShare({files:[f]})){try{await navigator.share({files:[f],title:"QRIS "+INFAQ.nama});return}catch(e){if(e&&e.name==="AbortError")return}}
   const u=URL.createObjectURL(blob),a=document.createElement("a");a.href=u;a.download=nama;document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(u),4000);say("Gambar QRIS disimpan")
@@ -2509,14 +2482,16 @@ function infqKonfirmasi(){
  const m="Assalamu'alaikum, saya ingin mengonfirmasi infaq untuk "+INFAQ.nama+".\n\nNama: \nNominal: Rp \nMelalui: transfer bank / QRIS (coret yang tidak sesuai)\nTanggal: "+tg+"\n\nBukti transfer saya lampirkan. Jazakumullahu khairan.";
  window.open("https://wa.me/"+n+"?text="+encodeURIComponent(m),"_blank","noopener")}
 function iqInfaq(){
- const b=$("iq-isi");
- b.innerHTML=`<div class="hero2"><div class="lg" role="img" aria-label="Logo majelis"></div><h2>Infaq masjid</h2><p>${esc(INFAQ.nama)}</p></div>
+ const b=$("iq-isi"),hd=`<div class="hero2"><div class="lg" role="img" aria-label="Logo majelis"></div><h2>Infaq masjid</h2><p>${esc(INFAQ.nama)}</p></div>`;
+ if(!DATA){b.innerHTML=hd+KOSONG("Data infaq belum dapat dimuat. Periksa sambungan internet lalu buka halaman ini lagi.");return}
+ if(!INFAQ.rekening.length&&!INFAQ.qris){b.innerHTML=hd+KOSONG("Rekening dan QRIS infaq belum diisi pengurus.");return}
+ b.innerHTML=hd+`
  <div class="pc"><p>Terima kasih atas kepedulian Anda untuk masjid kita. Infaq ini mendukung kegiatan dan operasional ${esc(INFAQ.nama)}, dan masuk ke rekening masjid, terpisah dari kas majelis.</p></div>
- <div class="pc"><h3>Transfer bank</h3>${INFAQ.rekening.map((r,i)=>`<div class="iq-bank"><span class="iq-bn">${esc(r.bank)}</span><span class="iq-no">${esc(r.no)}</span><span class="iq-an">a.n. ${esc(r.an)}</span><button type="button" class="iq-cp" data-i="${i}">${I('<rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V6a2 2 0 0 1 2-2h9"/>')}Salin nomor</button></div>`).join("")}</div>
- ${INFAQ.asli&&!INFAQ.qris?"":`<div class="pc"><h3>QRIS</h3><button type="button" class="iq-qr" id="iqQr" aria-label="Perbesar kode QRIS">${infqQR()}</button><p class="note2 iq-cap">Buka aplikasi bank atau dompet digital, pilih Bayar atau Pindai, lalu arahkan ke kode ini. Ketuk kode untuk memperbesar.${INFAQ.asli?"":" Kode ini masih contoh."}</p><button type="button" class="tsb-rs iq-sv" id="iqSv">${I('<path d="M12 4v11M7 11l5 5 5-5M5 20h14"/>')}Simpan gambar</button></div>`}
+ ${INFAQ.rekening.length?`<div class="pc"><h3>Transfer bank</h3>${INFAQ.rekening.map((r,i)=>`<div class="iq-bank"><span class="iq-bn">${esc(r.bank)}</span><span class="iq-no">${esc(r.no)}</span><span class="iq-an">a.n. ${esc(r.an)}</span><button type="button" class="iq-cp" data-i="${i}">${I('<rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V6a2 2 0 0 1 2-2h9"/>')}Salin nomor</button></div>`).join("")}</div>`:""}
+ ${INFAQ.qris?`<div class="pc"><h3>QRIS</h3><button type="button" class="iq-qr" id="iqQr" aria-label="Perbesar kode QRIS">${infqQR()}</button><p class="note2 iq-cap">Buka aplikasi bank atau dompet digital, pilih Bayar atau Pindai, lalu arahkan ke kode ini. Ketuk kode untuk memperbesar.</p><button type="button" class="tsb-rs iq-sv" id="iqSv">${I('<path d="M12 4v11M7 11l5 5 5-5M5 20h14"/>')}Simpan gambar</button></div>`:""}
  <div class="pc"><h3>Sudah berinfaq?</h3><p>Setelah mengirim, Anda bisa memberi kabar kepada pengurus lewat WhatsApp. Lampirkan bukti transfer bila ada.</p><button type="button" class="btn" id="iqWa">${I(IC.hubung)}Konfirmasi infaq lewat WhatsApp</button></div>
  <div class="pc iq-warn">${I('<circle cx="12" cy="12" r="9"/><path d="M12 8h.01M11 12h1v5h1"/>')}<p>Mohon dicek dulu nama bank dan atas namanya sebelum mengirim. Bila ragu, silakan tanya pengurus.</p></div>
- <p class="note2">Infaq tidak dicatat di aplikasi ini dan tidak ada nominal yang disimpan. ${INFAQ.asli?"":"Nomor rekening di halaman ini masih contoh."}</p>`;
+ <p class="note2">Infaq tidak dicatat di aplikasi ini dan tidak ada nominal yang disimpan.</p>`;
  b.querySelectorAll(".iq-cp").forEach(x=>x.onclick=()=>infqSalin(INFAQ.rekening[+x.dataset.i].no.replace(/\s/g,""),"Nomor rekening disalin"));
  if($("iqQr")){$("iqQr").onclick=()=>{$("iqQr2").innerHTML=infqQR();$("iqJd").textContent="QRIS "+INFAQ.nama;$("iqDlg").showModal()};$("iqSv").onclick=infqSimpan}$("iqWa").onclick=infqKonfirmasi};
 $("iqTutup").onclick=()=>$("iqDlg").close();
@@ -2873,29 +2848,23 @@ document.querySelectorAll('[data-go="Arisan"]').forEach(b=>b.onclick=e=>{e.preve
 $("lihatSholat").onclick=e=>{e.preventDefault();back=e.currentTarget;openPage("sholat")};
 
 
-/* ===== Halaman kas: laporan keuangan global per kelompok (angka dan rekening masih CONTOH).
+/* ===== Halaman kas: laporan keuangan global per kelompok, diisi pengurus lewat Sheet.
    Rincian pemasukan dan pengeluaran tidak ditampilkan di aplikasi; admin menautkan dokumen (isi doc dengan alamat https). ===== */
-const KAS_CONTOH={per:"2026-11-12",bank:"[Nama bank]",bendahara:"[Nama Bendahara]",
- rutin:{masuk:4250000,keluar:1380000,rek:"0000 0000 01",doc:""},
- khusus:[
-  {nama:"Pengadaan perlengkapan majelis",ket:"Penggalangan dana untuk pengadaan barang majelis taklim bernilai besar.",status:"Berjalan",masuk:6800000,keluar:0,rek:"0000 0000 02",doc:""},
-  {nama:"Penutupan pengajian",ket:"Infaq untuk guru pada penutupan pengajian.",status:"Selesai",masuk:3250000,keluar:3250000,rek:"0000 0000 03",doc:""},
-  {nama:"Peringatan Maulid Nabi",ket:"Penyelenggaraan peringatan Maulid Nabi Muhammad SAW.",status:"Selesai",masuk:5400000,keluar:5150000,rek:"0000 0000 04",doc:""},
-  {nama:"Peringatan Isra Mi'raj",ket:"Penyelenggaraan peringatan Isra Mi'raj.",status:"Berjalan",masuk:1200000,keluar:0,rek:"0000 0000 05",doc:""}]};
+const KAS_KOSONG={per:"",bank:"",bendahara:"",rutin:{masuk:0,keluar:0,rek:"",doc:""},khusus:[]};
 const kasRows=x=>`<div class="kas-rows"><div class="bs-wl"><span>Pemasukan</span><b>${rp(x.masuk)}</b></div><div class="bs-wl"><span>Pengeluaran</span><b>${rp(x.keluar)}</b></div><div class="bs-wl"><span>Saldo</span><b>${rp(x.masuk-x.keluar)}</b></div></div>`;
 const kasRek=r=>!r?"":`<div class="bs-h" style="margin-top:14px">Rekening penerimaan</div><div class="iq-bank" style="padding:8px 0 0"><span class="iq-bn">${esc(KAS.bank)}</span><span class="iq-no">${esc(r)}</span><span class="iq-an">a.n. ${esc(KAS.bendahara)} (Bendahara)</span><button type="button" class="iq-cp" data-rek="${esc(r)}">${I('<rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V6a2 2 0 0 1 2-2h9"/>')}Salin nomor</button></div>`;
 const kasDoc=d=>{const l=linkAman(d),ic=I('<path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5M9 13h6M9 17h4"/>');
  return l?`<a class="btn2 sec" href="${esc(l)}" target="_blank" rel="noopener">${ic}Lihat dan unduh rincian</a>`:`<span class="btn2 sec" role="link" aria-disabled="true">${ic}Rincian belum tersedia</span>`};
-let KAS_TAB="rutin",KAS=KAS_CONTOH,KAS_ASLI=false,KAS_ADA=true;
-/* Data kas dari Sheet (DATA.kas + DATA.majelis.kas). Bila backend belum menyediakannya, tampil contoh berlabel "Contoh isi". */
+let KAS_TAB="rutin",KAS=KAS_KOSONG,KAS_MUAT=false,KAS_ADA=false;
+/* Data kas dari Sheet (DATA.kas + DATA.majelis.kas). Bila belum dimuat atau belum diisi, halaman menampilkan pesan kosong. */
 function kasMuat(){
  const d=DATA&&Array.isArray(DATA.kas)?DATA.kas:null;
- if(!d){KAS=KAS_CONTOH;KAS_ASLI=false;KAS_ADA=true;return}
+ if(!d){KAS=KAS_KOSONG;KAS_MUAT=false;KAS_ADA=false;return}
  const inf=(DATA.majelis&&DATA.majelis.kas)||{},n=x=>Math.max(0,+x||0),rt=d.find(x=>x.jenis==="rutin")||{};
  KAS={per:/^\d{4}-\d{2}-\d{2}$/.test(inf.per||"")?inf.per:"",bank:inf.bank||"",bendahara:inf.bendahara||"",
   rutin:{masuk:n(rt.masuk),keluar:n(rt.keluar),rek:rt.rek||"",doc:rt.doc||""},
   khusus:d.filter(x=>x.jenis==="khusus").map(x=>({nama:String(x.nama||""),ket:String(x.ket||""),status:x.status==="Selesai"?"Selesai":"Berjalan",masuk:n(x.masuk),keluar:n(x.keluar),rek:x.rek||"",doc:x.doc||""}))};
- KAS_ASLI=true;KAS_ADA=d.length>0}
+ KAS_MUAT=true;KAS_ADA=d.length>0}
 function kasRutinHtml(){
  return `<div class="pc kas-c"><p style="margin-top:0">Kas untuk kebutuhan majelis dan anggota.</p>`+
   `<div class="ar-ke">${I('<circle cx="12" cy="12" r="9"/><path d="M12 8h.01M11 12h1v5h1"/>')}<div><b>Iuran sukarela</b><p>Dikumpulkan bendahara setiap malam Jumat. Anggota dianjurkan membayar minimal ${rp(5000)} per anggota.</p></div></div>`+
@@ -2906,26 +2875,27 @@ function kasGiatHtml(){
  return `<p class="kas-intro" style="margin:0 2px">Dana untuk kegiatan atau keperluan khusus, seperti pengadaan barang bernilai besar, penutupan pengajian, dan peringatan hari besar Islam.</p>`+
   urut.map(x=>`<div class="pc kas-c"><div class="kas-hd"><b>${esc(x.nama)}</b><span class="ar-st${x.status==="Berjalan"?" ok":""}">${esc(x.status)}</span></div><p>${esc(x.ket)}</p>${kasRows(x)}${kasRek(x.rek)}${kasDoc(x.doc)}</div>`).join("")}
 function kasRender(){
- const lb=document.querySelector("#pg-kas .contoh");if(lb)lb.style.display=KAS_ASLI?"none":"";
- if(KAS_ASLI&&!KAS_ADA){$("pb-kas").innerHTML=KOSONG("Laporan kas belum diisi pengurus.");return}
+ if(!KAS_MUAT){$("pb-kas").innerHTML=KOSONG("Laporan kas belum dapat dimuat. Periksa sambungan internet lalu buka halaman ini lagi.");return}
+ if(!KAS_ADA){$("pb-kas").innerHTML=KOSONG("Laporan kas belum diisi pengurus.");return}
  const all=[KAS.rutin].concat(KAS.khusus),m=all.reduce((a,x)=>a+x.masuk,0),k=all.reduce((a,x)=>a+x.keluar,0),b=$("pb-kas"),nb=KAS.khusus.filter(x=>x.status==="Berjalan").length;
  b.innerHTML=
   `<div class="kas-hero"><small>Saldo seluruh kas</small><div class="kas-big">${rp(m-k)}</div><div class="kas-per">${KAS.per?"Data per "+tglPnjg(KAS.per):"Data terbaru"}</div><div class="kas-rows"><div class="bs-wl"><span>Total pemasukan</span><b>${rp(m)}</b></div><div class="bs-wl"><span>Total pengeluaran</span><b>${rp(k)}</b></div></div></div>`+
   `<div class="seg tl-seg" role="group" aria-label="Pilih kelompok kas">${[["rutin","Kas rutin"],["giat","Kegiatan"+(nb?" ("+nb+")":"")]].map(x=>`<button type="button" data-kt="${x[0]}" aria-pressed="${KAS_TAB===x[0]}">${x[1]}</button>`).join("")}</div>`+
   `<div id="kas-isi" style="display:grid;gap:16px;min-width:0">${KAS_TAB==="giat"?kasGiatHtml():kasRutinHtml()}</div>`+
-  `<p class="note2">Laporan di halaman ini bersifat global. Rincian pemasukan dan pengeluaran tersedia dalam dokumen pada setiap laporan. ${KAS_ASLI?"":"Angka dan nomor rekening di halaman ini masih contoh."}</p>`;
+  `<p class="note2">Laporan di halaman ini bersifat global. Rincian pemasukan dan pengeluaran tersedia dalam dokumen pada setiap laporan.</p>`;
  b.querySelectorAll("[data-rek]").forEach(x=>x.onclick=()=>infqSalin(x.dataset.rek.replace(/\s/g,""),"Nomor rekening disalin"));
  b.querySelectorAll("[data-kt]").forEach(x=>x.onclick=()=>{KAS_TAB=x.dataset.kt;kasRender();const n=b.querySelector('[data-kt="'+KAS_TAB+'"]');if(n)n.focus({preventScroll:true})})}
 R.kas=function(){KAS_TAB="rutin";kasMuat();kasRender()};
 document.querySelectorAll('[data-go="Kas"]').forEach(b=>b.onclick=e=>{e.preventDefault();if(app.classList.contains("open"))menu(false);back=b;openPage("kas")});
 
-/* ===== Sub halaman qurban kolektif (dari halaman Infaq): hanya nama dan kelompok. Isi masih CONTOH. ===== */
-const QURBAN={tahun:"1448 H",tgl:"2027-05-17",hargaSapi:3000000,hargaKambing:2500000,
- sapi:[{peserta:["H. Tarmijih","Sudaryo","H. Mawih","Airun","Marhadi","H. Misar","H. Taba"]},{peserta:["H. Sa'an","Eko Suprapto","Ust. H. Zainal","Alim Jenggot","Asud"]}],
- kambing:["Jamidi","Jaiming","H. Na'an"]};
+/* ===== Sub halaman qurban kolektif (dari halaman Infaq): hanya nama dan kelompok, diisi pengurus lewat Sheet. ===== */
+const QURBAN={tahun:"",tgl:"",hargaSapi:0,hargaKambing:0,sapi:[],kambing:[],asli:false};
 const QB_ISI=7;
 function iqQurban(){
  const sp=QURBAN.sapi,kb=QURBAN.kambing,jml=sp.reduce((a,g)=>a+g.peserta.length,0),b=$("iq-isi");
+ const hd=`<div class="hero2"><div class="lg" role="img" aria-label="Logo majelis"></div><h2>Qurban kolektif</h2></div>`;
+ if(!DATA){b.innerHTML=hd+KOSONG("Data qurban belum dapat dimuat. Periksa sambungan internet lalu buka halaman ini lagi.");return}
+ if(!QURBAN.asli){b.innerHTML=hd+KOSONG("Qurban kolektif belum diumumkan pengurus.");return}
  const baris=(n,t)=>`<div class="qb-r"><span class="qb-n">${n}</span><span>${esc(t)}</span></div>`;
  b.innerHTML=
   `<div class="hero2"><div class="lg" role="img" aria-label="Logo majelis"></div><h2>Qurban kolektif</h2><p>Idul Adha${QURBAN.tahun?" "+esc(QURBAN.tahun):""}${QURBAN.tgl?" · "+tglPnjg(QURBAN.tgl):""}</p></div>`+
@@ -2938,15 +2908,14 @@ function iqQurban(){
   `<h3 class="kas-sec">Kambing</h3>`+
   `<div class="pc">${kb.length?kb.map((t,i)=>baris(i+1,t)).join(""):`<p style="color:var(--muted)">Belum ada peserta qurban kambing.</p>`}</div>`+
   `<button type="button" class="lnk" data-page="hubungi"><span>Ingin ikut? Hubungi pengurus</span>${I(IC.chev)}</button>`+
-  `<p class="note2">Halaman ini hanya menampilkan nama dan kelompok peserta. ${QURBAN.asli?"":" Nama peserta dan nominal di halaman ini masih contoh."}</p>`}
+  `<p class="note2">Halaman ini hanya menampilkan nama dan kelompok peserta.</p>`}
 
 /* halaman Infaq dan qurban: dua tab */
 let IQ_TAB="infaq";
-/* Isi infaq dan qurban dari Sheet (Panel pengurus). Selama belum diisi, tampil contoh bawaan dengan catatan "masih contoh". */
+/* Isi infaq dan qurban dari Sheet (Panel pengurus). Selama belum diisi, halaman menampilkan "belum diisi pengurus". */
 function iqPakai(){const d=DATA||{},i=d.infaq,q=d.qurban;
- INFAQ.asli=!!(i&&Array.isArray(i.rekening)&&i.rekening.length);
- if(INFAQ.asli){INFAQ.rekening=i.rekening;INFAQ.qris=i.qris||"";INFAQ.wa=i.wa||""}
- QURBAN.asli=!!q;
+ INFAQ.rekening=i&&Array.isArray(i.rekening)?i.rekening:[];INFAQ.qris=(i&&i.qris)||"";INFAQ.wa=(i&&i.wa)||"";
+ QURBAN.asli=!!(q&&(q.tahun||q.tgl||(Array.isArray(q.sapi)&&q.sapi.length)||(Array.isArray(q.kambing)&&q.kambing.length)));
  if(q){QURBAN.tahun=q.tahun||"";QURBAN.tgl=q.tgl||"";QURBAN.hargaSapi=+q.hargaSapi||0;QURBAN.hargaKambing=+q.hargaKambing||0;QURBAN.sapi=(q.sapi||[]).map(g=>({peserta:g}));QURBAN.kambing=q.kambing||[]}}
 function iqRender(){iqPakai();
  const b=$("pb-infaq");
@@ -2965,36 +2934,6 @@ R.infaq=function(){IQ_TAB="infaq";iqRender()};
  const fab=$("devFab");fab.hidden=K("dev")!=="1";if(fab.hidden)return;
  const KEYS=[["","Biasa (satu anggota narik)"],["dua","Dua anggota narik"],["penutupan","Penutupan pengajian"],["pra","Libur menjelang Ramadhan"],["puasa","Libur selama Ramadhan"],["pasca","Libur setelah Idul Fitri"],["kembali","Setelah Idul Fitri, tanggal kembali tampil"],["takziah","Lokasi: takziah"],["syukuran","Lokasi: syukuran"],["haul","Lokasi: haul"]];
  const SEG=["arisan","acara","kalender","informasi","artikel","sholat","jamaah"];
- let DEVKS=null,DEVKU=null;
- function wavUji(){const sr=8000,n=sr*40,b=new DataView(new ArrayBuffer(44+n*2)),w=(o,t)=>{for(let i=0;i<t.length;i++)b.setUint8(o+i,t.charCodeAt(i))};
-  w(0,"RIFF");b.setUint32(4,36+n*2,true);w(8,"WAVEfmt ");b.setUint32(16,16,true);b.setUint16(20,1,true);b.setUint16(22,1,true);b.setUint32(24,sr,true);b.setUint32(28,sr*2,true);b.setUint16(32,2,true);b.setUint16(34,16,true);w(36,"data");b.setUint32(40,n*2,true);
-  for(let i=0;i<n;i++)b.setInt16(44+i*2,Math.round(1200*Math.sin(i*0.08)*(0.5+0.5*Math.sin(i/4000))),true);
-  return URL.createObjectURL(new Blob([b],{type:"audio/wav"}))}
- function kontenContoh(on){
-  if(on===DEVK)return;
-  if(on){
-   const t=todayJ(),P=(a,b)=>a+"\n\n"+b;
-   DEVKS={had:!!DATA,informasi:DATA&&DATA.informasi,artikel:DATA&&DATA.artikel,usaha:DATA&&DATA.usaha,h1:$("infoList").innerHTML,h2:$("artRail").innerHTML};
-   DEVKU=wavUji();DATA=DATA||{};
-   DATA.informasi=[
-    {id:"d1",tgl:t,judul:"Berita duka: salah satu anggota majelis berpulang",isi:P("Innalillahi wa inna ilaihi raji'un. Telah berpulang salah satu anggota majelis taklim kita.","Jenazah disemayamkan di kediaman almarhum dan akan dishalatkan setelah Dzuhur. Mohon doa dan kehadiran jamaah."),jenis:"duka",penting:"ya"},
-    {id:"d2",tgl:addD(t,-1),judul:"Pengajian malam Jumat dipindah ke aula lantai 2",isi:"Mulai pekan ini, pengajian malam Jumat diadakan di aula lantai 2 karena ada perbaikan lantai di ruang utama.",jenis:"",penting:"ya"},
-    {id:"d3",tgl:addD(t,-2),judul:"Undangan Maulid Nabi Muhammad SAW",isi:P("Mengundang seluruh anggota dan keluarga untuk menghadiri peringatan Maulid Nabi Muhammad SAW.","Acara diisi tausiyah, pembacaan shalawat, dan ramah tamah. Mohon hadir tepat waktu."),jenis:"undangan",acara_tgl:addD(t,10),acara_jam:"19:30",acara_tempat:"Masjid Jami' Al-Ikhlas Serua"},
-    {id:"d4",tgl:addD(t,-4),judul:"Kerja bakti membersihkan masjid",isi:"Ahad pagi setelah kajian subuh. Mohon membawa alat kebersihan masing-masing.",jenis:""},
-    {id:"d5",tgl:addD(t,-6),judul:"Pengumpulan infaq pembangunan",isi:P("Pengurus membuka pengumpulan infaq untuk pembangunan tempat wudhu baru yang lebih luas dan ramah bagi jamaah lansia.","Infaq dapat diserahkan kepada pengurus kas setiap selesai kajian, atau ditransfer ke rekening yang tertera di halaman Infaq dan qurban. Rincian rencana anggaran dan perkembangan pembangunan akan diumumkan secara berkala di halaman Kas, sehingga seluruh jamaah dapat memantaunya. Jazakumullah khairan atas partisipasi Bapak dan Ibu sekalian."),jenis:""},
-    {id:"d6",tgl:addD(t,-20),judul:"Santunan anak yatim (sudah lewat)",isi:"Terima kasih atas partisipasi jamaah.",jenis:"",tayang_sampai:addD(t,-10)}];
-   DATA.artikel=[
-    {id:"k1",tgl:addD(t,-4),judul:"Keutamaan Shalat Berjamaah",penulis:"Ust. H. Zainal",jenis:"Ahad pagi",link:"https://youtu.be/abcdefghijk",ringkasan:"Pahala shalat berjamaah dan adab menuju masjid.",isi:P("Shalat berjamaah memiliki keutamaan yang besar dibanding shalat sendirian. Rasulullah bersabda bahwa shalat berjamaah lebih utama dua puluh tujuh derajat.","Di antara adab menuju masjid adalah berwudhu di rumah, berjalan dengan tenang, dan datang lebih awal agar mendapat shaf pertama."),audio:DEVKU},
-    {id:"k2",tgl:addD(t,-5),judul:"Tausiyah Malam Jumat: Sabar dalam Ujian",penulis:"Ust. H. Zainal",jenis:"Malam Jumat",ringkasan:"Sabar bukan berarti pasrah, melainkan terus berikhtiar sambil berserah kepada Allah."},
-    {id:"k3",tgl:addD(t,-11),judul:"Tafsir Juz 'Amma: Surat An-Naba",penulis:"Ust. H. Zainal",jenis:"Ahad pagi",ringkasan:"Pengantar tentang berita besar hari kebangkitan.",isi:P(P("Surat An-Naba' dibuka dengan pertanyaan tentang berita besar yang mereka perselisihkan.","Allah kemudian menyebutkan tanda-tanda kekuasaan-Nya di bumi dan langit sebagai bukti bahwa hari kebangkitan itu pasti."),"Setelah itu digambarkan keadaan orang yang bertakwa dan orang yang melampaui batas pada hari tersebut.")},
-    {id:"k4",tgl:addD(t,-18),judul:"Subuh Keliling: Adab Bertetangga",penulis:"Ust. H. Zainal",jenis:"Subuh Keliling",link:"https://example.com/subuh-keliling"}];
-   DATA.usaha=USAHA_CONTOH;DEVK=true;
-  }else{
-   if(DEVKS){if(DEVKS.had){["informasi","artikel","usaha"].forEach(k=>{if(DEVKS[k]===undefined)delete DATA[k];else DATA[k]=DEVKS[k]})}else DATA=null;
-    $("infoList").innerHTML=DEVKS.h1;$("artRail").innerHTML=DEVKS.h2;
-    document.querySelectorAll("#infoList [data-go],#artRail [data-go]").forEach(b=>b.onclick=e=>{e.preventDefault();const PG={Kajian:"artikel",Informasi:"informasi"}[b.dataset.go];if(PG){back=b;openPage(PG)}else say("“"+b.dataset.go+"” belum ada di pratinjau ini")})}
-   if(DEVKU){try{URL.revokeObjectURL(DEVKU)}catch(e){}DEVKU=null}
-   DEVK=false;if(CFG.api)muatData(true)}}
  function terap(){
   kartu();isiBeranda();render();renderSholat();
   const o=[...document.querySelectorAll(".page.open")].pop();
@@ -3004,7 +2943,6 @@ R.infaq=function(){IQ_TAB="infaq";iqRender()};
   const b=$("devBody"),ai=document.activeElement&&document.activeElement.id;
   b.innerHTML=`<div class="tl-g"><span class="tl-lb">Kondisi tampilan</span><div class="chips3">${KEYS.map(x=>`<button type="button" data-k="${x[0]}" aria-pressed="${(demo||"")===x[0]}">${x[1]}</button>`).join("")}</div></div>`+
    `<div class="tl-g"><button type="button" class="tl-row" role="switch" id="devIsi" aria-checked="${DEVISI}"><span>Data contoh arisan (riwayat, jadwal berikutnya, ketentuan)</span><i class="tl-sw"></i></button></div>`+
-   `<div class="tl-g"><button type="button" class="tl-row" role="switch" id="devKon" aria-checked="${DEVK}"><span>Contoh Informasi, Kajian, dan Usaha anggota (undangan, duka, penting, audio, foto)</span><i class="tl-sw"></i></button></div>`+
    `<div class="tl-g"><label class="tl-lb" for="devJam">Jam simulasi (jadwal shalat)</label><input type="time" class="fld" id="devJam" value="${jamNilai()}" style="margin-top:0"><button type="button" class="tsb-rs" id="devJamAsli"${DEVT==null?" disabled":""}>${DEVT==null?"Memakai jam asli":"Kembali ke jam asli"}</button></div>`+
    `<div class="tl-g"><span class="tl-lb">Pemicu lain</span><button type="button" class="tsb-rs" id="devPasang" style="margin-top:0">Tampilkan ajakan memasang aplikasi</button><button type="button" class="tsb-rs" id="devNet">Tampilkan atau sembunyikan banner offline</button></div>`;
   b.querySelectorAll("[data-k]").forEach(x=>x.onclick=()=>{demo=x.dataset.k||null;terap();isi()});
@@ -3012,7 +2950,6 @@ R.infaq=function(){IQ_TAB="infaq";iqRender()};
    if(DEVISI){DEVISI=false;try{DATA=JSON.parse(K("dataSheet")||"null")}catch(e){DATA=null}muatData(true)}
    else{DEVISI=true;demoIsi()}
    terap();isi()};
-  $("devKon").onclick=()=>{kontenContoh(!DEVK);terap();isi()};
   $("devJam").onchange=e=>{const v=e.target.value;if(!v)return;const p=v.split(":");DEVT=(+p[0])*3600+(+p[1])*60;terap();isi()};
   $("devJamAsli").onclick=()=>{DEVT=null;terap();isi()};
   $("devPasang").onclick=()=>{$("devDlg").close();showStrip(true)};
