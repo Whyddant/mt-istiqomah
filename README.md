@@ -36,7 +36,7 @@ Beberapa bagian belum dikelola lewat Sheet atau Panel pengurus. Untuk mengubahny
 
 | Konstanta | Isi | Keadaan sekarang |
 |---|---|---|
-| `MAJELIS` | Nama, sejarah, guru, pengurus, kontak (`MAJELIS.kontak`), masjid, dan tanya jawab Bantuan (`MAJELIS.faq`) | Berisi data majelis; belum bisa diubah dari Sheet (lihat catatan v16) |
+| `MAJELIS` | Nama, sejarah, guru, pengurus, kontak (`MAJELIS.kontak`), masjid, dan tanya jawab Bantuan (`MAJELIS.faq`) | Hanya cadangan. Bagian yang diisi di Panel pengurus > Profil majelis menimpanya; tanya jawab Bantuan (`MAJELIS.faq`), alamat masjid, dan ketentuan cadangan tetap diubah di sini |
 | `INFAQ` | Rekening bank dan gambar QRIS halaman Infaq masjid; `wa` untuk nomor konfirmasi (kosong = nomor Bendahara, lalu Ketua) | **Masih contoh.** Rekening `1234 5678 90` dan `0987 6543 21` palsu, dan `qris` kosong sehingga yang tampil kode QR acak yang tidak bisa dipindai |
 | `QURBAN` | Tahun, tanggal, harga, dan peserta qurban kolektif | **Masih contoh** |
 | `KAS_CONTOH` | Data cadangan Laporan kas | Hanya tampil bila aplikasi belum tersambung ke backend yang punya tab `kas`; diberi label "Contoh isi" |
@@ -67,12 +67,13 @@ Tab `admin` di Sheet punya kolom `peran`. Isi dengan satu atau lebih peran, dipi
 
 | Peran | Boleh mengelola |
 |---|---|
-| `super` | Semua bagian, termasuk profil majelis |
+| `super` | Semua bagian, termasuk Profil majelis (Panel pengurus > Profil majelis) |
 | `arisan` | Giliran arisan dan lokasi acara |
 | `artikel` | Informasi dan kajian |
 | `kas` | Laporan kas: kas rutin, kegiatan, bank penerima, bendahara |
 | `verifikator` | Hanya memeriksa kiriman kajian jamaah (setujui atau tolak). Peran `artikel` dan `super` juga boleh memeriksa |
 
+- Profil majelis (peran `super`): dibagi tujuh bagian, masing-masing disimpan utuh sebagai satu baris di tab `majelis` (kolom `kunci` dan `nilai`, isinya JSON): Identitas (kalimat singkat, tahun berdiri), Guru pengasuh, Sejarah (paragraf dipisah baris kosong), Visi dan misi (satu misi per baris), Pengurus, Kontak pengurus (nama, nomor WhatsApp, keperluan untuk Ketua, Sekretaris, Bendahara), dan Susunan acara malam Jumat. Formulir terisi otomatis dengan yang sedang tampil di aplikasi, jadi pertama kali cukup ubah yang perlu. Mengosongkan satu bagian mengembalikannya ke isi bawaan. Tab `majelis` juga menyimpan `kas` dan `aturan` (diubah lewat menu Laporan kas dan Ketentuan arisan, bukan menu ini).
 - Kolom dikosongkan = `super`, supaya akun lama tetap berfungsi.
 - Salah ketik (mis. `arsian`) tidak menjadi `super`: akun bisa masuk tetapi tidak bisa mengubah apa pun.
 - Mengubah peran atau mengisi `aktif` dengan `tidak` berlaku pada permintaan berikutnya, tanpa menunggu pengurus keluar.
@@ -111,14 +112,14 @@ Tulis di sini ringkasan setiap pembaruan.
 - Penguncian login: `kode.gs` tidak lagi punya kunci gabungan 30 salah sandi untuk semua pengurus (`gagal_semua`), yang dulu bisa dipicu siapa saja yang hanya tahu satu nama pengguna pengurus. Kunci 5 salah sandi/15 menit per nama pengguna tetap berlaku.
 - `kode.gs` (`baca_`): sel Sheet berformat waktu yang diisi tangan (mis. kolom jam usaha anggota) kini dibaca sebagai "HH:mm", bukan tertimpa jadi tanggal rusak "1899-12-30" seperti sebelumnya.
 - Label "Contoh isi" di header halaman Bantuan, Tentang aplikasi, Kebijakan privasi, Profil majelis, Acara malam Jumat, Hubungi pengurus, dan Kirim masukan dibuang (hanya tersisa di Masuk pengurus dan Laporan kas, yang memang otomatis hilang begitu data asli masuk).
-- **Dicatat, belum diperbaiki:** `kode.gs` punya backend lengkap untuk "Profil majelis" (tab `majelis`, skema identitas/guru/sejarah/visi-misi/pengurus/kontak/acara, fungsi `bacaMajelis_`/`simpanMajelis_`) sesuai yang disebut tabel peran `super` di atas. Tapi `index.html` tidak pernah membaca data itu dan Panel pengurus tidak punya menu untuk mengisinya. Akibatnya halaman Profil majelis, Acara malam Jumat, Hubungi pengurus, dan Kirim masukan hanya bisa diubah dengan mengedit `const MAJELIS={...}` langsung di `index.html`, bukan dari Sheet/Panel pengurus seperti yang tersirat di README. Menyambungkannya adalah pekerjaan baru (bukan sekadar perbaikan), jadi belum dikerjakan.
+- Profil majelis dari Sheet: `index.html` kini membaca `DATA.majelis` (bagian `identitas`, `guru`, `sejarah`, `visimisi`, `pengurus`, `kontak`, `acara`) dan menimpa isi bawaan `const MAJELIS`; bagian yang belum diisi tetap memakai isi bawaan. Panel pengurus mendapat menu **Profil majelis** (peran `super`) yang menyimpan lewat aksi `simpanMajelis`. Halaman Profil menampilkan kalimat singkat, keterangan guru, serta Visi dan misi; halaman Acara menampilkan Susunan acara; halaman Hubungi pengurus dan Kirim masukan memakai kontak dari Sheet. Tidak perlu mengubah `kode.gs`.
 - Perbaikan laporan kas: `muatData()` membangun objek `DATA` dari respons backend dengan daftar field eksplisit, dan field `kas` serta `majelis` (keduanya sudah dikirim `kode.gs`) tidak pernah ikut disalin. Akibatnya halaman Laporan kas selalu mengira belum tersambung ke Sheet dan terus menampilkan data contoh + label "Contoh isi", walau tab `kas` di Sheet sudah diisi pengurus. Sekarang kedua field itu ikut dimuat.
 - v17 dan v18: tidak tercatat di sini sebelumnya. Yang bisa dipastikan dari berkas: alamat manifest dan ikon kini memakai `?v=18` dan `sw.js` memakai `VERSI = "v8"`. Pengurus yang menjalankan pembaruan itu sebaiknya melengkapi ringkasannya di sini.
+- Profil majelis dari Sheet (lihat catatan di atas): menu Panel pengurus > Profil majelis, tampilan Visi dan misi, keterangan guru, dan Susunan acara.
 
 ## Yang belum selesai
 
 - Halaman **Infaq masjid**: rekening dan QRIS masih contoh (lihat tabel `INFAQ` di atas). Prioritas tertinggi karena tampil ke jamaah.
 - Halaman **Qurban kolektif**: nama peserta, harga, dan tanggal masih contoh.
-- **Profil majelis, Acara malam Jumat, Hubungi pengurus, Kirim masukan**: belum tersambung ke Sheet/Panel pengurus; ubah lewat `const MAJELIS` (lihat catatan v16).
 - **Latin Yasin ayat 13–83**: sumbernya berbeda dari ayat 1–12; perlu diseragamkan dan diperiksa (lihat catatan v13).
 - **Hadiah Al-Fatihah** di Tahlil memuat tanda `… (sebutkan nama)`; pastikan memang dimaksudkan sebagai isian saat dibaca.
