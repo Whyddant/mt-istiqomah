@@ -4,6 +4,8 @@ Aplikasi web Majelis Taklim Al-Istiqomah, Masjid Jami' Al-Ikhlas. Berisi jadwal 
 
 Alamat aplikasi: https://whyddant.github.io/mt-istiqomah/
 
+> **Jangan pernah unggah `kode.gs` ke repositori ini.** Berkas itu memuat alamat Google Sheet milik majelis, dan repositori ini publik. `kode.gs` sudah ditambahkan ke `.gitignore` supaya tidak ter-commit tanpa sengaja. Tempel isinya langsung ke editor Apps Script (Extensions > Apps Script di Sheet), bukan ke sini.
+
 ## Isi repositori
 
 | Berkas | Fungsi |
