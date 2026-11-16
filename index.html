@@ -1331,7 +1331,9 @@ function lokPekan(){const M=MAJELIS.masjid,masjid={jenis:"masjid",label:"Masjid"
  else{const t=tglPekan();r=(DATA&&Array.isArray(DATA.lokasi)?DATA.lokasi:[]).find(x=>x&&x.tgl===t)||null;if(!r&&CFG.lokasi.jenis!=="masjid")r={jenis:CFG.lokasi.jenis}}
  const j=r&&String(r.jenis||"").toLowerCase();
  if(!j||j==="masjid"||!JL[j])return masjid;
- return{jenis:j,label:JL[j],nama:r.nama||LDEF[j][0],alamat:r.alamat||LDEF[j][1]}}
+ return{jenis:j,label:JL[j],nama:r.nama||LDEF[j][0],alamat:r.alamat||LDEF[j][1],pt:koordPeta(r.lat,r.lng)}}
+/* Koordinat titik lokasi dari peta (diisi pengurus). Mengembalikan {lat,lng} atau null bila kosong/tidak valid. */
+function koordPeta(a,b){if(a===""||b===""||a==null||b==null)return null;const la=parseFloat(a),ln=parseFloat(b);return isFinite(la)&&isFinite(ln)&&Math.abs(la)<=90&&Math.abs(ln)<=180&&!(la===0&&ln===0)?{lat:la,lng:ln}:null}
 function tempatPekan(){const l=lokPekan();return l.jenis==="masjid"?l.nama:l.nama+" ("+l.label.toLowerCase()+")"}
 kartu();render();setInterval(()=>{render();renderSholat();cekPengingat()},15000);
 tandaiLokasiUI();muatJadwalSholat();muatData();
@@ -1397,7 +1399,7 @@ function renderAcara(){const M=MAJELIS,l=lokPekan(),f=fase(todayJ()),mlm=x=>dm(x
  else{top=`<div class="pc"><div class="when"><span class="ic2">${I(IC.cal)}</span><div><small>Setiap malam Jumat · acara berikutnya</small><b>${mlm(tglPekan())}</b></div></div><div class="pin"><span class="ic2">${I(IC.pin)}</span><div><small>Tempat pekan ini · ${esc(l.label)}</small><b>${esc(l.nama)}</b></div><button class="more" data-page="lokasi">Detail</button></div></div>`}
  $("pb-acara").innerHTML=top+
  guruCard()}
-function renderLokasi(){const l=lokPekan(),M=MAJELIS.masjid,q=encodeURIComponent(l.alamat);$("sheet").innerHTML=
+function renderLokasi(){const l=lokPekan(),M=MAJELIS.masjid,q=encodeURIComponent(l.pt?l.pt.lat+","+l.pt.lng:l.alamat);$("sheet").innerHTML=
  `<div class="grab"></div><h3 id="st-lok">${fase(todayJ())?"Lokasi pengajian":"Lokasi pekan ini"}<button class="iconbtn" data-close-sheet aria-label="Tutup">${I('<path d="M6 6l12 12M18 6L6 18"/>')}</button></h3><span class="bdg">${esc(l.label)}</span>`+
  `<div class="nm">${esc(l.nama)}</div><div class="al">${esc(l.alamat)}</div>`+
  `<div class="aksi"><a class="btn2 pri" href="https://www.google.com/maps/search/?api=1&query=${q}" target="_blank" rel="noopener">${I(IC.map)}Buka di Google Maps</a><a class="btn2 sec" href="https://www.google.com/maps/dir/?api=1&destination=${q}" target="_blank" rel="noopener">${I(IC.nav)}Petunjuk arah</a><button class="btn2 sec" id="salin">${I(IC.copy)}Salin alamat</button></div>`+
@@ -1719,7 +1721,7 @@ R.tentang=function(){$("pb-tentang").innerHTML=`<div class="hero2"><div class="l
  <button class="lnk" data-page="privasi">Kebijakan privasi${I(IC.chev)}</button><p class="note2">© 2026 ${esc(MAJELIS.nama)}</p>`+(kolabAktif()?`<button type="button" class="btn2 sec" id="tn-kolab-off" style="width:100%;margin-top:12px">Matikan mode kolaborator</button>`:"");kolabIkat()};
 R.privasi=function(){$("pb-privasi").innerHTML=`<div class="pc pol"><h3>Data di perangkat Anda</h3><p>Aplikasi menyimpan pengaturan Anda (tampilan, ukuran teks, status ajakan memasang), daftar kiriman kajian Anda, dan lembar omzet bila Anda memakainya, di perangkat Anda sendiri.</p>
  <h3>Data yang dikumpulkan</h3><p>Aplikasi tidak mengumpulkan data pribadi saat Anda hanya membaca. Data dikirim ke server majelis hanya bila Anda sendiri mengirim formulir, yaitu Kirim kajian dan Daftarkan usaha. Yang dikirim: isi formulir, nama, nomor WhatsApp, dan foto bila Anda melampirkannya. Nama dan nomor WhatsApp pengirim kajian hanya dilihat pengurus untuk menghubungi Anda. Judul, pemateri, isi, dan foto kajian tampil terbuka setelah disetujui pengurus. Data usaha yang disetujui, termasuk nomor WhatsApp usaha, tampil terbuka di aplikasi. Foto disimpan di Google Drive majelis. Untuk meminta kiriman dihapus, hubungi pengurus.</p>
- <h3>Layanan pihak lain</h3><p>Jadwal shalat dihitung oleh AlAdhan. Bila Anda memakai lokasi perangkat, koordinat Anda dikirim ke AlAdhan dan ke OpenStreetMap (untuk nama wilayah). Tombol WhatsApp dan Google Maps membuka aplikasi tersebut. Pesan atau lokasi yang Anda kirim diatur oleh kebijakan masing-masing layanan.</p>
+ <h3>Layanan pihak lain</h3><p>Jadwal shalat dihitung oleh AlAdhan. Bila Anda memakai lokasi perangkat, koordinat Anda dikirim ke AlAdhan dan ke OpenStreetMap (untuk nama wilayah). Tombol WhatsApp dan Google Maps membuka aplikasi tersebut. Pengurus yang memilih titik lokasi di peta memuat peta dari OpenStreetMap dan pustaka Leaflet (unpkg), dan koordinat yang diketuk dikirim ke OpenStreetMap untuk mencari alamat. Pesan atau lokasi yang Anda kirim diatur oleh kebijakan masing-masing layanan.</p>
  <h3>Perubahan</h3><p>Kebijakan ini akan diperbarui bila cara aplikasi mengelola data jamaah berubah.</p></div>
  <button class="lnk" data-page="hubungi">Pertanyaan tentang privasi? Hubungi pengurus${I(IC.chev)}</button>`};
 
@@ -2161,14 +2163,61 @@ const JLOK=[["masjid","Masjid"],["takziah","Takziah"],["syukuran","Syukuran"],["
 function admListLokasi(b,t){t.textContent="Lokasi acara";const r=ADM.data.lokasi||[];
  b.innerHTML=admAtas("menu","Panel pengurus")+`<button type="button" class="btn2 pri" id="adm-baru">${I(IC.plus)}Atur lokasi pekan</button>
  <p class="note2" style="text-align:left;padding:10px 2px 0">Tanpa pengaturan khusus, lokasi pengajian otomatis di masjid.</p>
- <div class="adm-list" style="margin-top:10px">${r.length?r.map(x=>`<div class="pc adm-it"><div class="at"><small>${esc(tglHari(x.tgl))} · ${esc(JL[x.jenis]||x.jenis)}</small><b>${esc(x.nama||"")}</b><small>${esc(x.alamat||"")}</small></div><div class="adm-act"><button type="button" data-ed="${esc(x.tgl)}">Ubah</button><button type="button" class="dng" data-del="${esc(x.tgl)}">Hapus</button></div></div>`).join(""):KOSONG("Belum ada lokasi khusus. Semua pekan di masjid.")}</div>`;
- $("adm-baru").onclick=()=>{ADM.form={baru:true,tgl:tglPekan(),jenis:"takziah",nama:"",alamat:""};admRender()};
- b.querySelectorAll("[data-ed]").forEach(x=>x.onclick=()=>{const l=r.find(y=>y.tgl===x.dataset.ed);ADM.form={tgl:l.tgl,jenis:l.jenis,nama:l.nama||"",alamat:l.alamat||""};admRender()});
+ <div class="adm-list" style="margin-top:10px">${r.length?r.map(x=>`<div class="pc adm-it"><div class="at"><small>${esc(tglHari(x.tgl))} · ${esc(JL[x.jenis]||x.jenis)}</small><b>${esc(x.nama||"")}</b><small>${esc(x.alamat||"")}</small>${koordPeta(x.lat,x.lng)?'<small>Titik peta terpasang</small>':""}</div><div class="adm-act"><button type="button" data-ed="${esc(x.tgl)}">Ubah</button><button type="button" class="dng" data-del="${esc(x.tgl)}">Hapus</button></div></div>`).join(""):KOSONG("Belum ada lokasi khusus. Semua pekan di masjid.")}</div>`;
+ $("adm-baru").onclick=()=>{ADM.form={baru:true,tgl:tglPekan(),jenis:"takziah",nama:"",alamat:"",lat:"",lng:""};admRender()};
+ b.querySelectorAll("[data-ed]").forEach(x=>x.onclick=()=>{const l=r.find(y=>y.tgl===x.dataset.ed);const pt=koordPeta(l.lat,l.lng);ADM.form={tgl:l.tgl,jenis:l.jenis,nama:l.nama||"",alamat:l.alamat||"",lat:pt?pt.lat:"",lng:pt?pt.lng:""};admRender()});
  b.querySelectorAll("[data-del]").forEach(x=>x.onclick=()=>admHapus(x,"hapusLokasi",{tgl:x.dataset.del},"Kembalikan lokasi "+tglHari(x.dataset.del)+" ke masjid?","Lokasi dikembalikan ke masjid"))}
 function admIsiLokasi(){const f=ADM.form,v=x=>esc(x==null?"":x);
  $("f-isi").innerHTML=f.jenis==="masjid"?`<p class="note2" style="text-align:left;padding:14px 2px 0">Pengajian pada tanggal ini di masjid (bawaan). Pengaturan khusus tanggal ini akan dihapus.</p>`
  :`<label class="lb" for="l-nama" style="margin-top:16px">Nama tempat</label><input class="fld" id="l-nama" maxlength="80" autocomplete="off" placeholder="Kediaman H. Mawih" value="${v(f.nama)}">
- <label class="lb" for="l-alamat" style="margin-top:14px">Alamat lengkap (dipakai untuk Google Maps)</label><textarea class="fld" id="l-alamat" maxlength="200" style="min-height:84px" placeholder="Jl. Contoh No. 5, Serua, Bojongsari, Depok">${v(f.alamat)}</textarea>`}
+ <span class="lb" style="margin-top:14px;display:block">Pilih di peta (opsional)</span>
+ <div style="display:flex;gap:8px;margin-top:8px"><input class="fld" id="l-cari" maxlength="100" autocomplete="off" placeholder="Cari nama tempat atau jalan" style="flex:1;min-width:0"><button type="button" class="btn2 sec" id="l-cari-b">Cari</button></div>
+ <div id="l-peta" style="height:230px;margin-top:10px;border-radius:12px;overflow:hidden;background:rgba(128,128,128,.15)"><p class="note2" style="padding:14px">Memuat peta…</p></div>
+ <p class="note2" id="l-peta-i" style="text-align:left;padding:8px 2px 0">Ketuk peta atau geser penanda untuk memilih titik. Alamat terisi otomatis dan masih bisa diubah.</p>
+ <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:6px"><button type="button" class="btn2 sec" id="l-gps">Titik lokasi saya</button><button type="button" class="btn2 sec" id="l-isi">Ambil alamat dari titik</button><button type="button" class="btn2 sec" id="l-hapus">Hapus titik</button></div>
+ <label class="lb" for="l-alamat" style="margin-top:14px">Alamat lengkap (dipakai untuk Google Maps bila titik peta kosong)</label><textarea class="fld" id="l-alamat" maxlength="200" style="min-height:84px" placeholder="Jl. Contoh No. 5, Serua, Bojongsari, Depok">${v(f.alamat)}</textarea>`;
+ if(f.jenis!=="masjid")admPeta()}
+/* ---- Peta pemilih lokasi (Leaflet + OpenStreetMap, dimuat hanya saat form ini dibuka) ---- */
+let LF_P=null;
+function muatLeaflet(){if(window.L&&window.L.map)return Promise.resolve();if(LF_P)return LF_P;
+ LF_P=new Promise((ok,gagal)=>{
+  const c=document.createElement("link");c.rel="stylesheet";c.href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css";c.integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=";c.crossOrigin="";document.head.appendChild(c);
+  const s=document.createElement("script");s.src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js";s.integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=";s.crossOrigin="";
+  s.onload=()=>ok();s.onerror=()=>{LF_P=null;s.remove();c.remove();gagal(new Error("leaflet"))};document.head.appendChild(s)});
+ return LF_P}
+async function jsonBatas(url){const c=new AbortController(),to=setTimeout(()=>c.abort(),15000);try{const r=await fetch(url,{signal:c.signal});if(!r.ok)throw new Error("http "+r.status);return await r.json()}finally{clearTimeout(to)}}
+async function alamatDariKoord(la,ln){try{const j=await jsonBatas(`https://nominatim.openstreetmap.org/reverse?format=jsonv2&lat=${la}&lon=${ln}&zoom=18&addressdetails=0&accept-language=id`);return j&&j.display_name?String(j.display_name).slice(0,200):""}catch(e){return""}}
+async function admPeta(){const el=$("l-peta"),f=ADM.form;if(!el)return;
+ if(ADM.peta){try{ADM.peta.remove()}catch(e){}ADM.peta=null}
+ try{await muatLeaflet()}catch(e){if($("l-peta")===el)el.innerHTML='<p class="note2" style="padding:14px">Peta tidak bisa dimuat. Periksa sinyal, atau isi alamat secara manual.</p>';return}
+ if($("l-peta")!==el)return;el.innerHTML="";
+ const info=$("l-peta-i"),pt=koordPeta(f.lat,f.lng),mas=CFG.sholat,pusat=pt||{lat:mas.lat,lng:mas.lng};
+ const m=L.map(el).setView([pusat.lat,pusat.lng],pt?17:15);ADM.peta=m;
+ L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png",{maxZoom:19,attribution:"&copy; OpenStreetMap"}).addTo(m);
+ setTimeout(()=>{try{m.invalidateSize()}catch(e){}},250);
+ let mk=null,auto=null;
+ const taruh=(la,ln)=>{if(mk)mk.setLatLng([la,ln]);else{mk=L.marker([la,ln],{draggable:true}).addTo(m);mk.on("dragend",()=>{const p=mk.getLatLng();pilih(p.lat,p.lng)})}};
+ const isiAlamat=async(la,ln,paksa)=>{const t=$("l-alamat");if(!t)return;
+  if(!paksa&&t.value.trim()&&t.value!==auto){info.textContent="Titik dipilih. Alamat yang Anda tulis tidak diubah. Ketuk \"Ambil alamat dari titik\" bila ingin menggantinya.";return}
+  info.textContent="Titik dipilih. Mengambil alamat…";
+  const a=await alamatDariKoord(la,ln);
+  if(f.lat!==+la.toFixed(6)||f.lng!==+ln.toFixed(6)||!$("l-alamat"))return;
+  if(a){auto=a;$("l-alamat").value=a;f.alamat=a;info.textContent="Titik dipilih. Alamat terisi dari peta, silakan periksa dan ubah bila perlu."}
+  else info.textContent="Titik dipilih, tetapi alamat tidak bisa diambil. Isi alamat secara manual."};
+ const pilih=(la,ln,paksa)=>{f.lat=+la.toFixed(6);f.lng=+ln.toFixed(6);taruh(la,ln);return isiAlamat(la,ln,paksa)};
+ if(pt)taruh(pt.lat,pt.lng);
+ m.on("click",e=>pilih(e.latlng.lat,e.latlng.lng));
+ const cari=async()=>{const q=($("l-cari").value||"").trim();if(!q)return;info.textContent="Mencari…";
+  try{const j=await jsonBatas("https://nominatim.openstreetmap.org/search?format=jsonv2&limit=1&countrycodes=id&accept-language=id&q="+encodeURIComponent(q));
+   if(!Array.isArray(j)||!j.length){info.textContent="Tempat tidak ditemukan. Coba kata lain atau ketuk langsung di peta.";return}
+   const la=+j[0].lat,ln=+j[0].lon;m.setView([la,ln],17);pilih(la,ln)}
+  catch(e){info.textContent="Pencarian gagal. Periksa sinyal lalu coba lagi."}};
+ $("l-cari-b").onclick=cari;$("l-cari").onkeydown=e=>{if(e.key==="Enter"){e.preventDefault();cari()}};
+ $("l-gps").onclick=()=>{if(!("geolocation"in navigator)){say("Perangkat ini tidak mendukung layanan lokasi");return}
+  info.textContent="Mencari lokasi Anda…";
+  navigator.geolocation.getCurrentPosition(p=>{m.setView([p.coords.latitude,p.coords.longitude],17);pilih(p.coords.latitude,p.coords.longitude)},()=>{info.textContent="Lokasi tidak bisa dibaca. Izinkan akses lokasi atau ketuk langsung di peta."},{enableHighAccuracy:true,timeout:15000})};
+ $("l-isi").onclick=()=>{const p=koordPeta(f.lat,f.lng);if(!p){say("Pilih titik di peta dulu");return}isiAlamat(p.lat,p.lng,true)};
+ $("l-hapus").onclick=()=>{f.lat="";f.lng="";if(mk){m.removeLayer(mk);mk=null}info.textContent="Titik dihapus. Tombol Google Maps akan memakai alamat tertulis."}}
 function admBacaLokasi(){const f=ADM.form;f.tgl=admIsi("f-tgl",f.tgl);if(f.jenis!=="masjid"){f.nama=admIsi("l-nama",f.nama);f.alamat=admIsi("l-alamat",f.alamat)}return f}
 function admFormLokasi(b,t){const f=ADM.form;t.textContent="Atur lokasi pekan";
  b.innerHTML=`<button type="button" class="adm-top" id="f-batal">${I(IC.kiri)}Batal</button><div class="pc">
@@ -2182,7 +2231,7 @@ function admFormLokasi(b,t){const f=ADM.form;t.textContent="Atur lokasi pekan";
   if(!g.tgl){say("Pilih tanggal");return}
   if(g.jenis!=="masjid"&&!(g.nama||"").trim()){say("Isi nama tempat");$("l-nama").focus();return}
   if(g.jenis!=="masjid"&&!(g.alamat||"").trim()){say("Isi alamat");$("l-alamat").focus();return}
-  admJalan($("f-simpan"),"Menyimpan…",async()=>{try{await api("simpanLokasi",{tgl:g.tgl,jenis:g.jenis,nama:g.nama,alamat:g.alamat});await admSegar();say("Lokasi disimpan");admGo("lokasi")}catch(e){admGalat(e)}})}}
+  admJalan($("f-simpan"),"Menyimpan…",async()=>{try{const pt=g.jenis==="masjid"?null:koordPeta(g.lat,g.lng);await api("simpanLokasi",{tgl:g.tgl,jenis:g.jenis,nama:g.nama,alamat:g.alamat,lat:pt?pt.lat:"",lng:pt?pt.lng:""});await admSegar();say("Lokasi disimpan");admGo("lokasi")}catch(e){admGalat(e)}})}}
 
 /* ---------- Informasi & Artikel ---------- */
 const ADM_ITEM={
