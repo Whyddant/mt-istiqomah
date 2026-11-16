@@ -18,8 +18,31 @@ Alamat aplikasi: https://whyddant.github.io/mt-istiqomah/
 | `data/tahlil.js`, `data/doa.js` | Naskah Tahlil/Yasin dan daftar doa. Dimuat saat halamannya dibuka |
 | `screenshots/` | Tangkapan layar untuk dialog pemasangan di Android |
 | `icon-192.png`, `icon-512.png` | Ikon aplikasi dan logo pratinjau tautan WhatsApp |
+| `icon-maskable-192.png`, `icon-maskable-512.png`, `apple-touch-icon.png` | Ikon maskable Android dan ikon layar utama iPhone |
+| `LICENSE` | Lisensi repositori |
+| `.gitignore` | Mengecualikan `kode.gs` agar tidak ikut terunggah |
 
 Semua berkas berada di folder utama. Jangan dipindah ke subfolder, karena pemasangan di layar utama dan service worker bergantung pada letaknya.
+
+## Fitur aplikasi
+
+Beranda, Jadwal shalat, Arah kiblat, Kalender Hijriyah (dengan libur nasional), Tasbih digital, Tahlil dan Yasin, Doa harian, Arisan, Kajian, Informasi, Jamaah (Usaha anggota), Laporan kas, Infaq dan qurban, Bantuan, Pengaturan (ukuran teks dan tema), serta Panel pengurus.
+
+Tautan pintas (juga dipakai pintasan ikon di layar utama): tambahkan `?buka=` pada alamat aplikasi dengan nilai `kajian`, `jamaah`, `arisan`, atau `kas`. Contoh: `https://whyddant.github.io/mt-istiqomah/?buka=kas`.
+
+## Data yang masih diisi langsung di `index.html`
+
+Beberapa bagian belum dikelola lewat Sheet atau Panel pengurus. Untuk mengubahnya, edit konstanta berikut di `index.html` (cari namanya) lalu unggah ulang:
+
+| Konstanta | Isi | Keadaan sekarang |
+|---|---|---|
+| `MAJELIS` | Nama, sejarah, guru, pengurus, kontak (`MAJELIS.kontak`), masjid, dan tanya jawab Bantuan (`MAJELIS.faq`) | Berisi data majelis; belum bisa diubah dari Sheet (lihat catatan v16) |
+| `INFAQ` | Rekening bank dan gambar QRIS halaman Infaq masjid; `wa` untuk nomor konfirmasi (kosong = nomor Bendahara, lalu Ketua) | **Masih contoh.** Rekening `1234 5678 90` dan `0987 6543 21` palsu, dan `qris` kosong sehingga yang tampil kode QR acak yang tidak bisa dipindai |
+| `QURBAN` | Tahun, tanggal, harga, dan peserta qurban kolektif | **Masih contoh** |
+| `KAS_CONTOH` | Data cadangan Laporan kas | Hanya tampil bila aplikasi belum tersambung ke backend yang punya tab `kas`; diberi label "Contoh isi" |
+| `USAHA_CONTOH` | Usaha anggota contoh | Hanya tampil bila `config.js` belum berisi alamat Apps Script |
+
+**Sebelum aplikasi dibagikan luas, ganti isi `INFAQ` dan `QURBAN` dengan data asli.** Untuk QRIS, unggah gambar QRIS asli masjid ke folder utama (mis. `qris.png`), isi `INFAQ.qris:"qris.png"`, lalu tambahkan `qris.png` ke daftar `INTI` di `sw.js` bila ingin tersedia saat offline dan naikkan `VERSI`. Bila halaman Infaq belum siap, jangan tautkan atau sembunyikan menunya dulu.
 
 ## Cara memperbarui aplikasi
 
@@ -77,10 +100,10 @@ Tulis di sini ringkasan setiap pembaruan.
 - v11: penyimpanan permanen untuk lembar omzet, catatan "simpan ulang fotonya", logo pratinjau tautan WhatsApp memakai alamat lengkap.
 - v12: fitur Doa harian (35 doa, bisa dicari) menggantikan pintasan Penanda di Beranda. Ukuran huruf, tulisan Latin, dan terjemah mengikuti pengaturan di halaman Tahlil.
 - v13: Surah Yasin di halaman Tahlil kini lengkap (ayat 1–83). Arab dan terjemahan semua ayat dari data surah Kemenag. Latin ayat 1–12 tetap yang lama; Latin ayat 13–83 dari transliterasi sumber lain (gaya berbeda), perlu diseragamkan dan diperiksa.
-- v14: splash screen. Ikon memakai logo asli berwarna di atas krem polos (#F1EDE0), sama dengan `background_color` di manifest. Setelah splash bawaan HP, halaman menampilkan logo yang sama dengan nama majelis di bawahnya dan nama masjid di footer, sekali per sesi.
+- v14: splash screen. Ikon memakai logo asli berwarna di atas krem polos (#F1EDE0), sama dengan `background_color` manifest saat itu (kini manifest memakai hijau `#0F4D2F`, lihat catatan v15). Setelah splash bawaan HP, halaman menampilkan logo yang sama dengan nama majelis di bawahnya dan nama masjid di footer, sekali per sesi.
 - v15: alamat manifest dan ikon diberi akhiran `?v=15` agar Android tidak memakai salinan lama. Bila mengganti ikon atau warna manifest lagi, naikkan angka ini (di `index.html` dan `manifest.webmanifest`).
-- v15 (splash): splash di halaman kembali beranimasi (lapisan simbol naik, bintang muncul satu per satu, lalu nama majelis dan nama masjid). Latar tetap krem agar menyatu dengan splash bawaan Android.
-- v16: navbar bawah kini tetap tampil di tab Kajian, Arisan, Jamaah, dan Kas (halaman tab berhenti di atas navbar, tab aktif ikut berpindah). Pesan pengingat shalat dibuat jujur: berbunyi selama aplikasi terbuka. Ikon manifest dipisah `any` dan `maskable`, ditambah `id`, pintasan (Arisan, Kas, Kajian lewat `?buka=`), dan tangkapan layar. Font dipasang lokal. Naskah Tahlil/Yasin dan Doa dipindah ke `data/` dan dimuat saat dibuka. Cache `sw.js` (v5) tidak lagi menumpuk per parameter query. Naikkan angka `?v=16` di `index.html` dan manifest bila mengganti ikon.
+- v15 (splash): splash di halaman kembali beranimasi (lapisan simbol naik, bintang muncul satu per satu, lalu nama majelis dan nama masjid). Latar halaman splash krem `#F1EDE0`. `background_color` di `manifest.webmanifest` sekarang `#0F4D2F` (hijau), jadi splash bawaan Android berwarna hijau.
+- v16: navbar bawah kini tetap tampil di tab Kajian, Arisan, Jamaah, dan Kas (halaman tab berhenti di atas navbar, tab aktif ikut berpindah). Pesan pengingat shalat dibuat jujur: berbunyi selama aplikasi terbuka. Ikon manifest dipisah `any` dan `maskable`, ditambah `id`, pintasan (Arisan, Kas, Kajian lewat `?buka=`), dan tangkapan layar. Font dipasang lokal. Naskah Tahlil/Yasin dan Doa dipindah ke `data/` dan dimuat saat dibuka. Cache `sw.js` tidak lagi menumpuk per parameter query. Naikkan angka `?v=` di `index.html` dan manifest bila mengganti ikon (sekarang `?v=18`).
 - Backend Usaha anggota: `kode.gs` menambah tab `usaha`, aksi `ajukanUsaha` (jamaah), `simpanUsaha`, `hapusUsaha`, serta `usaha` dan `usahaStatus` di data publik; `CACHE_KEY` naik ke `data_v5`. `index.html`: pesan penolakan dari server kini tampil di formulir pengajuan.
 - Kiriman kajian jamaah: `kode.gs` menambah aksi `ajukanKajian` (jamaah) dan `periksaKajian` (pengurus), peran `verifikator`, `kajianStatus` di data publik (kini memuat juga kiriman jamaah yang sudah tayang), `KODE_KOLABORATOR`, dan pembuangan foto kiriman; `CACHE_KEY` naik ke `data_v9`. `index.html`: status kiriman langsung benar setelah mengirim (data dimuat ulang) dan membedakan menunggu, ditolak, tayang, dan sudah dihapus; kebijakan privasi diperbarui; nama pengembang dan tahun diisi.
 - Libur dan Ketentuan arisan (sebelumnya bernama Aturan main): `kode.gs` menambah tab `libur`, aksi `simpanLibur`, `hapusLibur`, `simpanAturan`, serta `libur` dan `aturan` di data publik; `CACHE_KEY` naik ke `data_v6`. `index.html` menambah menu Libur nasional dan Aturan main di Panel pengurus. Dengan ini semua fitur frontend sudah punya backend. Nama "Aturan main" diganti "Ketentuan arisan" di semua tulisan yang terlihat; nama tab dan kolom di Sheet (`aturan`) tidak berubah, jadi data lama tetap terbaca.
@@ -90,3 +113,12 @@ Tulis di sini ringkasan setiap pembaruan.
 - Label "Contoh isi" di header halaman Bantuan, Tentang aplikasi, Kebijakan privasi, Profil majelis, Acara malam Jumat, Hubungi pengurus, dan Kirim masukan dibuang (hanya tersisa di Masuk pengurus dan Laporan kas, yang memang otomatis hilang begitu data asli masuk).
 - **Dicatat, belum diperbaiki:** `kode.gs` punya backend lengkap untuk "Profil majelis" (tab `majelis`, skema identitas/guru/sejarah/visi-misi/pengurus/kontak/acara, fungsi `bacaMajelis_`/`simpanMajelis_`) sesuai yang disebut tabel peran `super` di atas. Tapi `index.html` tidak pernah membaca data itu dan Panel pengurus tidak punya menu untuk mengisinya. Akibatnya halaman Profil majelis, Acara malam Jumat, Hubungi pengurus, dan Kirim masukan hanya bisa diubah dengan mengedit `const MAJELIS={...}` langsung di `index.html`, bukan dari Sheet/Panel pengurus seperti yang tersirat di README. Menyambungkannya adalah pekerjaan baru (bukan sekadar perbaikan), jadi belum dikerjakan.
 - Perbaikan laporan kas: `muatData()` membangun objek `DATA` dari respons backend dengan daftar field eksplisit, dan field `kas` serta `majelis` (keduanya sudah dikirim `kode.gs`) tidak pernah ikut disalin. Akibatnya halaman Laporan kas selalu mengira belum tersambung ke Sheet dan terus menampilkan data contoh + label "Contoh isi", walau tab `kas` di Sheet sudah diisi pengurus. Sekarang kedua field itu ikut dimuat.
+- v17 dan v18: tidak tercatat di sini sebelumnya. Yang bisa dipastikan dari berkas: alamat manifest dan ikon kini memakai `?v=18` dan `sw.js` memakai `VERSI = "v8"`. Pengurus yang menjalankan pembaruan itu sebaiknya melengkapi ringkasannya di sini.
+
+## Yang belum selesai
+
+- Halaman **Infaq masjid**: rekening dan QRIS masih contoh (lihat tabel `INFAQ` di atas). Prioritas tertinggi karena tampil ke jamaah.
+- Halaman **Qurban kolektif**: nama peserta, harga, dan tanggal masih contoh.
+- **Profil majelis, Acara malam Jumat, Hubungi pengurus, Kirim masukan**: belum tersambung ke Sheet/Panel pengurus; ubah lewat `const MAJELIS` (lihat catatan v16).
+- **Latin Yasin ayat 13–83**: sumbernya berbeda dari ayat 1–12; perlu diseragamkan dan diperiksa (lihat catatan v13).
+- **Hadiah Al-Fatihah** di Tahlil memuat tanda `… (sebutkan nama)`; pastikan memang dimaksudkan sebagai isian saat dibaca.
