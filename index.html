@@ -1115,9 +1115,9 @@ async function muatData(fresh){
   if(!res.ok)throw new Error("HTTP "+res.status);
   const j=await res.json();
   if(!j||j.ok===false||!Array.isArray(j.giliran))throw new Error("Respons tidak valid");
-  DATA={giliran:j.giliran,lokasi:Array.isArray(j.lokasi)?j.lokasi:[],informasi:Array.isArray(j.informasi)?j.informasi:undefined,artikel:Array.isArray(j.artikel)?j.artikel:undefined,usaha:Array.isArray(j.usaha)?j.usaha:undefined,usahaStatus:Array.isArray(j.usahaStatus)?j.usahaStatus:undefined,kajianStatus:Array.isArray(j.kajianStatus)?j.kajianStatus:undefined,libur:Array.isArray(j.libur)?j.libur:undefined,aturan:(j.aturan&&typeof j.aturan==="object")?j.aturan:undefined};dataAt=Date.now();
+  DATA={giliran:j.giliran,lokasi:Array.isArray(j.lokasi)?j.lokasi:[],informasi:Array.isArray(j.informasi)?j.informasi:undefined,artikel:Array.isArray(j.artikel)?j.artikel:undefined,usaha:Array.isArray(j.usaha)?j.usaha:undefined,usahaStatus:Array.isArray(j.usahaStatus)?j.usahaStatus:undefined,kajianStatus:Array.isArray(j.kajianStatus)?j.kajianStatus:undefined,libur:Array.isArray(j.libur)?j.libur:undefined,aturan:(j.aturan&&typeof j.aturan==="object")?j.aturan:undefined,kas:Array.isArray(j.kas)?j.kas:undefined,majelis:(j.majelis&&typeof j.majelis==="object")?j.majelis:undefined};dataAt=Date.now();
   try{localStorage.setItem("dataSheet",JSON.stringify(DATA))}catch(e){}
-  kartu();isiBeranda();["informasi","artikel","jamaah"].forEach(id=>{if($("pg-"+id).classList.contains("open"))R[id]()});if($("pg-kajianf").classList.contains("open"))kfDaftar();
+  kartu();isiBeranda();["informasi","artikel","jamaah","kas"].forEach(id=>{if($("pg-"+id).classList.contains("open"))R[id]()});if($("pg-kajianf").classList.contains("open"))kfDaftar();
  }catch(e){console.warn("Gagal memuat data dari Sheet, memakai data tersimpan/bawaan.",e);stateBeranda("gagal")}}
 document.addEventListener("visibilitychange",()=>{if(!document.hidden&&Date.now()-dataAt>300000)muatData()});
 const ico=n=>`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${ICO[n]}</svg>`;
