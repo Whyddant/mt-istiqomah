@@ -876,7 +876,7 @@ details.ar-fold .ar-how{margin:2px 0 0}
     <div class="dg" role="group" aria-labelledby="dg-maj"><span class="dt" id="dg-maj">Majelis</span>
       <button class="mi" data-page="profil"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 22h18M6 18v-7M10 18v-7M14 18v-7M18 18v-7M12 2 3 7h18z"/></svg>Profil majelis</button>
       <button class="mi" data-page="acara"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>Acara malam Jumat</button>
-      <button class="mi" data-page="aturan"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5M9 13h6M9 17h6"/></svg>Aturan main arisan</button>
+      <button class="mi" data-page="aturan"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5M9 13h6M9 17h6"/></svg>Ketentuan arisan</button>
       <button class="mi" data-page="lokasi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></svg>Lokasi</button>
     </div>
     <div class="dg" role="group" aria-labelledby="dg-ban"><span class="dt" id="dg-ban">Bantuan</span>
@@ -892,26 +892,29 @@ details.ar-fold .ar-how{margin:2px 0 0}
       <button class="mi" id="shareBtn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="m8.6 13.5 6.8 4M15.4 6.5l-6.8 4"/></svg>Bagikan aplikasi</button>
       <button class="mi" data-page="tentang"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 8v.01"/></svg>Tentang aplikasi</button>
     </div>
+    <div class="dg" id="dg-kol-g" role="group" aria-labelledby="dg-kol" style="display:none"><span class="dt" id="dg-kol">Kolaborator</span>
+      <button class="mi" data-page="kajianf"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4z"/></svg>Kirim kajian</button>
+    </div>
     <div class="dg" role="group" aria-labelledby="dg-pen"><span class="dt" id="dg-pen">Pengurus</span>
       <button class="mi" data-page="login"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v5c0 4.500-3 8-7 10-4-2-7-5.500-7-10V6z"/><path d="M9 12l2 2 4-4"/></svg><span>Masuk sebagai pengurus<small>Khusus pengurus majelis</small></span></button>
     </div>
     </div>
-    <div class="df">Majelis Taklim Al-Istiqomah · Versi 1.0</div>
+    <div class="df">Majelis Taklim Al-Istiqomah · Versi <span id="df-ver">1.0</span></div>
   </aside>
   <div class="mini" id="mini"><span class="ml" aria-hidden="true"></span><b>MT. Al-Istiqomah</b><span class="mn" id="miniNext"></span><button class="iconbtn" id="menuBtn2" aria-label="Buka menu opsi" tabindex="-1"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><circle cx="12" cy="5" r="2.1"/><circle cx="12" cy="12" r="2.1"/><circle cx="12" cy="19" r="2.1"/></svg></button></div>
   <dialog id="howto" aria-labelledby="htT"><h3 id="htT">Pasang di layar utama</h3>
     <p><b>Android (Chrome)</b>Ketuk ikon titik tiga di pojok kanan atas, pilih “Tambahkan ke layar utama”, lalu ketuk “Pasang”.</p>
     <p><b>iPhone (Safari)</b>Ketuk tombol Bagikan di bagian bawah, lalu pilih “Tambah ke Layar Utama”.</p>
     <button class="tutup" id="htClose">Mengerti</button></dialog>
-  <section class="page" id="pg-profil" role="dialog" aria-modal="true" aria-labelledby="pt-profil" aria-hidden="true"><div class="ph"><button class="iconbtn" data-back aria-label="Kembali"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg></button><b id="pt-profil">Profil majelis</b><span class="contoh">Contoh isi</span></div><div class="pb" id="pb-profil"></div></section>
-  <section class="page" id="pg-acara" role="dialog" aria-modal="true" aria-labelledby="pt-acara" aria-hidden="true"><div class="ph"><button class="iconbtn" data-back aria-label="Kembali"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg></button><b id="pt-acara">Acara malam Jumat</b><span class="contoh">Contoh isi</span></div><div class="pb" id="pb-acara"></div></section>
-  <section class="page" id="pg-aturan" role="dialog" aria-modal="true" aria-labelledby="pt-aturan" aria-hidden="true"><div class="ph"><button class="iconbtn" data-back aria-label="Kembali"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg></button><b id="pt-aturan">Aturan main arisan</b></div><div class="pb" id="pb-aturan"></div></section>
-  <section class="page" id="pg-hubungi" role="dialog" aria-modal="true" aria-labelledby="pt-hubungi" aria-hidden="true"><div class="ph"><button class="iconbtn" data-back aria-label="Kembali"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg></button><b id="pt-hubungi">Hubungi pengurus</b><span class="contoh">Contoh isi</span></div><div class="pb" id="pb-hubungi"></div></section>
-  <section class="page" id="pg-bantuan" role="dialog" aria-modal="true" aria-labelledby="pt-bantuan" aria-hidden="true"><div class="ph"><button class="iconbtn" data-back aria-label="Kembali"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg></button><b id="pt-bantuan">Bantuan</b><span class="contoh">Contoh isi</span></div><div class="pb" id="pb-bantuan"></div></section>
-  <section class="page" id="pg-masukan" role="dialog" aria-modal="true" aria-labelledby="pt-masukan" aria-hidden="true"><div class="ph"><button class="iconbtn" data-back aria-label="Kembali"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg></button><b id="pt-masukan">Kirim masukan</b><span class="contoh">Contoh isi</span></div><div class="pb" id="pb-masukan"></div></section>
+  <section class="page" id="pg-profil" role="dialog" aria-modal="true" aria-labelledby="pt-profil" aria-hidden="true"><div class="ph"><button class="iconbtn" data-back aria-label="Kembali"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg></button><b id="pt-profil">Profil majelis</b></div><div class="pb" id="pb-profil"></div></section>
+  <section class="page" id="pg-acara" role="dialog" aria-modal="true" aria-labelledby="pt-acara" aria-hidden="true"><div class="ph"><button class="iconbtn" data-back aria-label="Kembali"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg></button><b id="pt-acara">Acara malam Jumat</b></div><div class="pb" id="pb-acara"></div></section>
+  <section class="page" id="pg-aturan" role="dialog" aria-modal="true" aria-labelledby="pt-aturan" aria-hidden="true"><div class="ph"><button class="iconbtn" data-back aria-label="Kembali"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg></button><b id="pt-aturan">Ketentuan arisan</b></div><div class="pb" id="pb-aturan"></div></section>
+  <section class="page" id="pg-hubungi" role="dialog" aria-modal="true" aria-labelledby="pt-hubungi" aria-hidden="true"><div class="ph"><button class="iconbtn" data-back aria-label="Kembali"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg></button><b id="pt-hubungi">Hubungi pengurus</b></div><div class="pb" id="pb-hubungi"></div></section>
+  <section class="page" id="pg-bantuan" role="dialog" aria-modal="true" aria-labelledby="pt-bantuan" aria-hidden="true"><div class="ph"><button class="iconbtn" data-back aria-label="Kembali"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg></button><b id="pt-bantuan">Bantuan</b></div><div class="pb" id="pb-bantuan"></section>
+  <section class="page" id="pg-masukan" role="dialog" aria-modal="true" aria-labelledby="pt-masukan" aria-hidden="true"><div class="ph"><button class="iconbtn" data-back aria-label="Kembali"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg></button><b id="pt-masukan">Kirim masukan</b></div><div class="pb" id="pb-masukan"></div></section>
   <section class="page" id="pg-pengaturan" role="dialog" aria-modal="true" aria-labelledby="pt-pengaturan" aria-hidden="true"><div class="ph"><button class="iconbtn" data-back aria-label="Kembali"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg></button><b id="pt-pengaturan">Pengaturan</b></div><div class="pb" id="pb-pengaturan"><div class="pc"><div class="tema" role="group" aria-label="Tampilan aplikasi"><span class="tl">Tampilan</span><div class="seg"><button data-tema="auto" aria-pressed="true">Otomatis</button><button data-tema="light" aria-pressed="false">Terang</button><button data-tema="dark" aria-pressed="false">Gelap</button></div></div><div class="tema" role="group" aria-label="Ukuran teks"><span class="tl">Ukuran teks</span><div class="seg"><button data-teks="k" aria-pressed="false">Kecil</button><button data-teks="n" aria-pressed="true">Normal</button><button data-teks="b" aria-pressed="false">Besar</button></div><p class="hint">Sudah memperbesar teks di pengaturan ponsel? Pilih Normal atau Kecil.</p></div></div><div class="pc"><span class="lb" style="display:block;margin-bottom:6px;font-weight:600;color:var(--muted)">Pratinjau teks</span><p class="prev">Pengajian diadakan setiap malam Jumat di Masjid Jami' Al-Ikhlas. Ukuran teks dan tampilan yang Anda pilih berlaku di seluruh aplikasi.</p></div><p class="note2">Pengaturan lain akan ditambahkan di sini.</p></div></section>
-  <section class="page" id="pg-tentang" role="dialog" aria-modal="true" aria-labelledby="pt-tentang" aria-hidden="true"><div class="ph"><button class="iconbtn" data-back aria-label="Kembali"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg></button><b id="pt-tentang">Tentang aplikasi</b><span class="contoh">Contoh isi</span></div><div class="pb" id="pb-tentang"></div></section>
-  <section class="page" id="pg-privasi" role="dialog" aria-modal="true" aria-labelledby="pt-privasi" aria-hidden="true"><div class="ph"><button class="iconbtn" data-back aria-label="Kembali"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg></button><b id="pt-privasi">Kebijakan privasi</b><span class="contoh">Contoh isi</span></div><div class="pb" id="pb-privasi"></div></section>
+  <section class="page" id="pg-tentang" role="dialog" aria-modal="true" aria-labelledby="pt-tentang" aria-hidden="true"><div class="ph"><button class="iconbtn" data-back aria-label="Kembali"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg></button><b id="pt-tentang">Tentang aplikasi</b></div><div class="pb" id="pb-tentang"></div></section>
+  <section class="page" id="pg-privasi" role="dialog" aria-modal="true" aria-labelledby="pt-privasi" aria-hidden="true"><div class="ph"><button class="iconbtn" data-back aria-label="Kembali"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg></button><b id="pt-privasi">Kebijakan privasi</b></div><div class="pb" id="pb-privasi"></div></section>
   <section class="page" id="pg-login" role="dialog" aria-modal="true" aria-labelledby="pt-login" aria-hidden="true"><div class="ph"><button class="iconbtn" data-back aria-label="Kembali"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg></button><b id="pt-login">Masuk pengurus</b><span class="contoh">Contoh isi</span></div><div class="pb" id="pb-login"></div></section>
   <section class="page" id="pg-informasi" role="dialog" aria-modal="true" aria-labelledby="pt-informasi" aria-hidden="true"><div class="ph"><button class="iconbtn" data-back aria-label="Kembali"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg></button><b id="pt-informasi">Informasi</b></div><div class="pb" id="pb-informasi"></div></section>
   <section class="page tabpg" id="pg-artikel" role="dialog" aria-modal="true" aria-labelledby="pt-artikel" aria-hidden="true"><div class="ph"><button class="iconbtn" data-back aria-label="Kembali"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg></button><b id="pt-artikel">Kajian</b></div><div class="pb" id="pb-artikel"></div></section>
@@ -919,6 +922,7 @@ details.ar-fold .ar-how{margin:2px 0 0}
   <section class="page" id="pg-infod" role="dialog" aria-modal="true" aria-labelledby="pt-infod" aria-hidden="true"><div class="ph"><button class="iconbtn" data-back aria-label="Kembali"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg></button><b id="pt-infod">Informasi</b></div><div class="pb" id="pb-infod"></div></section>
   <section class="page tabpg" id="pg-jamaah" role="dialog" aria-modal="true" aria-labelledby="pt-jamaah" aria-hidden="true"><div class="ph"><button class="iconbtn" data-back aria-label="Kembali"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg></button><b id="pt-jamaah">Jamaah</b></div><div class="pb" id="pb-jamaah"></div></section>
   <section class="page" id="pg-usahaf" role="dialog" aria-modal="true" aria-labelledby="pt-usahaf" aria-hidden="true"><div class="ph"><button class="iconbtn" data-back aria-label="Kembali"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg></button><b id="pt-usahaf">Daftarkan usaha</b></div><div class="pb" id="pb-usahaf"></div></section>
+  <section class="page" id="pg-kajianf" role="dialog" aria-modal="true" aria-labelledby="pt-kajianf" aria-hidden="true"><div class="ph"><button class="iconbtn" data-back aria-label="Kembali"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg></button><b id="pt-kajianf">Kirim kajian</b></div><div class="pb" id="pb-kajianf"></div></section>
   <section class="page" id="pg-kalender" role="dialog" aria-modal="true" aria-labelledby="pt-kalender" aria-hidden="true"><div class="ph"><button class="iconbtn" data-back aria-label="Kembali"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg></button><b id="pt-kalender">Kalender Hijriyah</b></div><div class="pb" id="pb-kalender"></div></section>
   <div class="scrim2" id="scrim2"></div>
   <section class="page" id="pg-sholat" role="dialog" aria-modal="true" aria-labelledby="pt-sholat" aria-hidden="true"><div class="ph"><button class="iconbtn" data-back aria-label="Kembali"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg></button><b id="pt-sholat">Jadwal shalat</b></div>
@@ -1006,7 +1010,7 @@ details.ar-fold .ar-how{margin:2px 0 0}
   <dialog id="tsbDlg" aria-labelledby="tsbJd"><h3 id="tsbJd">Atur ulang hitungan?</h3><p>Hitungan dan jumlah putaran akan kembali ke 0.</p><button type="button" class="tutup" id="tsbYa">Atur ulang</button><button type="button" class="tsb-rs" id="tsbBtl" style="margin-top:10px">Batal</button></dialog>
   </section>
 
-  <section class="page" id="pg-infaq" role="dialog" aria-modal="true" aria-labelledby="pt-infaq" aria-hidden="true"><div class="ph"><button class="iconbtn" data-back aria-label="Kembali"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg></button><b id="pt-infaq">Infaq dan qurban</b><span class="contoh">Contoh isi</span></div>
+  <section class="page" id="pg-infaq" role="dialog" aria-modal="true" aria-labelledby="pt-infaq" aria-hidden="true"><div class="ph"><button class="iconbtn" data-back aria-label="Kembali"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg></button><b id="pt-infaq">Infaq dan qurban</b></div>
   <div class="pb" id="pb-infaq"></div>
   <dialog id="iqDlg" aria-labelledby="iqJd"><h3 id="iqJd">QRIS Masjid</h3><div class="iq-qr" id="iqQr2"></div><button type="button" class="tutup" id="iqTutup">Tutup</button></dialog>
   </section>
@@ -1062,10 +1066,12 @@ function teksHijri(hj){if(!hj||!hj.day||!hj.month)return"";const bln=BULAN_HIJRI
 const ICO={sunrise:'<path d="M12 2v8M4.93 10.93l1.41 1.41M2 18h2M20 18h2M19.07 10.93l-1.41 1.41M22 22H2M8 6l4-4 4 4M16 18a4 4 0 0 0-8 0"/>',sun:'<circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/>',sunmid:'<circle cx="12" cy="12" r="4"/><path d="M12 3v1M12 20v1M3 12h1M20 12h1M18.36 5.64l-.7.7M6.34 17.66l-.7.7M5.64 5.64l.7.7M17.66 17.66l.7.7"/>',sunset:'<path d="M12 10V2M4.93 10.93l1.41 1.41M2 18h2M20 18h2M19.07 10.93l-1.41 1.41M22 22H2M16 6l-4 4-4-4M16 18a4 4 0 0 0-8 0"/>',moon:'<path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/>',terbit:'<path d="M17 18a5 5 0 0 0-10 0M12 3v4M4.93 10.93l1.41 1.41M2 18h2M20 18h2M19.07 10.93l-1.41 1.41M22 22H2"/>',imsak:'<path d="M18 5h4M20 3v4"/><path d="M20.985 12.486a9 9 0 1 1-9.473-9.472c.405-.022.617.46.402.803a6 6 0 0 0 8.268 8.268c.344-.215.825-.004.803.401"/>'};
 /* ===== DATA PENGURUS (ubah di sini) =====
    ramadan: tanggal awal & akhir puasa sesuai penetapan (di bawah ini hanya perkiraan).
-   giliran: tipe "giliran" (1-2 anggota) atau "penutupan" (tanpa nama, hanya nominal). */
+   penutupan: dipakai mode pengembang (?dev=1, tombol "penutupan") untuk pratinjau tampilan, tipe "penutupan" (tanpa nama, hanya nominal).
+   Giliran arisan yang sesungguhnya selalu datang dari Sheet/panel pengurus; bila Sheet belum
+   punya giliran mendatang, halaman menampilkan "Giliran belum diumumkan pengurus" (lihat giliranBerikut()),
+   bukan data tetap di sini, supaya tidak ada nama lama yang tertinggal tampil setelah tanggalnya lewat. */
 const CFG={tempat:"Masjid Jami' Al-Ikhlas",
  ramadan:{mulai:"2027-02-08",akhir:"2027-03-09"},
- giliran:{tipe:"giliran",tgl:"2026-11-12",anggota:[{nama:"H. Mawih",no:3,ket:"Mulang-naro"}]},
  penutupan:{tipe:"penutupan",tgl:"2026-12-17",nominal:50000,ket:"Minimal per anggota"}};
 let demo=new URLSearchParams(location.search).get("demo");let DEVISI=false,DEVK=false,DEVT=null; /* DEVT: jam simulasi (detik) khusus mode pengembang */
 /* ===== DATA DARI GOOGLE SHEET (Apps Script) =====
@@ -1074,7 +1080,7 @@ let demo=new URLSearchParams(location.search).get("demo");let DEVISI=false,DEVK=
 CFG.api=(window.APP_CONFIG&&window.APP_CONFIG.api)||"";   /* diisi di config.js, bukan di sini */
 let DATA=null,dataAt=0;
 try{const raw=localStorage.getItem("dataSheet");if(raw)DATA=JSON.parse(raw)}catch(e){}
-/* Pratinjau pengembangan: buka dengan ?demo=isi untuk melihat halaman Arisan dengan data contoh (riwayat, giliran berikutnya, aturan main).
+/* Pratinjau pengembangan: buka dengan ?demo=isi untuk melihat halaman Arisan dengan data contoh (riwayat, giliran berikutnya, ketentuan).
    Data contoh hanya di memori, tidak disimpan, dan tidak mengubah Sheet. */
 function demoIsi(){
  const iso=ms=>new Date(ms).toISOString().slice(0,10),n0=new Date(),b=Date.UTC(n0.getFullYear(),n0.getMonth(),n0.getDate()),
@@ -1086,7 +1092,7 @@ function demoIsi(){
  r.push({tgl:iso(k+2*W),tipe:"giliran",nama:N[9][0],no:N[9][1],ket:""},{tgl:iso(k+2*W),tipe:"giliran",nama:N[10][0],no:N[10][1],ket:""});
  r.push({tgl:iso(k+3*W),tipe:"penutupan",nominal:50000,ket:"Minimal per anggota"});
  r.push({tgl:iso(k+4*W),tipe:"giliran",nama:N[0][0],no:N[0][1],ket:""});
- DATA={giliran:r,lokasi:[],aturan:{tgl:iso(b),butir:["Contoh aturan pertama.","Contoh aturan kedua, agak lebih panjang supaya terlihat bagaimana teks turun ke baris berikutnya.","Contoh aturan ketiga."]}}}
+ DATA={giliran:r,lokasi:[],aturan:{tgl:iso(b),butir:["Contoh ketentuan pertama.","Contoh ketentuan kedua, agak lebih panjang supaya terlihat bagaimana teks turun ke baris berikutnya.","Contoh ketentuan ketiga."]}}}
 if(demo==="isi"){demoIsi();DEVISI=true;demo=null}
 function giliranBerikut(){
  if(demo==="penutupan")return CFG.penutupan;
@@ -1098,7 +1104,7 @@ function giliranBerikut(){
   const a=same.filter(r=>r.nama).map(r=>({nama:r.nama,no:r.no,ket:r.ket||""}));
   if(a.length)return{tipe:"giliran",tgl:d,anggota:a};
  }
- return CFG.giliran}
+ return{tipe:"belum"}}
 function tglPekan(){const t=giliranBerikut().tgl;return t&&t>=todayJ()?t:nextKamis()}
 async function muatData(fresh){
  if(!CFG.api||demo==="isi"||DEVISI||DEVK)return;
@@ -1109,9 +1115,9 @@ async function muatData(fresh){
   if(!res.ok)throw new Error("HTTP "+res.status);
   const j=await res.json();
   if(!j||j.ok===false||!Array.isArray(j.giliran))throw new Error("Respons tidak valid");
-  DATA={giliran:j.giliran,lokasi:Array.isArray(j.lokasi)?j.lokasi:[],informasi:Array.isArray(j.informasi)?j.informasi:undefined,artikel:Array.isArray(j.artikel)?j.artikel:undefined,usaha:Array.isArray(j.usaha)?j.usaha:undefined,usahaStatus:Array.isArray(j.usahaStatus)?j.usahaStatus:undefined,libur:Array.isArray(j.libur)?j.libur:undefined,aturan:(j.aturan&&typeof j.aturan==="object")?j.aturan:undefined};dataAt=Date.now();
+  DATA={giliran:j.giliran,lokasi:Array.isArray(j.lokasi)?j.lokasi:[],informasi:Array.isArray(j.informasi)?j.informasi:undefined,artikel:Array.isArray(j.artikel)?j.artikel:undefined,usaha:Array.isArray(j.usaha)?j.usaha:undefined,usahaStatus:Array.isArray(j.usahaStatus)?j.usahaStatus:undefined,kajianStatus:Array.isArray(j.kajianStatus)?j.kajianStatus:undefined,libur:Array.isArray(j.libur)?j.libur:undefined,aturan:(j.aturan&&typeof j.aturan==="object")?j.aturan:undefined};dataAt=Date.now();
   try{localStorage.setItem("dataSheet",JSON.stringify(DATA))}catch(e){}
-  kartu();isiBeranda();["informasi","artikel","jamaah"].forEach(id=>{if($("pg-"+id).classList.contains("open"))R[id]()});
+  kartu();isiBeranda();["informasi","artikel","jamaah"].forEach(id=>{if($("pg-"+id).classList.contains("open"))R[id]()});if($("pg-kajianf").classList.contains("open"))kfDaftar();
  }catch(e){console.warn("Gagal memuat data dari Sheet, memakai data tersimpan/bawaan.",e);stateBeranda("gagal")}}
 document.addEventListener("visibilitychange",()=>{if(!document.hidden&&Date.now()-dataAt>300000)muatData()});
 const ico=n=>`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${ICO[n]}</svg>`;
@@ -1152,6 +1158,7 @@ function kartuIsi(){const el=$("arisan"),f=fase(todayJ());
  if(f){const T={pra:["Marhaban ya Ramadhan","Semoga kita dipertemukan dengan bulan yang penuh berkah."],puasa:["Selamat menjalankan ibadah puasa","Semoga ibadah kita diterima dan dimudahkan Allah."],pasca:["Minal Aidin wal Faizin","Mohon Maaf Lahir &amp; Batin","Segenap Pengurus Majelis Taklim Al-Istiqomah mengucapkan"]}[f],kb=kembali(),info=f==="pasca"&&(demo==="kembali"||todayJ()>=addD(kb,-7));
   el.className="arisan libur";el.innerHTML=sky()+`<div>${T[2]?`<p class="from">${T[2]}</p>`:""}<h2>${T[0]}</h2><p>${T[1]}</p>${info?`<span class="back">Pengajian kembali ${dm(kb)}</span>`:""}</div><span class="fx">${FX[f]}</span>`;return}
  const g=giliranBerikut();
+ if(g.tipe==="belum"){el.className="arisan satu";el.innerHTML=`<div class="row"><strong>Giliran arisan</strong></div><p class="hint" style="margin:6px 0 0">Giliran belum diumumkan pengurus.</p>`;return}
  if(g.tipe==="penutupan"){el.className="arisan";el.innerHTML=`<div class="row"><strong>Penutupan pengajian</strong><span>${tgl(g.tgl)}</span></div><div class="who"><div><p class="ajak">Infaq untuk guru kita</p><div class="nom">Rp${g.nominal.toLocaleString("id-ID")}</div><div class="nomk">${esc(g.ket)}</div></div></div><p class="syukur">Mohon partisipasi dan kesadaran seluruh anggota untuk menunaikan infaq. Jazakumullah khairan 🙏</p>${place}`;return}
  const a=demo==="satu"?g.anggota.slice(0,1):demo==="dua"?(g.anggota.length>1?g.anggota:g.anggota.concat([{nama:"Jamidi",no:26,ket:"Narik pokok"}])).slice(0,2):g.anggota.slice(0,2);
  el.className="arisan"+(a.length===1?" satu":"");
@@ -1209,8 +1216,14 @@ async function ambilJadwal(lat,lng,tgl){
  if(j.code!==200||!j.data||!j.data.timings)throw new Error("Respons API tidak valid");
  return{timings:j.data.timings,hijri:(j.data.date&&j.data.date.hijri)||null};
 }
+/* Buang cache jadwal shalat hari-hari lama (kunci "jadwalSholat_<tanggal>"), simpan hanya kunci hari ini
+   supaya penyimpanan perangkat tidak terus bertambah (~365 kunci/tahun bila dibiarkan). */
+function bersihkanJadwalLama(kunciAktif){
+ try{for(let i=localStorage.length-1;i>=0;i--){const k=localStorage.key(i);if(k&&k.indexOf("jadwalSholat_")===0&&k!==kunciAktif)localStorage.removeItem(k)}}catch(e){}
+}
 async function muatJadwalSholat(){
  const tgl=tglAPI(new Date()),kunci="jadwalSholat_"+tgl;
+ bersihkanJadwalLama(kunci);
  let cache=null;try{const raw=localStorage.getItem(kunci);if(raw)cache=JSON.parse(raw)}catch(e){}
  if(cache)pakaiJadwal(cache,false);
  try{const data=await ambilJadwal(CFG.sholat.lat,CFG.sholat.lng,tgl);pakaiJadwal(data,true,kunci)}
@@ -1287,18 +1300,15 @@ function mintaLokasiSaya(diam){
 $("sLocBtn").onclick=()=>{pakaiLokasiSaya?pakaiLokasiMasjid(true):mintaLokasiSaya(false)};
 
 /* ===== DATA MAJELIS (isi contoh — ganti dengan data pengurus) ===== */
-const MAJELIS={nama:"Majelis Taklim Al-Istiqomah",tagline:"[Motto atau tagline majelis]",berdiri:"[Tahun berdiri]",
- guru:{nama:"[Nama Ustadz]",sapaan:"[Satu kalimat pengantar tentang guru pengasuh]"},
- sejarah:["[Paragraf 1: awal mula berdirinya majelis taklim]","[Paragraf 2: perkembangan majelis hingga sekarang]"],
- visi:"[Visi majelis taklim]",misi:["[Misi pertama]","[Misi kedua]","[Misi ketiga]"],
- pengurus:[{j:"Ketua",n:"[Nama]"},{j:"Sekretaris",n:"[Nama]"},{j:"Bendahara",n:"[Nama]"},{j:"Sarana dan prasarana",n:"[Nama]"}],
- acara:[{t:"Arisan dan bayar kas",k:"[Keterangan singkat bagian ini]"},{t:"Zikir dan tahlil",k:"[Keterangan singkat bagian ini]"},{t:"Tausiyah",k:"",guru:1},{t:"Pengumuman",k:"[Keterangan singkat bagian ini]"},{t:"Doa",k:"[Keterangan singkat bagian ini]"}],
+const MAJELIS={nama:"Majelis Taklim Al-Istiqomah",berdiri:"1988",
+ guru:{nama:"KH. Zainal Abidin, S.Ag., M.M."},
+ sejarah:["Majelis Taklim Al-Istiqomah berdiri pada tahun 1988 atas inisiatif sejumlah tokoh masyarakat, di antaranya Bapak H. Umar dan Bapak H. Tarmidzi. Pada masa awal, pengajian diadakan bergiliran dari rumah ke rumah anggota, disertai arisan untuk mempererat silaturahmi.","Pembinaan keagamaan diasuh secara turun-temurun oleh KH. Abdul Qodir, KH. Zaini, dan kini KH. Zainal Abidin, S.Ag., M.M., putra KH. Zaini.","Seiring bertambahnya jamaah, kegiatan rutin dipusatkan di Masjid Jami' Al-Ikhlas. Majelis juga menghimpun kas bersama untuk membantu anggota yang sakit atau berduka, serta hadir dalam syukuran, haul, dan takziah di kediaman anggota."],
+ pengurus:[{j:"Ketua",n:"Muhammad Nur"},{j:"Sekretaris",n:"Syarif Hidayatullah"},{j:"Bendahara",n:"Firdaus"}],
  masjid:{nama:"Masjid Jami' Al-Ikhlas",alamat:"Jl. Serua Raya No. 101 RT 004/002, Kel. Serua, Kec. Bojongsari, Kota Depok 16517"}};
 MAJELIS.aturan={tgl:"",butir:[]};
-MAJELIS.kontak=[{j:"Ketua",n:"[Nama]",hp:"[Nomor WhatsApp]",u:"[Keperluan umum dan kegiatan majelis]"},{j:"Sekretaris",n:"[Nama]",hp:"[Nomor WhatsApp]",u:"[Informasi dan undangan acara]"},{j:"Bendahara",n:"[Nama]",hp:"[Nomor WhatsApp]",u:"[Keperluan arisan dan kas]"}];
+MAJELIS.kontak=[{j:"Ketua",n:"Muhammad Nur",hp:"0852-1395-7683",u:"Keperluan umum dan kegiatan majelis"},{j:"Sekretaris",n:"Syarif Hidayatullah",hp:"0822-9764-4336",u:"Informasi dan undangan acara"},{j:"Bendahara",n:"Firdaus",hp:"0821-1003-3005",u:"Keperluan arisan dan kas"}];
 MAJELIS.faq=[{q:"Bagaimana cara memasang aplikasi di layar utama?",a:"Di Android (Chrome): ketuk ikon titik tiga di pojok kanan atas, pilih “Tambahkan ke layar utama”, lalu ketuk “Pasang”. Di iPhone (Safari): ketuk tombol Bagikan, lalu pilih “Tambah ke Layar Utama”."},
  {q:"Kapan dan di mana pengajian diadakan?",a:"Pengajian diadakan setiap malam Jumat di Masjid Jami' Al-Ikhlas. Pada acara tertentu seperti takziah, syukuran, atau haul, lokasi dapat berpindah ke kediaman anggota. Lokasi pekan ini ada di menu Majelis, bagian Lokasi."},
- {q:"Apa saja susunan acara pengajian?",a:"Arisan dan bayar kas, zikir dan tahlil, tausiyah, pengumuman, lalu doa. Waktu tiap bagian menyesuaikan kondisi."},
  {q:"Mengapa pengajian libur pada bulan tertentu?",a:"Pengajian libur dua pekan menjelang Ramadhan, selama bulan Ramadhan, dan dua pekan setelah Idul Fitri. Tanggal kembali diumumkan oleh pengurus."},
  {q:"Bagaimana mengubah ukuran teks atau tampilan gelap?",a:"Buka menu titik tiga, lalu lihat bagian Pengaturan. Ukuran teks tersedia Kecil, Normal, dan Besar, sedangkan tampilan tersedia Otomatis, Terang, dan Gelap."}];
 CFG.lokasi={jenis:"masjid"};
@@ -1364,11 +1374,10 @@ syncPasang();addEventListener("appinstalled",syncPasang);addEventListener("befor
 function nextKamis(){let d=todayJ();while(D(d).getUTCDay()!==4)d=addD(d,1);return d.replace(/^/,"")}
 const I=p=>`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${p}</svg>`;
 const IC={pin:'<path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/>',cal:'<rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/>',user:'<circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0z"/>',chev:'<path d="M9 6l6 6-6 6"/>',nav:'<path d="M3 11l19-9-9 19-2-8z"/>',copy:'<rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/>',map:'<path d="M9 3 3 5v16l6-2 6 2 6-2V3l-6 2z"/><path d="M9 3v16M15 5v16"/>',moon:'<path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9z"/>'};
-const guruCard=()=>`<div class="pc"><div class="guru"><span class="av">${I(IC.user)}</span><div><small>Guru pengasuh</small><b>${esc(MAJELIS.guru.nama)}</b><p>${esc(MAJELIS.guru.sapaan)}</p></div></div></div>`;
+const guruCard=()=>`<div class="pc"><div class="guru"><span class="av">${I(IC.user)}</span><div><small>Guru pengasuh</small><b>${esc(MAJELIS.guru.nama)}</b></div></div></div>`;
 function renderProfil(){const M=MAJELIS;$("pb-profil").innerHTML=
- `<div class="hero2"><div class="lg" role="img" aria-label="Logo majelis"></div><h2>${esc(M.nama)}</h2><p>${esc(M.tagline)}</p></div>`+guruCard()+
+ `<div class="hero2"><div class="lg" role="img" aria-label="Logo majelis"></div><h2>${esc(M.nama)}</h2></div>`+guruCard()+
  `<div class="pc"><h3>Sejarah singkat</h3>${M.sejarah.map(x=>`<p>${esc(x)}</p>`).join("")}<p><small style="color:var(--muted)">Berdiri: ${esc(M.berdiri)}</small></p></div>`+
- `<div class="pc"><h3>Visi dan misi</h3><p><b>Visi.</b> ${esc(M.visi)}</p><ol class="misi" style="margin-top:12px">${M.misi.map(x=>`<li>${esc(x)}</li>`).join("")}</ol></div>`+
  `<div class="pc"><h3>Pengurus</h3>${M.pengurus.map(x=>`<div class="row2"><small>${esc(x.j)}</small><b>${esc(x.n)}</b></div>`).join("")}</div>`+
  `<button class="lnk" data-page="acara">Lihat acara malam Jumat${I(IC.chev)}</button>`}
 function renderAcara(){const M=MAJELIS,l=lokPekan(),f=fase(todayJ()),mlm=x=>dm(x).replace(/^(\S+?),?\s/,"$1 malam, ");let top;
@@ -1376,8 +1385,7 @@ function renderAcara(){const M=MAJELIS,l=lokPekan(),f=fase(todayJ()),mlm=x=>dm(x
   top=`<div class="pc"><div class="when"><span class="ic2">${I(IC.moon)}</span><div><small>Pengajian malam Jumat</small><b>${J}</b></div></div><p class="libur2">${info?`Pengajian kembali ${mlm(kb)}.`:"Jadwal kembali akan diumumkan pengurus."}</p></div>`}
  else{top=`<div class="pc"><div class="when"><span class="ic2">${I(IC.cal)}</span><div><small>Setiap malam Jumat · acara berikutnya</small><b>${mlm(tglPekan())}</b></div></div><div class="pin"><span class="ic2">${I(IC.pin)}</span><div><small>Tempat pekan ini · ${esc(l.label)}</small><b>${esc(l.nama)}</b></div><button class="more" data-page="lokasi">Detail</button></div></div>`}
  $("pb-acara").innerHTML=top+
- `<div class="pc"><h3>Susunan acara</h3><ol class="urut">${M.acara.map((a,i)=>`<li><span class="no2">${i+1}</span><div><b>${esc(a.t)}</b>${a.guru?`<span class="pill2">${I(IC.user).replace("<svg",'<svg width="16" height="16"')}${esc(M.guru.nama)}</span>`:`<span>${esc(a.k)}</span>`}</div></li>`).join("")}</ol></div>`+
- guruCard()+`<p class="note2">Urutan acara tetap. Waktu tiap bagian menyesuaikan kondisi.${f?" Susunan ini berlaku saat pengajian berlangsung.":""}</p>`}
+ guruCard()}
 function renderLokasi(){const l=lokPekan(),M=MAJELIS.masjid,q=encodeURIComponent(l.alamat);$("sheet").innerHTML=
  `<div class="grab"></div><h3 id="st-lok">${fase(todayJ())?"Lokasi pengajian":"Lokasi pekan ini"}<button class="iconbtn" data-close-sheet aria-label="Tutup">${I('<path d="M6 6l12 12M18 6L6 18"/>')}</button></h3><span class="bdg">${esc(l.label)}</span>`+
  `<div class="nm">${esc(l.nama)}</div><div class="al">${esc(l.alamat)}</div>`+
@@ -1414,7 +1422,7 @@ function renderMasukan(){let kat="Saran";const tujuan=MAJELIS.kontak.find(k=>k.j
  $("mk-salin").onclick=async()=>{const m=pesan();if(!m){say("Tulis pesan Anda terlebih dahulu");return}try{await navigator.clipboard.writeText(m);say("Pesan disalin")}catch(e){say("Tidak bisa menyalin dari perangkat ini")}}}
 Object.assign(R,{hubungi:renderHubungi,bantuan:renderBantuan,masukan:renderMasukan});
 
-const APP_VER="1.0";
+const APP_VER="1.0";{const dv=$("df-ver");if(dv)dv.textContent=APP_VER}
 R.pengaturan=()=>{};
 /* ===== Halaman waktu shalat: busur dari waktu ke waktu berikutnya ===== */
 function renderSholat(force){
@@ -1681,19 +1689,28 @@ function renderKalender(){
  const nw=$("kal-now");if(nw)nw.onclick=()=>{KH.first=kalAwal(t);KH.sel=t;renderKalender()};
  }
 R.kalender=()=>{KH.first=null;KH.sel=null;renderKalender()};
+/* ===== Mode kolaborator: tersembunyi, dibuka dengan mengetuk baris "Versi" di halaman Tentang sebanyak 7 kali ===== */
+const KAJIAN_KIRIM=true; /* false = mode kolaborator dimatikan total (ketukan 7x pada Versi di halaman Tentang tidak lagi membuka menu "Kirim kajian") */
+const kolabAktif=()=>K("kolab")==="1";
+const kolabSinkron=()=>{const g=$("dg-kol-g");if(g)g.style.display=KAJIAN_KIRIM&&kolabAktif()?"":"none"};kolabSinkron();
+let KOLAB_N=0,KOLAB_T=0;
+function kolabIkat(){const v=$("tn-ver"),o=$("tn-kolab-off");
+ if(v)v.onclick=()=>{
+  if(!KAJIAN_KIRIM)return;
+  if(kolabAktif()){say("Mode kolaborator sudah aktif");return}
+  const t=Date.now();KOLAB_N=t-KOLAB_T>3000?1:KOLAB_N+1;KOLAB_T=t;
+  if(KOLAB_N>=7){KOLAB_N=0;K("kolab","1");kolabSinkron();say("Mode kolaborator aktif. Menu Kirim kajian ada di menu opsi (titik tiga).");R.tentang()}
+  else if(KOLAB_N>=3)say("Tinggal "+(7-KOLAB_N)+" ketukan lagi")};
+ if(o)o.onclick=()=>{K("kolab","0");kolabSinkron();KOLAB_N=0;say("Mode kolaborator dimatikan");R.tentang()}}
 R.tentang=function(){$("pb-tentang").innerHTML=`<div class="hero2"><div class="lg" role="img" aria-label="Logo majelis"></div><h2>MT. Al-Istiqomah</h2><p>Versi ${APP_VER}</p></div>
  <div class="pc"><p>Aplikasi ini membantu jamaah melihat jadwal shalat, informasi kegiatan, dan acara malam Jumat ${esc(MAJELIS.nama)}.</p></div>
- <div class="pc"><div class="vrow"><span>Versi</span><b>${APP_VER}</b></div><div class="vrow"><span>Dibuat untuk</span><b>${esc(MAJELIS.nama)}</b></div><div class="vrow"><span>Pengembang</span><b>[Nama pengembang]</b></div></div>
- <button class="lnk" data-page="privasi">Kebijakan privasi${I(IC.chev)}</button><p class="note2">© [Tahun] ${esc(MAJELIS.nama)}</p>`};
-R.privasi=function(){$("pb-privasi").innerHTML=`<div class="pc pol"><h3>Data di perangkat Anda</h3><p>Aplikasi hanya menyimpan pengaturan Anda, yaitu pilihan tampilan, ukuran teks, dan status ajakan memasang, di perangkat Anda sendiri.</p>
- <h3>Data yang dikumpulkan</h3><p>Saat ini aplikasi tidak mengumpulkan atau mengirim data pribadi Anda ke server.</p>
+ <div class="pc"><div class="vrow" id="tn-ver"><span>Versi</span><b>${APP_VER}</b></div><div class="vrow"><span>Dibuat untuk</span><b>${esc(MAJELIS.nama)}</b></div><div class="vrow"><span>Pengembang</span><b>Yudi Danton</b></div></div>
+ <button class="lnk" data-page="privasi">Kebijakan privasi${I(IC.chev)}</button><p class="note2">© 2026 ${esc(MAJELIS.nama)}</p>`+(kolabAktif()?`<button type="button" class="btn2 sec" id="tn-kolab-off" style="width:100%;margin-top:12px">Matikan mode kolaborator</button>`:"");kolabIkat()};
+R.privasi=function(){$("pb-privasi").innerHTML=`<div class="pc pol"><h3>Data di perangkat Anda</h3><p>Aplikasi menyimpan pengaturan Anda (tampilan, ukuran teks, status ajakan memasang), daftar kiriman kajian Anda, dan lembar omzet bila Anda memakainya, di perangkat Anda sendiri.</p>
+ <h3>Data yang dikumpulkan</h3><p>Aplikasi tidak mengumpulkan data pribadi saat Anda hanya membaca. Data dikirim ke server majelis hanya bila Anda sendiri mengirim formulir, yaitu Kirim kajian dan Daftarkan usaha. Yang dikirim: isi formulir, nama, nomor WhatsApp, dan foto bila Anda melampirkannya. Nama dan nomor WhatsApp pengirim kajian hanya dilihat pengurus untuk menghubungi Anda. Judul, pemateri, isi, dan foto kajian tampil terbuka setelah disetujui pengurus. Data usaha yang disetujui, termasuk nomor WhatsApp usaha, tampil terbuka di aplikasi. Foto disimpan di Google Drive majelis. Untuk meminta kiriman dihapus, hubungi pengurus.</p>
  <h3>Layanan pihak lain</h3><p>Jadwal shalat dihitung oleh AlAdhan. Bila Anda memakai lokasi perangkat, koordinat Anda dikirim ke AlAdhan dan ke OpenStreetMap (untuk nama wilayah). Tombol WhatsApp dan Google Maps membuka aplikasi tersebut. Pesan atau lokasi yang Anda kirim diatur oleh kebijakan masing-masing layanan.</p>
- <h3>Perubahan</h3><p>Kebijakan ini akan diperbarui bila aplikasi nanti menyimpan data jamaah, misalnya nama atau kehadiran.</p></div>
+ <h3>Perubahan</h3><p>Kebijakan ini akan diperbarui bila cara aplikasi mengelola data jamaah berubah.</p></div>
  <button class="lnk" data-page="hubungi">Pertanyaan tentang privasi? Hubungi pengurus${I(IC.chev)}</button>`};
-R.login=function(){$("pb-login").innerHTML=`<div class="pc lgn"><span class="lock">${I('<rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/>')}</span><h2>Khusus pengurus majelis</h2><p>Masuk untuk mengelola jadwal, pengumuman, dan data majelis.</p>
- <div class="lgf"><label class="lb" for="lg-u">Nama pengguna</label><input class="fld" id="lg-u" autocomplete="username" autocapitalize="none" placeholder="Nama pengguna"><label class="lb" for="lg-p" style="margin-top:14px">Kata sandi</label><input class="fld" id="lg-p" type="password" autocomplete="current-password" placeholder="Kata sandi"></div>
- <button class="btn2 pri" id="lg-go" style="width:100%;margin-top:18px">Masuk</button></div><p class="note2">Belum memiliki akses? Hubungi Ketua.</p>`;
- $("lg-go").onclick=()=>say("Masuk pengurus belum tersedia di pratinjau ini")};
 
 /* ===== Informasi & Artikel dari Sheet =====
    Bila Sheet belum mengirim tab informasi/artikel, isi contoh di HTML dibiarkan. */
@@ -1805,6 +1822,94 @@ function kjPemutar(x,url){
  ui()}
 new MutationObserver(()=>{if(!$("pg-kajian").classList.contains("open"))kjHenti()}).observe($("pg-kajian"),{attributes:true,attributeFilter:["class"]});
 R.artikel=function(){KJ_F="";kjRender()};
+/* ===== Jamaah: kirim kajian (diverifikasi pengurus sebelum tayang) ===== */
+const kajianSaya=()=>{try{const a=JSON.parse(K("kajianSaya")||"[]");return Array.isArray(a)?a:[]}catch(e){return[]}};
+const kajianSimpan=a=>{try{K("kajianSaya",JSON.stringify(a.slice(0,5)))}catch(e){}};
+let KF_EDIT=null,KF_FOTO=null; /* KF_FOTO: null = foto tidak diubah, "" = dihapus, selain itu data URL foto baru */
+const KF_JENIS=["Kajian Ahad pagi","Subuh keliling","Khutbah Jumat","Kajian lainnya"];
+const kfMin=()=>new Intl.DateTimeFormat("en-CA",{timeZone:TZ}).format(new Date(Date.now()-120*864e5));
+function kfKecil(file){return new Promise((ok,no)=>{
+ if(!/^image\//.test(file.type)&&!/\.(jpe?g|png|webp|gif|bmp)$/i.test(file.name||""))return no({pesan:"Berkas harus berupa gambar"});
+ const u=URL.createObjectURL(file),im=new Image();
+ im.onload=()=>{try{
+  let w=im.naturalWidth,h=im.naturalHeight;const k=Math.min(1,1280/Math.max(w,h));w=Math.max(1,Math.round(w*k));h=Math.max(1,Math.round(h*k));
+  const c=document.createElement("canvas");c.width=w;c.height=h;const x=c.getContext("2d");x.fillStyle="#fff";x.fillRect(0,0,w,h);x.drawImage(im,0,0,w,h);
+  let q=.8,d=c.toDataURL("image/jpeg",q);while(d.length>1.9e6&&q>.4){q-=.1;d=c.toDataURL("image/jpeg",q)}
+  URL.revokeObjectURL(u);d.length>1.9e6?no({pesan:"Foto terlalu besar. Pilih foto lain."}):ok(d)}catch(e){no({pesan:"Foto tidak dapat diproses"})}};
+ im.onerror=()=>{URL.revokeObjectURL(u);no({pesan:"Foto tidak dapat dibaca. Coba format JPG atau PNG."})};
+ im.src=u})}
+function kfFotoRender(){const e=KF_EDIT||{},box=$("kf-fp");if(!box)return;let src="";
+ if(KF_FOTO)src=KF_FOTO;else if(KF_FOTO===null&&e.foto)src=fotoUrl({foto:e.foto});
+ box.innerHTML=src?`<img src="${esc(src)}" alt="Foto kajian" style="width:100%;max-height:220px;object-fit:cover;border-radius:14px;margin-top:10px;background:var(--chip)" referrerpolicy="no-referrer" onerror="this.remove()"><button type="button" class="btn2 sec" id="kf-fx" style="width:100%;margin-top:8px">Hapus foto</button>`:"";
+ if($("kf-fx"))$("kf-fx").onclick=()=>{KF_FOTO="";kfFotoRender()}}
+
+function kajianStatusSaya(it){
+ const ls=DATA&&Array.isArray(DATA.kajianStatus)?DATA.kajianStatus:null,st=ls&&ls.find(x=>x.id===it.id);
+ if(st&&st.status==="ditolak")return {t:"Belum dapat ditayangkan"+(st.alasan?": "+st.alasan:""),k:"no"};
+ if(st&&st.status==="tayang")return {t:"Sudah tayang di daftar kajian",k:"ok"};
+ if(st)return {t:"Menunggu verifikasi pengurus",k:"wt"};
+ /* tidak ada di daftar: bila data dimuat sesudah dikirim, berarti kiriman sudah dihapus pengurus */
+ if(ls&&dataAt>(it.at||0)+60000)return {t:"Kiriman tidak ditemukan, mungkin sudah dihapus pengurus. Hubungi pengurus bila perlu",k:"no"};
+ return {t:"Menunggu verifikasi pengurus",k:"wt"}}
+function kfDaftar(){const d=$("kf-daftar");if(!d)return;const e=KF_EDIT||{},sy=kajianSaya();
+ d.innerHTML=sy.length?`<div class="bs-h" style="margin:0 2px 8px">Kiriman saya</div>`+sy.map((it,k)=>{const s=kajianStatusSaya(it);return `<div class="pc us-sy"><div class="us-sy-t"><b>${esc(it.judul)}</b><span class="us-st ${s.k}">${esc(s.t)}</span></div><div class="us-sy-a">${s.k==="ok"?"":`<button type="button" data-kje="${k}">Ubah</button>`}<button type="button" data-kjx="${k}">Hapus dari daftar saya</button></div></div>`}).join("")+`<div class="bs-h" style="margin:18px 2px 8px">${e.id?"Ubah kiriman":"Kiriman baru"}</div>`:"";
+ d.querySelectorAll("[data-kje]").forEach(x=>x.onclick=()=>{KF_EDIT=kajianSaya()[+x.dataset.kje]||null;R.kajianf();$("pg-kajianf").scrollTop=0});
+ d.querySelectorAll("[data-kjx]").forEach(x=>x.onclick=()=>{const a=kajianSaya();a.splice(+x.dataset.kjx,1);kajianSimpan(a);if(KF_EDIT&&!a.some(y=>y.id===KF_EDIT.id))KF_EDIT=null;R.kajianf()})}
+R.kajianf=function(){const b=$("pb-kajianf"),e=KF_EDIT||{},v=t=>esc(t==null?"":t);KF_FOTO=null;
+ $("pt-kajianf").textContent="Kirim kajian";
+ b.innerHTML=`<div id="kf-daftar"></div><div class="pc"><p class="us-in" style="margin-top:0">Kirim ringkasan kajian yang dilaksanakan di masjid atau majelis, seperti kajian Ahad pagi, subuh keliling, dan khutbah Jumat. Pengurus akan memeriksa terlebih dahulu sebelum ditampilkan.</p>
+ <label class="lb" for="kf-jenis">Jenis kajian</label><select class="fld" id="kf-jenis"><option value="">Pilih jenis kajian</option>${KF_JENIS.map(j=>`<option value="${esc(j)}"${e.jenis===j?" selected":""}>${esc(j)}</option>`).join("")}</select>
+ <label class="lb" for="kf-tgl" style="margin-top:14px">Tanggal kajian</label><input class="fld" type="date" id="kf-tgl" min="${kfMin()}" max="${todayJ()}" value="${esc(e.tgl||todayJ())}">
+ <label class="lb" for="kf-judul" style="margin-top:14px">Judul kajian</label><input class="fld" id="kf-judul" maxlength="120" autocomplete="off" value="${v(e.judul)}">
+ <label class="lb" for="kf-penulis" style="margin-top:14px">Pemateri atau khatib</label><input class="fld" id="kf-penulis" maxlength="80" autocomplete="off" placeholder="Contoh: KH. Zainal Abidin" value="${v(e.penulis)}">
+ <label class="lb" for="kf-ring" style="margin-top:14px">Ringkasan singkat (boleh dikosongkan)</label><textarea class="fld" id="kf-ring" maxlength="600" style="min-height:90px">${v(e.ringkasan)}</textarea>
+ <label class="lb" for="kf-isi" style="margin-top:14px">Isi kajian</label><textarea class="fld" id="kf-isi" maxlength="8000" style="min-height:260px">${v(e.isi)}</textarea><div class="us-cn" id="kf-cn"></div>
+ <p class="note2" style="margin-top:6px">Pisahkan paragraf dengan baris kosong. Minimal 100 karakter.</p>
+ <span class="lb" style="margin-top:14px;display:block">Foto kajian (boleh dikosongkan)</span><div id="kf-fp"></div><div class="aksi" style="margin-top:10px"><button type="button" class="btn2 sec" id="kf-cam">Ambil foto</button><button type="button" class="btn2 sec" id="kf-gal">Pilih dari galeri</button></div><input type="file" accept="image/*" capture="environment" id="kf-fcam" hidden><input type="file" accept="image/*" id="kf-fgal" hidden><p class="note2" style="margin-top:8px">Foto dikecilkan otomatis. Pastikan foto tidak memuat wajah jamaah tanpa izin.</p>
+ <label class="lb" for="kf-link" style="margin-top:14px">Tautan rekaman atau sumber (boleh dikosongkan)</label><input class="fld" id="kf-link" type="url" inputmode="url" autocapitalize="none" spellcheck="false" maxlength="300" placeholder="https://" value="${v(e.link)}">
+ <label class="lb" for="kf-nama" style="margin-top:14px">Nama Anda</label><input class="fld" id="kf-nama" maxlength="80" autocomplete="name" value="${v(e.pengirim)}">
+ <label class="lb" for="kf-wa" style="margin-top:14px">Nomor WhatsApp Anda</label><input class="fld" id="kf-wa" type="tel" inputmode="tel" maxlength="20" autocomplete="tel" placeholder="Contoh: 0812 3456 7890" value="${v(e.wa)}">
+ <label class="lb" for="kf-kode" style="margin-top:14px">Kode kolaborator (bila diminta pengurus)</label><input class="fld" id="kf-kode" maxlength="40" autocomplete="off" autocapitalize="none" spellcheck="false" value="${v(K("kolabKode")||"")}">
+ <input type="text" id="kf-web" class="us-hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+ <p class="note2" style="margin-top:16px">Judul, pemateri, dan isi kajian akan tampil terbuka bila disetujui. Nama dan nomor WhatsApp Anda hanya dilihat pengurus, untuk menghubungi Anda bila perlu.</p></div>
+ <button type="button" class="btn2 pri" id="kf-kirim" style="width:100%;margin-top:14px">${e.id?"Kirim perubahan":"Kirim untuk diperiksa"}</button>${e.id?`<button type="button" class="btn2 sec" id="kf-batal" style="width:100%;margin-top:10px">Batal ubah</button>`:""}`;
+ const cn=()=>{$("kf-cn").textContent=$("kf-isi").value.length+" dari 8000 karakter"};cn();$("kf-isi").oninput=cn;
+ kfFotoRender();
+ const pilih=async inp=>{const f=inp.files&&inp.files[0];inp.value="";if(!f)return;try{say("Memproses foto…");KF_FOTO=await kfKecil(f);kfFotoRender();say("Foto terlampir")}catch(x){say(x&&x.pesan||"Foto tidak dapat diproses")}};
+ $("kf-cam").onclick=()=>$("kf-fcam").click();$("kf-gal").onclick=()=>$("kf-fgal").click();
+ $("kf-fcam").onchange=()=>pilih($("kf-fcam"));$("kf-fgal").onchange=()=>pilih($("kf-fgal"));
+ kfDaftar();
+ $("kf-kirim").onclick=()=>kajianKirim(e);
+ if($("kf-batal"))$("kf-batal").onclick=()=>{KF_EDIT=null;R.kajianf();$("pg-kajianf").scrollTop=0};
+ };
+async function kajianKirim(e){
+ const g=i=>$(i).value.trim(),req={jenis:$("kf-jenis").value,tgl:$("kf-tgl").value,judul:g("kf-judul"),penulis:g("kf-penulis"),ringkasan:g("kf-ring"),isi:g("kf-isi"),link:g("kf-link"),pengirim:g("kf-nama"),wa:g("kf-wa")},kode=g("kf-kode");
+ if(g("kf-web"))return;
+ const gagal=(i,t)=>{say(t);$(i).focus()};
+ if(!KF_JENIS.includes(req.jenis))return gagal("kf-jenis","Pilih jenis kajian");
+ if(!req.tgl||req.tgl>todayJ()||req.tgl<kfMin())return gagal("kf-tgl","Tanggal kajian harus dalam 120 hari terakhir dan tidak di masa depan");
+ if(req.judul.length<5)return gagal("kf-judul","Isi judul kajian, minimal 5 karakter");
+ if(req.penulis.length<3)return gagal("kf-penulis","Isi nama pemateri atau khatib");
+ if(req.isi.length<100)return gagal("kf-isi","Isi kajian terlalu singkat, minimal 100 karakter");
+ if(req.link&&!/^https?:\/\/\S+$/i.test(req.link))return gagal("kf-link","Tautan harus diawali https://");
+ if(req.pengirim.length<3)return gagal("kf-nama","Isi nama Anda");
+ if(!usahaWa(req.wa))return gagal("kf-wa","Nomor WhatsApp belum benar. Contoh: 0812 3456 7890");
+ let log=[];try{log=JSON.parse(K("kajianLog")||"[]").filter(t=>Date.now()-t<864e5)}catch(x){}
+ if(log.length>=3){say("Kiriman hari ini sudah tiga kali. Silakan coba lagi besok.");return}
+ const kirim=Object.assign({},req);if(kode)kirim.kode=kode;
+ if(KF_FOTO)kirim.fotoData=KF_FOTO;else if(KF_FOTO===""&&e.foto)kirim.hapusFoto=true;
+ const btn=$("kf-kirim");btn.disabled=true;btn.textContent="Mengirim…";
+ let id=e.id||("k"+Date.now().toString(36)+Math.random().toString(36).slice(2,6)),foto=KF_FOTO===""?"":(e.foto||"");
+ try{
+  if(CFG.api){
+   const res=await fetch(CFG.api,{method:"POST",headers:{"Content-Type":"text/plain;charset=utf-8"},body:JSON.stringify(Object.assign({aksi:"ajukanKajian",id},kirim))});
+   const j=await res.json();if(!j||j.ok===false)throw{pesan:(j&&j.pesan)||""};if(j.id)id=j.id;if(typeof j.foto==="string")foto=j.foto}
+  log.push(Date.now());try{K("kajianLog",JSON.stringify(log))}catch(x){}
+  const a=kajianSaya().filter(x=>x.id!==id);a.unshift(Object.assign({id},req,{foto,at:Date.now()}));kajianSimpan(a);if(kode)K("kolabKode",kode);
+  say(CFG.api?"Terkirim. Pengurus akan memeriksa terlebih dahulu.":"Pratinjau: kiriman hanya tersimpan di perangkat ini");
+  KF_EDIT=null;R.kajianf();$("pg-kajianf").scrollTop=0;
+  if(CFG.api)muatData(true)
+ }catch(x){btn.disabled=false;btn.textContent=e.id?"Kirim perubahan":"Kirim untuk diperiksa";say(x&&x.pesan?x.pesan:"Belum terkirim. Periksa sambungan internet lalu coba lagi.")}}
 function kjRender(){const r=DATA&&DATA.artikel,b=$("pb-artikel");
  if(!Array.isArray(r)){b.innerHTML=`${KOSONG("Kajian belum dapat dimuat. Periksa sambungan internet lalu coba lagi.")}<button type="button" class="btn2 sec mt-ulang" data-ulang>Coba lagi</button>`;return}
  if(!r.length){b.innerHTML=KOSONG("Belum ada kajian.");return}
@@ -1913,23 +2018,27 @@ async function usahaKirim(e){
  try{
   if(CFG.api){
    const res=await fetch(CFG.api,{method:"POST",headers:{"Content-Type":"text/plain;charset=utf-8"},body:JSON.stringify(Object.assign({aksi:"ajukanUsaha",id},req))});
-   const j=await res.json();if(!j||j.ok===false)throw new Error("ditolak");if(j.id)id=j.id}
+   const j=await res.json();if(!j||j.ok===false)throw{pesan:(j&&j.pesan)||""};if(j.id)id=j.id}
   log.push(Date.now());try{K("usahaLog",JSON.stringify(log))}catch(x){}
   const a=usahaSaya().filter(x=>x.id!==id);a.unshift(Object.assign({id},req));usahaSimpan(a);
   say(CFG.api?"Terkirim. Pengurus akan memeriksa terlebih dahulu.":"Pratinjau: pengajuan hanya tersimpan di perangkat ini");
   closeTop();usahaRender()
- }catch(x){btn.disabled=false;btn.textContent=e.id?"Kirim perubahan":"Kirim untuk diperiksa";say("Belum terkirim. Periksa sambungan internet lalu coba lagi.")}}
+ }catch(x){btn.disabled=false;btn.textContent=e.id?"Kirim perubahan":"Kirim untuk diperiksa";say(x&&x.pesan?x.pesan:"Belum terkirim. Periksa sambungan internet lalu coba lagi.")}}
 
 /* ===== Panel pengurus: login sendiri-sendiri, lalu input data lewat Apps Script ===== */
 Object.assign(IC,{plus:'<path d="M12 5v14M5 12h14"/>',out:'<path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4M16 17l5-5-5-5M21 12H9"/>',key:'<circle cx="8" cy="15" r="4"/><path d="M10.8 12.2L20 3M16 7l3 3"/>',kiri:'<path d="M15 6l-6 6 6 6"/>',info:'<circle cx="12" cy="12" r="9"/><path d="M12 8h.01M11 12h1v5h1"/>',buku:'<path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>',gembok:'<rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/>'});
-const ADM={tok:null,nama:"",t:0,view:"menu",data:null,dt:0,form:null};
+const ADM={tok:null,nama:"",peran:null,t:0,view:"menu",data:null,dt:0,form:null};
 const ADM_MS=21000*1000;
-try{const s=JSON.parse(localStorage.getItem("adm")||"null");if(s&&s.tok&&Date.now()-s.t<ADM_MS)Object.assign(ADM,{tok:s.tok,nama:String(s.nama||""),t:s.t})}catch(e){}
-function admSimpan(){try{if(ADM.tok)localStorage.setItem("adm",JSON.stringify({tok:ADM.tok,nama:ADM.nama,t:ADM.t}));else localStorage.removeItem("adm")}catch(e){}}
+/* Bagian panel -> peran yang disyaratkan (server tetap memeriksa; ini hanya untuk menyembunyikan menu). peran null = belum diketahui, tampilkan semua. */
+const ADM_PERLU={giliran:"arisan",lokasi:"arisan",informasi:"artikel",artikel:"artikel",kiriman:"verifikator",usaha:"artikel",libur:"arisan",aturan:"arisan",kas:"kas"};
+Object.assign(IC,{dompet:'<rect x="3" y="6" width="18" height="13" rx="2"/><path d="M3 10h18M16 14.5h2"/>'});
+const admBoleh=p=>!Array.isArray(ADM.peran)||ADM.peran.includes("super")||ADM.peran.includes(p)||(p==="verifikator"&&ADM.peran.includes("artikel"));
+try{const s=JSON.parse(localStorage.getItem("adm")||"null");if(s&&s.tok&&Date.now()-s.t<ADM_MS)Object.assign(ADM,{tok:s.tok,nama:String(s.nama||""),peran:Array.isArray(s.peran)?s.peran:null,t:s.t})}catch(e){}
+function admSimpan(){try{if(ADM.tok)localStorage.setItem("adm",JSON.stringify({tok:ADM.tok,nama:ADM.nama,peran:ADM.peran,t:ADM.t}));else localStorage.removeItem("adm")}catch(e){}}
 function admLabel(){const sp=document.querySelector('#drawer [data-page="login"] span');if(!sp)return;
  sp.innerHTML=ADM.tok?'Panel pengurus<small id="adm-sub"></small>':'Masuk sebagai pengurus<small>Khusus pengurus majelis</small>';
  if(ADM.tok)$("adm-sub").textContent="Masuk sebagai "+ADM.nama}
-function admKeluarLokal(){ADM.tok=null;ADM.nama="";ADM.data=null;ADM.form=null;ADM.view="menu";admSimpan();admLabel()}
+function admKeluarLokal(){ADM.tok=null;ADM.nama="";ADM.peran=null;ADM.data=null;ADM.form=null;ADM.view="menu";admSimpan();admLabel()}
 
 async function api(aksi,data){
  if(!CFG.api)throw{pesan:"Aplikasi belum tersambung ke Sheet (CFG.api masih kosong).",kode:"config"};
@@ -1948,16 +2057,18 @@ const rp=n=>"Rp"+(+n||0).toLocaleString("id-ID");
 const admAtas=(v,t)=>`<button type="button" class="adm-top" data-adm="${v}">${I(IC.kiri)}${t}</button>`;
 
 function admRender(){const b=$("pb-login"),t=$("pt-login");
+ {const lb=document.querySelector("#pg-login .contoh");if(lb)lb.style.display=CFG.api?"none":""}
  if(!ADM.tok){t.textContent="Masuk pengurus";admLogin(b);return}
  const f=ADM.form;
- const V={menu:admMenu,giliran:f?admFormGiliran:admListGiliran,lokasi:f?admFormLokasi:admListLokasi,informasi:f?admFormItem:admListItem,artikel:f?admFormItem:admListItem,usaha:f?admFormItem:admListItem,sandi:admSandi}[ADM.view]||admMenu;
+ const V={menu:admMenu,giliran:f?admFormGiliran:admListGiliran,lokasi:f?admFormLokasi:admListLokasi,informasi:f?admFormItem:admListItem,artikel:f?admFormItem:admListItem,usaha:f?admFormItem:admListItem,libur:f?admFormItem:admListItem,aturan:admAturan,kas:f?admFormKas:admListKas,kiriman:admKiriman,sandi:admSandi}[ADM.view]||admMenu;
  V(b,t);admIkat(b)}
 function admIkat(b){b.querySelectorAll("[data-adm]").forEach(x=>x.onclick=()=>admGo(x.dataset.adm))}
-async function admGo(v){ADM.view=v;ADM.form=null;$("pg-login").scrollTop=0;
- if(["giliran","lokasi","informasi","artikel","usaha"].includes(v)&&(!ADM.data||Date.now()-ADM.dt>60000)){$("pb-login").innerHTML=admAtas("menu","Panel pengurus")+KOSONG("Memuat data…");admIkat($("pb-login"));
+async function admGo(v){if(ADM_PERLU[v]&&!admBoleh(ADM_PERLU[v])){say("Peran Anda tidak mencakup bagian ini");return}
+ ADM.view=v;ADM.form=null;$("pg-login").scrollTop=0;
+ if(["giliran","lokasi","informasi","artikel","kiriman","usaha","libur","aturan","kas"].includes(v)&&(!ADM.data||Date.now()-ADM.dt>60000)){$("pb-login").innerHTML=admAtas("menu","Panel pengurus")+KOSONG("Memuat data…");admIkat($("pb-login"));
   try{await admMuat()}catch(e){admGalat(e,true);return}}
  admRender()}
-async function admMuat(){const j=await api("daftar");ADM.data=j;ADM.dt=Date.now()}
+async function admMuat(){const j=await api("daftar");ADM.data=j;ADM.dt=Date.now();if(Array.isArray(j.peran)){ADM.peran=j.peran;admSimpan()}}
 async function admSegar(){ADM.data=null;try{await admMuat()}catch(e){}muatData(true)}
 function admGalat(e,tampil){
  if(e&&e.kode==="belum_masuk"){say("Sesi berakhir. Silakan masuk lagi.");admRender();return}
@@ -1971,16 +2082,16 @@ function admLogin(b){
  <div class="lgf"><label class="lb" for="lg-u">Nama pengguna</label><input class="fld" id="lg-u" autocomplete="username" autocapitalize="none" autocorrect="off" spellcheck="false" maxlength="40" placeholder="Nama pengguna"><label class="lb" for="lg-p" style="margin-top:14px">Kata sandi</label><input class="fld" id="lg-p" type="password" autocomplete="current-password" maxlength="100" placeholder="Kata sandi"></div>
  <button type="button" class="btn2 pri" id="lg-go" style="width:100%;margin-top:18px">Masuk</button></div><p class="note2">Belum memiliki akses? Hubungi Ketua.</p>`;
  const go=()=>{const u=$("lg-u").value.trim(),p=$("lg-p").value;if(!u||!p){say("Isi nama pengguna dan kata sandi");return}
-  admJalan($("lg-go"),"Memeriksa…",async()=>{try{const j=await api("masuk",{u,p});Object.assign(ADM,{tok:j.token,nama:j.nama,t:Date.now(),view:"menu",data:null,form:null});admSimpan();admLabel();say("Selamat datang, "+j.nama);admRender()}
+  admJalan($("lg-go"),"Memeriksa…",async()=>{try{const j=await api("masuk",{u,p});Object.assign(ADM,{tok:j.token,nama:j.nama,peran:Array.isArray(j.peran)?j.peran:null,t:Date.now(),view:"menu",data:null,form:null});admSimpan();admLabel();say("Selamat datang, "+j.nama);admRender()}
    catch(e){say(e.pesan||"Gagal masuk");if(e.kode==="salah"||e.kode==="dikunci"){const k=$("lg-p");if(k){k.value="";k.focus()}}}})};
  $("lg-go").onclick=go;[$("lg-u"),$("lg-p")].forEach(x=>x.onkeydown=e=>{if(e.key==="Enter"){e.preventDefault();go()}})}
 
 /* ---------- Menu ---------- */
 function admMenu(b,t){t.textContent="Panel pengurus";
- const m=[["giliran","Giliran arisan",IC.cal],["lokasi","Lokasi acara",IC.pin],["informasi","Informasi",IC.info],["artikel","Kajian",IC.buku],["usaha","Usaha anggota",IC.usaha]];
+ const m=[["giliran","Giliran arisan",IC.cal],["lokasi","Lokasi acara",IC.pin],["informasi","Informasi",IC.info],["artikel","Kajian",IC.buku],["kiriman","Periksa kiriman kajian",IC.buku],["usaha","Usaha anggota",IC.usaha],["libur","Libur nasional",IC.cal],["aturan","Ketentuan arisan",IC.info],["kas","Laporan kas",IC.dompet]].filter(x=>admBoleh(ADM_PERLU[x[0]]));
  b.innerHTML=`<div class="pc"><div class="vrow"><span>Masuk sebagai</span><b>${esc(ADM.nama)}</b></div></div>
- <div class="adm-list" style="margin-top:12px">${m.map(x=>`<button type="button" class="lnk" data-adm="${x[0]}"><span class="adm-mi">${I(x[2])}${x[1]}</span>${I(IC.chev)}</button>`).join("")}</div>
- <p class="note2" style="margin-top:14px">Perubahan langsung tampil di beranda jamaah.</p>
+ <div class="adm-list" style="margin-top:12px">${m.map(x=>`<button type="button" class="lnk" data-adm="${x[0]}"><span class="adm-mi">${I(x[2])}${x[1]}${x[0]==="kiriman"&&ADM.data&&Array.isArray(ADM.data.kiriman)&&ADM.data.kiriman.length?" ("+ADM.data.kiriman.length+")":""}</span>${I(IC.chev)}</button>`).join("")}</div>
+ <p class="note2" style="margin-top:14px">${m.length?"Perubahan langsung tampil di beranda jamaah.":"Akun Anda belum memiliki peran pengelolaan. Hubungi Ketua."}</p>
  <div class="aksi"><button type="button" class="btn2 sec" data-adm="sandi">${I(IC.key)}Ganti kata sandi</button><button type="button" class="btn2 sec" id="adm-out">${I(IC.out)}Keluar</button></div>`;
  $("adm-out").onclick=async()=>{try{await api("keluar")}catch(e){}admKeluarLokal();say("Anda sudah keluar");admRender()}}
 
@@ -2065,20 +2176,21 @@ function admFormLokasi(b,t){const f=ADM.form;t.textContent="Atur lokasi pekan";
 /* ---------- Informasi & Artikel ---------- */
 const ADM_ITEM={
  informasi:{judul:"Informasi",tambah:"Tambah informasi",simpan:"simpanInformasi",hapus:"hapusInformasi",f:[["judul","Judul","text",120],["jenis","Jenis informasi","sel",[["","Pengumuman"],["undangan","Undangan"],["duka","Duka"]]],["penting","Penandaan","sel",[["","Biasa"],["ya","Penting (tampil paling atas)"]]],["isi","Isi informasi","area",5000],["acara_tgl","Tanggal acara (khusus undangan)","tgl"],["acara_jam","Jam acara (khusus undangan, boleh dikosongkan)","jam"],["acara_tempat","Tempat acara (khusus undangan, boleh dikosongkan)","text",160],["tayang_sampai","Tampil sampai tanggal (boleh dikosongkan)","tgl"]]},
+ libur:{judul:"Libur nasional",tambah:"Tambah hari libur",simpan:"simpanLibur",hapus:"hapusLibur",f:[["judul","Nama hari libur","text",80],["jenis","Jenis","sel",[["libur","Libur nasional"],["cuti","Cuti bersama"]]]]},
  usaha:{judul:"Usaha anggota",tambah:"Tambah usaha",simpan:"simpanUsaha",hapus:"hapusUsaha",f:[["judul","Nama usaha","text",60],["jenis","Jenis usaha","sel",USAHA_JENIS.map(x=>[x[0],x[1]])],["deskripsi","Deskripsi singkat","area",300],["pemilik","Nama pemilik","text",80],["wa","Nomor WhatsApp usaha","text",20],["wilayah","Wilayah (boleh dikosongkan)","text",80],["jam","Jam layanan (boleh dikosongkan)","text",80],["foto","Tautan foto usaha (boleh dikosongkan; kosong = gambar sesuai jenis)","url",400],["status","Status","sel",[["tayang","Tayang"],["menunggu","Menunggu verifikasi"],["ditolak","Ditolak"]]],["alasan","Alasan penolakan (bila ditolak, boleh dikosongkan)","text",160]]},
- artikel:{judul:"Kajian",tambah:"Tambah kajian",simpan:"simpanArtikel",hapus:"hapusArtikel",f:[["judul","Judul","text",120],["penulis","Ustadz atau pemateri (boleh dikosongkan)","text",80],["jenis","Jenis kajian, misalnya Malam Jumat (boleh dikosongkan)","text",40],["ringkasan","Ringkasan singkat (boleh dikosongkan)","area",600],["isi","Isi kajian lengkap (boleh dikosongkan; pisahkan paragraf dengan baris kosong)","area",20000],["foto","Tautan foto sampul (boleh dikosongkan; kosong = thumbnail YouTube bila ada)","url",400],["audio","Tautan audio langsung berkas .mp3 atau .m4a (boleh dikosongkan)","url",400],["link","Tautan kajian atau YouTube (boleh dikosongkan, harus diawali https://)","url",300]]}};
-function admListItem(b,t){const k=ADM.view,C=ADM_ITEM[k],r=(ADM.data[k]||[]).slice();t.textContent=C.judul;if(k==="usaha")r.sort((a,b)=>(a.status==="menunggu"?0:1)-(b.status==="menunggu"?0:1));
+ artikel:{judul:"Kajian",tambah:"Tambah kajian",simpan:"simpanArtikel",hapus:"hapusArtikel",f:[["judul","Judul","text",120],["penulis","Ustadz atau pemateri (boleh dikosongkan)","text",80],["jenis","Jenis kajian, misalnya Malam Jumat (boleh dikosongkan)","text",40],["ringkasan","Ringkasan singkat (boleh dikosongkan)","area",600],["isi","Isi kajian lengkap (boleh dikosongkan; pisahkan paragraf dengan baris kosong)","area",20000],["foto","Tautan foto sampul (boleh dikosongkan; kosong = thumbnail YouTube bila ada)","url",400],["audio","Tautan audio langsung berkas .mp3 atau .m4a (boleh dikosongkan)","url",400],["link","Tautan kajian atau YouTube (boleh dikosongkan, harus diawali https://)","url",300],["status","Status","sel",[["tayang","Tayang"],["menunggu","Menunggu verifikasi"],["ditolak","Ditolak"]]],["alasan","Alasan penolakan (bila ditolak, boleh dikosongkan)","text",160]]}};
+function admListItem(b,t){const k=ADM.view,C=ADM_ITEM[k],r=(ADM.data[k]||[]).slice();t.textContent=C.judul;if(k==="usaha"||k==="artikel")r.sort((a,b)=>(a.status==="menunggu"?0:1)-(b.status==="menunggu"?0:1));
  b.innerHTML=admAtas("menu","Panel pengurus")+`<button type="button" class="btn2 pri" id="adm-baru">${I(IC.plus)}${C.tambah}</button>
- <div class="adm-list" style="margin-top:14px">${r.length?r.map(x=>`<div class="pc adm-it${x.tampil==="tidak"?" hid":""}"><div class="at"><small>${esc(tglPendek(x.tgl))}${k==="usaha"?" · "+esc({menunggu:"Menunggu verifikasi",ditolak:"Ditolak"}[x.status]||"Tayang")+(x.pemilik?" · "+esc(x.pemilik):""):""}${x.tampil==="tidak"?" · Disembunyikan":""}</small><b>${esc(x.judul)}</b></div><div class="adm-act">${k==="usaha"&&x.status==="menunggu"?`<button type="button" data-ok="${esc(x.id)}">Setujui</button>`:""}<button type="button" data-ed="${esc(x.id)}">Ubah</button><button type="button" class="dng" data-del="${esc(x.id)}">Hapus</button></div></div>`).join(""):KOSONG("Belum ada data.")}</div>`;
+ <div class="adm-list" style="margin-top:14px">${r.length?r.map(x=>`<div class="pc adm-it${x.tampil==="tidak"?" hid":""}"><div class="at"><small>${esc(tglPendek(x.tgl))}${k==="usaha"?" · "+esc({menunggu:"Menunggu verifikasi",ditolak:"Ditolak"}[x.status]||"Tayang")+(x.pemilik?" · "+esc(x.pemilik):""):""}${k==="artikel"&&x.status&&x.status!=="tayang"?" · "+esc({menunggu:"Menunggu verifikasi",ditolak:"Ditolak"}[x.status]||""):""}${x.tampil==="tidak"?" · Disembunyikan":""}</small><b>${esc(x.judul)}</b></div><div class="adm-act">${(k==="usaha"||k==="artikel")&&x.status==="menunggu"?`<button type="button" data-ok="${esc(x.id)}">Setujui</button>`:""}<button type="button" data-ed="${esc(x.id)}">Ubah</button><button type="button" class="dng" data-del="${esc(x.id)}">Hapus</button></div></div>`).join(""):KOSONG("Belum ada data.")}</div>`;
  $("adm-baru").onclick=()=>{ADM.form={baru:true,tgl:todayJ(),tampil:""};admRender()};
  b.querySelectorAll("[data-ed]").forEach(x=>x.onclick=()=>{ADM.form=Object.assign({},r.find(y=>y.id===x.dataset.ed));admRender()});
- b.querySelectorAll("[data-ok]").forEach(x=>x.onclick=()=>{const it=r.find(y=>y.id===x.dataset.ok);if(!it)return;admJalan(x,"Menyetujui…",async()=>{try{await api(C.simpan,Object.assign({},it,{status:"tayang",alasan:""}));await admSegar();say("Usaha disetujui dan tampil");admGo(k)}catch(e){admGalat(e)}})});
+ b.querySelectorAll("[data-ok]").forEach(x=>x.onclick=()=>{const it=r.find(y=>y.id===x.dataset.ok);if(!it)return;admJalan(x,"Menyetujui…",async()=>{try{await api(C.simpan,Object.assign({},it,{status:"tayang",alasan:""}));await admSegar();say("Disetujui dan tampil");admGo(k)}catch(e){admGalat(e)}})});
  b.querySelectorAll("[data-del]").forEach(x=>x.onclick=()=>{const it=r.find(y=>y.id===x.dataset.del);admHapus(x,C.hapus,{id:x.dataset.del},"Hapus \""+(it?it.judul:"")+"\"? Tindakan ini tidak bisa dibatalkan.","Dihapus")})}
 function admFormItem(b,t){const k=ADM.view,C=ADM_ITEM[k],f=ADM.form,v=x=>esc(x==null?"":x);t.textContent=f.id?"Ubah "+C.judul.toLowerCase():C.tambah;
  b.innerHTML=`<button type="button" class="adm-top" id="f-batal">${I(IC.kiri)}Batal</button><div class="pc">
- <label class="lb" for="f-tgl">Tanggal</label><input class="fld" type="date" id="f-tgl" value="${v(f.tgl)}">
+ <label class="lb" for="f-tgl">${k==="libur"?"Tanggal libur":"Tanggal"}</label><input class="fld" type="date" id="f-tgl" value="${v(f.tgl)}">
  ${C.f.map(x=>`<label class="lb" for="i-${x[0]}" style="margin-top:14px">${x[1]}</label>`+(x[2]==="sel"?`<select class="fld" id="i-${x[0]}">${x[3].map(o=>`<option value="${esc(o[0])}"${(f[x[0]]||"")===o[0]?" selected":""}>${esc(o[1])}</option>`).join("")}</select>`:x[2]==="tgl"||x[2]==="jam"?`<input class="fld" id="i-${x[0]}" type="${x[2]==="tgl"?"date":"time"}" value="${v(f[x[0]])}">`:x[2]==="area"?`<textarea class="fld" id="i-${x[0]}" maxlength="${x[3]}" style="min-height:${x[3]>5000?280:x[0]==="isi"?160:110}px">${v(f[x[0]])}</textarea>`:`<input class="fld" id="i-${x[0]}" ${x[2]==="url"?'type="url" inputmode="url" autocapitalize="none" spellcheck="false"':'type="text"'} maxlength="${x[3]}" autocomplete="off" value="${v(f[x[0]])}">`)).join("")}
- <span class="lb" style="margin-top:16px;display:block">Di beranda</span><div class="chips3" style="margin-top:10px">${[["","Tampilkan"],["tidak","Sembunyikan"]].map(x=>`<button type="button" data-tp="${x[0]}" aria-pressed="${(f.tampil||"")===x[0]}">${x[1]}</button>`).join("")}</div></div>
+${k==="libur"?"":`<span class="lb" style="margin-top:16px;display:block">Di beranda</span><div class="chips3" style="margin-top:10px">${[["","Tampilkan"],["tidak","Sembunyikan"]].map(x=>`<button type="button" data-tp="${x[0]}" aria-pressed="${(f.tampil||"")===x[0]}">${x[1]}</button>`).join("")}</div>`}</div>
  <button type="button" class="btn2 pri" id="f-simpan" style="width:100%;margin-top:14px">Simpan</button>`;
  $("f-batal").onclick=()=>admGo(k);
  b.querySelectorAll("[data-tp]").forEach(x=>x.onclick=()=>{f.tampil=x.dataset.tp;b.querySelectorAll("[data-tp]").forEach(y=>y.setAttribute("aria-pressed",String(y===x)))});
@@ -2089,6 +2201,62 @@ function admFormItem(b,t){const k=ADM.view,C=ADM_ITEM[k],f=ADM.form,v=x=>esc(x==
   if(k==="usaha"&&(!req.pemilik.trim()||!usahaWa(req.wa))){say("Isi nama pemilik dan nomor WhatsApp yang benar");return}
   if(k==="informasi"&&req.jenis==="undangan"&&!req.acara_tgl){say("Isi tanggal acara untuk undangan");$("i-acara_tgl").focus();return}
   admJalan($("f-simpan"),"Menyimpan…",async()=>{try{await api(C.simpan,req);await admSegar();say("Tersimpan");admGo(k)}catch(e){admGalat(e)}})}}
+
+/* ---------- Kiriman kajian jamaah (peran verifikator atau artikel) ---------- */
+function admKiriman(b,t){t.textContent="Kiriman kajian";const r=(ADM.data&&ADM.data.kiriman)||[];
+ b.innerHTML=admAtas("menu","Panel pengurus")+`<p class="note2" style="margin-top:0">Pastikan kajian ini memang dilaksanakan di masjid atau majelis. Kajian yang disetujui langsung tampil di aplikasi.</p>
+ <div class="adm-list" style="margin-top:12px">${r.length?r.map(x=>{const wa=usahaWa(x.wa),ln=x.link?linkAman(x.link):"";return `<div class="pc"><small>${esc(tglPendek(x.tgl))}${x.jenis?" · "+esc(x.jenis):""} · dikirim ${esc(x.pengirim)}</small><b style="display:block;margin-top:2px">${esc(x.judul)}</b><small>${esc(x.penulis)}</small>
+ <details style="margin-top:10px"><summary>Baca isi kajian</summary>${x.foto?`<img src="${esc(fotoUrl({foto:x.foto}))}" alt="Foto kiriman" loading="lazy" referrerpolicy="no-referrer" style="width:100%;max-height:240px;object-fit:cover;border-radius:12px;margin-top:8px" onerror="this.remove()">`:""}${x.ringkasan?`<p style="margin:8px 0 0"><i>${esc(x.ringkasan)}</i></p>`:""}<div style="white-space:pre-wrap;margin-top:8px">${esc(x.isi)}</div>${ln?`<p style="margin:8px 0 0"><a href="${esc(ln)}" target="_blank" rel="noopener">Buka tautan sumber</a></p>`:""}</details>
+ ${wa?`<p style="margin:10px 0 0"><a href="https://wa.me/${wa}" target="_blank" rel="noopener">Hubungi pengirim lewat WhatsApp</a></p>`:""}
+ <div class="adm-act" style="margin-top:12px"><button type="button" data-ok="${esc(x.id)}">Setujui</button><button type="button" class="dng" data-no="${esc(x.id)}">Tolak</button></div>
+ <div class="kj-tolak" hidden style="margin-top:10px"><input class="fld" maxlength="160" placeholder="Alasan penolakan (terlihat oleh pengirim)"><button type="button" class="btn2 sec" data-nox="${esc(x.id)}" style="margin-top:8px;width:100%">Kirim penolakan</button></div></div>`}).join(""):KOSONG("Tidak ada kiriman yang menunggu.")}</div>`;
+ b.querySelectorAll("[data-ok]").forEach(x=>x.onclick=()=>admJalan(x,"Menyetujui…",async()=>{try{await api("periksaKajian",{id:x.dataset.ok,status:"tayang"});await admSegar();say("Kajian disetujui dan tampil");admGo("kiriman")}catch(e){admGalat(e)}}));
+ b.querySelectorAll("[data-no]").forEach(x=>x.onclick=()=>{const w=x.closest(".pc").querySelector(".kj-tolak");w.hidden=!w.hidden;if(!w.hidden)w.querySelector("input").focus()});
+ b.querySelectorAll("[data-nox]").forEach(x=>x.onclick=()=>{const al=x.closest(".kj-tolak").querySelector("input").value.trim();if(al.length<3){say("Isi alasan penolakan");return}
+  admJalan(x,"Menolak…",async()=>{try{await api("periksaKajian",{id:x.dataset.nox,status:"ditolak",alasan:al});await admSegar();say("Kiriman ditolak");admGo("kiriman")}catch(e){admGalat(e)}})})}
+
+/* ---------- Ketentuan arisan (peran arisan) ---------- */
+function admAturan(b,t){t.textContent="Ketentuan arisan";
+ const a=(ADM.data&&ADM.data.aturan)||{},butir=Array.isArray(a.butir)?a.butir:[];
+ b.innerHTML=admAtas("menu","Panel pengurus")+`<div class="pc"><label class="lb" for="at-teks">Ketentuan arisan</label>
+ <textarea class="fld" id="at-teks" style="min-height:280px" maxlength="9000">${esc(butir.join("\n"))}</textarea>
+ <p class="note2" style="margin-top:8px">Tulis satu ketentuan per baris, tanpa nomor (nomor ditambahkan otomatis). Maksimal 40 ketentuan, masing-masing 300 karakter.${a.tgl?" Terakhir diperbarui "+esc(tglPendek(a.tgl))+".":""}</p></div>
+ <button type="button" class="btn2 pri" id="at-simpan" style="width:100%;margin-top:14px">Simpan</button>`;
+ $("at-simpan").onclick=()=>admJalan($("at-simpan"),"Menyimpan…",async()=>{try{await api("simpanAturan",{butir:$("at-teks").value});await admSegar();say("Tersimpan");admGo("aturan")}catch(e){admGalat(e)}})}
+
+/* ---------- Laporan kas (peran kas) ---------- */
+function admListKas(b,t){t.textContent="Laporan kas";
+ const d=ADM.data||{},r=d.kas||[],inf=d.kasInfo||{},rt=r.find(x=>x.jenis==="rutin"),kh=r.filter(x=>x.jenis==="khusus");
+ const kartu=(x,jud)=>`<div class="pc adm-it${x.tampil==="tidak"?" hid":""}"><div class="at"><small>${esc(jud)}${x.tampil==="tidak"?" · Disembunyikan":""}</small><b>${esc(x.nama)}</b><small>Masuk ${rp(x.masuk)} · Keluar ${rp(x.keluar)} · Saldo ${rp((+x.masuk||0)-(+x.keluar||0))}</small></div><div class="adm-act"><button type="button" data-ed="${esc(x.id)}">Ubah</button>${x.jenis==="khusus"?`<button type="button" class="dng" data-del="${esc(x.id)}">Hapus</button>`:""}</div></div>`;
+ b.innerHTML=admAtas("menu","Panel pengurus")+
+  `<div class="pc"><div class="vrow"><span>Bank penerima</span><b>${esc(inf.bank||"belum diisi")}</b></div><div class="vrow"><span>Bendahara</span><b>${esc(inf.bendahara||"belum diisi")}</b></div><div class="vrow"><span>Data per</span><b>${inf.per?esc(tglPendek(inf.per)):"belum ada"}</b></div><button type="button" class="btn2 sec" id="kas-info" style="width:100%;margin-top:12px">Ubah bank, bendahara, dan tanggal</button></div>`+
+  `<div class="bs-h" style="margin-top:16px">Kas rutin</div><div class="adm-list" style="margin-top:8px">${rt?kartu(rt,"Rutin"):`<div class="pc"><p class="note2" style="margin:0">Belum diisi.</p><button type="button" class="btn2 pri" id="kas-rutin" style="width:100%;margin-top:10px">Isi kas rutin</button></div>`}</div>`+
+  `<div class="bs-h" style="margin-top:16px">Kegiatan</div><button type="button" class="btn2 pri" id="adm-baru" style="margin-top:8px">${I(IC.plus)}Tambah kegiatan</button><div class="adm-list" style="margin-top:14px">${kh.length?kh.map(x=>kartu(x,x.status||"Berjalan")).join(""):KOSONG("Belum ada kegiatan.")}</div>`;
+ $("kas-info").onclick=()=>{ADM.form={kind:"info",bank:inf.bank||"",bendahara:inf.bendahara||"",per:inf.per||todayJ()};admRender()};
+ const kr=$("kas-rutin");if(kr)kr.onclick=()=>{ADM.form={kind:"rutin",masuk:0,keluar:0,rek:"",doc:""};admRender()};
+ $("adm-baru").onclick=()=>{ADM.form={kind:"khusus",status:"Berjalan",masuk:0,keluar:0,tampil:""};admRender()};
+ b.querySelectorAll("[data-ed]").forEach(x=>x.onclick=()=>{const it=r.find(y=>y.id===x.dataset.ed);if(it){ADM.form=Object.assign({},it,{kind:it.jenis});admRender()}});
+ b.querySelectorAll("[data-del]").forEach(x=>x.onclick=()=>{const it=r.find(y=>y.id===x.dataset.del);admHapus(x,"hapusKas",{id:x.dataset.del},"Hapus \""+(it?it.nama:"")+"\"? Tindakan ini tidak bisa dibatalkan.","Dihapus")})}
+function admFormKas(b,t){const f=ADM.form,k=f.kind,v=x=>esc(x==null?"":x);
+ const fld=(id,lab,val,att)=>`<label class="lb" for="${id}" style="margin-top:14px">${lab}</label><input class="fld" id="${id}" value="${v(val)}" ${att||""}>`;
+ const batal=`<button type="button" class="adm-top" id="f-batal">${I(IC.kiri)}Batal</button>`;
+ if(k==="info"){t.textContent="Info kas";
+  b.innerHTML=batal+`<div class="pc">${fld("k-bank","Nama bank penerima",f.bank,'maxlength="60"')}${fld("k-bend","Nama bendahara",f.bendahara,'maxlength="80"')}${fld("k-per","Data per tanggal",f.per,'type="date"')}</div><button type="button" class="btn2 pri" id="f-simpan" style="width:100%;margin-top:14px">Simpan</button>`;
+  $("f-batal").onclick=()=>admGo("kas");
+  $("f-simpan").onclick=()=>admJalan($("f-simpan"),"Menyimpan…",async()=>{try{await api("simpanKasInfo",{bank:$("k-bank").value,bendahara:$("k-bend").value,per:$("k-per").value});await admSegar();say("Tersimpan");admGo("kas")}catch(e){admGalat(e)}});return}
+ t.textContent=k==="rutin"?"Kas rutin":(f.id?"Ubah kegiatan":"Tambah kegiatan");
+ const kh=k==="khusus";
+ b.innerHTML=batal+`<div class="pc">`+
+  (kh?`${fld("k-nama","Nama kegiatan",f.nama,'maxlength="80"')}<label class="lb" for="k-ket" style="margin-top:14px">Keterangan (boleh dikosongkan)</label><textarea class="fld" id="k-ket" maxlength="300" style="min-height:90px">${v(f.ket)}</textarea><label class="lb" for="k-st" style="margin-top:14px">Status</label><select class="fld" id="k-st">${["Berjalan","Selesai"].map(o=>`<option value="${o}"${(f.status||"Berjalan")===o?" selected":""}>${o}</option>`).join("")}</select>`:"")+
+  fld("k-masuk","Total pemasukan (Rp)",f.masuk,'inputmode="numeric" maxlength="14"')+fld("k-keluar","Total pengeluaran (Rp)",f.keluar,'inputmode="numeric" maxlength="14"')+
+  fld("k-rek","Nomor rekening penerimaan (boleh dikosongkan)",f.rek,'maxlength="40"')+fld("k-doc","Tautan dokumen rincian (boleh dikosongkan)",f.doc,'type="url" maxlength="300" placeholder="https://"')+
+  (kh?`<span class="lb" style="margin-top:16px;display:block">Di halaman Kas</span><div class="chips3" style="margin-top:10px">${[["","Tampilkan"],["tidak","Sembunyikan"]].map(x=>`<button type="button" data-tp="${x[0]}" aria-pressed="${(f.tampil||"")===x[0]}">${x[1]}</button>`).join("")}</div>`:"")+
+  `</div><button type="button" class="btn2 pri" id="f-simpan" style="width:100%;margin-top:14px">Simpan</button>`;
+ $("f-batal").onclick=()=>admGo("kas");
+ b.querySelectorAll("[data-tp]").forEach(x=>x.onclick=()=>{f.tampil=x.dataset.tp;b.querySelectorAll("[data-tp]").forEach(y=>y.setAttribute("aria-pressed",String(y===x)))});
+ $("f-simpan").onclick=()=>{const req={jenis:k,id:f.id,masuk:$("k-masuk").value,keluar:$("k-keluar").value,rek:$("k-rek").value,doc:$("k-doc").value};
+  if(kh){req.nama=$("k-nama").value;req.ket=$("k-ket").value;req.status=$("k-st").value;req.tampil=f.tampil||"";if(!req.nama.trim()){say("Isi nama kegiatan");$("k-nama").focus();return}}
+  admJalan($("f-simpan"),"Menyimpan…",async()=>{try{await api("simpanKas",req);await admSegar();say("Tersimpan");admGo("kas")}catch(e){admGalat(e)}})}}
 
 R.login=function(){ADM.view="menu";ADM.form=null;admRender()};
 admLabel();
@@ -2336,7 +2504,7 @@ document.querySelectorAll('[data-go="Doa"]').forEach(b=>b.onclick=e=>{e.preventD
    dikirim ke mana pun), lalu mencari nomor, nama, dan nominal secara manual dengan memperbesar dan
    menggeser gambar. Aplikasi tidak membaca isi gambar dan tidak mencocokkan nama atau nomor.
    Giliran minggu ini, riwayat, dan jadwal berikutnya diambil dari Sheet (sama dengan kartu di Beranda).
-   Susunan: ringkasan narik, lembar omzet saya, giliran berikutnya, riwayat narik (dilipat), aturan main (dilipat). */
+   Susunan: ringkasan narik, lembar omzet saya, giliran berikutnya, riwayat narik (dilipat), ketentuan (dilipat). */
 const AR_MAX=8,AR_PDF_MAX=15e6,AR_RIWAYAT=5,AR_AHEAD=4;
 let AR_DB=null,AR_LIST=null,AR_URL=[],AR_ERR=false,AR_VIEW=-1;
 function arDb(){return new Promise((ok,gagal)=>{
@@ -2383,6 +2551,8 @@ function arCariData(){
  const g=giliranBerikut();
  return g&&g.tipe==="giliran"&&Array.isArray(g.anggota)?g.anggota.filter(x=>x&&x.nama).slice(0,2):[]}
 function arHeroHtml(g){
+ if(g.tipe==="belum")
+  return `<div class="ar-hero"><div class="ar-hd"><strong>Giliran narik berikutnya</strong></div><p class="hint" style="margin:0">Giliran belum diumumkan pengurus.</p></div>`;
  const tp=tempatPekan(),
   tempat=`<button type="button" class="ar-tp" data-page="lokasi" aria-label="Lihat lokasi dan buka di peta: ${esc(tp)}">${I(IC.pin)}<span class="pt">${esc(tp)}</span><span class="pm">Peta${I(IC.chev)}</span></button>`;
  if(g.tipe==="penutupan")
@@ -2410,13 +2580,13 @@ function arJadwalRender(){
  const f=fase(todayJ()),cur=giliranBerikut(),up=arJadwal().filter(x=>f||x.tgl!==cur.tgl).slice(0,AR_AHEAD);
  c.innerHTML=`<h3>Jadwal giliran</h3><div class="seg tl-seg" role="group" aria-label="Pilih daftar">${[["berikut","Berikutnya"],["riwayat","Riwayat"]].map(x=>`<button type="button" data-tab="${x[0]}" aria-pressed="${AR_TAB===x[0]}">${x[1]}</button>`).join("")}</div><div style="margin-top:12px">${AR_TAB==="berikut"?arBerikutIsi(up):arRiwayatIsi(arRiwayat())}</div>`;
  c.querySelectorAll("[data-tab]").forEach(t=>t.onclick=()=>{AR_TAB=t.dataset.tab;arJadwalRender();const n=c.querySelector('[data-tab="'+AR_TAB+'"]');if(n)n.focus({preventScroll:true})})}
-/* aturan main: ditulis pengurus; sumber utama DATA.aturan dari Sheet ({tgl, butir:[...]} atau daftar teks), cadangan MAJELIS.aturan. Tidak tampil bila belum diisi. */
+/* ketentuan arisan (kunci data tetap "aturan"): ditulis pengurus; sumber utama DATA.aturan dari Sheet ({tgl, butir:[...]} atau daftar teks), cadangan MAJELIS.aturan. Tidak tampil bila belum diisi. */
 function arAturanHtml(){
  let a=DATA&&DATA.aturan?DATA.aturan:null;
  if(Array.isArray(a))a={butir:a};
  if(!a||typeof a!=="object")a=MAJELIS.aturan||{};
  const butir=Array.isArray(a.butir)?a.butir.map(x=>String(x==null?"":x).trim()).filter(Boolean):[];
- if(!butir.length)return `<div class="pc"><p style="color:var(--muted)">Belum ada aturan main yang diisi pengurus.</p></div>`;
+ if(!butir.length)return `<div class="pc"><p style="color:var(--muted)">Belum ada ketentuan arisan yang diisi pengurus.</p></div>`;
  let tg="";
  if(a.tgl){const d=new Date(a.tgl);if(!isNaN(d)){const o={day:"numeric",month:"long",year:"numeric"};if(/^\d{4}-\d{2}-\d{2}$/.test(String(a.tgl)))o.timeZone="UTC";tg=new Intl.DateTimeFormat("id-ID",o).format(d)}}
  return `<div class="pc"><ol class="ar-how" style="margin-top:0">${butir.map(x=>`<li>${esc(x)}</li>`).join("")}</ol>${tg?`<p class="hint">Diperbarui ${tg}</p>`:""}</div>`}
@@ -2613,7 +2783,7 @@ $("lihatSholat").onclick=e=>{e.preventDefault();back=e.currentTarget;openPage("s
 
 /* ===== Halaman kas: laporan keuangan global per kelompok (angka dan rekening masih CONTOH).
    Rincian pemasukan dan pengeluaran tidak ditampilkan di aplikasi; admin menautkan dokumen (isi doc dengan alamat https). ===== */
-const KAS={per:"2026-11-12",bank:"[Nama bank]",bendahara:"[Nama Bendahara]",
+const KAS_CONTOH={per:"2026-11-12",bank:"[Nama bank]",bendahara:"[Nama Bendahara]",
  rutin:{masuk:4250000,keluar:1380000,rek:"0000 0000 01",doc:""},
  khusus:[
   {nama:"Pengadaan perlengkapan majelis",ket:"Penggalangan dana untuk pengadaan barang majelis taklim bernilai besar.",status:"Berjalan",masuk:6800000,keluar:0,rek:"0000 0000 02",doc:""},
@@ -2621,10 +2791,19 @@ const KAS={per:"2026-11-12",bank:"[Nama bank]",bendahara:"[Nama Bendahara]",
   {nama:"Peringatan Maulid Nabi",ket:"Penyelenggaraan peringatan Maulid Nabi Muhammad SAW.",status:"Selesai",masuk:5400000,keluar:5150000,rek:"0000 0000 04",doc:""},
   {nama:"Peringatan Isra Mi'raj",ket:"Penyelenggaraan peringatan Isra Mi'raj.",status:"Berjalan",masuk:1200000,keluar:0,rek:"0000 0000 05",doc:""}]};
 const kasRows=x=>`<div class="kas-rows"><div class="bs-wl"><span>Pemasukan</span><b>${rp(x.masuk)}</b></div><div class="bs-wl"><span>Pengeluaran</span><b>${rp(x.keluar)}</b></div><div class="bs-wl"><span>Saldo</span><b>${rp(x.masuk-x.keluar)}</b></div></div>`;
-const kasRek=r=>`<div class="bs-h" style="margin-top:14px">Rekening penerimaan</div><div class="iq-bank" style="padding:8px 0 0"><span class="iq-bn">${esc(KAS.bank)}</span><span class="iq-no">${esc(r)}</span><span class="iq-an">a.n. ${esc(KAS.bendahara)} (Bendahara)</span><button type="button" class="iq-cp" data-rek="${esc(r)}">${I('<rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V6a2 2 0 0 1 2-2h9"/>')}Salin nomor</button></div>`;
+const kasRek=r=>!r?"":`<div class="bs-h" style="margin-top:14px">Rekening penerimaan</div><div class="iq-bank" style="padding:8px 0 0"><span class="iq-bn">${esc(KAS.bank)}</span><span class="iq-no">${esc(r)}</span><span class="iq-an">a.n. ${esc(KAS.bendahara)} (Bendahara)</span><button type="button" class="iq-cp" data-rek="${esc(r)}">${I('<rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V6a2 2 0 0 1 2-2h9"/>')}Salin nomor</button></div>`;
 const kasDoc=d=>{const l=linkAman(d),ic=I('<path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5M9 13h6M9 17h4"/>');
  return l?`<a class="btn2 sec" href="${esc(l)}" target="_blank" rel="noopener">${ic}Lihat dan unduh rincian</a>`:`<span class="btn2 sec" role="link" aria-disabled="true">${ic}Rincian belum tersedia</span>`};
-let KAS_TAB="rutin";
+let KAS_TAB="rutin",KAS=KAS_CONTOH,KAS_ASLI=false,KAS_ADA=true;
+/* Data kas dari Sheet (DATA.kas + DATA.majelis.kas). Bila backend belum menyediakannya, tampil contoh berlabel "Contoh isi". */
+function kasMuat(){
+ const d=DATA&&Array.isArray(DATA.kas)?DATA.kas:null;
+ if(!d){KAS=KAS_CONTOH;KAS_ASLI=false;KAS_ADA=true;return}
+ const inf=(DATA.majelis&&DATA.majelis.kas)||{},n=x=>Math.max(0,+x||0),rt=d.find(x=>x.jenis==="rutin")||{};
+ KAS={per:/^\d{4}-\d{2}-\d{2}$/.test(inf.per||"")?inf.per:"",bank:inf.bank||"",bendahara:inf.bendahara||"",
+  rutin:{masuk:n(rt.masuk),keluar:n(rt.keluar),rek:rt.rek||"",doc:rt.doc||""},
+  khusus:d.filter(x=>x.jenis==="khusus").map(x=>({nama:String(x.nama||""),ket:String(x.ket||""),status:x.status==="Selesai"?"Selesai":"Berjalan",masuk:n(x.masuk),keluar:n(x.keluar),rek:x.rek||"",doc:x.doc||""}))};
+ KAS_ASLI=true;KAS_ADA=d.length>0}
 function kasRutinHtml(){
  return `<div class="pc kas-c"><p style="margin-top:0">Kas untuk kebutuhan majelis dan anggota.</p>`+
   `<div class="ar-ke">${I('<circle cx="12" cy="12" r="9"/><path d="M12 8h.01M11 12h1v5h1"/>')}<div><b>Iuran sukarela</b><p>Dikumpulkan bendahara setiap malam Jumat. Anggota dianjurkan membayar minimal ${rp(5000)} per anggota.</p></div></div>`+
@@ -2635,15 +2814,17 @@ function kasGiatHtml(){
  return `<p class="kas-intro" style="margin:0 2px">Dana untuk kegiatan atau keperluan khusus, seperti pengadaan barang bernilai besar, penutupan pengajian, dan peringatan hari besar Islam.</p>`+
   urut.map(x=>`<div class="pc kas-c"><div class="kas-hd"><b>${esc(x.nama)}</b><span class="ar-st${x.status==="Berjalan"?" ok":""}">${esc(x.status)}</span></div><p>${esc(x.ket)}</p>${kasRows(x)}${kasRek(x.rek)}${kasDoc(x.doc)}</div>`).join("")}
 function kasRender(){
+ const lb=document.querySelector("#pg-kas .contoh");if(lb)lb.style.display=KAS_ASLI?"none":"";
+ if(KAS_ASLI&&!KAS_ADA){$("pb-kas").innerHTML=KOSONG("Laporan kas belum diisi pengurus.");return}
  const all=[KAS.rutin].concat(KAS.khusus),m=all.reduce((a,x)=>a+x.masuk,0),k=all.reduce((a,x)=>a+x.keluar,0),b=$("pb-kas"),nb=KAS.khusus.filter(x=>x.status==="Berjalan").length;
  b.innerHTML=
-  `<div class="kas-hero"><small>Saldo seluruh kas</small><div class="kas-big">${rp(m-k)}</div><div class="kas-per">Data per ${tglPnjg(KAS.per)}</div><div class="kas-rows"><div class="bs-wl"><span>Total pemasukan</span><b>${rp(m)}</b></div><div class="bs-wl"><span>Total pengeluaran</span><b>${rp(k)}</b></div></div></div>`+
+  `<div class="kas-hero"><small>Saldo seluruh kas</small><div class="kas-big">${rp(m-k)}</div><div class="kas-per">${KAS.per?"Data per "+tglPnjg(KAS.per):"Data terbaru"}</div><div class="kas-rows"><div class="bs-wl"><span>Total pemasukan</span><b>${rp(m)}</b></div><div class="bs-wl"><span>Total pengeluaran</span><b>${rp(k)}</b></div></div></div>`+
   `<div class="seg tl-seg" role="group" aria-label="Pilih kelompok kas">${[["rutin","Kas rutin"],["giat","Kegiatan"+(nb?" ("+nb+")":"")]].map(x=>`<button type="button" data-kt="${x[0]}" aria-pressed="${KAS_TAB===x[0]}">${x[1]}</button>`).join("")}</div>`+
   `<div id="kas-isi" style="display:grid;gap:16px;min-width:0">${KAS_TAB==="giat"?kasGiatHtml():kasRutinHtml()}</div>`+
-  `<p class="note2">Laporan di halaman ini bersifat global. Rincian pemasukan dan pengeluaran tersedia dalam dokumen pada setiap laporan. Angka dan nomor rekening di halaman ini masih contoh.</p>`;
+  `<p class="note2">Laporan di halaman ini bersifat global. Rincian pemasukan dan pengeluaran tersedia dalam dokumen pada setiap laporan. ${KAS_ASLI?"":"Angka dan nomor rekening di halaman ini masih contoh."}</p>`;
  b.querySelectorAll("[data-rek]").forEach(x=>x.onclick=()=>infqSalin(x.dataset.rek.replace(/\s/g,""),"Nomor rekening disalin"));
  b.querySelectorAll("[data-kt]").forEach(x=>x.onclick=()=>{KAS_TAB=x.dataset.kt;kasRender();const n=b.querySelector('[data-kt="'+KAS_TAB+'"]');if(n)n.focus({preventScroll:true})})}
-R.kas=function(){KAS_TAB="rutin";kasRender()};
+R.kas=function(){KAS_TAB="rutin";kasMuat();kasRender()};
 document.querySelectorAll('[data-go="Kas"]').forEach(b=>b.onclick=e=>{e.preventDefault();if(app.classList.contains("open"))menu(false);back=b;openPage("kas")});
 
 /* ===== Sub halaman qurban kolektif (dari halaman Infaq): hanya nama dan kelompok. Isi masih CONTOH. ===== */
@@ -2724,7 +2905,7 @@ R.infaq=function(){IQ_TAB="infaq";iqRender()};
  function isi(){
   const b=$("devBody"),ai=document.activeElement&&document.activeElement.id;
   b.innerHTML=`<div class="tl-g"><span class="tl-lb">Kondisi tampilan</span><div class="chips3">${KEYS.map(x=>`<button type="button" data-k="${x[0]}" aria-pressed="${(demo||"")===x[0]}">${x[1]}</button>`).join("")}</div></div>`+
-   `<div class="tl-g"><button type="button" class="tl-row" role="switch" id="devIsi" aria-checked="${DEVISI}"><span>Data contoh arisan (riwayat, jadwal berikutnya, aturan main)</span><i class="tl-sw"></i></button></div>`+
+   `<div class="tl-g"><button type="button" class="tl-row" role="switch" id="devIsi" aria-checked="${DEVISI}"><span>Data contoh arisan (riwayat, jadwal berikutnya, ketentuan)</span><i class="tl-sw"></i></button></div>`+
    `<div class="tl-g"><button type="button" class="tl-row" role="switch" id="devKon" aria-checked="${DEVK}"><span>Contoh Informasi, Kajian, dan Usaha anggota (undangan, duka, penting, audio, foto)</span><i class="tl-sw"></i></button></div>`+
    `<div class="tl-g"><label class="tl-lb" for="devJam">Jam simulasi (jadwal shalat)</label><input type="time" class="fld" id="devJam" value="${jamNilai()}" style="margin-top:0"><button type="button" class="tsb-rs" id="devJamAsli"${DEVT==null?" disabled":""}>${DEVT==null?"Memakai jam asli":"Kembali ke jam asli"}</button></div>`+
    `<div class="tl-g"><span class="tl-lb">Pemicu lain</span><button type="button" class="tsb-rs" id="devPasang" style="margin-top:0">Tampilkan ajakan memasang aplikasi</button><button type="button" class="tsb-rs" id="devNet">Tampilkan atau sembunyikan banner offline</button></div>`;
